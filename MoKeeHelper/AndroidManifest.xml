@@ -25,7 +25,12 @@
 
     <uses-permission android:name="android.permission.DEVICE_POWER" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
 
@@ -33,6 +38,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_mokee_helper"
         android:label="@string/app_name"
+        android:name="com.mokee.helper.updater.UpdateApplication"
         android:supportsRtl="true" >
         <activity
             android:name="com.mokee.helper.activities.LockScreen"
@@ -41,6 +47,7 @@
             android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -51,13 +58,54 @@
             android:theme="@style/ActivityTransparent" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+         <activity
             android:name="com.mokee.helper.activities.MoKeeCenter"
             android:label="@string/mokee_center_title" >
         </activity>
+        <service
+            android:name="com.mokee.helper.updater.service.MKDashClockExtension"
+            android:icon="@drawable/ic_tab_installed"
+            android:label="@string/extension_label"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="1" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+        </service>
+        <service android:name="com.mokee.helper.updater.service.UpdateCheckService" />
+
+        <receiver android:name="com.mokee.helper.updater.receiver.UpdateCheckReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mokee.helper.updater.receiver.DownloadReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="com.mokee.mkupdater.action.START_DOWNLOAD" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mokee.helper.updater.receiver.NotificationClickReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.mokee.helper.updater.receiver.CheckFinishReceiver" >
+            <intent-filter>
+                <action android:name="com.mokee.mkupdater.action.UPDATE_CHECK_FINISHED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<!--
+     Copyright (C) 2012 The CyanogenMod Project
 
-    <PreferenceCategory android:title="@string/mokee_version_info_title" >
-        <PreferenceScreen
-            android:key="mokee_version"
-            android:title="@string/mokee_version_title" />
-        <PreferenceScreen
-            android:key="mokee_version_type"
-            android:title="@string/mokee_version_type_title" />
-    </PreferenceCategory>
+     Licensed under the GNU GPLv2 license
+
+     The text of the license can be found in the LICENSE file
+     or at https://www.gnu.org/licenses/gpl-2.0.txt
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/display_name" >
 
     <ListPreference
         android:dialogTitle="@string/update_check_title"
@@ -20,8 +22,8 @@
 
     <CheckBoxPreference
         android:key="pref_update_ota"
-        android:summary="@string/pref_update_ota_summary"
-        android:title="@string/pref_update_ota" />
+        android:summary="获取OTA更新"
+        android:title="OTA更新" />
 
     <ListPreference
         android:dialogTitle="@string/update_type_title"
@@ -33,21 +35,14 @@
 
     <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
     <CheckBoxPreference
-        android:dependency="pref_update_types"
         android:key="pref_update_all"
-        android:title="@string/pref_update_all_title" />
+        android:summary="获取所有更新列表"
+        android:title="获取全部更新" 
+        android:dependency="pref_update_types"/>
 
     <PreferenceCategory
         android:key="updates_category"
         android:title="@string/available_updates_title" >
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="mokee_extras_title"
-        android:title="@string/mokee_extras_title" >
-        <PreferenceScreen
-            android:key="google_mobile_service"
-            android:summary="@string/installed_update_summary"
-            android:title="@string/google_mobile_service_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

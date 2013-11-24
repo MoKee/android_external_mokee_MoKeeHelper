@@ -20,76 +20,89 @@ import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MoKeeCenter extends FragmentActivity {
+public class MoKeeCenter extends FragmentActivity
+	{
 
-    public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
-    public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
+		public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
+		public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
+		public static final String BR_ONNewIntent="onNewIntent";
+		private ViewPager mViewPager;
+		private TabsAdapter mTabsAdapter;
+		private static MenuItem refreshMenuItem;
 
-    private ViewPager mViewPager;
-    private TabsAdapter mTabsAdapter;
-    private static MenuItem refreshMenuItem;
+		@Override
+		protected void onCreate(Bundle savedInstanceState)
+			{
+				super.onCreate(savedInstanceState);
+				mViewPager = new ViewPager(this);
+				mViewPager.setId(R.id.viewPager);
+				setContentView(mViewPager);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.viewPager);
-        setContentView(mViewPager);
+				final ActionBar bar = getActionBar();
+				bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+				bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
+				bar.setDisplayHomeAsUpEnabled(true);
+				bar.setTitle(R.string.mokee_center_title);
 
-        final ActionBar bar = getActionBar();
-        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setTitle(R.string.mokee_center_title);
+				mTabsAdapter = new TabsAdapter(this, mViewPager);
+				mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title), MoKeeUpdater.class, null);
+				mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title), MoKeeSupport.class, null);
 
-        mTabsAdapter = new TabsAdapter(this, mViewPager);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
-                MoKeeUpdater.class, null);
-        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
-                MoKeeSupport.class, null);
+				if (savedInstanceState != null)
+					{
+						bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
+					}
 
-        if (savedInstanceState != null) {
-            bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
-        }
+				// Turn on the Options Menu
+				invalidateOptionsMenu();
+			}
 
-        // Turn on the Options Menu
-        invalidateOptionsMenu();
-    }
+		@Override
+		public boolean onCreateOptionsMenu(Menu menu)
+			{
+//				getMenuInflater().inflate(R.menu.mokee_updater, menu);
+//				refreshMenuItem = menu.findItem(R.id.menu_refresh);
+				return true;
+			}
+//
+		@Override
+		public boolean onOptionsItemSelected(final MenuItem item)
+			{
+				switch (item.getItemId())
+					{
+					case android.R.id.home:
+						onBackPressed();
+						break;
+					}
+				return super.onOptionsItemSelected(item);
+			}
+//
+		public static void refreshMenuItem(int position)
+			{
+				refreshMenuItem.setVisible(position == 0);
+			}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mokee_updater, menu);
-        refreshMenuItem = menu.findItem(R.id.menu_refresh);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_refresh:
-                MoKeeUpdater.mTmpEntry.setTitle(R.string.tmp_entry1);
-                break;
-            case android.R.id.home:
-                onBackPressed();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public static void refreshMenuItem(int position) {
-        refreshMenuItem.setVisible(position == 0);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("tab", getActionBar().getSelectedNavigationIndex());
-    }
-
-}
+		@Override
+		protected void onSaveInstanceState(Bundle outState)
+			{
+				super.onSaveInstanceState(outState);
+				outState.putInt("tab", getActionBar().getSelectedNavigationIndex());
+			}
+		@Override
+		protected void onNewIntent(Intent intent)
+			{
+				super.onNewIntent(intent);
+				Intent send=new Intent(BR_ONNewIntent);
+				send.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, intent.getBooleanExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false));
+				send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, intent.getLongExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, -1));
+				send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH, intent.getStringExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH));
+				sendBroadcast(send);
+			}
+	}

@@ -46,10 +46,11 @@
                 android:id="@+android:id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:ellipsize="marquee"
-                android:fadingEdge="horizontal"/>
+                android:maxLines="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:fadingEdge="horizontal"
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@android:id/summary"

@@ -54,7 +54,10 @@
     <string name="dialog_update">Update</string>
     <string name="dialog_install">Install</string>
     <string name="dialog_close">Close</string>
-
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
     <!-- ChangeLog -->
     <string name="no_changelog_alert">No changelog available</string>
     <string name="failed_to_load_changelog">Unable to load changelog</string>
@@ -67,12 +70,14 @@
     <string name="new_update_summary">New</string>
     <string name="downloaded_update_summary">Downloaded</string>
     <string name="installed_update_summary">Installed</string>
-
+    <string name="nightly_alert">You have selected to include nightly updates in this list. These are unsupported and should be used with caution.</string>
+    <string name="nightly_alert_title">Caution</string>
     <!-- Update checking -->
     <string name="checking_for_updates">Checking for updates</string>
     <string name="no_updates_found">No new updates found</string>
     <string name="not_new_updates_found_ticker">New updates are available</string>
     <string name="not_new_updates_found_title">New updates</string>
+    <string name="update_check_failed">The update check failed. Please check your internet connection and try again later.</string>
 
     <plurals name="not_new_updates_found_body">
         <item quantity="one"><xliff:g id="count">%d</xliff:g> update available for download</item>

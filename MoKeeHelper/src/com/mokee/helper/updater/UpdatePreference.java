@@ -1,23 +1,15 @@
 /*
- * Copyright (C) 2013 The MoKee OpenSource Project
+ * Copyright (C) 2012 The Mokee OpenSource Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * * Licensed under the GNU GPLv2 license
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The text of the license can be found in the LICENSE file
+ * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.mokee.helper.widget;
+package com.mokee.helper.updater;
 
-import com.mokee.helper.R;
-import com.mokee.helper.misc.ExtraInfo;
+import java.io.File;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,42 +26,45 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
+import com.mokee.helper.R;
+import com.mokee.helper.misc.MokeeUpdateInfo;
+import com.mokee.helper.widget.NotifyingWebView;
 
-public class ExtraPreference extends Preference implements OnClickListener, OnLongClickListener
+public class UpdatePreference extends Preference implements OnClickListener, OnLongClickListener
 	{
 		private static final float DISABLED_ALPHA = 0.4f;
 		public static final int STYLE_NEW = 1;
 		public static final int STYLE_DOWNLOADING = 2;
 		public static final int STYLE_DOWNLOADED = 3;
 		public static final int STYLE_INSTALLED = 4;
+		public static final int STYLE_OLD=0;//旧版本
 
 		public interface OnActionListener
 			{
-				void onStartDownload(ExtraPreference pref);
+				void onStartDownload(UpdatePreference pref);
 
-				void onStopDownload(ExtraPreference pref);
+				void onStopDownload(UpdatePreference pref);
 
-				void onStartUpdate(ExtraPreference pref);
+				void onStartUpdate(UpdatePreference pref);
 
-				void onDeleteUpdate(ExtraPreference pref);
+				void onDeleteUpdate(UpdatePreference pref);
 			}
 
 		public interface OnReadyListener
 			{
-				void onReady(ExtraPreference pref);
+				void onReady(UpdatePreference pref);
 			}
 
 		private OnActionListener mOnActionListener;
 		private OnReadyListener mOnReadyListener;
 
-		private ExtraInfo mExtraInfo = null;
+		private MokeeUpdateInfo mUpdateInfo = null;
 		private int mStyle;
 
 		private ImageView mUpdatesButton;
 		private TextView mTitleText;
 		private TextView mSummaryText;
-		private View mExtrasPref;
+		private View mUpdatesPref;
 		private ProgressBar mProgressBar;
 
 		private OnClickListener mButtonClickListener = new OnClickListener()
@@ -85,24 +80,27 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 						switch (mStyle)
 							{
 							case STYLE_DOWNLOADED:
-								mOnActionListener.onStartUpdate(ExtraPreference.this);
+								mOnActionListener.onStartUpdate(UpdatePreference.this);
 								break;
 							case STYLE_DOWNLOADING:
-								mOnActionListener.onStopDownload(ExtraPreference.this);
+								mOnActionListener.onStopDownload(UpdatePreference.this);
 								break;
 							case STYLE_NEW:
-								mOnActionListener.onStartDownload(ExtraPreference.this);
+								mOnActionListener.onStartDownload(UpdatePreference.this);
+								break;
+							case STYLE_OLD:
+								mOnActionListener.onStartDownload(UpdatePreference.this);
 								break;
 							}
 					}
 			};
 
-		public ExtraPreference(Context context, ExtraInfo ui, int style)
+		public UpdatePreference(Context context, MokeeUpdateInfo ui, int style)
 			{
 				super(context, null, R.style.UpdatesPreferenceStyle);
 				setLayoutResource(R.layout.preference_updates);
 				mStyle = style;
-				mExtraInfo = ui;
+				mUpdateInfo = ui;
 			}
 
 		@Override
@@ -118,9 +116,9 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 				mSummaryText = (TextView) view.findViewById(android.R.id.summary);
 				mProgressBar = (ProgressBar) view.findViewById(R.id.download_progress_bar);
 
-				mExtrasPref = view.findViewById(R.id.updates_pref);
-				mExtrasPref.setOnClickListener(this);
-				mExtrasPref.setOnLongClickListener(this);
+				mUpdatesPref = view.findViewById(R.id.updates_pref);
+				mUpdatesPref.setOnClickListener(this);
+				mUpdatesPref.setOnLongClickListener(this);
 
 				// Update the views
 				updatePreferenceViews();
@@ -143,6 +141,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 
 					case STYLE_DOWNLOADING:
 					case STYLE_NEW:
+					case STYLE_OLD:
 					default:
 						// Do nothing for now
 						break;
@@ -154,7 +153,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 		public void onClick(View v)
 			{
 				final Context context = getContext();
-				final File changeLog = mExtraInfo.getChangeLogFile(context);
+				final File changeLog = mUpdateInfo.getChangeLogFile(context);
 
 				if (!changeLog.exists())
 					{
@@ -171,7 +170,6 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 						final View view = inflater.inflate(R.layout.change_log_dialog, null);
 						final View progressContainer = view.findViewById(R.id.progress);
 						final NotifyingWebView changeLogView = (NotifyingWebView) view.findViewById(R.id.changelog);
-
 						changeLogView.setOnInitialContentReadyListener(new NotifyingWebView.OnInitialContentReadyListener()
 							{
 								@Override
@@ -195,7 +193,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 			{
 				new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
 						.setMessage(R.string.confirm_delete_dialog_message)
-						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+						.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener()
 							{
 								@Override
 								public void onClick(DialogInterface dialog, int which)
@@ -203,16 +201,16 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 										// We are OK to delete, trigger it
 										if (mOnActionListener != null)
 											{
-												mOnActionListener.onDeleteUpdate(ExtraPreference.this);
+												mOnActionListener.onDeleteUpdate(UpdatePreference.this);
 											}
 									}
-							}).setNegativeButton(android.R.string.cancel, null).show();
+							}).setNegativeButton(R.string.dialog_cancel, null).show();
 			}
 
 		@Override
 		public String toString()
 			{
-				return "ExtraPreference [mExtraInfo=" + mExtraInfo + ", mStyle=" + mStyle + "]";
+				return "UpdatePreference [mUpdateInfo=" + mUpdateInfo + ", mStyle=" + mStyle + "]";
 			}
 
 		@Override
@@ -236,7 +234,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 		public void setOnReadyListener(OnReadyListener listener)
 			{
 				mOnReadyListener = listener;
-				if (mExtrasPref != null && listener != null)
+				if (mUpdatesPref != null && listener != null)
 					{
 						listener.onReady(this);
 					}
@@ -245,7 +243,7 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 		public void setStyle(int style)
 			{
 				mStyle = style;
-				if (mExtrasPref != null)
+				if (mUpdatesPref != null)
 					{
 						showStyle();
 					}
@@ -276,9 +274,9 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 				return mUpdatesButton;
 			}
 
-		public ExtraInfo getExtraInfo()
+		public MokeeUpdateInfo getUpdateInfo()
 			{
-				return mExtraInfo;
+				return mUpdateInfo;
 			}
 
 		private void disablePreferenceViews()
@@ -288,36 +286,35 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 						mUpdatesButton.setEnabled(false);
 						mUpdatesButton.setAlpha(DISABLED_ALPHA);
 					}
-				if (mExtrasPref != null)
+				if (mUpdatesPref != null)
 					{
-						mExtrasPref.setEnabled(false);
-						mExtrasPref.setBackgroundColor(0);
+						mUpdatesPref.setEnabled(false);
+						mUpdatesPref.setBackgroundColor(0);
 					}
 			}
 
 		private void updatePreferenceViews()
 			{
-				if (mExtrasPref != null)
+				if (mUpdatesPref != null)
 					{
-						mExtrasPref.setEnabled(true);
-						mExtrasPref.setLongClickable(true);
+						mUpdatesPref.setEnabled(true);
+						mUpdatesPref.setLongClickable(true);
 
 						final boolean enabled = isEnabled();
-						mExtrasPref.setOnClickListener(enabled ? this : null);
+						mUpdatesPref.setOnClickListener(enabled ? this : null);
 						if (!enabled)
 							{
-								mExtrasPref.setBackgroundColor(0);
+								mUpdatesPref.setBackgroundColor(0);
 							}
 
 						// Set the title text
-						mTitleText.setText(mExtraInfo.getmUiName());
+						mTitleText.setText(mUpdateInfo.getName());
 						mTitleText.setVisibility(View.VISIBLE);
 
 						// Show the proper style view
 						showStyle();
 					}
 			}
-
 		private void showStyle()
 			{
 				// Display the appropriate preference style
@@ -348,7 +345,13 @@ public class ExtraPreference extends Preference implements OnClickListener, OnLo
 						mSummaryText.setVisibility(View.VISIBLE);
 						mProgressBar.setVisibility(View.GONE);
 						break;
-
+					case STYLE_OLD:
+						mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
+						mUpdatesButton.setEnabled(true);
+						mSummaryText.setText(R.string.old_update_summary);
+						mSummaryText.setVisibility(View.VISIBLE);
+						mProgressBar.setVisibility(View.GONE);
+						break;
 					case STYLE_NEW:
 					default:
 						// Show the download button image and summary of 'New'
