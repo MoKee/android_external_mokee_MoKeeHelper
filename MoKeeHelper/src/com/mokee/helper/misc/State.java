@@ -31,13 +31,15 @@ import java.util.LinkedList;
 public class State {
 
     private static final String TAG = "State";
-    private static final String FILENAME = "mkupdater.state";
+    public static final String UPDATE_FILENAME = "mkupdater.state";
+    public static final String EXPAND_FILENAME = "mkexpand.state";
 
-    public static void saveMKState(Context context, LinkedList<UpdateInfo> availableUpdates) {
+    public static void saveMKState(Context context,
+            LinkedList<UpdateInfo> availableUpdates, String fileName) {
         ObjectOutputStream oos = null;
         FileOutputStream fos = null;
         try {
-            File f = new File(context.getCacheDir(), FILENAME);
+            File f = new File(context.getCacheDir(), fileName);
             fos = new FileOutputStream(f);
             oos = new ObjectOutputStream(fos);
             oos.writeObject(availableUpdates);
@@ -60,12 +62,13 @@ public class State {
 
     //
     @SuppressWarnings("unchecked")
-    public static LinkedList<UpdateInfo> loadMKState(Context context) {
+    public static LinkedList<UpdateInfo> loadMKState(Context context,
+            String fileName) {
         LinkedList<UpdateInfo> availableUpdates = new LinkedList<UpdateInfo>();
         ObjectInputStream ois = null;
         FileInputStream fis = null;
         try {
-            File f = new File(context.getCacheDir(), FILENAME);
+            File f = new File(context.getCacheDir(), fileName);
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
 

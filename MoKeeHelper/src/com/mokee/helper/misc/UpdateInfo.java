@@ -26,7 +26,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-
 public class UpdateInfo implements Parcelable, Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,6 +33,9 @@ public class UpdateInfo implements Parcelable, Serializable {
     public String md5;
     public String name;
     public String rom;
+    // expand
+    public String description;
+    public String checkflag;
 
     public UpdateInfo(String log, String md5, String name, String rom) {
         super();
@@ -41,6 +43,17 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.md5 = md5;
         this.name = name;
         this.rom = rom;
+    }
+
+    public UpdateInfo(String log, String md5, String name, String rom,
+            String description, String checkflag) {
+        super();
+        this.log = log;
+        this.md5 = md5;
+        this.name = name;
+        this.rom = rom;
+        this.description = description;
+        this.checkflag = checkflag;
     }
 
     public UpdateInfo(String name) {
@@ -89,6 +102,8 @@ public class UpdateInfo implements Parcelable, Serializable {
         dest.writeString(name);
         dest.writeString(md5);
         dest.writeString(rom);
+        dest.writeString(description);
+        dest.writeString(checkflag);
     }
 
     private void readFromParcel(Parcel in) {
@@ -96,6 +111,8 @@ public class UpdateInfo implements Parcelable, Serializable {
         name = in.readString();
         md5 = in.readString();
         rom = in.readString();
+        description = in.readString();
+        checkflag = in.readString();
     }
 
     private void initializeName(String fileName) {
@@ -116,4 +133,13 @@ public class UpdateInfo implements Parcelable, Serializable {
     private UpdateInfo(Parcel in) {
         readFromParcel(in);
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCheckflag() {
+        return checkflag;
+    }
+
 }

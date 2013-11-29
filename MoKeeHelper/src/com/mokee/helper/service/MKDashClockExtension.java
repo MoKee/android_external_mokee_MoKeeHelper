@@ -52,7 +52,8 @@ public class MKDashClockExtension extends DashClockExtension {
 
     @Override
     protected void onUpdateData(int reason) {
-        LinkedList<UpdateInfo> updates = State.loadMKState(this);
+        LinkedList<UpdateInfo> updates = State.loadMKState(this,
+                State.UPDATE_FILENAME);
 
         Log.d(TAG, "Update dash clock for " + updates.size() + " updates");
 
@@ -60,15 +61,17 @@ public class MKDashClockExtension extends DashClockExtension {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.PREF_ROM_OTA,
-                true))// ota暂时不进行排序
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+                Constants.PREF_ROM_OTA, true))// ota暂时不进行排序
         {
             Collections.sort(updates, new Comparator<UpdateInfo>() {
                 @Override
                 public int compare(UpdateInfo lhs, UpdateInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs
+                            .getName()));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs
+                            .getName()));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }
@@ -91,15 +94,17 @@ public class MKDashClockExtension extends DashClockExtension {
         publishUpdate(new ExtensionData()
                 .visible(!updates.isEmpty())
                 .icon(R.drawable.ic_tab_installed)
-                .status(res.getQuantityString(R.plurals.extension_status, count, count))
+                .status(res.getQuantityString(R.plurals.extension_status,
+                        count, count))
                 .expandedTitle(
-                        res.getQuantityString(R.plurals.extension_expandedTitle, count, count))
-                .expandedBody(expandedBody.toString())
-                .clickIntent(intent));
+                        res.getQuantityString(
+                                R.plurals.extension_expandedTitle, count, count))
+                .expandedBody(expandedBody.toString()).clickIntent(intent));
     }
 
     @Override
-    public int onStartCommand(final Intent intent, final int flags, final int startId) {
+    public int onStartCommand(final Intent intent, final int flags,
+            final int startId) {
         if (TextUtils.equals(intent.getAction(), ACTION_DATA_UPDATE)) {
             if (mInitialized) {
                 onUpdateData(UPDATE_REASON_CONTENT_CHANGED);

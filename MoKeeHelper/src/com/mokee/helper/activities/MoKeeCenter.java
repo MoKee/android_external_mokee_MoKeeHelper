@@ -18,6 +18,7 @@ package com.mokee.helper.activities;
 
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
+import com.mokee.helper.misc.Constants;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -44,7 +45,8 @@ public class MoKeeCenter extends FragmentActivity {
 
         final ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
+        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE,
+                ActionBar.DISPLAY_SHOW_TITLE);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setTitle(R.string.mokee_center_title);
 
@@ -82,12 +84,14 @@ public class MoKeeCenter extends FragmentActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Intent send = new Intent(BR_ONNewIntent);
-        send.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED,
-                intent.getBooleanExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false));
-        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID,
-                intent.getLongExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, -1));
-        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH,
-                intent.getStringExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH));
+        send.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, intent
+                .getBooleanExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false));
+        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, intent
+                .getLongExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, -1));
+        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH, intent
+                .getStringExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH));
+        send.putExtra("flag",
+                intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         sendBroadcast(send);
     }
 }

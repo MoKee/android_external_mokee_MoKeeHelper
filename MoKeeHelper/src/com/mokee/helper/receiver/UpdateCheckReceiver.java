@@ -34,7 +34,8 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // Load the required settings from preferences
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(context);
         int updateFrequency = prefs.getInt(Constants.UPDATE_CHECK_PREF,
                 Constants.UPDATE_FREQ_WEEKLY);
 
@@ -49,18 +50,21 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
             // Connectivity has changed
             boolean hasConnection = !intent.getBooleanExtra(
                     ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
-            Log.i(TAG, "Got connectivity change, has connection: " + hasConnection);
+            Log.i(TAG, "Got connectivity change, has connection: "
+                    + hasConnection);
             if (!hasConnection) {
                 return;
             }
         } else if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
             // We just booted. Store the boot check state
-            prefs.edit().putBoolean(Constants.BOOT_CHECK_COMPLETED, false).apply();
+            prefs.edit().putBoolean(Constants.BOOT_CHECK_COMPLETED, false)
+                    .apply();
         }
 
         // Handle the actual update check based on the defined frequency
         if (updateFrequency == Constants.UPDATE_FREQ_AT_BOOT) {
-            boolean bootCheckCompleted = prefs.getBoolean(Constants.BOOT_CHECK_COMPLETED, false);
+            boolean bootCheckCompleted = prefs.getBoolean(
+                    Constants.BOOT_CHECK_COMPLETED, false);
             if (!bootCheckCompleted) {
                 Log.i(TAG, "Start an on-boot check");
                 Intent i = new Intent(context, UpdateCheckService.class);

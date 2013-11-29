@@ -53,7 +53,8 @@ public class MoKeeSupport extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
         String key = preference.getKey();
         if (key.equals(KEY_MOKEE_WEBSITE)) {
             goToURL(URL_MOKEE_WEBSITE);

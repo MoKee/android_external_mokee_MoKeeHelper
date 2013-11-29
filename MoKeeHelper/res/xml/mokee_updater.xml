@@ -60,13 +60,10 @@
         android:key="updates_category"
         android:title="@string/available_updates_title" >
     </PreferenceCategory>
-    <PreferenceCategory
-        android:key="mokee_extras_title"
-        android:title="@string/mokee_extras_title" >
-        <PreferenceScreen
-            android:key="google_mobile_service"
-            android:summary="@string/installed_update_summary"
-            android:title="@string/google_mobile_service_title" />
+        <PreferenceCategory
+        android:key="updates_extras"
+        android:title="@string/mokee_extras_title" 
+        >
     </PreferenceCategory>
 
 </PreferenceScreen>

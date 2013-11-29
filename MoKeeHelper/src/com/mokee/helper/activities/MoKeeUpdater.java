@@ -16,16 +16,12 @@
 
 package com.mokee.helper.activities;
 
-import com.mokee.helper.R;
-import com.mokee.helper.UpdateApplication;
-import com.mokee.helper.misc.Constants;
-import com.mokee.helper.misc.UpdateInfo;
-import com.mokee.helper.misc.State;
-import com.mokee.helper.receiver.DownloadReceiver;
-import com.mokee.helper.service.UpdateCheckService;
-import com.mokee.helper.utils.UpdateFilter;
-import com.mokee.helper.utils.Utils;
-import com.mokee.helper.widget.UpdatePreference;
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.LinkedList;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -44,32 +40,38 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
-import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewDebug.FlagToString;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.os.SystemProperties;
+import com.mokee.helper.R;
+import com.mokee.helper.UpdateApplication;
+import com.mokee.helper.misc.Constants;
+import com.mokee.helper.misc.State;
+import com.mokee.helper.misc.UpdateInfo;
+import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.service.UpdateCheckService;
+import com.mokee.helper.utils.UpdateFilter;
+import com.mokee.helper.utils.Utils;
+import com.mokee.helper.widget.UpdatePreference;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedList;
-
-public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChangeListener,
-        UpdatePreference.OnReadyListener,
+public class MoKeeUpdater extends PreferenceFragment implements
+        OnPreferenceChangeListener, UpdatePreference.OnReadyListener,
         UpdatePreference.OnActionListener {
 
     private static String TAG = "MoKeeUpdater";
@@ -88,10 +90,10 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     private boolean mStartUpdateVisible = false;
     // add
     // intent extras
-    public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";
+    public static final String EXTRA_UPDATE_LIST_UPDATED = "update_list_updated";// 更新
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
-
+    public static final String EXTRA_EXPAND_LIST_UPDATED = "expand_list_updated";// 扩展
     private static final String UPDATES_CATEGORY = "updates_category";
 
     private static final int MENU_REFRESH = 0;
@@ -100,40 +102,95 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     private CheckBoxPreference mUpdateAll, mUpdateOTA;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
-
-    private PreferenceCategory mUpdatesList;
+    // private PreferenceScreen mExpandUpdate;
+    private PreferenceCategory mUpdatesList, mMokeeExpandList;
     private UpdatePreference mDownloadingPreference;
-    private File mUpdateFolder;
+    private File mUpdateFolder;// ,mExpandFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
-
+    private int flag;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-
-            if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
-                mDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                mUpdateHandler.post(mUpdateProgress);
-            } else if (UpdateCheckService.ACTION_CHECK_FINISHED.equals(action)) {
-                if (mProgressDialog != null) {
-                    mProgressDialog.dismiss();
-                    mProgressDialog = null;
-
-                    int count = intent.getIntExtra(UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
-                    if (count == 0) {
-                        Toast.makeText(mContext, R.string.no_updates_found, Toast.LENGTH_SHORT).show();
-                    } else if (count < 0) {
-                        Toast.makeText(mContext, R.string.update_check_failed, Toast.LENGTH_LONG).show();
+            int flag = intent.getIntExtra("flag",
+                    Constants.INTENT_FLAG_GET_UPDATE);
+            if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
+                if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
+                    mDownloadId = intent.getLongExtra(
+                            DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    mUpdateHandler.post(mUpdateProgress);
+                } else if (UpdateCheckService.ACTION_CHECK_FINISHED
+                        .equals(action)) {
+                    if (mProgressDialog != null) {
+                        int count = intent.getIntExtra(
+                                UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
+                        if (count == 0) {
+                            Toast.makeText(mContext, R.string.no_updates_found,
+                                    Toast.LENGTH_SHORT).show();
+                        } else if (count < 0) {
+                            Toast.makeText(mContext,
+                                    R.string.update_check_failed,
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
-                }
-                updateLayout();
-            } else if (MoKeeCenter.BR_ONNewIntent.equals(action)) {
-                // 唤醒
-                if (intent.getBooleanExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false)) {
                     updateLayout();
+                    long time = (new Date().getTime() - mPrefs.getLong(
+                            Constants.PREF_LAST_EXPAND_CHECK, 0)) / 1000;
+                    if (mPrefs.getLong(Constants.PREF_LAST_EXPAND_CHECK, 0) == 0
+                            || time % 3600 / 60 > 120)// 扩展更新间隔2小时
+                    {
+                        Intent checkIntent = new Intent(mContext,
+                                UpdateCheckService.class);
+                        checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
+                        checkIntent.setFlags(Constants.INTENT_FLAG_GET_EXPAND);// 服务识别
+                        UpdateApplication.getContext()
+                                .startService(checkIntent);
+                    } else {
+                        if (mProgressDialog != null) {
+                            mProgressDialog.dismiss();
+                            mProgressDialog = null;
+                        }
+                    }
+                } else if (MoKeeCenter.BR_ONNewIntent.equals(action)) {
+                    // 唤醒
+                    if (intent.getBooleanExtra(
+                            MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false)) {
+                        updateLayout();
+                    }
+                    checkForDownloadCompleted(intent);
                 }
-                checkForDownloadCompleted(intent);
+            } else {// expand
+                if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
+                    mDownloadId = intent.getLongExtra(
+                            DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    mUpdateHandler.post(mUpdateProgress);
+                } else if (UpdateCheckService.ACTION_CHECK_FINISHED
+                        .equals(action)) {
+                    if (mProgressDialog != null) {
+                        mProgressDialog.dismiss();
+                        mProgressDialog = null;
+
+                        int count = intent.getIntExtra(
+                                UpdateCheckService.EXTRA_NEW_UPDATE_COUNT, -1);
+                        if (count == 0) {
+                            Toast.makeText(mContext, R.string.no_updates_found,
+                                    Toast.LENGTH_SHORT).show();
+                        } else if (count < 0) {
+                            Toast.makeText(mContext,
+                                    R.string.update_check_failed,
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    expandLayout();
+                } else if (MoKeeCenter.BR_ONNewIntent.equals(action)) {
+                    // 唤醒
+                    if (intent.getBooleanExtra(
+                            MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false)) {
+                        expandLayout();
+                    }
+                    checkForDownloadCompleted(intent);
+                }
             }
         }
     };
@@ -151,18 +208,21 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
         mUpdateAll = (CheckBoxPreference) findPreference(Constants.PREF_ROM_ALL);// 所有更新
         mUpdateOTA = (CheckBoxPreference) findPreference(Constants.PREF_ROM_OTA);// OTA更新
+        mMokeeExpandList = (PreferenceCategory) findPreference(Constants.PREF_EXPANG_LIST);// 扩展列表
+        // mExpandUpdate = (PreferenceScreen)
+        // findPreference(Constants.PREF_EXPAND_UPDATE);// 获取扩展
+        // mExpandUpdate.setOnPreferenceClickListener(this);
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-        if (mUpdateCheck != null)
-        {
-            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF, Constants.UPDATE_FREQ_WEEKLY);
+        if (mUpdateCheck != null) {
+            int check = mPrefs.getInt(Constants.UPDATE_CHECK_PREF,
+                    Constants.UPDATE_FREQ_WEEKLY);
             mUpdateCheck.setValue(String.valueOf(check));
             mUpdateCheck.setSummary(mapCheckValue(check));
             mUpdateCheck.setOnPreferenceChangeListener(this);
         }
 
-        if (mUpdateType != null)
-        {
+        if (mUpdateType != null) {
             int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
             mUpdateType.setValue(String.valueOf(type));
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
@@ -185,28 +245,30 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     }
 
     public void updateLastCheckPreference() {
-        long lastCheckTime = mPrefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
+        long lastCheckTime = mPrefs
+                .getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
         if (lastCheckTime == 0) {
-            setSummaryFromString(KEY_MOKEE_LAST_CHECK, getString(R.string.mokee_last_check_never));
+            setSummaryFromString(KEY_MOKEE_LAST_CHECK,
+                    getString(R.string.mokee_last_check_never));
         } else {
             Date lastCheck = new Date(lastCheckTime);
-            String date = DateFormat.getLongDateFormat(mContext).format(lastCheck);
+            String date = DateFormat.getLongDateFormat(mContext).format(
+                    lastCheck);
             String time = DateFormat.getTimeFormat(mContext).format(lastCheck);
             setSummaryFromString(KEY_MOKEE_LAST_CHECK, date + " " + time);
         }
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_REFRESH, 0, R.string.menu_refresh)
                 .setIcon(R.drawable.ic_menu_refresh)
                 .setShowAsActionFlags(
-                        MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
-        menu.add(0, MENU_DELETE_ALL, 0, R.string.menu_delete_all).setShowAsActionFlags(
-                MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-
+                        MenuItem.SHOW_AS_ACTION_ALWAYS
+                                | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        menu.add(0, MENU_DELETE_ALL, 0, R.string.menu_delete_all)
+                .setShowAsActionFlags(
+                        MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -214,7 +276,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_REFRESH:
-                checkForUpdates();
+                checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
                 return true;
             case MENU_DELETE_ALL:
                 confirmDeleteAll();
@@ -238,7 +300,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         if (MoKeeVersion.equals(getString(R.string.mokee_info_default))) {
             return MoKeeVersion;
         } else {
-            MoKeeVersionType = Utils.getMoKeeVersionTypeString(MoKeeVersion, mContext);
+            MoKeeVersionType = Utils.getMoKeeVersionTypeString(MoKeeVersion,
+                    mContext);
         }
         return MoKeeVersionType;
     }
@@ -247,15 +310,16 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         try {
             findPreference(preference).setSummary(value);
         } catch (RuntimeException e) {
-            findPreference(preference).setSummary(getString(R.string.mokee_info_default));
+            findPreference(preference).setSummary(
+                    getString(R.string.mokee_info_default));
         }
     }
 
-    private void setSummaryFromProperty(String preference, String property)
-    {
+    private void setSummaryFromProperty(String preference, String property) {
         try {
             findPreference(preference).setSummary(
-                    SystemProperties.get(property, getString(R.string.mokee_info_default)));
+                    SystemProperties.get(property,
+                            getString(R.string.mokee_info_default)));
         } catch (RuntimeException e) {
             // No recovery
         }
@@ -264,7 +328,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     // add
     private Runnable mUpdateProgress = new Runnable() {
         public void run() {
-            if (!mDownloading || mDownloadingPreference == null || mDownloadId < 0) {
+            if (!mDownloading || mDownloadingPreference == null
+                    || mDownloadId < 0) {
                 return;
             }
 
@@ -284,7 +349,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
                 // from the DB due to failure or MD5 mismatch
                 status = DownloadManager.STATUS_FAILED;
             } else {
-                status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                status = cursor.getInt(cursor
+                        .getColumnIndex(DownloadManager.COLUMN_STATUS));
             }
 
             switch (status) {
@@ -293,10 +359,12 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
                     break;
                 case DownloadManager.STATUS_PAUSED:
                 case DownloadManager.STATUS_RUNNING:
-                    int downloadedBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                    int totalBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                    int downloadedBytes = cursor
+                            .getInt(cursor
+                                    .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                    int totalBytes = cursor
+                            .getInt(cursor
+                                    .getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
 
                     if (totalBytes < 0) {
                         progressBar.setIndeterminate(true);
@@ -331,10 +399,10 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         updateLastCheckPreference();
         // Read existing Updates
         LinkedList<String> existingFiles = new LinkedList<String>();
-
         mUpdateFolder = Utils.makeUpdateFolder();
         File[] files = mUpdateFolder.listFiles(new UpdateFilter(".zip"));
-        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory() && files != null) {
+        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()
+                && files != null) {
             for (File file : files) {
                 if (file.isFile()) {
                     existingFiles.add(file.getName());
@@ -345,16 +413,18 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         Utils.cancelNotification(UpdateApplication.getContext());
 
         // Build list of updates
-        final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(UpdateApplication
-                .getContext());
+        final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
+                UpdateApplication.getContext(), State.UPDATE_FILENAME);
 
         if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
             Collections.sort(availableUpdates, new Comparator<UpdateInfo>() {
                 @Override
                 public int compare(UpdateInfo lhs, UpdateInfo rhs) {
                     /* sort by date descending */
-                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs.getName()));
-                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs.getName()));
+                    int lhsDate = Integer.valueOf(Utils.subBuildDate(lhs
+                            .getName()));
+                    int rhsDate = Integer.valueOf(Utils.subBuildDate(rhs
+                            .getName()));
                     if (lhsDate == rhsDate) {
                         return 0;
                     }
@@ -369,8 +439,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         new Thread() {
             @Override
             public void run() {
-                File[] files = mContext.getCacheDir()
-                        .listFiles(new UpdateFilter(".changelog"));
+                File[] files = mContext.getCacheDir().listFiles(
+                        new UpdateFilter(".changelog"));// mark
                 if (files == null) {
                     return;
                 }
@@ -391,8 +461,111 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         }.start();
     }
 
+    private void expandLayout() {
+        // Read existing Updates
+        LinkedList<String> existingFiles = new LinkedList<String>();
+        mUpdateFolder = Utils.makeExtraFolder();
+        File[] files = mUpdateFolder.listFiles(new UpdateFilter(".zip"));
+        if (mUpdateFolder.exists() && mUpdateFolder.isDirectory()
+                && files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    existingFiles.add(file.getName());
+                }
+            }
+        }
+        // Clear the notification if one exists
+        Utils.cancelNotification(UpdateApplication.getContext());
+
+        // Build list of updates
+        final LinkedList<UpdateInfo> availableUpdates = State.loadMKState(
+                UpdateApplication.getContext(), State.EXPAND_FILENAME);
+        // Update the preference list
+        refreshExpandPreferences(availableUpdates);
+
+        // Prune obsolete change log files
+        new Thread() {
+            @Override
+            public void run() {
+                File[] files = mContext.getCacheDir().listFiles(
+                        new UpdateFilter(".changelog"));
+                if (files == null) {
+                    return;
+                }
+
+                for (File file : files) {
+                    boolean updateExists = false;
+                    for (UpdateInfo info : availableUpdates) {
+                        if (file.getName().startsWith(info.name)) {
+                            updateExists = true;
+                            break;
+                        }
+                    }
+                    if (!updateExists) {
+                        file.delete();
+                    }
+                }
+            }
+        }.start();
+    }
+
+    private void refreshExpandPreferences(LinkedList<UpdateInfo> updates) {
+        if (mMokeeExpandList == null) {
+            return;
+        }
+        // Clear the list
+        mMokeeExpandList.removeAll();
+        // Convert the installed version name to the associated filename
+        String installedZip = Utils.getInstalledVersion() + ".zip";
+
+        // Add the updates
+        for (UpdateInfo ui : updates) {
+            // Determine the preference style and create the preference
+            boolean isDownloading = ui.getName().equals(mFileName);
+            boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName());
+            boolean isZip = ui.getName().endsWith(".zip");
+            boolean isInstall = false;
+            if (isZip) {
+                isInstall = Utils.isApkInstalled(ui.getCheckflag(),
+                        getActivity());
+            }
+            int style = 3;
+            if (isDownloading) {
+                // In progress download
+                style = UpdatePreference.STYLE_DOWNLOADING;
+            } else if (isInstall) {
+                // This is the currently installed version
+                style = UpdatePreference.STYLE_INSTALLED;
+            } else if (!isLocalFile) {
+                style = UpdatePreference.STYLE_EXPAND_NEW;
+            } else if (isLocalFile) {
+                style = UpdatePreference.STYLE_DOWNLOADED;
+            }
+
+            UpdatePreference up = new UpdatePreference(mContext, ui, style);
+            up.setOnActionListener(this);
+            up.setKey(ui.getName());
+
+            // If we have an in progress download, link the preference
+            if (isDownloading) {
+                mDownloadingPreference = up;
+                up.setOnReadyListener(this);
+                mDownloading = true;
+            }
+            // Add to the list
+            mMokeeExpandList.addPreference(up);
+        }
+        // If no updates are in the list, show the default message
+        if (mMokeeExpandList.getPreferenceCount() == 0) {
+            Preference pref = new Preference(mContext);
+            pref.setLayoutResource(R.layout.preference_empty_list);
+            pref.setTitle(R.string.no_available_expand_intro);
+            pref.setEnabled(false);
+            mMokeeExpandList.addPreference(pref);
+        }
+    }
+
     private void refreshPreferences(LinkedList<UpdateInfo> updates) {
-        System.out.println("refreshPreferences:" + updates.size());
         if (mUpdatesList == null) {
             return;
         }
@@ -410,7 +583,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName());
             int style = 3;
             if (isRomAll && !mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
-                int itemDate = Integer.valueOf(Utils.subBuildDate(ui.getName()));
+                int itemDate = Integer
+                        .valueOf(Utils.subBuildDate(ui.getName()));
                 isNew = itemDate > nowDate ? true : false;
             }
             if (isDownloading) {
@@ -423,8 +597,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
                 style = UpdatePreference.STYLE_NEW;
             } else if (!isLocalFile && !isNew) {
                 style = UpdatePreference.STYLE_OLD;
-            }
-            else if (isLocalFile) {
+            } else if (isLocalFile) {
                 style = UpdatePreference.STYLE_DOWNLOADED;
             }
             UpdatePreference up = new UpdatePreference(mContext, ui, style);
@@ -452,8 +625,10 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
 
     private String mapCheckValue(Integer value) {
         Resources resources = getResources();
-        String[] checkNames = resources.getStringArray(R.array.update_check_entries);
-        String[] checkValues = resources.getStringArray(R.array.update_check_values);
+        String[] checkNames = resources
+                .getStringArray(R.array.update_check_entries);
+        String[] checkValues = resources
+                .getStringArray(R.array.update_check_values);
         for (int i = 0; i < checkValues.length; i++) {
             if (Integer.decode(checkValues[i]).equals(value)) {
                 return checkNames[i];
@@ -470,50 +645,63 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         }
     }
 
-    private void checkForUpdates() {
+    /**
+     * 检测更新
+     */
+    private void checkForUpdates(final int flag) {
         if (mProgressDialog != null) {
             return;
         }
 
         // If there is no internet connection, display a message and return.
         if (!Utils.isOnline(mContext)) {
-            Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, R.string.data_connection_required,
+                    Toast.LENGTH_SHORT).show();
             return;
         }
-
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle(R.string.checking_for_updates);
         mProgressDialog.setMessage(getString(R.string.checking_for_updates));
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(true);
-        mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                Intent cancelIntent = new Intent(mContext, UpdateCheckService.class);
-                cancelIntent.setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
-                UpdateApplication.getContext().startService(cancelIntent);
-                mProgressDialog = null;
-            }
-        });
+        mProgressDialog
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        Intent cancelIntent = new Intent(mContext,
+                                UpdateCheckService.class);
+                        cancelIntent
+                                .setAction(UpdateCheckService.ACTION_CANCEL_CHECK);
+                        cancelIntent.setFlags(flag);
+                        UpdateApplication.getContext().startService(
+                                cancelIntent);
+                        mProgressDialog = null;
+                    }
+                });
 
         Intent checkIntent = new Intent(mContext, UpdateCheckService.class);
         checkIntent.setAction(UpdateCheckService.ACTION_CHECK);
+        checkIntent.setFlags(flag);// 服务识别
         UpdateApplication.getContext().startService(checkIntent);
-
         mProgressDialog.show();
     }
 
     private void confirmDeleteAll() {
-        new AlertDialog.Builder(mContext).setTitle(R.string.confirm_delete_dialog_title)
+        new AlertDialog.Builder(mContext)
+                .setTitle(R.string.confirm_delete_dialog_title)
                 .setMessage(R.string.confirm_delete_all_dialog_message)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // We are OK to delete, trigger it
-                        deleteOldUpdates();
-                        updateLayout();
-                    }
-                }).setNegativeButton(R.string.dialog_cancel, null).show();
+                .setPositiveButton(android.R.string.ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                    int which) {
+                                // We are OK to delete, trigger it
+                                deleteOldUpdates();
+                                updateLayout();
+                                expandLayout();
+                            }
+                        }).setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     private boolean deleteOldUpdates() {
@@ -523,16 +711,16 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             deleteDir(mUpdateFolder);
             mUpdateFolder.mkdir();
             success = true;
-            Toast.makeText(mContext, R.string.delete_updates_success_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_updates_success_message,
+                    Toast.LENGTH_SHORT).show();
         } else if (!mUpdateFolder.exists()) {
             success = false;
-            Toast.makeText(mContext, R.string.delete_updates_noFolder_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_updates_noFolder_message,
+                    Toast.LENGTH_SHORT).show();
         } else {
             success = false;
-            Toast.makeText(mContext, R.string.delete_updates_failure_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_updates_failure_message,
+                    Toast.LENGTH_SHORT).show();
         }
         return success;
     }
@@ -555,7 +743,7 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         mUpdateType.setValue(String.valueOf(type));
         mUpdateType.setSummary(mUpdateType.getEntries()[type]);
-        checkForUpdates();
+        checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
     }
 
     private void checkForDownloadCompleted(Intent intent) {
@@ -568,7 +756,8 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             return;
         }
 
-        String fullPathName = intent.getStringExtra(EXTRA_FINISHED_DOWNLOAD_PATH);
+        String fullPathName = intent
+                .getStringExtra(EXTRA_FINISHED_DOWNLOAD_PATH);
         if (fullPathName == null) {
             return;
         }
@@ -576,13 +765,19 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         String fileName = new File(fullPathName).getName();
 
         // Find the matching preference so we can retrieve the UpdateInfo
-        UpdatePreference pref = (UpdatePreference) mUpdatesList.findPreference(fileName);
+        UpdatePreference pref;
+        pref = (UpdatePreference) mUpdatesList.findPreference(fileName);
         if (pref != null) {
             pref.setStyle(UpdatePreference.STYLE_DOWNLOADED);// download over
-                                                             // Change
+            // Change
             onStartUpdate(pref);
         }
-
+        pref = (UpdatePreference) mMokeeExpandList.findPreference(fileName);// expand
+        if (pref != null) {
+            pref.setStyle(UpdatePreference.STYLE_DOWNLOADED);// download over
+            // Change
+            onStartUpdate(pref);
+        }
         resetDownloadState();
     }
 
@@ -596,17 +791,22 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             Cursor c = mDownloadManager.query(new DownloadManager.Query()
                     .setFilterById(mDownloadId));
             if (c == null || !c.moveToFirst()) {
-                Toast.makeText(mContext, R.string.download_not_found, Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, R.string.download_not_found,
+                        Toast.LENGTH_LONG).show();
             } else {
-                int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                Uri uri = Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
+                int status = c.getInt(c
+                        .getColumnIndex(DownloadManager.COLUMN_STATUS));
+                Uri uri = Uri.parse(c.getString(c
+                        .getColumnIndex(DownloadManager.COLUMN_URI)));
                 if (status == DownloadManager.STATUS_PENDING
                         || status == DownloadManager.STATUS_RUNNING
                         || status == DownloadManager.STATUS_PAUSED) {
-                    String localFileName = c.getString(c
-                            .getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                    String localFileName = c
+                            .getString(c
+                                    .getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
                     if (!TextUtils.isEmpty(localFileName)) {
-                        mFileName = localFileName.substring(localFileName.lastIndexOf("/") + 1,
+                        mFileName = localFileName.substring(
+                                localFileName.lastIndexOf("/") + 1,
                                 localFileName.lastIndexOf("."));
                     }
                 }
@@ -620,8 +820,9 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         }
 
         updateLayout();
-
-        IntentFilter filter = new IntentFilter(UpdateCheckService.ACTION_CHECK_FINISHED);
+        expandLayout();
+        IntentFilter filter = new IntentFilter(
+                UpdateCheckService.ACTION_CHECK_FINISHED);
         filter.addAction(DownloadReceiver.ACTION_DOWNLOAD_STARTED);
         filter.addAction(MoKeeCenter.BR_ONNewIntent);// 唤醒
         mContext.registerReceiver(mReceiver, filter);
@@ -645,12 +846,14 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
     public void onStartDownload(UpdatePreference pref) {
         // If there is no internet connection, display a message and return.
         if (!Utils.isOnline(mContext)) {
-            Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, R.string.data_connection_required,
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (mDownloading) {
-            Toast.makeText(mContext, R.string.download_already_running, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, R.string.download_already_running,
+                    Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -682,29 +885,33 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             resetDownloadState();
             return;
         }
-
         new AlertDialog.Builder(mContext)
                 .setTitle(R.string.confirm_download_cancelation_dialog_title)
-                .setMessage(R.string.confirm_download_cancelation_dialog_message)
-                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Set the preference back to new style
-                        pref.setStyle(UpdatePreference.STYLE_NEW);
+                .setMessage(
+                        R.string.confirm_download_cancelation_dialog_message)
+                .setPositiveButton(R.string.dialog_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                    int which) {
+                                // Set the preference back to new style
+                                pref.setStyle(UpdatePreference.STYLE_NEW);
 
-                        // We are OK to stop download, trigger it
-                        mDownloadManager.remove(mDownloadId);
-                        mUpdateHandler.removeCallbacks(mUpdateProgress);
-                        resetDownloadState();
+                                // We are OK to stop download, trigger it
+                                mDownloadManager.remove(mDownloadId);
+                                mUpdateHandler.removeCallbacks(mUpdateProgress);
+                                resetDownloadState();
 
-                        // Clear the stored data from shared preferences
-                        mPrefs.edit().remove(Constants.DOWNLOAD_ID).remove(Constants.DOWNLOAD_MD5)
-                                .apply();
+                                // Clear the stored data from shared preferences
+                                mPrefs.edit().remove(Constants.DOWNLOAD_ID)
+                                        .remove(Constants.DOWNLOAD_MD5).apply();
 
-                        Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
-                                .show();
-                    }
-                }).setNegativeButton(R.string.dialog_cancel, null).show();
+                                Toast.makeText(mContext,
+                                        R.string.download_cancelled,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton(R.string.dialog_cancel, null)
+                .show();
     }
 
     @Override
@@ -715,32 +922,46 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         if (mStartUpdateVisible) {
             return;
         }
-
         mStartUpdateVisible = true;
-
         // Get the message body right
-        String dialogBody = getString(R.string.apply_update_dialog_text, updateInfo.getName());
-
+        String dialogBody = getString(R.string.apply_update_dialog_text,
+                updateInfo.getName());
         // Display the dialog
-        new AlertDialog.Builder(mContext).setTitle(R.string.apply_update_dialog_title)
+        new AlertDialog.Builder(mContext)
+                .setTitle(R.string.apply_update_dialog_title)
                 .setMessage(dialogBody)
-                .setPositiveButton(R.string.dialog_update, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try {
-                            Utils.triggerUpdate(mContext, updateInfo.getName());
-                        } catch (IOException e) {
-                            Log.e(TAG, "Unable to reboot into recovery mode", e);
-                            Toast.makeText(mContext, R.string.apply_unable_to_reboot_toast,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mStartUpdateVisible = false;
-                    }
-                }).show();
+                .setPositiveButton(R.string.dialog_update,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                    int which) {
+                                if (TextUtils.isEmpty(updateInfo
+                                        .getDescription())
+                                        || updateInfo.getName()
+                                                .endsWith(".zip")) {
+                                    try {
+                                        Utils.triggerUpdate(mContext,
+                                                updateInfo.getName());
+                                    } catch (IOException e) {
+                                        Log.e(TAG,
+                                                "Unable to reboot into recovery mode",
+                                                e);
+                                        Toast.makeText(
+                                                mContext,
+                                                R.string.apply_unable_to_reboot_toast,
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        })
+                .setNegativeButton(R.string.dialog_cancel,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                    int which) {
+                                mStartUpdateVisible = false;
+                            }
+                        }).show();
     }
 
     @Override
@@ -757,18 +978,20 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
                 return;
             }
 
-            String message = getString(R.string.delete_single_update_success_message, fileName);
+            String message = getString(
+                    R.string.delete_single_update_success_message, fileName);
             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
         } else if (!mUpdateFolder.exists()) {
-            Toast.makeText(mContext, R.string.delete_updates_noFolder_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_updates_noFolder_message,
+                    Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(mContext, R.string.delete_updates_failure_message, Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(mContext, R.string.delete_updates_failure_message,
+                    Toast.LENGTH_SHORT).show();
         }
 
         // Update the list
         updateLayout();
+        expandLayout();
     }
 
     @Override
@@ -781,17 +1004,20 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
             return true;
         } else if (preference == mUpdateType) {
             final int value = Integer.valueOf((String) newValue);
-            if (value == Constants.UPDATE_TYPE_NIGHTLY || value == Constants.UPDATE_TYPE_BETA
+            if (value == Constants.UPDATE_TYPE_NIGHTLY
+                    || value == Constants.UPDATE_TYPE_BETA
                     || value == Constants.UPDATE_TYPE_ALL) {
                 new AlertDialog.Builder(mContext)
                         .setTitle(R.string.nightly_alert_title)
                         .setMessage(R.string.nightly_alert)
                         .setPositiveButton(getString(R.string.dialog_ok),
                                 new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
+                                    public void onClick(DialogInterface dialog,
+                                            int id) {
                                         updateUpdatesType(value);
                                     }
-                                }).setNegativeButton(R.string.dialog_cancel, null).show();
+                                })
+                        .setNegativeButton(R.string.dialog_cancel, null).show();
                 return false;
             } else {
                 updateUpdatesType(value);
@@ -804,18 +1030,29 @@ public class MoKeeUpdater extends PreferenceFragment implements OnPreferenceChan
         } else if (preference == mUpdateOTA) {
             boolean value = (Boolean) newValue;
             isOTA(value);
-            checkForUpdates();
+            checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
             return true;
         }
-
         return false;
     }
 
     private void isRomALl(boolean value) {
         if (value) {
-            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_update_all_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(
+                    R.string.pref_update_all_summary));
         } else {
-            mUpdateAll.setSummary(mContext.getResources().getText(R.string.pref_update_all_new_summary));
+            mUpdateAll.setSummary(mContext.getResources().getText(
+                    R.string.pref_update_all_new_summary));
         }
     }
+
+    // @Override
+    // public boolean onPreferenceClick(Preference preference)
+    // {
+    // if (preference == mExpandUpdate)
+    // {
+    // checkForUpdates(Constants.INTENT_FLAG_GET_EXPAND);
+    // }
+    // return false;
+    // }
 }

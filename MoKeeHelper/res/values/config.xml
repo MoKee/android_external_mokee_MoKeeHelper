@@ -20,7 +20,7 @@
     <!-- MKUpdate Config Strings -->
     <string name="conf_update_server_url_def" translatable="false">http://ota.mfunz.com/full.php</string>
     <string name="conf_update_ota_server_url_def" translatable="false">http://ota.mfunz.com/ota.php</string>
-    <string name="conf_changelog_url" translatable="false">http://localhost/changelog.xml</string>
+    <string name="conf_update_expand_server_url_def" translatable="false">http://ota.mfunz.com/ext.php</string>
     <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/forum-280-1.html</string>
 
     <bool name="alternateIsInternal">false</bool>

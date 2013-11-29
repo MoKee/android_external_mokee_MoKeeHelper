@@ -80,6 +80,7 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_close">Close</string>
     <string name="no_available_updates_intro">The last check did not find any available updates. To manually check for new updates, use the Refresh button.</string>
+    <string name="no_available_expand_intro">The last check did not find any available updates. To manually check for new expand, use the Refresh button.</string>
     <string name="new_update_summary">New</string>
     <string name="old_update_summary">Old</string>
     <string name="update_check_title">Check update freq</string>

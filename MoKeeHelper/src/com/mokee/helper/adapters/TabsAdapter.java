@@ -28,8 +28,8 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-public class TabsAdapter extends FragmentPagerAdapter
-        implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
+public class TabsAdapter extends FragmentPagerAdapter implements
+        ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
     private final Context mContext;
     private final ActionBar mActionBar;
@@ -75,7 +75,8 @@ public class TabsAdapter extends FragmentPagerAdapter
         return Fragment.instantiate(mContext, info.clss.getName(), info.args);
     }
 
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    public void onPageScrolled(int position, float positionOffset,
+            int positionOffsetPixels) {
     }
 
     public void onPageSelected(int position) {

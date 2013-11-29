@@ -23,8 +23,8 @@ import android.os.Bundle;
 
 import com.mokee.helper.activities.MoKeeCenter;
 
-public class UpdateApplication extends com.baidu.frontia.FrontiaApplication implements
-        Application.ActivityLifecycleCallbacks {
+public class UpdateApplication extends com.baidu.frontia.FrontiaApplication
+        implements Application.ActivityLifecycleCallbacks {
     private static Context context;
     private boolean mMainActivityActive;
 
@@ -61,7 +61,7 @@ public class UpdateApplication extends com.baidu.frontia.FrontiaApplication impl
     }
 
     @Override
-    public void onActivityStarted(Activity activity)  {
+    public void onActivityStarted(Activity activity) {
         if (activity instanceof MoKeeCenter) {
             mMainActivityActive = true;
         }
