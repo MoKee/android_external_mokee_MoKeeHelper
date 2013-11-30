@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mokee.helper.activities;
+package com.mokee.helper.fragments;
 
 import com.mokee.helper.R;
 
@@ -25,7 +25,8 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 
-public class MoKeeSupport extends PreferenceFragment {
+public class MoKeeSupportFragment extends PreferenceFragment
+{
 
     private static final String KEY_MOKEE_WEBSITE = "mokee_website";
     private static final String KEY_MOKEE_FORUM = "mokee_forum";
@@ -46,37 +47,47 @@ public class MoKeeSupport extends PreferenceFragment {
     private static final String URL_MOKEE_WIKI = "http://wiki.mfunz.com";
 
     @Override
-    public void onCreate(Bundle icicle) {
+    public void onCreate(Bundle icicle)
+    {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.mokee_service);
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-            Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference)
+    {
         String key = preference.getKey();
-        if (key.equals(KEY_MOKEE_WEBSITE)) {
+        if (key.equals(KEY_MOKEE_WEBSITE))
+        {
             goToURL(URL_MOKEE_WEBSITE);
-        } else if (key.equals(KEY_MOKEE_FORUM)) {
+        } else if (key.equals(KEY_MOKEE_FORUM))
+        {
             goToURL(URL_MOKEE_FORUM);
-        } else if (key.equals(KEY_MOKEE_ISSUES)) {
+        } else if (key.equals(KEY_MOKEE_ISSUES))
+        {
             goToURL(URL_MOKEE_ISSUES);
-        } else if (key.equals(KEY_MOKEE_STATISTICS)) {
+        } else if (key.equals(KEY_MOKEE_STATISTICS))
+        {
             goToURL(URL_MOKEE_STATISTICS);
-        } else if (key.equals(KEY_MOKEE_REVIEW)) {
+        } else if (key.equals(KEY_MOKEE_REVIEW))
+        {
             goToURL(URL_MOKEE_REVIEW);
-        } else if (key.equals(KEY_MOKEE_GITHUB)) {
+        } else if (key.equals(KEY_MOKEE_GITHUB))
+        {
             goToURL(URL_MOKEE_GITHUB);
-        } else if (key.equals(KEY_MOKEE_CONTRIBUTOR)) {
+        } else if (key.equals(KEY_MOKEE_CONTRIBUTOR))
+        {
             goToURL(URL_MOKEE_CONTRIBUTOR);
-        } else if (key.equals(KEY_MOKEE_WIKI)) {
+        } else if (key.equals(KEY_MOKEE_WIKI))
+        {
             goToURL(URL_MOKEE_WIKI);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    private void goToURL(String url) {
+    private void goToURL(String url)
+    {
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);

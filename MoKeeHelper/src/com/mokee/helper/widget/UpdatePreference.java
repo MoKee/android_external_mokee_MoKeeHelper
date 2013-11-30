@@ -37,8 +37,8 @@ import android.widget.Toast;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.UpdateInfo;
 
-public class UpdatePreference extends Preference implements OnClickListener,
-        OnLongClickListener {
+public class UpdatePreference extends Preference implements OnClickListener, OnLongClickListener
+{
     private static final float DISABLED_ALPHA = 0.4f;
     public static final int STYLE_NEW = 1;
     public static final int STYLE_DOWNLOADING = 2;
@@ -47,7 +47,8 @@ public class UpdatePreference extends Preference implements OnClickListener,
     public static final int STYLE_EXPAND_NEW = 11;
     public static final int STYLE_OLD = 0;// 旧版本
 
-    public interface OnActionListener {
+    public interface OnActionListener
+    {
         void onStartDownload(UpdatePreference pref);
 
         void onStopDownload(UpdatePreference pref);
@@ -57,7 +58,8 @@ public class UpdatePreference extends Preference implements OnClickListener,
         void onDeleteUpdate(UpdatePreference pref);
     }
 
-    public interface OnReadyListener {
+    public interface OnReadyListener
+    {
         void onReady(UpdatePreference pref);
     }
 
@@ -73,14 +75,18 @@ public class UpdatePreference extends Preference implements OnClickListener,
     private View mUpdatesPref;
     private ProgressBar mProgressBar;
 
-    private OnClickListener mButtonClickListener = new OnClickListener() {
+    private OnClickListener mButtonClickListener = new OnClickListener()
+    {
         @Override
-        public void onClick(View v) {
-            if (mOnActionListener == null) {
+        public void onClick(View v)
+        {
+            if (mOnActionListener == null)
+            {
                 return;
             }
 
-            switch (mStyle) {
+            switch (mStyle)
+            {
                 case STYLE_DOWNLOADED:
                     mOnActionListener.onStartUpdate(UpdatePreference.this);
                     break;
@@ -99,7 +105,8 @@ public class UpdatePreference extends Preference implements OnClickListener,
         }
     };
 
-    public UpdatePreference(Context context, UpdateInfo ui, int style) {
+    public UpdatePreference(Context context, UpdateInfo ui, int style)
+    {
         super(context, null, R.style.UpdatesPreferenceStyle);
         setLayoutResource(R.layout.preference_updates);
         mStyle = style;
@@ -107,7 +114,8 @@ public class UpdatePreference extends Preference implements OnClickListener,
     }
 
     @Override
-    protected void onBindView(View view) {
+    protected void onBindView(View view)
+    {
         super.onBindView(view);
 
         // Store the views from the layout
@@ -116,8 +124,7 @@ public class UpdatePreference extends Preference implements OnClickListener,
 
         mTitleText = (TextView) view.findViewById(android.R.id.title);
         mSummaryText = (TextView) view.findViewById(android.R.id.summary);
-        mProgressBar = (ProgressBar) view
-                .findViewById(R.id.download_progress_bar);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.download_progress_bar);
 
         mUpdatesPref = view.findViewById(R.id.updates_pref);
         mUpdatesPref.setOnClickListener(this);
@@ -126,14 +133,17 @@ public class UpdatePreference extends Preference implements OnClickListener,
         // Update the views
         updatePreferenceViews();
 
-        if (mOnReadyListener != null) {
+        if (mOnReadyListener != null)
+        {
             mOnReadyListener.onReady(this);
         }
     }
 
     @Override
-    public boolean onLongClick(View v) {
-        switch (mStyle) {
+    public boolean onLongClick(View v)
+    {
+        switch (mStyle)
+        {
             case STYLE_DOWNLOADED:
             case STYLE_INSTALLED:
                 confirmDelete();
@@ -151,30 +161,33 @@ public class UpdatePreference extends Preference implements OnClickListener,
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         final Context context = getContext();
         final File changeLog = mUpdateInfo.getChangeLogFile(context);
 
-        if (!changeLog.exists()) {
+        if (!changeLog.exists())
+        {
             // Change log could not be fetched
-            Toast.makeText(context, R.string.failed_to_load_changelog,
-                    Toast.LENGTH_SHORT).show();
-        } else if (changeLog.length() == 0) {
+            Toast.makeText(context, R.string.failed_to_load_changelog, Toast.LENGTH_SHORT).show();
+        } else if (changeLog.length() == 0)
+        {
             // Change log is empty
-            Toast.makeText(context, R.string.no_changelog_alert,
-                    Toast.LENGTH_SHORT).show();
-        } else {
+            Toast.makeText(context, R.string.no_changelog_alert, Toast.LENGTH_SHORT).show();
+        } else
+        {
             // Prepare the dialog box content
             final LayoutInflater inflater = LayoutInflater.from(context);
-            final View view = inflater
-                    .inflate(R.layout.change_log_dialog, null);
+            final View view = inflater.inflate(R.layout.change_log_dialog, null);
             final View progressContainer = view.findViewById(R.id.progress);
             final NotifyingWebView changeLogView = (NotifyingWebView) view
                     .findViewById(R.id.changelog);
             changeLogView
-                    .setOnInitialContentReadyListener(new NotifyingWebView.OnInitialContentReadyListener() {
+                    .setOnInitialContentReadyListener(new NotifyingWebView.OnInitialContentReadyListener()
+                    {
                         @Override
-                        public void onInitialContentReady(WebView webView) {
+                        public void onInitialContentReady(WebView webView)
+                        {
                             progressContainer.setVisibility(View.GONE);
                             changeLogView.setVisibility(View.VISIBLE);
                         }
@@ -186,115 +199,136 @@ public class UpdatePreference extends Preference implements OnClickListener,
             changeLogView.loadUrl(Uri.fromFile(changeLog).toString());
 
             // Prepare the dialog box
-            new AlertDialog.Builder(context)
-                    .setTitle(R.string.changelog_dialog_title).setView(view)
+            new AlertDialog.Builder(context).setTitle(R.string.changelog_dialog_title)
+                    .setView(view)
                     .setPositiveButton(R.string.dialog_close, null).show();
         }
     }
 
-    private void confirmDelete() {
-        new AlertDialog.Builder(getContext())
-                .setTitle(R.string.confirm_delete_dialog_title)
+    private void confirmDelete()
+    {
+        new AlertDialog.Builder(getContext()).setTitle(R.string.confirm_delete_dialog_title)
                 .setMessage(R.string.confirm_delete_dialog_message)
-                .setPositiveButton(R.string.dialog_ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                    int which) {
-                                // We are OK to delete, trigger it
-                                if (mOnActionListener != null) {
-                                    mOnActionListener
-                                            .onDeleteUpdate(UpdatePreference.this);
-                                }
-                            }
-                        }).setNegativeButton(R.string.dialog_cancel, null)
-                .show();
+                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        // We are OK to delete, trigger it
+                        if (mOnActionListener != null)
+                        {
+                            mOnActionListener.onDeleteUpdate(UpdatePreference.this);
+                        }
+                    }
+                }).setNegativeButton(R.string.dialog_cancel, null).show();
     }
 
     @Override
-    public String toString() {
-        return "UpdatePreference [mUpdateInfo=" + mUpdateInfo + ", mStyle="
-                + mStyle + "]";
+    public String toString()
+    {
+        return "UpdatePreference [mUpdateInfo=" + mUpdateInfo + ", mStyle=" + mStyle + "]";
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(boolean enabled)
+    {
         super.setEnabled(enabled);
-        if (enabled) {
+        if (enabled)
+        {
             updatePreferenceViews();
-        } else {
+        } else
+        {
             disablePreferenceViews();
         }
     }
 
-    public void setOnActionListener(OnActionListener listener) {
+    public void setOnActionListener(OnActionListener listener)
+    {
         mOnActionListener = listener;
     }
 
-    public void setOnReadyListener(OnReadyListener listener) {
+    public void setOnReadyListener(OnReadyListener listener)
+    {
         mOnReadyListener = listener;
-        if (mUpdatesPref != null && listener != null) {
+        if (mUpdatesPref != null && listener != null)
+        {
             listener.onReady(this);
         }
     }
 
-    public void setStyle(int style) {
+    public void setStyle(int style)
+    {
         mStyle = style;
-        if (mUpdatesPref != null) {
+        if (mUpdatesPref != null)
+        {
             showStyle();
         }
     }
 
-    public int getStyle() {
+    public int getStyle()
+    {
         return mStyle;
     }
 
-    public void setProgress(int max, int progress) {
-        if (mStyle != STYLE_DOWNLOADING) {
+    public void setProgress(int max, int progress)
+    {
+        if (mStyle != STYLE_DOWNLOADING)
+        {
             return;
         }
         mProgressBar.setMax(max);
         mProgressBar.setProgress(progress);
     }
 
-    public ProgressBar getProgressBar() {
+    public ProgressBar getProgressBar()
+    {
         return mProgressBar;
     }
 
-    public ImageView getUpdatesButton() {
+    public ImageView getUpdatesButton()
+    {
         return mUpdatesButton;
     }
 
-    public UpdateInfo getUpdateInfo() {
+    public UpdateInfo getUpdateInfo()
+    {
         return mUpdateInfo;
     }
 
-    private void disablePreferenceViews() {
-        if (mUpdatesButton != null) {
+    private void disablePreferenceViews()
+    {
+        if (mUpdatesButton != null)
+        {
             mUpdatesButton.setEnabled(false);
             mUpdatesButton.setAlpha(DISABLED_ALPHA);
         }
-        if (mUpdatesPref != null) {
+        if (mUpdatesPref != null)
+        {
             mUpdatesPref.setEnabled(false);
             mUpdatesPref.setBackgroundColor(0);
         }
     }
 
-    private void updatePreferenceViews() {
-        if (mUpdatesPref != null) {
+    private void updatePreferenceViews()
+    {
+        if (mUpdatesPref != null)
+        {
             mUpdatesPref.setEnabled(true);
             mUpdatesPref.setLongClickable(true);
 
             final boolean enabled = isEnabled();
             mUpdatesPref.setOnClickListener(enabled ? this : null);
-            if (!enabled) {
+            if (!enabled)
+            {
                 mUpdatesPref.setBackgroundColor(0);
             }
 
             // Set the title text
-            if (TextUtils.isEmpty(mUpdateInfo.getDescription())) {
+            if (TextUtils.isEmpty(mUpdateInfo.getDescription()))
+            {
                 mTitleText.setText(mUpdateInfo.getName());
-            } else {
+            } else
+            {
                 mTitleText.setText(mUpdateInfo.getDescription());
                 mSummaryText.setText(mUpdateInfo.getName());
             }
@@ -304,9 +338,11 @@ public class UpdatePreference extends Preference implements OnClickListener,
         }
     }
 
-    private void showStyle() {
+    private void showStyle()
+    {
         // Display the appropriate preference style
-        switch (mStyle) {
+        switch (mStyle)
+        {
             case STYLE_DOWNLOADED:
                 // Show the install image and summary of 'Downloaded'
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_install);

@@ -35,24 +35,29 @@ import android.os.Environment;
 import android.os.PowerManager;
 import android.os.UserHandle;
 import android.os.storage.StorageManager;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.os.storage.StorageVolume;
 import android.os.SystemProperties;
 
+import com.mokee.helper.MokeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
 
-public class Utils {
+public class Utils
+{
 
-    public static File makeUpdateFolder() {
-        return new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath(), Constants.UPDATES_FOLDER);
+    public static File makeUpdateFolder()
+    {
+        return new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
+                Constants.UPDATES_FOLDER);
     }
 
-    public static File makeExtraFolder() {
-        return new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath(), Constants.EXTRAS_FOLDER);
+    public static File makeExtraFolder()
+    {
+        return new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
+                Constants.EXTRAS_FOLDER);
     }
 
     /**
@@ -61,37 +66,45 @@ public class Utils {
      * @param fileName
      * @return
      */
-    public static boolean isLocaUpdateFile(String fileName) {
-        File file = new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath() + "/" + Constants.UPDATES_FOLDER, fileName);
+    public static boolean isLocaUpdateFile(String fileName)
+    {
+        File file = new File(
+                Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
+                        + Constants.UPDATES_FOLDER, fileName);
         return file.exists();
     }
 
-    public static void cancelNotification(Context context) {
+    public static void cancelNotification(Context context)
+    {
         final NotificationManager nm = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel(R.string.not_new_updates_found_title);
         nm.cancel(R.string.not_download_success);
     }
 
-    public static boolean isApkInstalled(String packagename, Context context) {
+    public static boolean isApkInstalled(String packagename, Context context)
+    {
         PackageInfo packageInfo;
-        try {
-            packageInfo = context.getPackageManager().getPackageInfo(
-                    packagename, 0);
+        try
+        {
+            packageInfo = context.getPackageManager().getPackageInfo(packagename, 0);
 
-        } catch (NameNotFoundException e) {
+        } catch (NameNotFoundException e)
+        {
             packageInfo = null;
         }
 
-        if (packageInfo == null) {
+        if (packageInfo == null)
+        {
             return false;
-        } else {
+        } else
+        {
             return true;
         }
     }
 
-    public static String getMoKeeVersionTypeString(Context mContext) {
+    public static String getMoKeeVersionTypeString(Context mContext)
+    {
         String MoKeeVersionType = getMoKeeVersionType();
         if (MoKeeVersionType.equals("release"))
             return mContext.getString(R.string.mokee_version_type_release);
@@ -105,14 +118,18 @@ public class Utils {
             return mContext.getString(R.string.mokee_info_default);
     }
 
-    public static String getMoKeeVersionType() {
+    public static String getMoKeeVersionType()
+    {
         String MoKeeVersion = Utils.getInstalledVersion();
-        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1, MoKeeVersion.length()).toLowerCase();
+        String MoKeeVersionType = MoKeeVersion.substring(MoKeeVersion.lastIndexOf("-") + 1,
+                MoKeeVersion.length())
+                .toLowerCase();
         return MoKeeVersionType;
     }
 
-    public static void triggerUpdate(Context context, String updateFileName,
-            boolean isUpdate) throws IOException {
+    public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
+            throws IOException
+    {
         /*
          * Should perform the following steps. 1.- mkdir -p /cache/recovery 2.-
          * echo 'boot-recovery' > /cache/recovery/command 3.- if(mBackup) echo
@@ -138,27 +155,23 @@ public class Utils {
 
         // Add the update folder/file name
         // Emulated external storage moved to user-specific paths in 4.2
-        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle
-                .myUserId()) : "";
+        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId())
+                : "";
 
-        String cmd = "echo '--update_package="
-                + getStorageMountpoint(context)
-                + userPath
-                + "/"
-                + (isUpdate ? Constants.UPDATES_FOLDER
-                        : Constants.EXTRAS_FOLDER) + "/" + updateFileName
+        String cmd = "echo '--update_package=" + getStorageMountpoint(context) + userPath + "/"
+                + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
+                + updateFileName
                 + "' >> /cache/recovery/command\n";
         os.write(cmd.getBytes());
         os.flush();
 
         // Trigger the reboot
-        PowerManager powerManager = (PowerManager) context
-                .getSystemService(Context.POWER_SERVICE);
+        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         powerManager.reboot("recovery");
     }
 
-    public static void triggerUpdate(Context context, String updateFileName)
-            throws IOException {
+    public static void triggerUpdate(Context context, String updateFileName) throws IOException
+    {
         /*
          * Should perform the following steps. 1.- mkdir -p /cache/recovery 2.-
          * echo 'boot-recovery' > /cache/recovery/command 3.- if(mBackup) echo
@@ -184,39 +197,40 @@ public class Utils {
 
         // Add the update folder/file name
         // Emulated external storage moved to user-specific paths in 4.2
-        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle
-                .myUserId()) : "";
+        String userPath = Environment.isExternalStorageEmulated() ? ("/" + UserHandle.myUserId())
+                : "";
 
-        String cmd = "echo '--update_package=" + getStorageMountpoint(context)
-                + userPath + "/" + Constants.UPDATES_FOLDER + "/"
-                + updateFileName + "' >> /cache/recovery/command\n";
+        String cmd = "echo '--update_package=" + getStorageMountpoint(context) + userPath + "/"
+                + Constants.UPDATES_FOLDER + "/" + updateFileName
+                + "' >> /cache/recovery/command\n";
         os.write(cmd.getBytes());
         os.flush();
 
         // Trigger the reboot
-        PowerManager powerManager = (PowerManager) context
-                .getSystemService(Context.POWER_SERVICE);
+        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         powerManager.reboot("recovery");
     }
 
-    private static String getStorageMountpoint(Context context) {
-        StorageManager sm = (StorageManager) context
-                .getSystemService(Context.STORAGE_SERVICE);
+    private static String getStorageMountpoint(Context context)
+    {
+        StorageManager sm = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
         StorageVolume[] volumes = sm.getVolumeList();
-        String primaryStoragePath = Environment.getExternalStorageDirectory()
-                .getAbsolutePath();
-        boolean alternateIsInternal = context.getResources().getBoolean(
-                R.bool.alternateIsInternal);
+        String primaryStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        boolean alternateIsInternal = context.getResources().getBoolean(R.bool.alternateIsInternal);
 
-        if (volumes.length <= 1) {
+        if (volumes.length <= 1)
+        {
             // single storage, assume only /sdcard exists
             return "/sdcard";
         }
 
-        for (int i = 0; i < volumes.length; i++) {
+        for (int i = 0; i < volumes.length; i++)
+        {
             StorageVolume v = volumes[i];
-            if (v.getPath().equals(primaryStoragePath)) {
-                if (!v.isRemovable() && alternateIsInternal) {
+            if (v.getPath().equals(primaryStoragePath))
+            {
+                if (!v.isRemovable() && alternateIsInternal)
+                {
                     return "/emmc";
                 }
             }
@@ -225,38 +239,43 @@ public class Utils {
         return "/sdcard";
     }
 
-    public static String getDeviceType() {
+    public static String getDeviceType()
+    {
         return SystemProperties.get("ro.mk.device");
     }
 
-    public static String getInstalledVersion() {
+    public static String getInstalledVersion()
+    {
         return SystemProperties.get("ro.mk.version");
     }
 
-    public static int getInstalledApiLevel() {
+    public static int getInstalledApiLevel()
+    {
         return SystemProperties.getInt("ro.build.version.sdk", 0);
     }
 
-    public static long getInstalledBuildDate() {
+    public static long getInstalledBuildDate()
+    {
         return SystemProperties.getLong("ro.build.date.utc", 0);
     }
 
-    public static boolean isOnline(Context context) {
+    public static boolean isOnline(Context context)
+    {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
+        if (netInfo != null && netInfo.isConnected())
+        {
             return true;
         }
         return false;
     }
 
-    public static void scheduleUpdateService(Context context,
-            int updateFrequency) {
+    public static void scheduleUpdateService(Context context, int updateFrequency)
+    {
         // Load the required settings from preferences
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(context);
-        long lastCheck = prefs.getLong(Constants.LAST_UPDATE_CHECK_PREF, 0);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long lastCheck = prefs.getLong(Constants.PREF_LAST_UPDATE_CHECK, 0);
 
         // Get the intent ready
         Intent i = new Intent(context, UpdateCheckService.class);
@@ -265,42 +284,78 @@ public class Utils {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Clear any old alarms and schedule the new alarm
-        AlarmManager am = (AlarmManager) context
-                .getSystemService(Context.ALARM_SERVICE);
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi);
 
-        if (updateFrequency != Constants.UPDATE_FREQ_NONE) {
-            am.setRepeating(AlarmManager.RTC_WAKEUP, lastCheck
-                    + updateFrequency, updateFrequency, pi);
+        if (updateFrequency != Constants.UPDATE_FREQ_NONE)
+        {
+            am.setRepeating(AlarmManager.RTC_WAKEUP, lastCheck + updateFrequency, updateFrequency,
+                    pi);
         }
     }
 
-    public static String getUserAgentString(Context context) {
-        try {
+    public static String getUserAgentString(Context context)
+    {
+        try
+        {
             PackageManager pm = context.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
             return pi.packageName + "/" + pi.versionName;
-        } catch (PackageManager.NameNotFoundException nnfe) {
+        } catch (PackageManager.NameNotFoundException nnfe)
+        {
             return null;
         }
     }
 
-    public static String subBuildDate(String name) {
+    /**
+     * 截取日期
+     * 
+     * @param name
+     * @return
+     */
+    public static String subBuildDate(String name)
+    {
         String[] strs = name.split("-");
         String date = strs[2];
-        if (date.startsWith("20")) {
+        if (date.startsWith("20"))
+        {
             date = date.substring(2, date.length());
         }
-        if (date.length() > 6) {
+        if (date.length() > 6)
+        {
             date = date.substring(0, 6);
         }
         return date;
     }
 
-    public static String subMoKeeVersion(String name) {
+    /**
+     * 截取版本
+     * 
+     * @param name
+     * @return
+     */
+    public static String subMoKeeVersion(String name)
+    {
         String[] strs = name.split("-");
         String version = strs[0];
         version = version.substring(2, 4);
         return version;
+    }
+
+    public static void setSummaryFromString(PreferenceFragment prefFragment, String preference,
+            String value)
+    {
+        if (prefFragment == null)
+        {
+            return;
+        }
+        try
+        {
+            prefFragment.findPreference(preference).setSummary(value);
+        } catch (RuntimeException e)
+        {
+            prefFragment.findPreference(preference).setSummary(
+                    prefFragment.getActivity().getString(R.string.mokee_info_default));
+        }
     }
 }

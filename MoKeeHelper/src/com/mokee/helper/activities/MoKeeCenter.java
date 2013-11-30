@@ -18,7 +18,11 @@ package com.mokee.helper.activities;
 
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
+import com.mokee.helper.fragments.MoKeeSupportFragment;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
+import com.mokee.helper.fragments.MokeeExpandFragment;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.service.UpdateCheckService;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -27,7 +31,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
-public class MoKeeCenter extends FragmentActivity {
+public class MoKeeCenter extends FragmentActivity
+{
 
     public static final String ACTION_MOKEE_CENTER = "com.mokee.mkupdater.action.MOKEE_CENTER";
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
@@ -37,7 +42,8 @@ public class MoKeeCenter extends FragmentActivity {
     private TabsAdapter mTabsAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.viewPager);
@@ -45,18 +51,19 @@ public class MoKeeCenter extends FragmentActivity {
 
         final ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE,
-                ActionBar.DISPLAY_SHOW_TITLE);
+        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE, ActionBar.DISPLAY_SHOW_TITLE);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setTitle(R.string.mokee_center_title);
 
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_updater_title),
-                MoKeeUpdater.class, null);
+                MoKeeUpdaterFragment.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_expand_title),
+                MokeeExpandFragment.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.mokee_support_title),
-                MoKeeSupport.class, null);
-
-        if (savedInstanceState != null) {
+                MoKeeSupportFragment.class, null);
+        if (savedInstanceState != null)
+        {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
         }
 
@@ -65,8 +72,10 @@ public class MoKeeCenter extends FragmentActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(final MenuItem item)
+    {
+        switch (item.getItemId())
+        {
             case android.R.id.home:
                 onBackPressed();
                 break;
@@ -75,23 +84,24 @@ public class MoKeeCenter extends FragmentActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState)
+    {
         super.onSaveInstanceState(outState);
         outState.putInt("tab", getActionBar().getSelectedNavigationIndex());
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent)
+    {
         super.onNewIntent(intent);
         Intent send = new Intent(BR_ONNewIntent);
-        send.putExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, intent
-                .getBooleanExtra(MoKeeUpdater.EXTRA_UPDATE_LIST_UPDATED, false));
-        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, intent
-                .getLongExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_ID, -1));
-        send.putExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH, intent
-                .getStringExtra(MoKeeUpdater.EXTRA_FINISHED_DOWNLOAD_PATH));
-        send.putExtra("flag",
-                intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
+        send.putExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED,
+                intent.getBooleanExtra(UpdateCheckService.EXTRA_UPDATE_LIST_UPDATED, false));
+        send.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID,
+                intent.getLongExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_ID, -1));
+        send.putExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH,
+                intent.getStringExtra(UpdateCheckService.EXTRA_FINISHED_DOWNLOAD_PATH));
+        send.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         sendBroadcast(send);
     }
 }

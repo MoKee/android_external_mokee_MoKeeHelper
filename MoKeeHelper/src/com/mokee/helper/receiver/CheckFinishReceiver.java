@@ -22,9 +22,11 @@ import android.content.Intent;
 
 import com.mokee.helper.service.MKDashClockExtension;
 
-public class CheckFinishReceiver extends BroadcastReceiver {
+public class CheckFinishReceiver extends BroadcastReceiver
+{
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent)
+    {
         Intent i = new Intent(context, MKDashClockExtension.class);
         i.setAction(MKDashClockExtension.ACTION_DATA_UPDATE);
         context.startService(i);

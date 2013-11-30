@@ -21,6 +21,7 @@
     <string name="mokee_center_title">MoKee Center</string>
     <string name="mokee_support_title">Support</string>
     <string name="mokee_updater_title">Updater</string>
+    <string name="mokee_expand_title">Expand</string>
 
     <!-- Lockscreen and Tips -->
     <string name="mokee_lock_screen_title">LockScreen</string>
@@ -52,6 +53,7 @@
     <string name="mokee_last_check_never">Never</string>
 
     <!-- Extensions -->
+    <string name="mokee_expand_info_title">Extras Info</string>
     <string name="mokee_extras_title">Extras</string>
     <string name="google_mobile_service_title">Google Apps</string>
 

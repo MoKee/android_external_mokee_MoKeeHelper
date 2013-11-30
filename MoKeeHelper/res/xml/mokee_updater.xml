@@ -30,40 +30,35 @@
     </PreferenceCategory>
 
     <ListPreference
-        android:key="pref_update_check_interval"
-        android:title="@string/update_check_title"
         android:dialogTitle="@string/update_check_title"
         android:entries="@array/update_check_entries"
         android:entryValues="@array/update_check_values"
-        android:persistent="false" />
+        android:key="pref_update_check_interval"
+        android:persistent="false"
+        android:title="@string/update_check_title" />
 
     <CheckBoxPreference
         android:key="pref_update_ota"
-        android:title="@string/pref_update_ota"
-        android:summary="@string/pref_update_ota_summary" />
+        android:summary="@string/pref_update_ota_summary"
+        android:title="@string/pref_update_ota" />
 
     <ListPreference
-        android:key="pref_update_types"
-        android:title="@string/update_type_title"
         android:dialogTitle="@string/update_type_title"
         android:entries="@array/update_type_entries"
         android:entryValues="@array/update_type_values"
-        android:persistent="false" />
+        android:key="pref_update_types"
+        android:persistent="false"
+        android:title="@string/update_type_title" />
 
     <!-- TODO: add this back once we have a way of doing backups that is not recovery specific -->
     <CheckBoxPreference
+        android:dependency="pref_update_types"
         android:key="pref_update_all"
-        android:title="@string/pref_update_all_title"
-        android:dependency="pref_update_types" />
+        android:title="@string/pref_update_all_title" />
 
     <PreferenceCategory
         android:key="updates_category"
         android:title="@string/available_updates_title" >
-    </PreferenceCategory>
-        <PreferenceCategory
-        android:key="updates_extras"
-        android:title="@string/mokee_extras_title" 
-        >
     </PreferenceCategory>
 
 </PreferenceScreen>

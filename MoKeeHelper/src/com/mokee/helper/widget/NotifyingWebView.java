@@ -20,37 +20,45 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 
-public class NotifyingWebView extends WebView {
-    public interface OnInitialContentReadyListener {
+public class NotifyingWebView extends WebView
+{
+    public interface OnInitialContentReadyListener
+    {
         void onInitialContentReady(WebView view);
     }
 
     private OnInitialContentReadyListener mListener;
     private boolean mContentReady = false;
 
-    public NotifyingWebView(Context context) {
+    public NotifyingWebView(Context context)
+    {
         super(context);
     }
 
-    public NotifyingWebView(Context context, AttributeSet attrs) {
+    public NotifyingWebView(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
     }
 
-    public NotifyingWebView(Context context, AttributeSet attrs, int defStyle) {
+    public NotifyingWebView(Context context, AttributeSet attrs, int defStyle)
+    {
         super(context, attrs, defStyle);
     }
 
-    public void setOnInitialContentReadyListener(
-            OnInitialContentReadyListener listener) {
+    public void setOnInitialContentReadyListener(OnInitialContentReadyListener listener)
+    {
         mListener = listener;
     }
 
     @Override
-    public void invalidate() {
+    public void invalidate()
+    {
         super.invalidate();
 
-        if (getContentHeight() > 0 && !mContentReady) {
-            if (mListener != null) {
+        if (getContentHeight() > 0 && !mContentReady)
+        {
+            if (mListener != null)
+            {
                 mListener.onInitialContentReady(this);
             }
             mContentReady = true;

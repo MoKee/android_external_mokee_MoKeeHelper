@@ -21,6 +21,7 @@
     <string name="mokee_center_title">魔趣中心</string>
     <string name="mokee_support_title">支持中心</string>
     <string name="mokee_updater_title">系统升级</string>
+     <string name="mokee_expand_title">扩展组件</string>
 
     <!-- Lockscreen and Tips -->
     <string name="mokee_lock_screen_title">一键锁屏</string>
@@ -52,6 +53,7 @@
     <string name="mokee_last_check_never">从未</string>
 
     <!-- Extensions -->
+    <string name="mokee_expand_info_title">扩展信息</string>
     <string name="mokee_extras_title">扩展组件</string>
     <string name="google_mobile_service_title">谷歌服务包</string>
 

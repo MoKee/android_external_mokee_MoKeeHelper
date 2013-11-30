@@ -16,7 +16,8 @@
 
 package com.mokee.helper.misc;
 
-public class Constants {
+public class Constants
+{
 
     // Download related
     public static final String UPDATES_FOLDER = "mkupdater";
@@ -29,11 +30,11 @@ public class Constants {
     public static final String BACKUP_PREF = "pref_backup_rom";
     public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
-    public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
     public static final String PREF_ROM_ALL = "pref_update_all";
     public static final String PREF_ROM_OTA = "pref_update_ota";
     public static final String PREF_EXPAND_UPDATE = "mokee_extras_update";
     public static final String PREF_EXPANG_LIST = "updates_extras";
+    public static final String PREF_LAST_UPDATE_CHECK = "pref_last_update_check";
     public static final String PREF_LAST_EXPAND_CHECK = "pref_last_expand_check";
 
     // Update Check items

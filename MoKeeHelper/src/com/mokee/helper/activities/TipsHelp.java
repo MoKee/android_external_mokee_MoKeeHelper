@@ -23,10 +23,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-public class TipsHelp extends Activity {
+public class TipsHelp extends Activity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         Uri uri = Uri.parse(getString(R.string.tips_help_url));
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);

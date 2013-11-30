@@ -26,7 +26,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class UpdateInfo implements Parcelable, Serializable {
+public class UpdateInfo implements Parcelable, Serializable
+{
 
     private static final long serialVersionUID = 1L;
     public String log;
@@ -37,7 +38,8 @@ public class UpdateInfo implements Parcelable, Serializable {
     public String description;
     public String checkflag;
 
-    public UpdateInfo(String log, String md5, String name, String rom) {
+    public UpdateInfo(String log, String md5, String name, String rom)
+    {
         super();
         this.log = log;
         this.md5 = md5;
@@ -45,8 +47,9 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.rom = rom;
     }
 
-    public UpdateInfo(String log, String md5, String name, String rom,
-            String description, String checkflag) {
+    public UpdateInfo(String log, String md5, String name, String rom, String description,
+            String checkflag)
+    {
         super();
         this.log = log;
         this.md5 = md5;
@@ -56,48 +59,59 @@ public class UpdateInfo implements Parcelable, Serializable {
         this.checkflag = checkflag;
     }
 
-    public UpdateInfo(String name) {
+    public UpdateInfo(String name)
+    {
         this(null, null, name, null);
         initializeName(name);
     }
 
-    public String getLog() {
+    public String getLog()
+    {
         return log;
     }
 
-    public String getMd5() {
+    public String getMd5()
+    {
         return md5;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getRom() {
+    public String getRom()
+    {
         return rom;
     }
 
-    public File getChangeLogFile(Context context) {
+    public File getChangeLogFile(Context context)
+    {
         return new File(context.getCacheDir(), name + ".html");
     }
 
     @Override
-    public int describeContents() {
+    public int describeContents()
+    {
         return 0;
     }
 
-    public static final Parcelable.Creator<UpdateInfo> CREATOR = new Parcelable.Creator<UpdateInfo>() {
-        public UpdateInfo createFromParcel(Parcel in) {
+    public static final Parcelable.Creator<UpdateInfo> CREATOR = new Parcelable.Creator<UpdateInfo>()
+    {
+        public UpdateInfo createFromParcel(Parcel in)
+        {
             return new UpdateInfo(in);
         }
 
-        public UpdateInfo[] newArray(int size) {
+        public UpdateInfo[] newArray(int size)
+        {
             return new UpdateInfo[size];
         }
     };
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(Parcel dest, int flags)
+    {
         dest.writeString(log);
         dest.writeString(name);
         dest.writeString(md5);
@@ -106,7 +120,8 @@ public class UpdateInfo implements Parcelable, Serializable {
         dest.writeString(checkflag);
     }
 
-    private void readFromParcel(Parcel in) {
+    private void readFromParcel(Parcel in)
+    {
         log = in.readString();
         name = in.readString();
         md5 = in.readString();
@@ -115,30 +130,37 @@ public class UpdateInfo implements Parcelable, Serializable {
         checkflag = in.readString();
     }
 
-    private void initializeName(String fileName) {
+    private void initializeName(String fileName)
+    {
         name = fileName;
-        if (!TextUtils.isEmpty(fileName)) {
+        if (!TextUtils.isEmpty(fileName))
+        {
             name = extractUiName(fileName);
-        } else {
+        } else
+        {
             name = null;
         }
     }
 
-    public static String extractUiName(String fileName) {
+    public static String extractUiName(String fileName)
+    {
         String deviceType = Utils.getDeviceType();
         String uiName = fileName.replaceAll("\\.zip$", "");
         return uiName.replaceAll("-" + deviceType + "-?", "");
     }
 
-    private UpdateInfo(Parcel in) {
+    private UpdateInfo(Parcel in)
+    {
         readFromParcel(in);
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public String getCheckflag() {
+    public String getCheckflag()
+    {
         return checkflag;
     }
 
