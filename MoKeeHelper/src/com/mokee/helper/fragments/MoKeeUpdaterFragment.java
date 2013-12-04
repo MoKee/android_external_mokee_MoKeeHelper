@@ -425,30 +425,6 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
         // Update the preference list
         refreshPreferences(availableUpdates);
-
-        // Prune obsolete change log files
-        new Thread() {
-            @Override
-            public void run() {
-                File[] files = mContext.getCacheDir().listFiles(new UpdateFilter(".html"));// mark
-                if (files == null) {
-                    return;
-                }
-
-                for (File file : files) {
-                    boolean updateExists = false;
-                    for (ItemInfo info : availableUpdates) {
-                        if (file.getName().startsWith(info.name)) {
-                            updateExists = true;
-                            break;
-                        }
-                    }
-                    if (!updateExists) {
-                        file.delete();
-                    }
-                }
-            }
-        }.start();
     }
 
     private void refreshPreferences(LinkedList<ItemInfo> updates) {
