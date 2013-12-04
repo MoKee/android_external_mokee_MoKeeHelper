@@ -617,7 +617,12 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private void updateUpdatesType(int type) {
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         mUpdateType.setValue(String.valueOf(type));
-        mUpdateType.setSummary(mUpdateType.getEntries()[type]);
+         if (type==3&&!mPrefs.getBoolean(EXPERIMENTAL_SHOW, true)) {
+            mUpdateType.setSummary(mUpdateType.getEntries()[type-1]);
+        }
+        else{
+            mUpdateType.setSummary(mUpdateType.getEntries()[type]);
+        }
         checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
     }
 
