@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -63,11 +64,17 @@ import android.widget.Toast;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
+import com.mokee.helper.db.DownLoadDao;
+import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.misc.ThreadDownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
+import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.ItemPreference;
@@ -116,7 +123,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
             if (flag == Constants.INTENT_FLAG_GET_UPDATE) {
                 if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
-                    mDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    mDownloadId = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
                     mUpdateHandler.post(mUpdateProgress);
                 } else if (UpdateCheckService.ACTION_CHECK_FINISHED.equals(action)) {
                     if (mProgressDialog != null) {
@@ -215,9 +222,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         String MoKeeVersionType = Utils.getMoKeeVersionType();
         boolean isExperimental = TextUtils.equals(MoKeeVersionType, "experimental");
         boolean isUnofficial = TextUtils.equals(MoKeeVersionType, "unofficial");
-        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2 : 0);
+        int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, isUnofficial ? 3 : isExperimental ? 2
+                : 0);
         if (!isExperimental && type == 2) {
-            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false).putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
+            mPrefs.edit().putBoolean(EXPERIMENTAL_SHOW, false)
+                    .putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
         }
         if (!isUnofficial && type == 3) {
             mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, 0).apply();
@@ -352,7 +361,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         }
     }
 
-    // add
+    // 更新进度条
     private Runnable mUpdateProgress = new Runnable() {
         public void run() {
             if (!mDownloading || mDownloadingPreference == null || mDownloadId < 0) {
@@ -363,31 +372,31 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             if (progressBar == null) {
                 return;
             }
-
-            DownloadManager.Query q = new DownloadManager.Query();
-            q.setFilterById(mDownloadId);
-
-            Cursor cursor = mDownloadManager.query(q);
+            DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(
+                    String.valueOf(mDownloadId));
             int status;
 
-            if (cursor == null || !cursor.moveToFirst()) {
+            if (dli == null) {
                 // DownloadReceiver has likely already removed the download
                 // from the DB due to failure or MD5 mismatch
-                status = DownloadManager.STATUS_FAILED;
+                status = DownLoader.STATUS_ERROR;
             } else {
-                status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                status = dli.getState();
             }
-
             switch (status) {
-                case DownloadManager.STATUS_PENDING:
+                case DownLoader.STATUS_PENDING:
                     progressBar.setIndeterminate(true);
                     break;
-                case DownloadManager.STATUS_PAUSED:
-                case DownloadManager.STATUS_RUNNING:
-                    int downloadedBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                    int totalBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                case DownLoader.STATUS_PAUSED:
+                case DownLoader.STATUS_DOWNLOADING:
+                    List<ThreadDownLoadInfo> threadList = ThreadDownLoadDao.getInstance()
+                            .getThreadInfoList(dli.getUrl());
+                    int totalBytes = -1;
+                    int downloadedBytes = 0;
+                    for (ThreadDownLoadInfo info : threadList) {
+                        downloadedBytes += info.getDownSize();
+                        totalBytes += info.getEndPos() - info.getStartPos() + 1;
+                    }
 
                     if (totalBytes < 0) {
                         progressBar.setIndeterminate(true);
@@ -397,16 +406,13 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                         progressBar.setProgress(downloadedBytes);
                     }
                     break;
-                case DownloadManager.STATUS_FAILED:
-                    mDownloadingPreference.setStyle(ItemPreference.STYLE_NEW);
+                case DownLoader.STATUS_ERROR:
+                    mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
                     resetDownloadState();
                     break;
             }
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (status != DownloadManager.STATUS_FAILED) {
-                mUpdateHandler.postDelayed(this, 1000);
+            if (status != DownLoader.STATUS_ERROR) {
+                mUpdateHandler.postDelayed(this, 5000);
             }
         }
     };
@@ -465,7 +471,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         // Convert the installed version name to the associated filename
         String installedZip = Utils.getInstalledVersion() + ".zip";
         boolean isNew = true;// 判断新旧版本
-        //boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
+        // boolean isRomAll = mPrefs.getBoolean(Constants.PREF_ROM_ALL, true);
         // Add the updates
         for (ItemInfo ui : updates) {
             // Determine the preference style and create the preference
@@ -473,7 +479,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             boolean isLocalFile = Utils.isLocaUpdateFile(ui.getName(), true);
             int style = 3;
             if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
-                isNew=Utils.isNewVersion(ui.getName());
+                isNew = Utils.isNewVersion(ui.getName());
             }
             if (isDownloading) {
                 // In progress download
@@ -632,6 +638,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
             }
         } else if (type == 4 && isUnofficial){
             if (mPrefs.getBoolean(EXPERIMENTAL_SHOW, isExperimental)) {
+
                 mUpdateType.setSummary(mUpdateType.getEntries()[type - 1]);
             }
         } else {
@@ -671,30 +678,25 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onStart() {
         super.onStart();
-
         // Determine if there are any in-progress downloads
         mDownloadId = mPrefs.getLong(Constants.DOWNLOAD_ID, -1);
         if (mDownloadId >= 0) {
-            Cursor c = mDownloadManager.query(new DownloadManager.Query()
-                    .setFilterById(mDownloadId));
-            if (c == null || !c.moveToFirst()) {
+            DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfo(
+                    String.valueOf(mDownloadId));
+            if (dli == null) {
                 Toast.makeText(mContext, R.string.download_not_found, Toast.LENGTH_LONG).show();
             } else {
-                int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                Uri uri = Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
-                if (status == DownloadManager.STATUS_PENDING
-                        || status == DownloadManager.STATUS_RUNNING
-                        || status == DownloadManager.STATUS_PAUSED) {
-                    String localFileName = c.getString(c
-                            .getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                int status = dli.getState();
+                // Uri uri =
+                // Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
+                if (status == DownLoader.STATUS_PENDING || status == DownLoader.STATUS_DOWNLOADING
+                        || status == DownLoader.STATUS_PAUSED) {
+                    String localFileName = dli.getLocalFile();
                     if (!TextUtils.isEmpty(localFileName)) {
                         mFileName = localFileName.substring(localFileName.lastIndexOf("/") + 1,
                                 localFileName.lastIndexOf("."));
                     }
                 }
-            }
-            if (c != null) {
-                c.close();
             }
         }
         if (mDownloadId < 0 || mFileName == null) {
@@ -751,7 +753,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         Intent intent = new Intent(mContext, DownloadReceiver.class);
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
-        mContext.sendBroadcast(intent);
+        intent.putExtra("flag", Constants.INTENT_FLAG_GET_UPDATE);
+        mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
 
         mUpdateHandler.post(mUpdateProgress);
     }
@@ -759,9 +762,9 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     @Override
     public void onStopDownload(final ItemPreference pref) {
         if (!mDownloading || mFileName == null || mDownloadId < 0) {
-            if(Utils.isNewVersion(pref.getItemInfo().getName())){
+            if (Utils.isNewVersion(pref.getItemInfo().getName())) {
                 pref.setStyle(ItemPreference.STYLE_NEW);
-            }else{
+            } else {
                 pref.setStyle(ItemPreference.STYLE_OLD);
             }
             resetDownloadState();
@@ -774,13 +777,20 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        if(Utils.isNewVersion(pref.getItemInfo().getName())){
+                        if (Utils.isNewVersion(pref.getItemInfo().getName())) {
                             pref.setStyle(ItemPreference.STYLE_NEW);
-                        }else{
+                        } else {
                             pref.setStyle(ItemPreference.STYLE_OLD);
                         }
                         // We are OK to stop download, trigger it
-                        mDownloadManager.remove(mDownloadId);
+                        // mDownloadManager.remove(mDownloadId);
+                        Intent intent = new Intent(mContext, DownLoadService.class);
+                        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
+                        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
+                        intent.putExtra(DownLoadService.DOWN_URL, pref.getItemInfo().getRom());
+
+                        MoKeeApplication.getContext()
+                                .startServiceAsUser(intent, UserHandle.CURRENT);
                         mUpdateHandler.removeCallbacks(mUpdateProgress);
                         resetDownloadState();
 

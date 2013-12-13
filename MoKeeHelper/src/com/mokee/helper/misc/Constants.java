@@ -24,6 +24,9 @@ public class Constants {
     public static final String EXTRAS_FOLDER = "mkextras";
     public static final String DOWNLOAD_ID = "download_id";
     public static final String DOWNLOAD_MD5 = "download_md5";
+    public static final String EXTRAS_DOWNLOAD_ID = "extras_download_id";
+    public static final String EXTRAS_DOWNLOAD_MD5 = "extras_download_md5";
+    
 
     // Preferences
     public static final String ENABLE_PREF = "pref_enable_updates";

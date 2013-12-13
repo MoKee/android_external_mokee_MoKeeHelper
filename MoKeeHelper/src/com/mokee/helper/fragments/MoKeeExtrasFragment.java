@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -39,6 +40,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -56,11 +58,17 @@ import android.widget.Toast;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
+import com.mokee.helper.db.DownLoadDao;
+import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
+import com.mokee.helper.misc.DownLoadInfo;
 import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.misc.ThreadDownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
+import com.mokee.helper.service.DownLoadService;
 import com.mokee.helper.service.UpdateCheckService;
+import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.UpdateFilter;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.widget.ItemPreference;
@@ -94,10 +102,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             int flag = intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
-
             if (flag == Constants.INTENT_FLAG_GET_EXTRAS) {
                 if (DownloadReceiver.ACTION_DOWNLOAD_STARTED.equals(action)) {
-                    mDownloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                    mDownloadId = intent.getLongExtra(DownLoadService.DOWNLOAD_ID, -1);
                     mUpdateHandler.post(mUpdateProgress);
                 } else if (UpdateCheckService.ACTION_CHECK_FINISHED.equals(action)) {
                     if (mProgressDialog != null) {
@@ -183,31 +190,29 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
             if (progressBar == null) {
                 return;
             }
-
-            DownloadManager.Query q = new DownloadManager.Query();
-            q.setFilterById(mDownloadId);
-
-            Cursor cursor = mDownloadManager.query(q);
+            DownLoadInfo dli =DownLoadDao.getInstance().getDownLoadInfo(String.valueOf(mDownloadId));
             int status;
-
-            if (cursor == null || !cursor.moveToFirst()) {
+            if (dli ==null) {
                 // DownloadReceiver has likely already removed the download
                 // from the DB due to failure or MD5 mismatch
-                status = DownloadManager.STATUS_FAILED;
+                status = DownLoader.STATUS_ERROR;
             } else {
-                status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                status = dli.getState();
             }
-
             switch (status) {
-                case DownloadManager.STATUS_PENDING:
+                case DownLoader.STATUS_PENDING:
                     progressBar.setIndeterminate(true);
                     break;
-                case DownloadManager.STATUS_PAUSED:
-                case DownloadManager.STATUS_RUNNING:
-                    int downloadedBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                    int totalBytes = cursor.getInt(cursor
-                            .getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                case DownLoader.STATUS_PAUSED:
+                case DownLoader.STATUS_DOWNLOADING:
+                	List<ThreadDownLoadInfo> threadList = ThreadDownLoadDao.getInstance().getThreadInfoList(dli.getUrl());
+					int totalBytes = -1;
+					int downloadedBytes = 0;
+					for (ThreadDownLoadInfo info : threadList)
+						{
+							downloadedBytes += info.getDownSize();
+							totalBytes += info.getEndPos() - info.getStartPos() + 1;	
+						}
 
                     if (totalBytes < 0) {
                         progressBar.setIndeterminate(true);
@@ -217,16 +222,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
                         progressBar.setProgress(downloadedBytes);
                     }
                     break;
-                case DownloadManager.STATUS_FAILED:
-                    mDownloadingPreference.setStyle(ItemPreference.STYLE_EXTRAS_NEW);
+                case DownLoader.STATUS_ERROR:
+                    mDownloadingPreference.setStyle(ItemPreference.STYLE_NEW);
                     resetDownloadState();
                     break;
             }
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (status != DownloadManager.STATUS_FAILED) {
-                mUpdateHandler.postDelayed(this, 1000);
+            if (status != DownLoader.STATUS_ERROR) {
+                mUpdateHandler.postDelayed(this, 2000);
             }
         }
     };
@@ -429,30 +431,24 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
     @Override
     public void onStart() {
         super.onStart();
-
         // Determine if there are any in-progress downloads
-        mDownloadId = mPrefs.getLong(Constants.DOWNLOAD_ID, -1);
+        mDownloadId = mPrefs.getLong(Constants.EXTRAS_DOWNLOAD_ID, -1);
         if (mDownloadId >= 0) {
-            Cursor c = mDownloadManager.query(new DownloadManager.Query()
-                    .setFilterById(mDownloadId));
-            if (c == null || !c.moveToFirst()) {
+           DownLoadInfo dli=DownLoadDao.getInstance().getDownLoadInfo(String.valueOf(mDownloadId));
+            if (dli==null) {
                 Toast.makeText(mContext, R.string.download_not_found, Toast.LENGTH_LONG).show();
             } else {
-                int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                Uri uri = Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
-                if (status == DownloadManager.STATUS_PENDING
-                        || status == DownloadManager.STATUS_RUNNING
-                        || status == DownloadManager.STATUS_PAUSED) {
-                    String localFileName = c.getString(c
-                            .getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+                int status = dli.getState();
+                //Uri uri = Uri.parse(c.getString(c.getColumnIndex(DownloadManager.COLUMN_URI)));
+                if (status == DownLoader.STATUS_PENDING
+                        || status == DownLoader.STATUS_DOWNLOADING
+                        || status == DownLoader.STATUS_PAUSED) {
+                    String localFileName = dli.getLocalFile();
                     if (!TextUtils.isEmpty(localFileName)) {
                         mFileName = localFileName.substring(localFileName.lastIndexOf("/") + 1,
                                 localFileName.lastIndexOf("."));
                     }
                 }
-            }
-            if (c != null) {
-                c.close();
             }
         }
         if (mDownloadId < 0 || mFileName == null) {
@@ -510,7 +506,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
         intent.setAction(DownloadReceiver.ACTION_START_DOWNLOAD);
         intent.putExtra(DownloadReceiver.EXTRA_UPDATE_INFO, (Parcelable) ui);
         intent.putExtra("flag", Constants.INTENT_FLAG_GET_EXTRAS);
-        mContext.sendBroadcast(intent);
+        mContext.sendBroadcastAsUser(intent,UserHandle.CURRENT);
 
         mUpdateHandler.post(mUpdateProgress);
     }
@@ -532,13 +528,19 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements ItemPrefe
                         pref.setStyle(ItemPreference.STYLE_NEW);
 
                         // We are OK to stop download, trigger it
-                        mDownloadManager.remove(mDownloadId);
+                      //  mDownloadManager.remove(mDownloadId);
+                        Intent intent=new Intent(mContext,DownLoadService.class);
+                        intent.setAction(DownLoadService.ACTION_DOWNLOAD);
+                        intent.putExtra(DownLoadService.DOWNLOAD_TYPE, DownLoadService.PAUSE);
+                        intent.putExtra(DownLoadService.DOWN_URL, pref.getItemInfo().getRom());
+                        
+                        MoKeeApplication.getContext().startServiceAsUser(intent,UserHandle.CURRENT);
                         mUpdateHandler.removeCallbacks(mUpdateProgress);
                         resetDownloadState();
 
                         // Clear the stored data from shared preferences
-                        mPrefs.edit().remove(Constants.DOWNLOAD_ID).remove(Constants.DOWNLOAD_MD5)
-                                .apply();
+                        mPrefs.edit().remove(Constants.EXTRAS_DOWNLOAD_ID)
+                                .remove(Constants.EXTRAS_DOWNLOAD_MD5).apply();
 
                         Toast.makeText(mContext, R.string.download_cancelled, Toast.LENGTH_SHORT)
                                 .show();
