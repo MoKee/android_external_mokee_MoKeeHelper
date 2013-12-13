@@ -202,7 +202,7 @@ public class DownLoadService extends IntentService {
                     DownLoadInfo loadInfo = downloader.getDownLoadInfo();
                     if (loadInfo != null) {
                         if (!notifications.containsKey(downloader.getNotificationID())) {
-                            addNotification(i, "测试广播");
+                            addNotification(i, "系统更新");
                             downloader.setNotificationID(i);
                         }
                         // 调用方法开始下载
