@@ -737,11 +737,16 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Set the preference back to new style
-                        if (Utils.isNewVersion(pref.getItemInfo().getName())) {
-                            pref.setStyle(ItemPreference.STYLE_NEW);
+                        if (!mPrefs.getBoolean(Constants.PREF_ROM_OTA, true)) {
+                            if (Utils.isNewVersion(pref.getItemInfo().getName())) {
+                                pref.setStyle(ItemPreference.STYLE_NEW);
+                            } else {
+                                pref.setStyle(ItemPreference.STYLE_OLD);
+                            }
                         } else {
-                            pref.setStyle(ItemPreference.STYLE_OLD);
+                            pref.setStyle(ItemPreference.STYLE_NEW);
                         }
+                       
                         // We are OK to stop download, trigger it
                         Intent intent = new Intent(mContext, DownLoadService.class);
                         intent.setAction(DownLoadService.ACTION_DOWNLOAD);
