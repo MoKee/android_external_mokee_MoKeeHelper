@@ -19,6 +19,7 @@ package com.mokee.helper.receiver;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import android.app.DownloadManager;
 import android.app.DownloadManager.Query;
@@ -77,6 +78,15 @@ public class DownloadReceiver extends BroadcastReceiver {
             int flag = intent.getIntExtra("flag", 1024);// 标识
             handleDownloadComplete(context, prefs, id, flag);
         } else if (ACTION_INSTALL_UPDATE.equals(action)) {
+            Object sbservice = context.getSystemService("statusbar");
+            try {
+                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
+                Method collapse = statusbarManager.getMethod("collapsePanels");
+                collapse.invoke(sbservice);
+            } catch (Exception e) {
+                Log.e(TAG, "Cannot collapse notification drawer", e);
+            }
+
             String fileName = intent.getStringExtra(EXTRA_FILENAME);
             int flag = intent.getIntExtra("flag", 1024);// 标识
             if(flag ==  Constants.INTENT_FLAG_GET_UPDATE) {
