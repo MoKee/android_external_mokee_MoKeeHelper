@@ -100,6 +100,8 @@ public class DownLoadService extends IntentService {
                     DownLoadDao.getInstance().updataState(url, DownLoader.STATUS_DOWNLOADING);
                     DownLoadInfo loadInfo = downloader.getDownLoadInfo();
                     if (loadInfo != null) {
+                        // 开始下载
+                        downloader.download();
                         if (!notifications.containsKey(downloader.getNotificationID())) {
                             addNotification(
                                     notificationIDBase,
@@ -107,8 +109,6 @@ public class DownLoadService extends IntentService {
                                             : R.string.mokee_extras_title);
                             downloader.setNotificationID(notificationIDBase);
                         }
-                        // 开始下载
-                        downloader.download();
                     }
                     break;
                 case PAUSE:
@@ -185,50 +185,74 @@ public class DownLoadService extends IntentService {
         public boolean handleMessage(Message msg) {
             DownLoader di;
             String url;
+            Intent intent ;
+            DownLoadInfo dli;
             switch (msg.what) {
                 case DownLoader.STATUS_DOWNLOADING:// 更新通知
                     url = (String) msg.obj;
                     di = downloaders.get(url);
                     long time = 0;
-                    try {
-                        long allDownSize;
-                        if (di.downloadedSize != 0)// 除去已緩存
-                        {
-                            allDownSize = di.allDownSize - di.downloadedSize;
-                        } else {
-                            allDownSize = di.allDownSize;
-                        }
-                        long endtDown = System.currentTimeMillis() - di.getStartDown();// 时间
-                        long surplusSize = di.getFileSize() - di.allDownSize;
-                        
-                        if (surplusSize > 0 && allDownSize > 0) {
-                            long speed = (allDownSize / endtDown);
-                            if(speed>0)
+                    if (di!=null) {
+                        try {
+                            long allDownSize;
+                            if (di.downloadedSize != 0)// 除去已緩存
                             {
-                                time = (surplusSize / speed);
+                                allDownSize = di.allDownSize - di.downloadedSize;
+                            } else {
+                                allDownSize = di.allDownSize;
                             }
+                            long endtDown = System.currentTimeMillis() - di.getStartDown();// 时间
+                            long surplusSize = di.getFileSize() - di.allDownSize;
+                            
+                            if (surplusSize > 0 && allDownSize > 0) {
+                                long speed = (allDownSize / endtDown);
+                                if(speed>0)
+                                {
+                                    time = (surplusSize / speed);
+                                }
+                            }
+                            if (di.allDownSize > 0 && di.getFileSize() > 0) {
+                                updateNotification(
+                                        msg.arg2,
+                                        Integer.valueOf(String.valueOf(di.allDownSize * 100
+                                                / di.getFileSize())), time);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        if (di.allDownSize > 0 && di.getFileSize() > 0) {
-                            updateNotification(
-                                    msg.arg2,
-                                    Integer.valueOf(String.valueOf(di.allDownSize * 100
-                                            / di.getFileSize())), time);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    }
+                    break;
+                case DownLoader.STATUS_ERROR:
+                    di = (DownLoader) msg.obj;
+                    url=di.fileUrl;
+                    if (di != null) {
+                        manager.cancel(di.getNotificationID());
+                        notifications.remove(di.getNotificationID());
+                        downloaders.remove(url);
+                    }
+                    DownLoadDao.getInstance().updataState(url, msg.what);
+                    dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
+                    intent = new Intent();
+                    intent.setAction(ACTION_DOWNLOAD_COMPLETE);
+                    intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
+                    intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
+                    sendBroadcastAsUser(intent, UserHandle.CURRENT);
+                    di = null;
+                    if (downloaders.size() == 0) {
+                        stopSelf();
                     }
                     break;
                 default:
                     di = (DownLoader) msg.obj;
                     url=di.fileUrl;
                     if (notifications.containsKey(di.getNotificationID())) {
-                        
                         manager.cancel(di.getNotificationID());
                         notifications.remove(di.getNotificationID());
+                        downloaders.remove(url);
                     }
                     DownLoadDao.getInstance().updataState(url, msg.what);
-                    DownLoadInfo dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
-                    Intent intent = new Intent();
+                    dli = DownLoadDao.getInstance().getDownLoadInfoByUrl(url);
+                    intent = new Intent();
                     intent.setAction(ACTION_DOWNLOAD_COMPLETE);
                     intent.putExtra(DOWNLOAD_ID, Long.valueOf(dli.getDownID()));
                     intent.putExtra(DOWNLOAD_FLAG, dli.getFlag());
