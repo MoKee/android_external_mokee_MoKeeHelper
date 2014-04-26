@@ -194,7 +194,6 @@ public class DownLoader {
     private boolean isFirst(String fileUrl) {
         if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
         {
-            System.out.println("清理未完成线程记录first"+fileUrl);
             ThreadDownLoadDao.getInstance().delete(fileUrl);// 清理未完成线程记录
             return true;
         }
