@@ -136,7 +136,38 @@ public class DownLoadDao {
         }
         return dli;
     }
-
+    /**
+     * getFileName
+     * @param fileName
+     * @return
+     */
+    public synchronized DownLoadInfo getDownLoadInfoByName(String fileName) {
+        SQLiteDatabase database = getConnection();
+        Cursor cursor = null;
+        DownLoadInfo dli = null;
+        try {
+            String sql = "select url, flag, down_id, local_file, file_name, file_size, state from download_info where file_name=?";
+            cursor = database.rawQuery(sql, new String[] {
+                    fileName
+            });
+            while (cursor.moveToNext()) {
+                dli = new DownLoadInfo(cursor.getString(0), cursor.getInt(1), cursor.getString(0),
+                        cursor.getString(2), cursor.getString(3), cursor.getInt(4),
+                        cursor.getInt(5));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (null != database) {
+                database.close();
+            }
+            if (null != cursor) {
+                cursor.close();
+            }
+        }
+        return dli;
+    }
+    
     /**
      * 获取下载信息
      *

@@ -401,6 +401,16 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                     return false;
                 }
             }
+        } else {
+            DownLoadInfo dli = null;
+            if(dir.getName().endsWith(".partial")) {
+                 dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName());
+            } else {
+                 dli = DownLoadDao.getInstance().getDownLoadInfoByName(dir.getName()+".partial");
+            }
+          if(dli != null) {
+              ThreadDownLoadDao.getInstance().delete(dli.getUrl());
+          }
         }
         // The directory is now empty so delete it
         return dir.delete();
