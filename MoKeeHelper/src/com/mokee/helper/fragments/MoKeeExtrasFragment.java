@@ -279,17 +279,23 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
             boolean isZip = ui.getName().endsWith(".zip");
             boolean isApk = ui.getName().endsWith(".apk");
             boolean isInstall = false;
+            boolean isExtrasUpdate = false;
             boolean isGMS = ui.getName().contains("gapps");
             if (isZip || isApk) {
                 isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
                 if (isGMS && isInstall) {
                     isInstall = MoKeeUtils.isSystemApp(ui.getCheckflag(), getActivity());
+                    if (isInstall) {
+                        isExtrasUpdate = Utils.checkGmsVersion(ui.getName());
+                    }
                 }
             }
             int style = 3;
             if (isDownloading) {
                 // In progress download
                 style = ItemPreference.STYLE_DOWNLOADING;
+            } else if (isExtrasUpdate) {
+                style = ItemPreference.STYLE_EXTRAS_UPDATE;
             } else if (isInstall) {
                 // This is the currently installed version
                 style = ItemPreference.STYLE_INSTALLED;

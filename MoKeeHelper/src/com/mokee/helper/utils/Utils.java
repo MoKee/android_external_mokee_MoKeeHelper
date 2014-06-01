@@ -17,7 +17,9 @@
 
 package com.mokee.helper.utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
@@ -342,6 +344,29 @@ public class Utils {
             prefFragment.findPreference(preference).setSummary(
                     prefFragment.getActivity().getString(R.string.mokee_info_default));
         }
+    }
+
+    public static boolean checkGmsVersion(String version) {
+        String line = null;
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(new FileReader("/system/etc/gprop.mokee"), 512);
+            line = reader.readLine();
+
+            return (!line.equals(version));
+        } catch (IOException e) {
+            return true;
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                // ignored, not much we can do anyway
+            }
+        }
+
     }
 
 }
