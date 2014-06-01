@@ -49,6 +49,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
     public static final int STYLE_DOWNLOADED = 3;
     public static final int STYLE_INSTALLED = 4;
     public static final int STYLE_EXTRAS_NEW = 5;
+    public static final int STYLE_EXTRAS_UPDATE = 6;
     public static final int STYLE_OLD = 0;// 旧版本
 
     public interface OnActionListener {
@@ -93,12 +94,9 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                     mOnActionListener.onStopDownload(ItemPreference.this);
                     break;
                 case STYLE_NEW:
-                    mOnActionListener.onStartDownload(ItemPreference.this);
-                    break;
                 case STYLE_OLD:
-                    mOnActionListener.onStartDownload(ItemPreference.this);
-                    break;
                 case STYLE_EXTRAS_NEW:
+                case STYLE_EXTRAS_UPDATE
                     mOnActionListener.onStartDownload(ItemPreference.this);
                     break;
             }
@@ -148,6 +146,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             case STYLE_DOWNLOADING:
             case STYLE_NEW:
             case STYLE_EXTRAS_NEW:
+            case STYLE_EXTRAS_UPDATE;
             case STYLE_OLD:
             default:
                 // Do nothing for now
@@ -293,7 +292,11 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_UPDATE);
             } else {
                 mTitleText.setText(mItemInfo.getDescription());
-                mSummaryText.setText(mItemInfo.getName());
+                if (mStyle == STYLE_EXTRAS_UPDATE) {
+                    mSummaryText.setText(mItemInfo.getName() + " (" + R.string.new_update_summary + ")");
+                } else {
+                    mSummaryText.setText(mItemInfo.getName());
+                }
                 mUpdatesPref.setTag(Constants.INTENT_FLAG_GET_EXTRAS);
             }
             mFileSizeText.setText(mItemInfo.getLength()!=null?MoKeeUtils.formatFileSize(Long.valueOf(mItemInfo.getLength())):"");
@@ -340,6 +343,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
                 mProgressBar.setVisibility(View.GONE);
                 break;
             case STYLE_EXTRAS_NEW:
+            case STYLE_EXTRAS_UPDATE:
                 mUpdatesButton.setImageResource(R.drawable.ic_tab_download);
                 mUpdatesButton.setEnabled(true);
                 mSummaryText.setVisibility(View.VISIBLE);
