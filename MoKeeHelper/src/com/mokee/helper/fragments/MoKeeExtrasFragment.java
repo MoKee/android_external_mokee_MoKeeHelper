@@ -284,6 +284,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
                 isInstall = MoKeeUtils.isApkInstalled(ui.getCheckflag(), getActivity());
                 if (isGMS && isInstall) {
                     isInstall = MoKeeUtils.isSystemApp(ui.getCheckflag(), getActivity());
+                    if (isInstall) {
+                        isInstall = Utils.checkGmsVersion(ui.getName());
+                    }
                 }
             }
             int style = 3;
