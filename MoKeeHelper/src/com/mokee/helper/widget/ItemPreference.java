@@ -293,7 +293,7 @@ public class ItemPreference extends Preference implements OnClickListener, OnLon
             } else {
                 mTitleText.setText(mItemInfo.getDescription());
                 if (mStyle == STYLE_EXTRAS_UPDATE) {
-                    mSummaryText.setText(mItemInfo.getName() + " (" + getContext().getString(R.string.new_update_summary) + ")");
+                    mSummaryText.setText(mItemInfo.getName() + "\n(" + getContext().getString(R.string.new_update_summary) + ")");
                 } else {
                     mSummaryText.setText(mItemInfo.getName());
                 }
