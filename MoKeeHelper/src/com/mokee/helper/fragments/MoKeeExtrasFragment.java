@@ -335,13 +335,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         if (mProgressDialog != null) {
             return;
         }
-
+        State.saveMKState(MoKeeApplication.getContext(), new LinkedList<ItemInfo>(), State.EXTRAS_FILENAME);
+        refreshExtrasPreferences(new LinkedList<ItemInfo>());
         // If there is no internet connection, display a message and return.
         if (!MoKeeUtils.isOnline(mContext)) {
             Toast.makeText(mContext, R.string.data_connection_required, Toast.LENGTH_SHORT).show();
             return;
         }
-        for (File file: mContext.getCacheDir().listFiles()) file.delete();
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setTitle(R.string.mokee_extras_title);
         mProgressDialog.setMessage(getString(R.string.checking_for_extras));
