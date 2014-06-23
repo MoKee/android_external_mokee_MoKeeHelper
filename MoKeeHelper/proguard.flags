@@ -1,2 +1,6 @@
 -dontwarn com.baidu.**
 -keep class com.baidu.** { *;}
+-dontwarn io.card.**
+-keep class io.card.** { *;}
+-dontwarn com.paypal.**
+-keep class com.paypal.** { *;}

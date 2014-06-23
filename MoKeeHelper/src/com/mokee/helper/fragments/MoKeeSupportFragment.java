@@ -17,16 +17,23 @@
 
 package com.mokee.helper.fragments;
 
-import com.mokee.helper.R;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+import com.mokee.helper.R;
+import com.mokee.helper.activities.MoKeeCenter;
 
 public class MoKeeSupportFragment extends PreferenceFragment {
+
+    private static final int MENU_DONATE = 0;
 
     private static final String KEY_MOKEE_WEBSITE = "mokee_website";
     private static final String KEY_MOKEE_FORUM = "mokee_forum";
@@ -47,12 +54,15 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String URL_MOKEE_GITHUB = "https://github.com/MoKee";
     private static final String URL_MOKEE_WIKI = "http://wiki.mfunz.com";
     private static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
+    
+    private Activity mContext;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-
+        mContext = getActivity();
         addPreferencesFromResource(R.xml.mokee_support);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -85,4 +95,24 @@ public class MoKeeSupportFragment extends PreferenceFragment {
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_DONATE, 0 ,R.string.menu_donate).setShowAsActionFlags(
+                MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_DONATE:
+                MoKeeCenter.donateButton(mContext);
+                return true;
+            case android.R.id.home:
+                mContext.onBackPressed();
+                return true;
+        }
+        return true;
+    }
+
 }

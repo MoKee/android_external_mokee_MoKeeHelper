@@ -94,6 +94,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
 
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
+    private static final int MENU_DONATE = 2;
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -146,11 +147,13 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         final ActionBar bar = mContext.getActionBar();
         bar.setDisplayHomeAsUpEnabled(true);
-        this.setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_DONATE, 0 ,R.string.menu_donate).setShowAsActionFlags(
+                MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         menu.add(0, MENU_REFRESH, 0, R.string.menu_refresh)
                 .setIcon(R.drawable.ic_menu_refresh)
                 .setShowAsActionFlags(
@@ -163,6 +166,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_DONATE:
+                MoKeeCenter.donateButton(mContext);
+                return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_EXTRAS);
                 return true;

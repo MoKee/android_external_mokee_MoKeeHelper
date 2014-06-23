@@ -36,6 +36,13 @@
     <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
 
+    <!-- for card.io card scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_mokee_helper"
@@ -104,6 +111,19 @@
                 <action android:name="com.mokee.mkupdater.action.UPDATE_CHECK_FINISHED" />
             </intent-filter>
         </receiver>
+
+        <service android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+        
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+
     </application>
 
 </manifest>

@@ -69,9 +69,18 @@
     <string name="available_updates_title">可用更新</string>
 
     <!-- Menu -->
+    <string name="menu_donate">捐赠</string>
     <string name="menu_refresh">刷新</string>
     <string name="menu_delete">删除</string>
     <string name="menu_delete_all">删除下载</string>
+
+    <!-- Donate -->
+    <string name="donate_dialog_title">捐赠我们</string>
+    <string name="donate_dialog_message">魔趣是一个非营利性的民间开源项目，我们因兴趣爱好而做我们觉得有意义的事情，您力所能及的帮助将减轻我们运营该项目的压力。</string>
+    <string name="donate_dialog_from_paypal">通过PayPal捐赠</string>
+    <string name="donate_money_toast_error">请输入大于 1 的整数。</string>
+    <string name="donate_money_toast_success">感谢您的捐赠！</string>
+    <string name="donate_money_description">捐赠魔趣开源项目</string>
 
     <!-- Update -->
     <string name="unknown">未知</string>
@@ -170,7 +179,7 @@
     <string name="extras_unsupported_toast">您当前的版本暂时不支持此种扩展</string>
 
     <!-- experimenter mode -->
-    <string name="show_exp_on" msgid="1110711554982716293">您现在处于测试者模式！</string>
-    <string name="show_exp_already" msgid="2151632240145446227">您已处于测试者模式，无需进行此操作。</string>
+    <string name="show_exp_on">您现在处于测试者模式！</string>
+    <string name="show_exp_already">您已处于测试者模式，无需进行此操作。</string>
 
 </resources>

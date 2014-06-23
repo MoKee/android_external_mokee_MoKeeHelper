@@ -69,9 +69,19 @@
     <string name="available_updates_title">Available updates</string>
 
     <!-- Menu -->
+    <string name="menu_donate">Donate</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_delete">Delete</string>
     <string name="menu_delete_all">Delete download</string>
+
+    <!-- Donate -->
+    <string name="donate_dialog_title">Donate to us</string>
+    <string name="donate_dialog_message">MoKee OpenSource is a non-profit organization. Your help can help reduce our load on server costs and sustain future development!</string>
+    <string name="donate_dialog_from_paypal">Donate via PayPal</string>
+    <string name="donate_money_total" translatable="false">USD$</string>
+    <string name="donate_money_toast_error">Minimum value is 1</string>
+    <string name="donate_money_toast_success">Thank you for your donation!</string>
+    <string name="donate_money_description">Support MoKee OpenSource</string>
 
     <!-- Update -->
     <string name="unknown">Unknown</string>
