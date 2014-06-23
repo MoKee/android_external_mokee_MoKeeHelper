@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.DecimalFormat;
 
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -40,9 +39,7 @@ import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.text.format.DateUtils;
 
-import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;

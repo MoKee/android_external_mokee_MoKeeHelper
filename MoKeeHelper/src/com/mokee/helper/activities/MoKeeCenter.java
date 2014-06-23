@@ -17,6 +17,8 @@
 
 package com.mokee.helper.activities;
 
+import org.json.JSONException;
+
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
 import com.mokee.helper.fragments.MoKeeSupportFragment;
@@ -24,13 +26,27 @@ import com.mokee.helper.fragments.MoKeeUpdaterFragment;
 import com.mokee.helper.fragments.MoKeeExtrasFragment;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.service.UpdateCheckService;
+import com.mokee.helper.utils.PayPal;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MoKeeCenter extends FragmentActivity {
 
@@ -68,6 +84,11 @@ public class MoKeeCenter extends FragmentActivity {
         bar.setSelectedNavigationItem(1);
         // Turn on the Options Menu
         invalidateOptionsMenu();
+
+        //Start service when create
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
+        startService(intent);
     }
 
     @Override
@@ -114,4 +135,61 @@ public class MoKeeCenter extends FragmentActivity {
         send.putExtra("flag", intent.getIntExtra("flag", Constants.INTENT_FLAG_GET_UPDATE));
         sendBroadcast(send);
     }
+
+    public static void donateButton(final Activity mContext) {
+        LayoutInflater inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View donateView = inflater.inflate(R.layout.donate, null);
+        final EditText mEditText = (EditText)donateView.findViewById(R.id.money_total);
+        new AlertDialog.Builder(mContext).setTitle(R.string.donate_dialog_title)
+                .setMessage(R.string.donate_dialog_message).setView(donateView)
+                .setPositiveButton(R.string.donate_dialog_from_paypal, new DialogInterface.OnClickListener() {
+                    
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String total = mEditText.getText().toString().trim();
+                        if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
+                            Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
+                        } else {
+                            PayPal.onPayPalDonatePressed(mContext, total, mContext.getString(R.string.donate_money_description));                            
+                        }
+                    }
+                }).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PayPal.REQUEST_CODE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                PaymentConfirmation confirm =
+                        data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (confirm != null) {
+                    try {
+                        Log.i(PayPal.TAG, confirm.toJSONObject().toString(4));
+                        Log.i(PayPal.TAG, confirm.getPayment().toJSONObject().toString(4));
+                        Toast.makeText(
+                                getApplicationContext(),
+                                R.string.donate_money_toast_success, Toast.LENGTH_LONG)
+                                .show();
+
+                    } catch (JSONException e) {
+                        Log.e(PayPal.TAG, "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i(PayPal.TAG, "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(
+                        PayPal.TAG,
+                        "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        // Stop service when done
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
+    }
+
 }
