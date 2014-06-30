@@ -23,6 +23,7 @@ import com.mokee.helper.activities.MoKeeCenter;
 import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
+import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.utils.DownLoader;
 import com.mokee.helper.utils.Utils;
 import com.mokee.helper.MoKeeApplication;
@@ -135,9 +136,8 @@ public class DownLoadService extends IntentService {
         builder.setContentText(getString(R.string.download_running));
         builder.setSmallIcon(android.R.drawable.stat_sys_download);
         /* 设置点击消息时，显示的界面 */
-        Intent nextIntent = new Intent();
+        Intent nextIntent = new Intent(DownloadReceiver.ACTION_NOTIFICATION_CLICKED);
         nextIntent.putExtra("flag", flag);
-        nextIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
         TaskStackBuilder task = TaskStackBuilder.create(this);
         task.addNextIntent(nextIntent);
         PendingIntent pengdingIntent = task.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);

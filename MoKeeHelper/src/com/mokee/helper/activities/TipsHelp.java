@@ -34,5 +34,4 @@ public class TipsHelp extends Activity {
         startActivity(intent);
         finish();
     }
-
 }
