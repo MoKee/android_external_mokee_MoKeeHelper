@@ -20,9 +20,6 @@ package com.mokee.helper.receiver;
 import java.io.File;
 import java.io.IOException;
 
-import android.app.DownloadManager;
-import android.app.DownloadManager.Query;
-import android.app.DownloadManager.Request;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -31,11 +28,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.UserHandle;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -58,8 +53,8 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     public static final String ACTION_START_DOWNLOAD = "com.mokee.mkupdater.action.START_DOWNLOAD";
     public static final String EXTRA_UPDATE_INFO = "update_info";
-
     public static final String ACTION_DOWNLOAD_STARTED = "com.mokee.mkupdater.action.DOWNLOAD_STARTED";
+    public static final String ACTION_NOTIFICATION_CLICKED = "com.mokee.mkupdater.action.NOTIFICATION_CLICKED";
 
     private static final String ACTION_INSTALL_UPDATE = "com.mokee.mkupdater.action.INSTALL_UPDATE";
     private static final String EXTRA_FILENAME = "filename";
@@ -193,11 +188,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
                 status = dli.getState();
-                updateIntent = new Intent();
-                updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                updateIntent = new Intent(ACTION_NOTIFICATION_CLICKED);
                 updateIntent.putExtra("flag", flag);
 
                 if (status == DownLoader.STATUS_COMPLETE) {
@@ -246,7 +237,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     if (failureMessageResId >= 0) {
                         Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
                     } else {
-                        context.startActivity(updateIntent);
+                        context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT);
                     }
                 } else {
                     // Get the notification ready
@@ -303,11 +294,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
                 status = dli.getState();
-                updateIntent = new Intent();
-                updateIntent.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
-                updateIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                        | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                updateIntent = new Intent(ACTION_NOTIFICATION_CLICKED);
                 updateIntent.putExtra("flag", flag);
 
                 if (status == DownLoader.STATUS_COMPLETE) {
@@ -358,7 +345,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                     if (failureMessageResId >= 0) {
                         Toast.makeText(context, failureMessageResId, Toast.LENGTH_LONG).show();
                     } else {
-                        context.startActivity(updateIntent);
+                        context.sendBroadcastAsUser(updateIntent, UserHandle.CURRENT);
                     }
                 } else {
                     // Get the notification ready

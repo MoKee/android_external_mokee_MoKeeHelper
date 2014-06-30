@@ -17,19 +17,20 @@
 
 package com.mokee.helper.receiver;
 
-import com.mokee.helper.activities.MoKeeCenter;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+
+import com.mokee.helper.activities.MoKeeCenter;
 
 public class NotificationClickReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-
         // Bring the main app to the foreground
-        Intent i = new Intent();
-        i.setAction(MoKeeCenter.ACTION_MOKEE_CENTER);
+        Bundle extras = intent.getExtras();
+        Intent i = new Intent(MoKeeCenter.ACTION_MOKEE_CENTER);
+        i.putExtras(extras);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         context.startActivity(i);
