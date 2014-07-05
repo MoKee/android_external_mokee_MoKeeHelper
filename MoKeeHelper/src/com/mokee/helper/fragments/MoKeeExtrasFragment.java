@@ -23,6 +23,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.mokee.util.MoKeeUtils;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,8 +53,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import org.mokee.util.MoKeeUtils;
-
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
@@ -60,8 +60,8 @@ import com.mokee.helper.db.DownLoadDao;
 import com.mokee.helper.db.ThreadDownLoadDao;
 import com.mokee.helper.misc.Constants;
 import com.mokee.helper.misc.DownLoadInfo;
-import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ItemInfo;
+import com.mokee.helper.misc.State;
 import com.mokee.helper.misc.ThreadDownLoadInfo;
 import com.mokee.helper.receiver.DownloadReceiver;
 import com.mokee.helper.service.DownLoadService;
@@ -165,7 +165,9 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(mContext);
+                if (!MoKeeCenter.donateButton(mContext)) {
+                    MoKeeSupportFragment.goToURL(mContext, MoKeeSupportFragment.URL_MOKEE_DONATE);
+                }
                 return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_EXTRAS);
