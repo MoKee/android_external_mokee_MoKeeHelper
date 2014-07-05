@@ -106,7 +106,9 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(mContext);
+                if (!MoKeeCenter.donateButton(mContext)) {
+                    goToURL(URL_MOKEE_DONATE);
+                }
                 return true;
             case android.R.id.home:
                 mContext.onBackPressed();

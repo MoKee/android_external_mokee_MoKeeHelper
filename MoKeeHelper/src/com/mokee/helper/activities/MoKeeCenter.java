@@ -58,6 +58,7 @@ public class MoKeeCenter extends FragmentActivity {
     private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
+    private static boolean initialized = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +88,13 @@ public class MoKeeCenter extends FragmentActivity {
         invalidateOptionsMenu();
 
         //Start service when create
-        Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
-        startServiceAsUser(intent,UserHandle.CURRENT);
+        if (getResources().getBoolean(R.bool.use_paypal)) {
+            Intent intent = new Intent(this, PayPalService.class);
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
+            startServiceAsUser(intent,UserHandle.CURRENT);
+        } else {
+            initialized = false;
+        }
     }
 
     @Override
@@ -137,51 +142,58 @@ public class MoKeeCenter extends FragmentActivity {
         sendBroadcastAsUser(send, UserHandle.CURRENT);
     }
 
-    public static void donateButton(final Activity mContext) {
-        LayoutInflater inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View donateView = inflater.inflate(R.layout.donate, null);
-        final EditText mEditText = (EditText)donateView.findViewById(R.id.money_total);
-        new AlertDialog.Builder(mContext).setTitle(R.string.donate_dialog_title)
-                .setMessage(R.string.donate_dialog_message).setView(donateView)
-                .setPositiveButton(R.string.donate_dialog_from_paypal, new DialogInterface.OnClickListener() {
-                    
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String total = mEditText.getText().toString().trim();
-                        if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
-                            Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
-                        } else {
-                            PayPal.onPayPalDonatePressed(mContext, total, mContext.getString(R.string.donate_money_description));                            
+    public static boolean donateButton(final Activity mContext) {
+        if (initialized) {
+            LayoutInflater inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View donateView = inflater.inflate(R.layout.donate, null);
+            final EditText mEditText = (EditText)donateView.findViewById(R.id.money_total);
+            new AlertDialog.Builder(mContext).setTitle(R.string.donate_dialog_title)
+                    .setMessage(R.string.donate_dialog_message).setView(donateView)
+                    .setPositiveButton(R.string.donate_dialog_from_paypal, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String total = mEditText.getText().toString().trim();
+                            if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
+                                Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
+                            } else {
+                                PayPal.onPayPalDonatePressed(mContext, total, mContext.getString(R.string.donate_money_description));
+                            }
                         }
-                    }
-                }).show();
+                    }).show();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PayPal.REQUEST_CODE_PAYMENT) {
-            if (resultCode == Activity.RESULT_OK) {
-                PaymentConfirmation confirm =
-                        data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
-                if (confirm != null) {
-                    try {
-                        Log.i(PayPal.TAG, confirm.toJSONObject().toString(4));
-                        Log.i(PayPal.TAG, confirm.getPayment().toJSONObject().toString(4));
-                        Toast.makeText(
-                                getApplicationContext(),
-                                R.string.donate_money_toast_success, Toast.LENGTH_LONG)
-                                .show();
+        if (initialized) {
+            if (requestCode == PayPal.REQUEST_CODE_PAYMENT) {
+                if (resultCode == Activity.RESULT_OK) {
+                    PaymentConfirmation confirm =
+                            data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                    if (confirm != null) {
+                        try {
+                            Log.i(PayPal.TAG, confirm.toJSONObject().toString(4));
+                            Log.i(PayPal.TAG, confirm.getPayment().toJSONObject().toString(4));
+                            Toast.makeText(
+                                    getApplicationContext(),
+                                    R.string.donate_money_toast_success, Toast.LENGTH_LONG)
+                                    .show();
 
-                    } catch (JSONException e) {
-                        Log.e(PayPal.TAG, "an extremely unlikely failure occurred: ", e);
+                        } catch (JSONException e) {
+                            Log.e(PayPal.TAG, "an extremely unlikely failure occurred: ", e);
+                        }
                     }
+                } else if (resultCode == Activity.RESULT_CANCELED) {
+                    Log.i(PayPal.TAG, "The user canceled.");
+                } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                    Log.i(
+                            PayPal.TAG,
+                            "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
                 }
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                Log.i(PayPal.TAG, "The user canceled.");
-            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
-                Log.i(
-                        PayPal.TAG,
-                        "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
             }
         }
     }
@@ -189,7 +201,9 @@ public class MoKeeCenter extends FragmentActivity {
     @Override
     public void onDestroy() {
         // Stop service when done
-        stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
-        super.onDestroy();
+        if (initialized) {
+            stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
+            super.onDestroy();
+        }
     }
 }
