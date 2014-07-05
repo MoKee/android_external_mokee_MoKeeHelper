@@ -36,6 +36,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -86,6 +87,7 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     private static final String KEY_MOKEE_VERSION = "mokee_version";
     private static final String KEY_MOKEE_VERSION_TYPE = "mokee_version_type";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
+    private static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
 
     private boolean mDownloading = false;
     private long mDownloadId;
@@ -319,7 +321,11 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(mContext);
+                if (!MoKeeCenter.donateButton(mContext)) {
+                    Uri uri = Uri.parse(URL_MOKEE_DONATE);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
                 return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_UPDATE);
