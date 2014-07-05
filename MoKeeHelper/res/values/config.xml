@@ -25,5 +25,6 @@
     <string name="tips_help_url" translatable="false">http://bbs.mfunz.com/thread-937699-1-1.html</string>
 
     <bool name="alternateIsInternal">false</bool>
+    <bool name="use_paypal">true</bool>
 
 </resources>
