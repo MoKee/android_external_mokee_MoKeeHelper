@@ -58,6 +58,7 @@ public class MoKeeCenter extends FragmentActivity {
     private ActionBar bar;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
+    private static boolean initialized = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +87,14 @@ public class MoKeeCenter extends FragmentActivity {
         // Turn on the Options Menu
         invalidateOptionsMenu();
 
-        //Start service when create
-        Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
-        startServiceAsUser(intent,UserHandle.CURRENT);
+        // Start service when create
+        try {
+            Intent intent = new Intent(this, PayPalService.class);
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, PayPal.config);
+            startServiceAsUser(intent, UserHandle.CURRENT);
+        } catch (Exception e) {
+            initialized = false;
+        }
     }
 
     @Override
@@ -137,24 +142,35 @@ public class MoKeeCenter extends FragmentActivity {
         sendBroadcastAsUser(send, UserHandle.CURRENT);
     }
 
-    public static void donateButton(final Activity mContext) {
-        LayoutInflater inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View donateView = inflater.inflate(R.layout.donate, null);
-        final EditText mEditText = (EditText)donateView.findViewById(R.id.money_total);
-        new AlertDialog.Builder(mContext).setTitle(R.string.donate_dialog_title)
-                .setMessage(R.string.donate_dialog_message).setView(donateView)
-                .setPositiveButton(R.string.donate_dialog_from_paypal, new DialogInterface.OnClickListener() {
-                    
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String total = mEditText.getText().toString().trim();
-                        if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
-                            Toast.makeText(mContext, R.string.donate_money_toast_error, Toast.LENGTH_SHORT).show();
-                        } else {
-                            PayPal.onPayPalDonatePressed(mContext, total, mContext.getString(R.string.donate_money_description));                            
-                        }
-                    }
-                }).show();
+    public static boolean donateButton(final Activity mContext) {
+        if (initialized) {
+            LayoutInflater inflater = (LayoutInflater) mContext
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View donateView = inflater.inflate(R.layout.donate, null);
+            final EditText mEditText = (EditText) donateView.findViewById(R.id.money_total);
+            new AlertDialog.Builder(mContext)
+                    .setTitle(R.string.donate_dialog_title)
+                    .setMessage(R.string.donate_dialog_message)
+                    .setView(donateView)
+                    .setPositiveButton(R.string.donate_dialog_from_paypal,
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String total = mEditText.getText().toString().trim();
+                                    if (TextUtils.isEmpty(total) || Integer.valueOf(total) == 0) {
+                                        Toast.makeText(mContext, R.string.donate_money_toast_error,
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        PayPal.onPayPalDonatePressed(mContext, total, mContext
+                                                .getString(R.string.donate_money_description));
+                                    }
+                                }
+                            }).show();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -189,7 +205,9 @@ public class MoKeeCenter extends FragmentActivity {
     @Override
     public void onDestroy() {
         // Stop service when done
-        stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
-        super.onDestroy();
+        if (initialized) {
+            stopServiceAsUser(new Intent(this, PayPalService.class), UserHandle.CURRENT);
+            super.onDestroy();
+        }
     }
 }
