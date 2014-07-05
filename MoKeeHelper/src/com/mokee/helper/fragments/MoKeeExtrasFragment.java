@@ -75,6 +75,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
         ItemPreference.OnReadyListener, ItemPreference.OnActionListener {
     private static String TAG = "MoKeeExtrasFragment";
     private static final String KEY_MOKEE_LAST_CHECK = "mokee_last_check";
+    private static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
 
     private boolean mDownloading = false;
     private long mDownloadId;
@@ -165,7 +166,11 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_DONATE:
-                MoKeeCenter.donateButton(mContext);
+                if (!MoKeeCenter.donateButton(mContext)) {
+                    Uri uri = Uri.parse(URL_MOKEE_DONATE);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
                 return true;
             case MENU_REFRESH:
                 checkForUpdates(Constants.INTENT_FLAG_GET_EXTRAS);
