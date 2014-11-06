@@ -120,15 +120,15 @@
   <string name="md5_verification_failed">MD5 checksum mismatch</string>
   <string name="not_extras_download_success">Extras downloaded successfully</string>
   <string name="not_extras_download_failure">Extras download was unsuccessful</string>
-  <string name="not_extras_download_install_notice">The extras <xliff:g id = "filename" >%s</xliff:g> was successfully downloaded. When touching \' Reboot and install \', the device will restart itself to install the extras. \n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
-  <string name="not_extras_download_install_notice_apk">The extras <xliff:g id = "filename" >%s</xliff:g> was successfully downloaded.</string>
+  <string name="not_extras_download_install_notice">The extras <xliff:g id="filename">%s</xliff:g> was successfully downloaded. When touching \' Reboot and install \', the device will restart itself to install the extras. \n\nNote: A compatible Recovery is required for the installation to work automatically.</string>
+  <string name="not_extras_download_install_notice_apk">The extras <xliff: g id = "filename" >%s</xliff: g> was successfully downloaded.</string>
   <string name="not_apk_action_install_update">Install</string>
   <string name="confirm_delete_dialog_title">Delete file</string>
   <string name="confirm_delete_updates_dialog_message">Delete the selected update file?</string>
   <string name="confirm_delete_updates_all_dialog_message">Delete all downloaded update files?</string>
   <string name="confirm_delete_extras_dialog_message">Delete the selected extras file?</string>
   <string name="confirm_delete_extras_all_dialog_message">Delete all downloaded extras files?</string>
-  <string name="delete_single_update_success_message">Update <xliff:g id = "filename" >%s</xliff:g> deleted</string>
+  <string name="delete_single_update_success_message">Update <xliff: g id = "filename" >%s</xliff: g> deleted</string>
   <string name="delete_updates_failure_message">There was an error deleting the update file</string>
   <string name="delete_updates_noFolder_message">Update folder not found</string>
   <string name="delete_updates_success_message">All downloaded updates deleted</string>
@@ -143,9 +143,9 @@
   <string name="pref_check_ota">OTA updates</string>
   <string name="pref_check_ota_summary">Get OTA updates</string>
   <string name="apply_update_dialog_title">Apply update</string>
-  <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id = "filename" >%s</xliff:g>. \n\nIf you press Update, the device will restart itself in recovery mode to install the update. \n \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
+  <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>. \n\nIf you press Update, the device will restart itself in recovery mode to install the update. \n \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
   <string name="apply_extras_dialog_title">Install extra</string>
-  <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id = "filename" >%s</xliff:g>?</string>
+  <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id="filename">%s</xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Unable to reboot into recovery</string>
   <string name="extras_unsupported_toast">Your current version does not support this extension</string>
   <string name="show_exp_on">You have enabled experimental settings!</string>
