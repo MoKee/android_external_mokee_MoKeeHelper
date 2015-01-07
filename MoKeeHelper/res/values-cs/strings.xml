@@ -45,13 +45,13 @@
   <string name="mokee_version_type_title">Typ verze</string>
   <string name="mokee_last_check_title">Poslední kontrola</string>
   <string name="mokee_last_check_never">Nikdy</string>
-  <string name="mokee_extras_info_title">Extras</string>
-  <string name="mokee_info_default">Neznámý</string>
-  <string name="mokee_version_type_release">Vydání</string>
-  <string name="mokee_version_type_history">Historie</string>
-  <string name="mokee_version_type_experimental">Experimentální</string>
+  <string name="mokee_extras_info_title">Info o doplňcích</string>
+  <string name="mokee_info_default">Neznámá</string>
+  <string name="mokee_version_type_release">Release</string>
+  <string name="mokee_version_type_history">History</string>
+  <string name="mokee_version_type_experimental">Experimental</string>
   <string name="mokee_version_type_nightly">Nightly</string>
-  <string name="mokee_version_type_unofficial">Neoficiální</string>
+  <string name="mokee_version_type_unofficial">Unofficial</string>
   <string name="mokee_version_type_all">Vše</string>
   <string name="downloaded_update_summary"> Staženo</string>
   <string name="installed_update_summary">Nainstalované</string>
@@ -68,7 +68,7 @@
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>
-  <string name="unknown">Neznámé</string>
+  <string name="unknown">Neznámá</string>
   <string name="dialog_update">Aktualizovat</string>
   <string name="dialog_install">Instalovat</string>
   <string name="dialog_ok">OK</string>
@@ -117,13 +117,13 @@
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>
   <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
-  <string name="not_download_install_notice_with_xposed">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.\n\nUpozornění: Zjistili jsme, že jste použili Xposed modul, který může měnit systémové soubory. Pokud se aktualizace nezdaří, stáhněte si kompletní balíček pro aktualizaci systému</string>
+  <string name="not_download_install_notice_with_xposed">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stáhnuta. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.\n\nUpozornění: Zjistili jsme, že jste použili Xposed modul, který může měnit systémové soubory. Pokud se aktualizace nezdaří, stáhněte si kompletní balíček pro aktualizaci systému.</string>
   <string name="md5_verification_failed">MD5 součet nesedí</string>
   <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
   <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
   <string name="not_extras_download_install_notice">Doplněk <xliff:g id="filename">%s</xliff:g> byl úspěšně stáhnut. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace doplňku.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
   <string name="not_extras_download_install_notice_apk">Doplněk <xliff:g id="filename">%s</xliff:g> byl úspěšně stáhnut.</string>
-  <string name="not_apk_action_install_update">Nainstalovat</string>
+  <string name="not_apk_action_install_update">Instalovat</string>
   <string name="confirm_delete_dialog_title">Smazat soubor</string>
   <string name="confirm_delete_updates_dialog_message">Smazat vybraný soubor aktualizace?</string>
   <string name="confirm_delete_updates_all_dialog_message">Smazat všechny stažené soubory aktualizací?</string>
@@ -146,9 +146,11 @@
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
   <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
   <string name="apply_extras_dialog_title">Instalovat doplňek</string>
-  <string name="apply_extras_dialog_text">Jste si jistí, že chcete nainstalovat <xliff:g id="filename"> %s </xliff:g>?</string>
+  <string name="apply_extras_dialog_text">Jste si jistí, že chcete nainstalovat <xliff:g id="filename"> %s </xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Nelze restartovat do režimu recovery</string>
   <string name="extras_unsupported_toast">Vaše současná verze nepodporuje toto rozšíření</string>
   <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
   <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
+  <string name="mokee_push_newversion_title">Byla nalezena nová verze MoKee OpenSource</string>
+  <string name="mokee_push_newversion_msg">Nová verze je k dispozici, klepněte pro zobrazení podrobností!</string>
 </resources>
