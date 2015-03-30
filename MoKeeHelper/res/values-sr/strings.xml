@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Дошло је до грешке приликом брисања додатака</string>
   <string name="delete_extras_noFolder_message">Фасцикла додатака није пронађена</string>
   <string name="delete_extras_success_message">Сви преузети додаци су избрисани</string>
-  <string name="pref_ota_check">ОТА надоградње</string>
-  <string name="pref_ota_check_summary">Преузми ОТА надоградње</string>
   <string name="apply_update_dialog_title">Примени надоградње</string>
   <string name="apply_update_dialog_text">Надоградња на <xliff:g id="filename">%s</xliff:g>.\n\nАко притиснеш Ажурирај, уређај ће се поново покренути у \'Опоравак\' да инсталира ажурирање.\n\nНапомена: Ова функција захтева компатибилни \'Опоравак\' или ћеш морати ажурирање да инсталираш ручно.</string>
   <string name="apply_extras_dialog_title">Инсталација додатака</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Ваша верзија не подржава овај додатак</string>
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
-  <string name="mokee_push_newversion_title">Доступна је нова верзија MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Нова верзија је спремна, кликните за преглед!</string>
 </resources>

@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Fehler beim Löschen der Update-Datei</string>
   <string name="delete_extras_noFolder_message">Ordner \"Extras\" nicht gefunden</string>
   <string name="delete_extras_success_message">Alle heruntergeladenen Extras gelöscht</string>
-  <string name="pref_ota_check">OTA-Updates</string>
-  <string name="pref_ota_check_summary">OTA-Updates erhalten</string>
   <string name="apply_update_dialog_title">Update installieren</string>
   <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
   <string name="apply_extras_dialog_title">Extras installieren</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Die aktuelle Version unterstützt dieser Erweiterung nicht</string>
   <string name="show_exp_on">Experimentelle Einstellungen aktiviert!</string>
   <string name="show_exp_already">Nicht nötig, experimentelle Einstellungen bereits aktiviert.</string>
-  <string name="mokee_push_newversion_title">Neue Version von MoKee OpenSource gefunden</string>
-  <string name="mokee_push_newversion_msg">Eine neue Version steht bereit, klicken Sie hier für Details.</string>
 </resources>

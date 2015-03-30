@@ -83,10 +83,7 @@
   <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> was deleted</string>
   <string name="delete_updates_success_message">All downloaded updates was deleted</string>
   <string name="delete_extras_failure_message">ERROR!</string>
-  <string name="pref_ota_check">Incremental updates</string>
-  <string name="pref_ota_check_summary">Get incremental updates</string>
   <string name="apply_update_dialog_text">You are about to upgrade to <xliff:g id="filename">%s</xliff:g>. \n\nIf you press Update, the device will restart itself in recovery mode to install the update. \n \nNote: This feature requires a compatible Recovery or updates will need to be installed manually.</string>
   <string name="apply_extras_dialog_text">Are you sure you want to install <xliff:g id="filename">%s</xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Sorry,sir.unable to reboot into recovery</string>
-  <string name="mokee_push_newversion_title">We found a new version of Moke OpenSource</string>
 </resources>

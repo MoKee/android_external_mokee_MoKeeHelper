@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">אירעה שגיאה בעת מחיקת קובץ התוספות</string>
   <string name="delete_extras_noFolder_message">תיקיית התוספות לא נמצאה</string>
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
-  <string name="pref_ota_check">עדכונים OTA</string>
-  <string name="pref_ota_check_summary">קבל עדכונים OTA</string>
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
         \nהערה: אפשרות זו דורשת Recovery תואם, או שפעולת התקנת העדכונים תיאלץ להיעשות באופן ידני.</string>
@@ -145,6 +143,4 @@
   <string name="extras_unsupported_toast">הגרסה הנוכחית שלך לא תומכת בסיומת זו</string>
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
-  <string name="mokee_push_newversion_title">נמצאה גירסה חדשה של קהילת MoKee</string>
-  <string name="mokee_push_newversion_msg">גרסה חדשה מוכנה, לחץ כדי להציג פרטים!</string>
 </resources>

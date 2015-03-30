@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Une erreur est survenue lors de la suppression du fichier des extras</string>
   <string name="delete_extras_noFolder_message">Dossier \" extras \" introuvable</string>
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
-  <string name="pref_ota_check">Mises à jour OTA</string>
-  <string name="pref_ota_check_summary">Obtenir des mises à jour OTA</string>
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>
   <string name="apply_update_dialog_text">Vous êtes sur le point de mettre à jour vers  <xliff:g id="filename">%s</xliff:g>.\n\nLorsque vous appuierez sur \"Mettre à jour\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
   <string name="apply_extras_dialog_title">Installer les extras</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Votre version actuelle ne supporte pas cette extension</string>
   <string name="show_exp_on">Vous avez activé les paramètres expérimentaux !</string>
   <string name="show_exp_already">Inutile, vous avez déjà activé les paramètres expérimentaux.</string>
-  <string name="mokee_push_newversion_title">Trouvé une nouvelle version de MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Une nouvelle version est prête, cliquez pour afficher les détails!</string>
 </resources>

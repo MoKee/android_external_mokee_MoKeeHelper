@@ -122,8 +122,6 @@
   <string name="delete_extras_failure_message">Er was een fout bij het verwijderen van de extra\'s bestanden</string>
   <string name="delete_extras_noFolder_message">Map van extra\'s niet gevonden</string>
   <string name="delete_extras_success_message">Alle opgeslagen extra\'s zijn verwijderd</string>
-  <string name="pref_ota_check">Incrementele updates</string>
-  <string name="pref_ota_check_summary">Incrementele updates ophalen</string>
   <string name="apply_update_dialog_title">Update toepassen</string>
   <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u \'Bijwerken\' selecteert, zal het toestel herstarten om de update te installeren.\n\nLet op: Een compatibele recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
   <string name="apply_extras_dialog_title">Installeer extra</string>
@@ -132,6 +130,4 @@
   <string name="extras_unsupported_toast">Deze extensie wordt niet ondersteund door uw huidige versie</string>
   <string name="show_exp_on">U hebt de experimentele instellingen ingeschakeld!</string>
   <string name="show_exp_already">Niet nodig, de experimentele instellingen zijn reeds ingeschakeld.</string>
-  <string name="mokee_push_newversion_title">Een nieuwe versie van MoKee OpenSource gevonden</string>
-  <string name="mokee_push_newversion_msg">Een nieuwe versie is klaar, klik om details te bekijken!</string>
 </resources>

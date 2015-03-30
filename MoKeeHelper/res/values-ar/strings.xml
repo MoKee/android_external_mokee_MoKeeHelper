@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">حدث خطأ أثناء حذف ملف الإضافات</string>
   <string name="delete_extras_noFolder_message">لم يتم العثور على مجلد الإضافات</string>
   <string name="delete_extras_success_message">تم حذف كل الإضافات المنزلة</string>
-  <string name="pref_ota_check">تحديثات عن طريق الهواء OTA</string>
-  <string name="pref_ota_check_summary">الحصول على التحديثات عبر الهواء</string>
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
   <string name="apply_update_dialog_text">أنت على وشك الترقية إلى <xliff:g id="filename">%s</xliff:g>.\n\nإذا ضغطت على \"تحديث\"، سيتم إعادة تشغيل الجهاز في وضع الريكوفري لتثبيت التحديث.\n
         \nملاحظة: هذه الميزة تتطلب ريكوفري متوافق، وإلا ستحتاج لتثبيت التحديثات يدوياً.</string>
@@ -145,6 +143,4 @@
   <string name="extras_unsupported_toast">لا يدعم الإصدار الحالي لديك هذه الإضافة</string>
   <string name="show_exp_on">لقد قمت بتفعيل الإعدادات الاختبارية!</string>
   <string name="show_exp_already">لا داعي، لقد قمت بالفعل بتفعيل الإعدادات الاختبارية.</string>
-  <string name="mokee_push_newversion_title">العثور على نسخة جديدة من موكي مفتوحة المصدر</string>
-  <string name="mokee_push_newversion_msg">إصدار جديد جاهز ، انقر لعرض تفاصيل!</string>
 </resources>

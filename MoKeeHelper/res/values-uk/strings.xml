@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Помилка видалення файлу додаткових послуг</string>
   <string name="delete_extras_noFolder_message">Каталог додатків не знайдено</string>
   <string name="delete_extras_success_message">Всі завантажені Допоміжні елементи видалені</string>
-  <string name="pref_ota_check">OTA оновлення</string>
-  <string name="pref_ota_check_summary">Отримувати OTA оновлення</string>
   <string name="apply_update_dialog_title">Застосувати оновлення</string>
   <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery.інакше оновлення доведеться встановити вручну.</string>
   <string name="apply_extras_dialog_title">Встановити додаток</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Поточна версія не підтримує це розширення</string>
   <string name="show_exp_on">Експериментальні установки активовано!</string>
   <string name="show_exp_already">Немає необхідності, експериментальні установки вже активовані.</string>
-  <string name="mokee_push_newversion_title">Знайдена нова версія MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Нова версія готова, натисніть, щоб переглянути подробиці!</string>
 </resources>

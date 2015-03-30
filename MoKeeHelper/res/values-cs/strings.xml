@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Došlo k chybě při odstraňování souborů doplňků</string>
   <string name="delete_extras_noFolder_message">Složka doplňků nenalezena</string>
   <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
-  <string name="pref_ota_check">OTA aktualizace</string>
-  <string name="pref_ota_check_summary">Získávat OTA aktualizace</string>
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
   <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
   <string name="apply_extras_dialog_title">Instalovat doplňek</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Vaše současná verze nepodporuje toto rozšíření</string>
   <string name="show_exp_on">Povolili jste experimentální nastavení!</string>
   <string name="show_exp_already">Není třeba, experimentální nastavení je již povoleno.</string>
-  <string name="mokee_push_newversion_title">Byla nalezena nová verze MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Nová verze je k dispozici, klepněte pro zobrazení podrobností!</string>
 </resources>

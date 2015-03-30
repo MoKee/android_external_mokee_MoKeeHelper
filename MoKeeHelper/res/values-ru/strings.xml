@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Произошла ошибка при удалении дополнения</string>
   <string name="delete_extras_noFolder_message">Каталог дополнений не найден</string>
   <string name="delete_extras_success_message">Все загруженные дополнения удалены</string>
-  <string name="pref_ota_check">OTA обновления</string>
-  <string name="pref_ota_check_summary">Получать OTA обновления</string>
   <string name="apply_update_dialog_title">Применить обновление</string>
   <string name="apply_update_dialog_text">Вы собираетесь обновиться до<xliff:g id="filename">%s</xliff:g>.\n\nКогда вы нажмёте кнопку \"Обновить\", устройство перезагрузится для установки обновления.\n\nЗаметьте, что эта функция требует совместимое Recovery, иначе обновления придётся устанавливать вручную.</string>
   <string name="apply_extras_dialog_title">Установить дополнение</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Ваша версия не поддерживает данное расширение</string>
   <string name="show_exp_on">Вы включили экспериментальные параметры!</string>
   <string name="show_exp_already">Нет необходимости, экспериментальные параметры уже включены.</string>
-  <string name="mokee_push_newversion_title">Найдена новая версия MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Новая версия готова, нажмите для просмотра подробностей!</string>
 </resources>

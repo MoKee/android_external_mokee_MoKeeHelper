@@ -134,8 +134,6 @@
   <string name="delete_extras_failure_message">Error al eliminar el archivo de extras</string>
   <string name="delete_extras_noFolder_message">Carpeta de extras no encontrada</string>
   <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
-  <string name="pref_ota_check">Actualizaciones OTA</string>
-  <string name="pref_ota_check_summary">Obtener actualizaciones OTA</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>
   <string name="apply_update_dialog_text">Se va a proceder a actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nPulsando sobre \u00ABActualizar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
   <string name="apply_extras_dialog_title">Instalar extra</string>
@@ -144,6 +142,4 @@
   <string name="extras_unsupported_toast">Su versión actual no es compatible con esta extensión</string>
   <string name="show_exp_on">Ha activado la configuración experimental!</string>
   <string name="show_exp_already">No hace falta, ya ha activado la configuración experimental.</string>
-  <string name="mokee_push_newversion_title">Se encontró una nueva versión de MoKee OpenSource</string>
-  <string name="mokee_push_newversion_msg">Una nueva versión está lista. Haz click para ver los detalles!</string>
 </resources>
