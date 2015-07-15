@@ -71,7 +71,7 @@
   <string name="remove_adds_name">永久移除广告</string>
   <string name="remove_adds_description">永久移除广告</string>
   <string name="remove_adds_dialog_title">永久移除广告</string>
-  <string name="remove_adds_dialog_message">这笔费用将减轻我们维护魔趣开源项目的压力，并使我们能在未来提供更好的服务！捐赠完成后请备份位于SD卡根目录的license.mokee授权文件。（仅限当前设备使用）</string>
+  <string name="remove_adds_dialog_message">和CM等依赖于投资的商业化公司不同，魔趣作为非营利性的开源项目，诞生只因爱好。我们需要自掏腰包或是通过捐赠、广告等手段才能让这个项目长期存活。这笔费用将减轻我们每月承担的经济压力，使我们能在未来提供更好的服务！捐赠完成后请备份位于SD卡根目录的license.mokee授权文件，以便意外丢失后恢复。（仅限当前设备使用）</string>
   <string name="remove_adds_request_price">已捐赠 %1$d ，待捐赠 %2$d (货币：CNY)</string>
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
