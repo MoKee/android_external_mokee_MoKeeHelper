@@ -17,18 +17,29 @@
 
 package com.mokee.helper.widget;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdView;
-import com.mokee.helper.R;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import android.content.Context;
+import android.mokee.utils.MoKeeUtils;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AdmobPreference extends Preference {
+import com.google.ads.Ad;
+import com.google.ads.AdListener;
+import com.google.ads.AdRequest;
+import com.google.ads.AdRequest.ErrorCode;
+import com.google.ads.AdView;
+import com.mokee.helper.MoKeeApplication;
+import com.mokee.helper.R;
+import com.mokee.helper.fragments.MoKeeUpdaterFragment;
+
+public class AdmobPreference extends Preference implements AdListener {
 
     private static AdView adView;
     private static View admobCustomView;
@@ -53,8 +64,48 @@ public class AdmobPreference extends Preference {
             admobCustomView = inflater.inflate(R.layout.preference_admob, null);
             adView = (AdView) admobCustomView.findViewById(R.id.adView);
             adView.loadAd(new AdRequest());
+            adView.setAdListener(this);
         }
         return admobCustomView;
     }
 
+    @Override
+    public void onDismissScreen(Ad ad) {
+    }
+
+    @Override
+    public void onFailedToReceiveAd(Ad ad, ErrorCode errorCode) {
+        if (errorCode.equals(ErrorCode.INTERNAL_ERROR) || errorCode.equals(ErrorCode.NETWORK_ERROR)) {
+            try {
+                if (MoKeeUtils.isOnline(MoKeeApplication.getContext()) || adBlockedHostsChecker()) {
+                    MoKeeUpdaterFragment.showAdBlockedAlert();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void onLeaveApplication(Ad ad) {
+    }
+
+    @Override
+    public void onPresentScreen(Ad ad) {
+    }
+
+    @Override
+    public void onReceiveAd(Ad ad) {
+    }
+
+    private boolean adBlockedHostsChecker() throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader (new FileInputStream("/etc/hosts")));
+        String line;
+        while ((line = in.readLine()) != null) {
+            if (line.contains("admob")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

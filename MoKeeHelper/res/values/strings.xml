@@ -85,11 +85,12 @@
     <string name="donate_money_toast_success">Thank you for your donation!</string>
     <string name="donate_money_name">Donate MoKee OpenSource</string>
     <string name="donate_money_description">Donate MoKee OpenSource</string>
-    <string name="remove_adds_name">Remove adds</string>
-    <string name="remove_adds_description">Remove adds</string>
-    <string name="remove_adds_dialog_title">Always remove ads</string>
-    <string name="remove_adds_dialog_message">Your help can help reduce our load on server costs and sustain future development! Please backup mokee.license file when you paid. It\'s in sdcard root. (Only current device)</string>
-    <string name="remove_adds_request_price">paid %1$d ，unpaid %2$d (Currency: CNY)</string>
+    <string name="remove_ads_name">Remove ads</string>
+    <string name="remove_ads_description">Remove ads</string>
+    <string name="remove_ads_dialog_title">Always remove ads</string>
+    <string name="remove_ads_dialog_message">Your help can help reduce our load on server costs and sustain future development! Please backup mokee.license file when you paid. It\'s in sdcard root. (Only current device)</string>
+    <string name="remove_ads_request_price">paid %1$d ，unpaid %2$d (Currency: CNY)</string>
+    <string name="ads_blocked_dialog_message">魔趣每月要为更新、下载服务支付高昂的费用，请不要试图使用软件屏蔽我们的经费来源。只有我们保持生存，才能继续为大家提供更优秀的ROM！</string>
 
     <!-- Update -->
     <string name="unknown">Unknown</string>

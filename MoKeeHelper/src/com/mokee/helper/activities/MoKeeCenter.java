@@ -138,7 +138,7 @@ public class MoKeeCenter extends FragmentActivity {
             mPrice.setVisibility(View.GONE);
             mCurrency.setVisibility(View.GONE);
             mRequest.setVisibility(View.VISIBLE);
-            mRequest.setText(String.format(mContext.getString(R.string.remove_adds_request_price), paid, unPaid));
+            mRequest.setText(String.format(mContext.getString(R.string.remove_ads_request_price), paid, unPaid));
         }
 
         DialogInterface.OnClickListener mDialogButton = new DialogInterface.OnClickListener() {
@@ -151,10 +151,10 @@ public class MoKeeCenter extends FragmentActivity {
                 } else {
                     switch (which) {
                         case DialogInterface.BUTTON_POSITIVE:
-                            sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_adds_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_adds_description), price);
+                            sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
-                            sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_adds_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_adds_description), price);
+                            sendPaymentRequest(mContext, "alipay", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
                             break;
                     }
                 }
@@ -162,8 +162,8 @@ public class MoKeeCenter extends FragmentActivity {
         };
 
         new AlertDialog.Builder(mContext)
-                .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_adds_dialog_title)
-                .setMessage(isDonate ? R.string.donate_dialog_message : R.string.remove_adds_dialog_message)
+                .setTitle(isDonate ? R.string.donate_dialog_title : R.string.remove_ads_dialog_title)
+                .setMessage(isDonate ? R.string.donate_dialog_message : R.string.remove_ads_dialog_message)
                 .setView(donateView)
                 .setPositiveButton(R.string.donate_dialog_via_paypal, mDialogButton)
                 .setNegativeButton(R.string.donate_dialog_via_alipay, mDialogButton).show();
