@@ -24,6 +24,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -79,6 +80,10 @@ public class MoKeeCenter extends FragmentActivity {
         // Turn on the Options Menu
         invalidateOptionsMenu();
 
+        SharedPreferences prefs = getSharedPreferences(Constants.DONATION_PREF, 0);
+        if (prefs.getBoolean(Constants.DONATION_BLOCKED_PREF, false)) {
+            showAdBlockedAlert();
+        }
     }
 
     @Override
@@ -193,6 +198,10 @@ public class MoKeeCenter extends FragmentActivity {
         intent.putExtra("description", description);
         intent.putExtra("price", price);
         mContext.startActivity(intent);
+    }
+
+    public void showAdBlockedAlert() {
+        new AlertDialog.Builder(this).setCancelable(false).setMessage(R.string.ads_blocked_dialog_message).setPositiveButton(android.R.string.ok, null).show();
     }
 
 }

@@ -925,11 +925,4 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         mUpdateType.setEntryValues(entryValues);
     }
 
-    public static void showAdBlockedAlert() {
-        new AlertDialog.Builder(mContext).setCancelable(false).setMessage(R.string.ads_blocked_dialog_message).setPositiveButton(android.R.string.ok, new OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                System.exit(0);
-            }}).show();
-    }
 }

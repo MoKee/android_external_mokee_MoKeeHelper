@@ -18,6 +18,7 @@
 package com.mokee.helper.widget;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.mokee.utils.MoKeeUtils;
 import android.preference.Preference;
 import android.util.AttributeSet;
@@ -32,28 +33,34 @@ import com.google.ads.AdRequest.ErrorCode;
 import com.google.ads.AdView;
 import com.mokee.helper.MoKeeApplication;
 import com.mokee.helper.R;
-import com.mokee.helper.fragments.MoKeeUpdaterFragment;
+import com.mokee.helper.misc.Constants;
 
 public class AdmobPreference extends Preference implements AdListener {
 
     private static AdView adView;
     private static View admobCustomView;
+    private SharedPreferences prefs;
+    private Context mContext;
 
     public AdmobPreference(Context context) {
         super(context);
+        mContext = context;
     }
 
     public AdmobPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
     }
 
     public AdmobPreference(Context context, AttributeSet ui, int style) {
         super(context, ui, style);
+        mContext = context;
     }
 
     @Override
     protected View onCreateView(ViewGroup parent) {
         if (admobCustomView == null) {
+            prefs = mContext.getSharedPreferences(Constants.DONATION_PREF, 0);
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
                     Context.LAYOUT_INFLATER_SERVICE);
             admobCustomView = inflater.inflate(R.layout.preference_admob, null);
@@ -72,10 +79,12 @@ public class AdmobPreference extends Preference implements AdListener {
     public void onFailedToReceiveAd(Ad ad, ErrorCode errorCode) {
         if (errorCode.equals(ErrorCode.INTERNAL_ERROR) || errorCode.equals(ErrorCode.NETWORK_ERROR)) {
             if (MoKeeUtils.isOnline(MoKeeApplication.getContext())) {
-                MoKeeUpdaterFragment.showAdBlockedAlert();
+                prefs.edit().putBoolean(Constants.DONATION_BLOCKED_PREF, true).apply();
             }
         }
     }
+
+
 
     @Override
     public void onLeaveApplication(Ad ad) {
@@ -87,6 +96,9 @@ public class AdmobPreference extends Preference implements AdListener {
 
     @Override
     public void onReceiveAd(Ad ad) {
+        if (prefs.getBoolean(Constants.DONATION_BLOCKED_PREF, false)) {
+            prefs.edit().putBoolean(Constants.DONATION_BLOCKED_PREF, false).apply();
+        }
     }
 
 }

@@ -27,6 +27,7 @@ public class Constants {
 
     // Preferences
     public static final String DOWNLOADER_PREF = "downloader";
+    public static final String DONATION_PREF = "donation";
     public static final String ROOT_PREF = "pref_root";
     public static final String ADMOB_PREF = "pref_admob";
     public static final String UPDATE_INTERVAL_PREF = "pref_update_interval";
@@ -35,6 +36,7 @@ public class Constants {
     public static final String EXPANG_LIST_PREF = "extras_category";
     public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
     public static final String LAST_EXTRAS_CHECK_PREF = "pref_last_extras_check";
+    public static final String DONATION_BLOCKED_PREF = "pref_donation_blocked";
 
     // Update Check items
     public static final String BOOT_CHECK_COMPLETED = "boot_check_completed";
