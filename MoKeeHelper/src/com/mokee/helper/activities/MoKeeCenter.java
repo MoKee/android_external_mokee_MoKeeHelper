@@ -20,7 +20,6 @@ package com.mokee.helper.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -50,6 +49,7 @@ import com.mokee.helper.utils.Utils;
 public class MoKeeCenter extends FragmentActivity {
 
     public static final String ACTION_MOKEE_CENTER = "com.mokee.mkupdater.action.MOKEE_CENTER";
+    private static final String ACTION_PAYMENT_REQUEST = "com.mokee.pay.action.PAYMENT_REQUEST";
     public static final String KEY_MOKEE_SERVICE = "key_mokee_service";
     public static final String KEY_MOKEE_UPDATER = "key_mokee_updater";
     public static final String BR_ONNewIntent = "onNewIntent";
@@ -162,7 +162,7 @@ public class MoKeeCenter extends FragmentActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = isDonate ? mRequest.getText().toString() : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
+                String price = isDonate ? which == DialogInterface.BUTTON_POSITIVE ? Integer.valueOf(mRequest.getText().toString()) / 6 : mRequest.getText().toString() : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);
@@ -183,9 +183,7 @@ public class MoKeeCenter extends FragmentActivity {
     }
 
     private static void sendPaymentRequest (Activity mContext, String channel, String name, String description, String price) {
-        Intent intent = new Intent();
-        ComponentName componentName = new ComponentName("com.mokee.pay", "com.mokee.pay.payment.MoKeePaymentActivity");
-        intent.setComponent(componentName);
+        Intent intent = new Intent(ACTION_PAYMENT_REQUEST);
         intent.putExtra("packagename", Utils.getPackageName(mContext));
         intent.putExtra("channel", channel);
         intent.putExtra("type", "donation");
