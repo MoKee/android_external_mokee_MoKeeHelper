@@ -80,7 +80,6 @@
   <string name="nightly_alert">Você selecionou para incluir atualizações noturnas nesta lista. Estes não são suportados e devem ser usados com cautela.</string>
   <string name="experimenter_alert">Você selecionou para incluir atualizações experimentais nesta lista. Estas não possuem suporte e são destinadas a testes apenas, elas devem ser usadas com cautela.</string>
   <string name="unofficial_alert">Você selecionou para incluir atualizações não oficiais nesta lista. Tenha em mente que estas são suportadas pelo mantenedor do dispositivo.</string>
-  <string name="all_alert">Você selecionou para incluir todas as atualizações (lançamento, experimental) nesta lista. Tome nota que atualizações noturnas não são suportadas e devem ser usadas com cautela.</string>
   <string name="alert_title">Cuidado</string>
   <string name="update_type_title">Tipo de atualização</string>
   <string name="no_changelog_alert">Nenhum changelog disponível</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">Atualização baixada com sucesso</string>
   <string name="not_download_failure">Download da atualização foi malsucedido</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
-  <string name="not_download_install_notice">A atualização <xliff:g id="filename">%s</xliff:g> foi baixada com sucesso. Ao pressionar \'Reiniciar e instalar\', o dispositivo irá reiniciar sozinho e instalar a atualização.\n\nNota: Uma Recuperação compatível é necessária para a instalação funcionar automaticamente.</string>
   <string name="md5_verification_failed">Incompatibilidade de verificação MD5</string>
   <string name="not_extras_download_success">Extras baixados com sucesso</string>
   <string name="not_extras_download_failure">Download de extras malsucedido</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">Pasta de extras não foi encontrada</string>
   <string name="delete_extras_success_message">Todos extras baixados excluídos</string>
   <string name="pref_ota_check">Atualizações OTA</string>
-  <string name="pref_ota_check_summary">Obter atualizações OTA</string>
   <string name="apply_update_dialog_title">Aplicar atualização</string>
   <string name="apply_update_dialog_text">Você está prestes a atualizar para a <xliff:g id="filename">%s </xliff:g>. \n\nIf assim que você pressionar a atualização, o dispositivo será reiniciado no modo de recuperação para instalar a atualização. \n \nNote: este recurso requer uma recuperação compatível ou a atualização precisará ser instalada manualmente.</string>
   <string name="apply_extras_dialog_title">Instalar extras</string>

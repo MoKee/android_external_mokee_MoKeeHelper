@@ -80,7 +80,6 @@
   <string name="nightly_alert">בחרת לכלול עדכונים ליליים ברשימה. גרסאות אלה לא נתמכות, השתמש בזהירות.</string>
   <string name="experimenter_alert">בחרת לכלול עדכונים ניסיוניים ברשימה זו. עדכוניםאלה אינם נתמכים והינם למטרות בדיקה בלבד. יש להשתמש בהם בזהירות.</string>
   <string name="unofficial_alert">בחרת לכלול עדכונים לא רשמיים ברשימה זו. זכור כי אלה נתמכים על ידי תחזוקת ההתקן שלך.</string>
-  <string name="all_alert">בחרת לכלול כל העדכונים (שחרור, ניסיוני) ברשימה זו. שימו לב כי עדכונים \"ליליים\" אינם נתמכים. יש להשתמש בזהירות.</string>
   <string name="alert_title">זהירות</string>
   <string name="update_type_title">סוג עדכון</string>
   <string name="no_changelog_alert">תיעוד שינויים לא זמין</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">עדכון הורד בהצלחה</string>
   <string name="not_download_failure">הורדת העדכון נכשלה</string>
   <string name="not_action_install_update">אתחל והתקן</string>
-  <string name="not_download_install_notice">עדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. כאשר תלחץ על \'אתחל והתקן\', המכשיר יאתחל את עצמו ויתקין את העדכון.\n\nשים לב:Recovery מתאים נדרש להתקנה אוטומטית.</string>
   <string name="md5_verification_failed">אי-התאמת checksum MD5</string>
   <string name="not_extras_download_success">התוספות הורדו בהצלחה</string>
   <string name="not_extras_download_failure">הורדת התוספות נכשלה</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">תיקיית התוספות לא נמצאה</string>
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
   <string name="pref_ota_check">עדכונים OTA</string>
-  <string name="pref_ota_check_summary">קבל עדכונים OTA</string>
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
         \nהערה: אפשרות זו דורשת Recovery תואם, או שפעולת התקנת העדכונים תיאלץ להיעשות באופן ידני.</string>
