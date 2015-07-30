@@ -79,7 +79,6 @@
   <string name="nightly_alert">لقد اخترت تضمين التحديثات الليلية في هذه القائمة. هذه التحديثات غير مدعومة وينبغي أن تستخدم بحذر.</string>
   <string name="experimenter_alert">لقد اخترت تضمين التحديثات الاختبارية في هذه القائمة. هذه التحديثات غير مدعومة وهي للاختبر فقط، ينبغي أن تستخدم بحذر.</string>
   <string name="unofficial_alert">لقد اخترت تضمين التحديثات الغير رسمية في هذه القائمة. ضع في اعتبارك أن هذه التحديثات مدعومة من قبل مسؤل صيانة هاتفك.</string>
-  <string name="all_alert">لقد اخترت تضمين كل التحديثات (النهائية والاختبارية). علماً أن التحديثات الليلية غير مدعومة وينبغي أن تستخدم بحذر.</string>
   <string name="alert_title">تحذير</string>
   <string name="update_type_title">نوع التحديث</string>
   <string name="no_changelog_alert">سجل التغييرات غير متوفر</string>
@@ -111,7 +110,6 @@
   <string name="not_download_success">تم تنزيل التحديث بنجاح</string>
   <string name="not_download_failure">فشل تنزيل التحديث</string>
   <string name="not_action_install_update">إعادة التشغيل والتثبيت</string>
-  <string name="not_download_install_notice">التحديث <xliff:g id="filename">%s</xliff:g> تم تنزيله بنجاح. عند الضغط علي \"إعادة التشغيل والتثبيت\"، سيتم إعادة تشغيل الجهاز لتثبيت التحديث.\n\nملاحظة: مطلوب ريكوفري متوافق ليتم التثبيت تلقائياً.</string>
   <string name="md5_verification_failed">قيم MD5 الرقمية غير متطابقة</string>
   <string name="not_extras_download_success">تم تنزيل الإضافات بنجاح</string>
   <string name="not_extras_download_failure">فشل تنزيل الإضافات</string>
@@ -131,7 +129,6 @@
   <string name="delete_extras_noFolder_message">لم يتم العثور على مجلد الإضافات</string>
   <string name="delete_extras_success_message">تم حذف كل الإضافات المنزلة</string>
   <string name="pref_ota_check">تحديثات عن طريق الهواء OTA</string>
-  <string name="pref_ota_check_summary">الحصول على التحديثات عبر الهواء</string>
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
   <string name="apply_update_dialog_text">أنت على وشك الترقية إلى <xliff:g id="filename">%s</xliff:g>.\n\nإذا ضغطت على \"تحديث\"، سيتم إعادة تشغيل الجهاز في وضع الريكوفري لتثبيت التحديث.\n
         \nملاحظة: هذه الميزة تتطلب ريكوفري متوافق، وإلا ستحتاج لتثبيت التحديثات يدوياً.</string>

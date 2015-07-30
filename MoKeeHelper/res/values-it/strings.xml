@@ -80,7 +80,6 @@
   <string name="nightly_alert">Hai scelto di includere le nightlies nella lista di aggiornamenti. Nota bene che non sono supportate e andrebbero usate con cautela.</string>
   <string name="experimenter_alert">Si è scelto di includere aggiornamenti sperimentali in questo elenco. Questi non sono  supportati e intesi solo per prova, devono essere usati con cautela.</string>
   <string name="unofficial_alert">Si è scelto di includere gli aggiornamenti non ufficiali in questa lista. Tenete a mente che queste sono supportate dal tuo manutentore del dispositivo.</string>
-  <string name="all_alert">Si è scelto di includere tutti gli aggiornamenti (appena rilasciata e sperimentale) in questa lista. Prendere atto che tutte le nightlies non sono supportate e devono essere usate con cautela.</string>
   <string name="alert_title">Attenzione</string>
   <string name="update_type_title">Tipo di aggiornamento</string>
   <string name="no_changelog_alert">Nessun changelog disponibile</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">Aggiornamento scaricato con successo</string>
   <string name="not_download_failure">Download dell\'aggiornamento fallito</string>
   <string name="not_action_install_update">Riavvia e installa</string>
-  <string name="not_download_install_notice">L\'aggiornamento <xliff:g id="filename">%s</xliff:g> è stato scaricato con successo. Premendo \'Riavvia e installa\', il dispositivo verrà riavviato per installare l\'aggiornamento.\n\nNota: E\' necessaria una recovery compatibile affinché funzioni l\'installazione automatica.</string>
   <string name="md5_verification_failed">Mancata corrispondenza del checksum MD5</string>
   <string name="not_extras_download_success">Extra scaricati con successo</string>
   <string name="not_extras_download_failure">Download extra non riuscito</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">Cartella Extras non trovata</string>
   <string name="delete_extras_success_message">Tutti gli extra scaricati sono stati eliminati </string>
   <string name="pref_ota_check">Aggiornamenti OTA</string>
-  <string name="pref_ota_check_summary">Ottieni aggiornamenti OTA (Over The AIr)</string>
   <string name="apply_update_dialog_title">Applica l\'aggiornamento</string>
   <string name="apply_update_dialog_text">Si sta per aggiornare a <xliff:g id="filename">%s</xliff:g>.\n\nPremendo Aggiorna, il dispositivo verrà riavviato in modalità recovery per l\'installazione dell\'aggiornamento\n\nNota: questa caratteristica richiede una recovery compatibile; in caso contrario sarà necessario installare gli aggiornamenti manualmente.</string>
   <string name="apply_extras_dialog_title">Installare extra</string>

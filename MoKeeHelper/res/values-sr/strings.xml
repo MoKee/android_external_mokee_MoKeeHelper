@@ -52,18 +52,26 @@
   <string name="mokee_version_type_experimental">Експериментално</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Незванично</string>
-  <string name="mokee_version_type_all">Сви</string>
+  <string name="mokee_version_type_all">Све</string>
   <string name="downloaded_update_summary"> Преузето</string>
   <string name="installed_update_summary">Инсталирано</string>
   <string name="available_updates_title">Доступна ажурирања</string>
   <string name="menu_donate">Донирајте</string>
   <string name="menu_refresh">Оcвежи</string>
   <string name="menu_delete_all">Избрисати преузето</string>
+  <string name="menu_remove_ads">Уклони рекламе</string>
   <string name="donate_dialog_title">Донација</string>
   <string name="donate_dialog_message">MoKee OpenSource је непрофитна организација. Ваша помоћ може нам користити да смањимо трошкове одржавања сервера и за подршку будућег развоја!</string>
+  <string name="donate_dialog_via_paypal">PayPal(USD)</string>
+  <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_money_toast_success">Хвала на донацији!</string>
   <string name="donate_money_name">Донирајте MoKee OpenSource</string>
   <string name="donate_money_description">Донирајте MoKee OpenSource</string>
+  <string name="remove_ads_name">Уклони рекламе</string>
+  <string name="remove_ads_description">Уклони рекламе</string>
+  <string name="remove_ads_dialog_title">Увек уклањај рекламе</string>
+  <string name="remove_ads_dialog_message">MoKee OpenSource се разликује од појединих профитних компанија попут  Cygn или MIUI у томе што је прави непрофитни пројекат настао из хобија и жеље. У циљу опстанка пројекта, ми смо принуђени да трошимо сопствени новац или користимо донације или зараду од реклама. Ваше донације нам могу помоћи да смањимо трошкове и подржимо будући развој! Ова опција Вам омогућава да уклоните рекламе из МоКее Центра, или можете користити опцију \"Донирај\" (рекламе ће бити уклоњене када сума достигне одређену вредност). Молимо, бекапујте mokee.license фајл (налази се на рут директоријуму СД картице, и важи само за тренутни уређај) пошто донирате.</string>
+  <string name="remove_ads_request_price">Донирано CNY %1$d, Потребно CNY %2$d</string>
   <string name="unknown">Непознато</string>
   <string name="dialog_update">Надоградња</string>
   <string name="dialog_install">Инсталација</string>
@@ -80,7 +88,6 @@
   <string name="nightly_alert">Изабрао си да буду укључена развојна ажурирања у овој листи. Она су неподржана и треба их користи опрезно.</string>
   <string name="experimenter_alert">Изабрао си да буду укључена експериментална ажурирања у овој листи. Она су неподржана и користе се само за тестирање.</string>
   <string name="unofficial_alert">Изабрали сте да буду укључена неподржана ажурирања у овој листи.</string>
-  <string name="all_alert">Изабрали сте све врсте надоградњи са листе. Нека од надоградњи су нестабилна и треба их користити опрезно.</string>
   <string name="alert_title">Опрез</string>
   <string name="update_type_title">Врста надограње</string>
   <string name="no_changelog_alert">Нема информација о изменама</string>
@@ -112,7 +119,6 @@
   <string name="not_download_success">Ажурирање је успешно преузето</string>
   <string name="not_download_failure">Ажурирање није успешно преузето</string>
   <string name="not_action_install_update">Рестартуј и инсталирај</string>
-  <string name="not_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
   <string name="md5_verification_failed">МД5 чек није усклађен</string>
   <string name="not_extras_download_success">Додатак је преузет</string>
   <string name="not_extras_download_failure">Додатак није преузет</string>
@@ -132,7 +138,6 @@
   <string name="delete_extras_noFolder_message">Фасцикла додатака није пронађена</string>
   <string name="delete_extras_success_message">Сви преузети додаци су избрисани</string>
   <string name="pref_ota_check">ОТА надоградње</string>
-  <string name="pref_ota_check_summary">Преузми ОТА надоградње</string>
   <string name="apply_update_dialog_title">Примени надоградње</string>
   <string name="apply_update_dialog_text">Надоградња на <xliff:g id="filename">%s</xliff:g>.\n\nАко притиснеш Ажурирај, уређај ће се поново покренути у \'Опоравак\' да инсталира ажурирање.\n\nНапомена: Ова функција захтева компатибилни \'Опоравак\' или ћеш морати ажурирање да инсталираш ручно.</string>
   <string name="apply_extras_dialog_title">Инсталација додатака</string>

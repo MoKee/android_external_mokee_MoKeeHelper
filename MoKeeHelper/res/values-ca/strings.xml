@@ -72,7 +72,6 @@
   <string name="remove_ads_dialog_title">Sempre tregui anuncis</string>
   <string name="remove_ads_dialog_message">A diferència de les empreses com Cygn o MIUI, MoKee OpenSource és un projecte purament sense ànim de lucre que neix de l\'afició i passió. Per mantenir aquest projecte, hem de tenidor propis diners la majoria del temps o es basen en les donacions i anuncis. Les seves donacions pot ajudar a reduir la nostra càrrega financera i sustentar el futur desenvolupament! Aquesta opció li permet treure els anuncis MoKee centre, o utilitzar l\'opció de \"Donar\" en canvi si preferiu quotes (anuncis es trauran una vegada total ha assolit el valor especificat). Si us plau, el mokee.license de reserva d\'arxiu (en el directori arrel de sdcard, només vàlid per a l\'actual dispositiu) una vegada que heu donat.</string>
   <string name="remove_ads_request_price">Donats CNY %1$d, pendent de CNY %2$d</string>
-  <string name="ads_blocked_dialog_message">MoKee OpenSource ha de suportar alts costos cada mes per a mantenir la complexió i descarregar servidors. Si us plau no intenti bloquejar els anuncis, només llavors pot ser sostinguda desenvolupament futur.</string>
   <string name="unknown">Desconeguda</string>
   <string name="dialog_update">Actualitza</string>
   <string name="dialog_install">Instal·la</string>
@@ -91,7 +90,6 @@ desactivi aquesta opció.</string>
   <string name="nightly_alert">Has seleccionat incloure les actualitzacions nigthy en aquesta llista. Aquestes no tenen suport i han de ser utilitzades amb precaució.</string>
   <string name="experimenter_alert">Heu seleccionat per incloure actualitzacions experimentals en aquesta llista. Aquests si dóna suport per provar només, ha de ser utilitzat amb precaució.</string>
   <string name="unofficial_alert">Heu seleccionat per incloure actualitzacions no oficials en aquesta llista. Tingueu en compte que aquestes estan mantinguts pel seu desenvolupador.</string>
-  <string name="all_alert">Heu seleccionat per incloure totes les actualitzacions (comunicat, experimental) en aquesta llista. Fixeu-vos que cada nit actualitzacions no són compatibles i ha de ser utilitzat amb precaució.</string>
   <string name="alert_title">Precaució</string>
   <string name="update_type_title">Tipus d\'actualització</string>
   <string name="no_changelog_alert">No hi ha un registre de canvis disponible</string>
@@ -123,7 +121,6 @@ desactivi aquesta opció.</string>
   <string name="not_download_success">Actualització descarregada satisfactòriament</string>
   <string name="not_download_failure">Descàrrega de l\'actualització fallida</string>
   <string name="not_action_install_update">Reiniciar i instal·lar</string>
-  <string name="not_download_install_notice">L\'actualització <xliff:g id="filename">%s</xliff:g> s\'ha descarregat satisfactòriament. Quan apretis \'Reinicia i instal·la\', el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
   <string name="md5_verification_failed">Incompatibilitat suma de MD5</string>
   <string name="not_extras_download_success">Extres descarregats correctament</string>
   <string name="not_extras_download_failure">Descarregar extres no a tingut èxit</string>
@@ -143,7 +140,6 @@ desactivi aquesta opció.</string>
   <string name="delete_extras_noFolder_message">Carpeta d\'extres no trobat</string>
   <string name="delete_extras_success_message">descarregues extres suprimits</string>
   <string name="pref_ota_check">OTA actualitzacions</string>
-  <string name="pref_ota_check_summary">Obtenir actualitzacions OTA</string>
   <string name="apply_update_dialog_title">Aplica actualització</string>
   <string name="apply_update_dialog_text">Estàs a punt d\'actualitzar a <xliff:g id="filename">%s</xliff:g>.\n\nSi apretes Actualitza, el dispositiu es reiniciarà ell mateix cap al mode de recuperació per tal d\'instal·lar l\'actualització.\n\nNota: Aquesta característica necessita un sistema de recuperació (Recovery) compatible o l\'actualització haurà de ser instal·lada manualment.</string>
   <string name="apply_extras_dialog_title">Instal lar extres</string>

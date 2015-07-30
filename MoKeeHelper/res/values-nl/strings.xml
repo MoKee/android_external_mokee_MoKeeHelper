@@ -70,7 +70,6 @@
   <string name="nightly_alert">U heeft ervoor gekozen ook nachtelijke-updates in de lijst weer te geven. Deze worden niet ondersteund en moeten voorzichtig worden gebruikt.</string>
   <string name="experimenter_alert">U heeft ervoor gekozen ook experimentele-updates in de lijst weer te geven. Deze worden niet ondersteund, zijn enkel bedoeld voor testdoeleinden en moeten voorzichtig worden gebruikt.</string>
   <string name="unofficial_alert">U heeft ervoor gekozen ook onofficiële-updates in de lijst weer te geven. Hou in het achterhoofd dat deze enkel ondersteund worden door de persoon die updates voorziet voor uw toestel.</string>
-  <string name="all_alert">U hebt geselecteerd om alle updates (release, experimentele) in deze lijst weer te geven. Neem nota dat nachtelijke updates niet ondersteund worden en moeten met voorzichtigheid worden gebruikt.</string>
   <string name="alert_title">Let op</string>
   <string name="update_type_title">Type update</string>
   <string name="no_changelog_alert">Geen logboek beschikbaar</string>
@@ -110,7 +109,6 @@
   <string name="delete_extras_noFolder_message">Map van extra\'s niet gevonden</string>
   <string name="delete_extras_success_message">Alle opgeslagen extra\'s zijn verwijderd</string>
   <string name="pref_ota_check">Incrementele updates</string>
-  <string name="pref_ota_check_summary">Incrementele updates ophalen</string>
   <string name="apply_update_dialog_title">Update toepassen</string>
   <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u \'Bijwerken\' selecteert, zal het toestel herstarten om de update te installeren.\n\nLet op: Een compatibele recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
   <string name="apply_extras_dialog_title">Installeer extra</string>

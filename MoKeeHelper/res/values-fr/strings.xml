@@ -72,7 +72,6 @@
   <string name="remove_ads_dialog_title">Retirez toujours les annonces</string>
   <string name="remove_ads_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif née de passe-temps et de passion. Afin de maintenir ce projet, il faut débourser de notre propre argent la plupart du temps ou dépendent des dons et des publicités. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces MoKee Centre, ou utilisez l\'option de « Don » au lieu de cela, si vous préférez des versements (annonces seront supprimés une fois que le total a atteint la valeur spécifiée). Veuillez sauvegarder le mokee.license du fichier (dans le répertoire racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donnés.</string>
   <string name="remove_ads_request_price">Don %1$d CNY, dans l\'attente de %2$d CNY</string>
-  <string name="ads_blocked_dialog_message">MoKee OpenSource doit supporter des coûts élevés chaque mois afin de maintenir la construction et de télécharger des serveurs. S\'il vous plaît, n\'essayez pas de bloquer les publicités, alors seulement le développement futur peut être soutenue.</string>
   <string name="unknown">Inconnu</string>
   <string name="dialog_update">Mettre à jour</string>
   <string name="dialog_install">Installer</string>
@@ -89,7 +88,6 @@
   <string name="nightly_alert">Vous avez choisi d\'inclure à votre liste les versions de développement. Ces versions ne disposent pas de support technique et doivent être utilisées avec précaution.</string>
   <string name="experimenter_alert">Vous avez choisi d\'inclure les mises à jour expérimentales dans cette liste. Ceux-ci sont non pris en charge et destinés aux essais seulement, il doit être utilisé avec prudence.</string>
   <string name="unofficial_alert">Vous avez choisi d\'inclure les mises à jour non officielles dans cette liste. N\'oubliez pas que ceux-ci sont pris en charge par votre responsable de l\'appareil.</string>
-  <string name="all_alert">Vous avez choisi d\'inclure toutes les mises à jour (release, expérimentale) dans cette liste. A noter que les nightly ne sont pas supportés et doivent être utilisés avec prudence.</string>
   <string name="alert_title">Attention</string>
   <string name="update_type_title">Types de mise à jour</string>
   <string name="no_changelog_alert">Aucun historique des modifications disponible</string>
@@ -121,7 +119,6 @@
   <string name="not_download_success">Mise à jour téléchargée avec succès</string>
   <string name="not_download_failure">Le téléchargement de la mise à jour a échoué</string>
   <string name="not_action_install_update">Redémarrer et installer</string>
-  <string name="not_download_install_notice">Téléchargement de la mise à jour <xliff:g id="filename">%s</xliff:g> réussi. Lorsque vous appuierez sur \"Redémarrer et installer\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
   <string name="md5_verification_failed">Incompatibilité de somme de contrôle MD5</string>
   <string name="not_extras_download_success">Extras téléchargés avec succès</string>
   <string name="not_extras_download_failure">Le téléchargement des extras a échoué</string>
@@ -141,7 +138,6 @@
   <string name="delete_extras_noFolder_message">Dossier \" extras \" introuvable</string>
   <string name="delete_extras_success_message">Tout les extras téléchargés ont été supprimés</string>
   <string name="pref_ota_check">Mises à jour OTA</string>
-  <string name="pref_ota_check_summary">Obtenir des mises à jour OTA</string>
   <string name="apply_update_dialog_title">Appliquer la mise à jour</string>
   <string name="apply_update_dialog_text">Vous êtes sur le point de mettre à jour vers  <xliff:g id="filename">%s</xliff:g>.\n\nLorsque vous appuierez sur \"Mettre à jour\", votre appareil redémarrera automatiquement pour installer la mise à jour.\n\nRemarque\u00A0: Cette opération nécessite un recovery compatible, sinon les mises à jour devront être installées manuellement.</string>
   <string name="apply_extras_dialog_title">Installer les extras</string>
