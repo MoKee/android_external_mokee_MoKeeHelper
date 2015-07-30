@@ -80,7 +80,6 @@
   <string name="nightly_alert">Επιλέξατε να εμφανίζετε ενημερώσεις nightly σε αυτή τη λίστα. Αυτές οι ενημερώσεις δεν υποστηρίζονται επίσημα και θα πρέπει να χρησιμοποιούνται με προσοχή.</string>
   <string name="experimenter_alert">Επιλέξατε να εμφανίζετε πειραματικές ενημερώσεις σε αυτή τη λίστα. Αυτές οι ενημερώσεις δεν υποστηρίζονται επίσημα καθώς χρησιμοποιούνται για δοκιμαστικούς σκοπούς και θα πρέπει να χρησιμοποιούνται με προσοχή.</string>
   <string name="unofficial_alert">Επιλέξατε να εμφανίζετε ανεπίσημες ενημερώσεις σε αυτή τη λίστα. Αυτές οι ενημερώσεις υποστηρίζονται από τον συντηρητή της συσκευής σας.</string>
-  <string name="all_alert">Έχετε επιλέξει να συμπεριλάβετε στις ενημερώσεις όλους τους τύπους (release, πειραματικές) σε αυτή τη λίστα. Λάβετε υπόψη ότι οι nightly ενημερώσεις δεν υποστηρίζονται και πρέπει να χρησιμοποιούνται με προσοχή.</string>
   <string name="alert_title">Προσοχή</string>
   <string name="update_type_title">Τύπος ενημερώσεων</string>
   <string name="no_changelog_alert">Δεν υπάρχει διαθέσιμο αρχείο αλλαγών</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">Η λήψη της ενημέρωσης ολοκληρώθηκε με επιτυχία</string>
   <string name="not_download_failure">Η λήψη της ενημέρωσης ήταν ανεπιτυχής</string>
   <string name="not_action_install_update">Επανεκκίνηση και εγκατάσταση</string>
-  <string name="not_download_install_notice">Η λήψη της ενημέρωσης <xliff:g id="filename">%s</xliff:g> ολοκληρώθηκε με επιτυχία. Αν πατήσετε \'Επανεκκίνηση και εγκατάσταση\', η συσκευή θα κάνει επανεκκίνηση και θα εγκαταστήσει την ενημέρωση.\n\nΣημείωση: Απαιτείται μια συμβατή Recovery για την λειτουργία της αυτόματης εγκατάστασης.</string>
   <string name="md5_verification_failed">Ασυμφωνία MD5 checksum</string>
   <string name="not_extras_download_success">Η λήψη των πρόσθετων στοιχείων ήταν επιτυχής</string>
   <string name="not_extras_download_failure">Η λήψη των πρόσθετων στοιχείων ήταν ανεπιτυχής</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">Ο φάκελος των επιπλέον στοιχείων δεν βρέθηκε</string>
   <string name="delete_extras_success_message">Ολα τα επιπλέον στοιχεία που έχουν ληφθεί διαγράφηκαν</string>
   <string name="pref_ota_check">Ενημερώσεις ΟΤΑ</string>
-  <string name="pref_ota_check_summary">Λάβετε ενημερώσεις ΟΤΑ</string>
   <string name="apply_update_dialog_title">Εφαρμογή ενημέρωσης</string>
   <string name="apply_update_dialog_text">Πρόκειται να αναβαθμίσετε σε <xliff:g id="filename">%s</xliff:g>.\n\nΑν πατήσετε το πλήκτρο Ενημέρωση, η συσκευή θα κάνει επανεκκίνηση σε recovery mode για να εγκαταστήσετε την ενημέρωση.\n\nΣημείωση: Αυτή η λειτουργία απαιτεί συμβατό recovery αλλιώς η ενημέρωση θα πρέπει να εγκατασταθεί χειροκίνητα.</string>
   <string name="apply_extras_dialog_title">Εγκατάσταση έξτρα</string>

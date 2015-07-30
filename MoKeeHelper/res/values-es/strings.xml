@@ -72,7 +72,6 @@
   <string name="remove_ads_dialog_title">Siempre eliminar anuncios</string>
   <string name="remove_ads_dialog_message">A diferencia de empresas como Cygn o MIUI, MoKee OpenSource es un proyecto puramente sin ánimo de lucro nacido de la entusiasmo y la pasión. Para mantener este proyecto, tenemos que dedicar nuestro propio dinero la mayor parte del tiempo o depender de donaciones y la publicidad. Sus donaciones pueden ayudar a reducir la carga financiera y sostener el desarrollo futuro. Esta opción le permite quitar los anuncios del Centro MoKee, o utilizar la opción \"Donar\" en cambio si prefieres cuotas (los anuncios se eliminaran una vez que el total alcanza el valor especificado). Por favor haz una copia de seguridad del archivo mokee.license  (en el directorio raíz de la sdcard, solo válido para el dispositivo actual) una vez hecha la donación.</string>
   <string name="remove_ads_request_price">Donado %1$d CNY, pendiente %2$d CNY</string>
-  <string name="ads_blocked_dialog_message">MoKee OpenSource tiene altos costos cada mes para mantener la estructura y servidores de descarga. Por favor no intente bloquear los anuncios, sólo entonces podremos sostener el desarrollo futuro.</string>
   <string name="unknown">Desconocido</string>
   <string name="dialog_update">Actualización</string>
   <string name="dialog_install">Instalar</string>
@@ -89,7 +88,6 @@
   <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
   <string name="experimenter_alert">Ha seleccionado incluir versiones experimentales en esta lista. Éstas no tienen soporte al usuario y están destinadas para pruebas solamente, debe utilizarse con precaución.</string>
   <string name="unofficial_alert">Ha seleccionado incluir versiones no oficiales en esta lista. Tenga en cuenta que éstas son apoyadas por el mantenedor del dispositivo.</string>
-  <string name="all_alert">Ha seleccionado incluir todas las actualizaciones (estables, experimentales) en esta lista. Tenga en cuenta que todas las actualizaciones nocturnas no tienen soporte al usuario y se deben utilizar con precaución.</string>
   <string name="alert_title">Advertencia</string>
   <string name="update_type_title">Tipo de actualización</string>
   <string name="no_changelog_alert">No hay registro de cambios</string>
@@ -121,7 +119,6 @@
   <string name="not_download_success">Actualización descargada exitosamente</string>
   <string name="not_download_failure">Actualización no descargada</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
-  <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Cuando pulse sobre \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación automática.</string>
   <string name="md5_verification_failed">Suma de comprobación MD5 fallida</string>
   <string name="not_extras_download_success">Extras descargados con éxito</string>
   <string name="not_extras_download_failure">La descarga de Extras falló</string>
@@ -141,7 +138,6 @@
   <string name="delete_extras_noFolder_message">Carpeta de extras no encontrada</string>
   <string name="delete_extras_success_message">Todos los extras descargados fueron eliminados</string>
   <string name="pref_ota_check">Actualizaciones OTA</string>
-  <string name="pref_ota_check_summary">Obtener actualizaciones OTA</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>
   <string name="apply_update_dialog_text">Se va a proceder a actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nPulsando sobre \u00ABActualizar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
   <string name="apply_extras_dialog_title">Instalar extra</string>

@@ -80,7 +80,6 @@
   <string name="nightly_alert">Zvolili jste možnost zahrnout do seznamu i nightly aktualizace. Tyto verze nejsou podporovány a měly by být používány s opatrností.</string>
   <string name="experimenter_alert">Zvolili jste možnost zahrnout do seznamu i experimentální aktualizace. Ty jsou určeny pouze k testování a měly by být používány s opatrností.</string>
   <string name="unofficial_alert">Vybrali jste zařazení neoficiálních aktualizací do seznamu. Berte na vědomí, že jsou podporovány výhradně jejich vývojářem.</string>
-  <string name="all_alert">Vybrali jste všechny aktualizace (release, experimentální) do seznamu. Berte na vědomí, že nightly aktualizace nemají podporu a měly by být používány s opatrností.</string>
   <string name="alert_title">Varování</string>
   <string name="update_type_title">Typ aktualizace</string>
   <string name="no_changelog_alert">Changelog není k dispozici</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>
-  <string name="not_download_install_notice">Aktualizace <xliff:g id="filename">%s</xliff:g> byla úspěšně stážena. Stisknutím \'Restartovat a nainstalovat\' bude zařízení restartováno a bude provedena automatická instalace aktualizace.\n\nPoznámka: pro automatickou instalaci je vyžadováno kompatibilní recovery.</string>
   <string name="md5_verification_failed">MD5 součet nesouhlasí</string>
   <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
   <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">Složka doplňků nenalezena</string>
   <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
   <string name="pref_ota_check">OTA aktualizace</string>
-  <string name="pref_ota_check_summary">Získávat OTA aktualizace</string>
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
   <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
   <string name="apply_extras_dialog_title">Instalovat doplňek</string>

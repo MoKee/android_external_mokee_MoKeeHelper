@@ -80,7 +80,6 @@
   <string name="nightly_alert">나이틀리 업데이트를 선택했습니다. 이 버전은 지원되지 않고 주의하며 사용해야합니다.</string>
   <string name="experimenter_alert">실험적 업데이트를 선택하였습니다.  이 버전은 테스트를 하기 위한 버전이므로 주의가 필요합니다.</string>
   <string name="unofficial_alert">비공식 업데이트를 선택했습니다. 이 기능은 기기 소유자의 권한이 필요합니다.</string>
-  <string name="all_alert">모든 가능한 업데이트(정식버전, 실험버전) 를 선택했습니다. Nightly 버전은 지원하지 않으며 주의가 필요합니다.</string>
   <string name="alert_title">주의</string>
   <string name="update_type_title">업데이트 유형</string>
   <string name="no_changelog_alert">변경 사항이 없습니다</string>
@@ -112,7 +111,6 @@
   <string name="not_download_success">업데이트를 성공적으로 다운로드했습니다</string>
   <string name="not_download_failure">업데이트 다운로드가 실패했습니다</string>
   <string name="not_action_install_update">다시 시작 후 설치</string>
-  <string name="not_download_install_notice">업데이트 <xliff:g id="filename">%s</xliff:g> 가 성공적으로 다운로드되었습니다. \'다시 시작 후 설치\'를 터치 시, 기기는 재시작 후 업데이트를 설치 할 것입니다.\n\n팁: 호환되는 리커버리는 자동으로 설치시키기 위해서는 필수입니다.</string>
   <string name="md5_verification_failed">MD5 검사 실패</string>
   <string name="not_extras_download_success">엑스트라 다운로드 성공했읍니다</string>
   <string name="not_extras_download_failure">엑스트라 다운로드 실패했읍니다</string>
@@ -132,7 +130,6 @@
   <string name="delete_extras_noFolder_message">엑스트라 폴더를 찾을 수 없습니다</string>
   <string name="delete_extras_success_message">모든 다운로드된 엑스트라들이 삭제되었습니다.</string>
   <string name="pref_ota_check">OTA 업데이트</string>
-  <string name="pref_ota_check_summary">OTA 업데이트 가져</string>
   <string name="apply_update_dialog_title">업데이트 적용</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> 버전으로 업그레이드 합니다. \n\n 업데이트 버튼을 누르면, 이 기기는 자동으로 재시작후, 리커버리 모드로 진입하여 인스톨 합니다.\n
         \n 주의 : 이 기능은 호환가능한 리커버리가 수동으로 미리 설치되어 있어야 합니다.</string>

@@ -50,7 +50,7 @@
   <string name="mokee_version_type_release">Freigabe</string>
   <string name="mokee_version_type_history">Versionsverlauf</string>
   <string name="mokee_version_type_experimental">Experimentell</string>
-  <string name="mokee_version_type_nightly">Nächtliche</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Inoffizielle</string>
   <string name="mokee_version_type_all">Alle</string>
   <string name="downloaded_update_summary"> Heruntergeladen</string>
@@ -59,11 +59,19 @@
   <string name="menu_donate">Spenden</string>
   <string name="menu_refresh">Aktualisieren</string>
   <string name="menu_delete_all">Download löschen</string>
+  <string name="menu_remove_ads">Werbung entfernen</string>
   <string name="donate_dialog_title">Unterstützen Sie uns</string>
   <string name="donate_dialog_message">MoKee OpenSource ist eine gemeinnützige Organisation. Ihre Hilfe kann helfen, unsere Belastung der Server-Kosten zu verringern und zukünftige Entwicklung zu fördern!</string>
+  <string name="donate_dialog_via_paypal">PayPal(EUR)</string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>
   <string name="donate_money_description">Spenden an MoKee OpenSource</string>
+  <string name="remove_ads_name">Werbung entfernen</string>
+  <string name="remove_ads_description">Werbung entfernen</string>
+  <string name="remove_ads_dialog_title">Werbung dauerhaft entfernen</string>
+  <string name="remove_ads_dialog_message">Im Gegensatz zu Unternehmen wie \"Cygn\" oder \"MIUI\" ist \"Mokee Opensource\" ein rein gemeinnütziges Projekt aus einem Hobby und der Leidenschaft zu diesem geboren. Um dieses Projekt zu erhalten, müssen wir die meiste Zeit unser eigenes Geld investieren oder sind auf Einnahmen durch Spenden und Werbeanzeigen angewiesen. Mit einer Spende können Sie dazu beitragen, uns finanziell zu entlasten und  die zukünftige Entwicklung zu erhalten! Diese Option ermöglicht es Ihnen, die Werbeanzeigen im Mokee Center zu entfernen. Sollten Sie das Zahlen in Raten vorziehen, können Sie alternativ die Option \" Spenden \"  nutzen ( Werbeanzeigen werden entfernt werden, sobald der angegebene Schellenwert erreicht wurde ) . 
+Bitte sichern Sie die mokee.license Datei ( im Stammverzeichnis der SD-Karte , nur für das aktuell genutzte Geräte gültig ) , 
+wenn Sie gespendet haben .</string>
   <string name="unknown">Unbekannt</string>
   <string name="dialog_update">Aktualisieren</string>
   <string name="dialog_install">Installieren</string>
@@ -80,7 +88,6 @@
   <string name="nightly_alert">Sie haben ausgewählt, dass auch Nightlies angezeigt werden. Bitte beachten Sie, dass diese Versionen ungetestet sind und daher keine Unterstützung gewährleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
   <string name="experimenter_alert">Sie haben ausgewählt, dass auch experimentelle Versionen angezeigt werden. Bitte beachten Sie, dass diese Versionen nur zum Testen bestimmt sind und daher keine Unterstützung gewährleistet werden kann. Aus diesem Grund sollten experimentelle Versionen mit äußerster Vorsicht installiert werden.</string>
   <string name="unofficial_alert">Sie haben ausgewählt, dass auch inoffizielle Updates angezeigt werden. Bitte beachten Sie, dass diese Versionen ausschließlich von dem Pfleger Ihres Gerätes unterstützt werden.</string>
-  <string name="all_alert">Sie haben ausgewählt, dass alle Updates (Release, Experimentelle Versionen) in der Liste angezeigt werden. Bitte beachten Sie, dass Nightlies ungetestet sind und daher keine Unterstützung geleistet werden kann. Aus diesem Grund sollten Nightlies mit Vorsicht installiert werden.</string>
   <string name="alert_title">Vorsicht</string>
   <string name="update_type_title">Updatetyp</string>
   <string name="no_changelog_alert">Kein Änderungsprotokoll verfügbar</string>
@@ -112,7 +119,6 @@
   <string name="not_download_success">Update erfolgreich heruntergeladen</string>
   <string name="not_download_failure">Update-Download fehlgeschlagen</string>
   <string name="not_action_install_update">Neu starten und installieren</string>
-  <string name="not_download_install_notice">Das Update <xliff:g id="filename">%s</xliff:g> wurde erfolgreich heruntergeladen. Beim Bestätigen von \"Neu starten und Installieren\" wird das Gerät neu gestartet, um das Update zu installieren.\n\nHinweis: Für die automatische Installation wird ein kompatibles Recovery-System benötigt.</string>
   <string name="md5_verification_failed">MD5 Prüfsummenfehler</string>
   <string name="not_extras_download_success">Extras erfolgreich heruntergeladen</string>
   <string name="not_extras_download_failure">Download des Extras war nicht erfolgreich</string>
@@ -132,7 +138,6 @@
   <string name="delete_extras_noFolder_message">Ordner \"Extras\" nicht gefunden</string>
   <string name="delete_extras_success_message">Alle heruntergeladenen Extras gelöscht</string>
   <string name="pref_ota_check">OTA-Updates</string>
-  <string name="pref_ota_check_summary">OTA-Updates erhalten</string>
   <string name="apply_update_dialog_title">Update installieren</string>
   <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
   <string name="apply_extras_dialog_title">Extras installieren</string>

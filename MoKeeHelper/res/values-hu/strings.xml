@@ -80,7 +80,6 @@
   <string name="nightly_alert">Választásának megfelelően a Nightly frissítések is meg fognak jelenni a listán. Ezek nem támogatottak, ezért csak saját felelősségére használja őket.</string>
   <string name="experimenter_alert">Választásának megfelelően a kísérleti frissítések is meg fognak jelenni a listán. Ezek nem támogatottak, csak tesztelésre vannak, ezért csak saját felelősségére használja őket.</string>
   <string name="unofficial_alert">Választásának megfelelően a nem támogatott frissítések is meg fognak jelenni a listán. Ezek hivatalosan nem támogatottak, csak a készüléked fejlesztője által.</string>
-  <string name="all_alert">Választásának megfelelően az összes frissítés (stabil, kísérleti, nightly/éjszakai/) meg fog jelenni a listán. A nightly frissítések nem támogatottak, csak körültekintéssel, saját felelősségére használja őket.</string>
   <string name="alert_title">Vigyázat</string>
   <string name="update_type_title">Frissítés típusa</string>
   <string name="no_changelog_alert">A változások listája nem elérhető</string>
@@ -118,7 +117,6 @@
   <string name="delete_extras_noFolder_message">Extrák mappa nem található</string>
   <string name="delete_extras_success_message">Összes letöltött extra törölve</string>
   <string name="pref_ota_check">Növekményes frissítések</string>
-  <string name="pref_ota_check_summary">Növekményes frissítések beszerzése</string>
   <string name="apply_update_dialog_title">Frissítés alkalmazása</string>
   <string name="apply_update_dialog_text">A  <xliff:g id="filename">%s</xliff:g> frissítés telepítését választottad. Ha a Frissítésre nyomsz, a készülék újraindul recovery módba, hogy telepítse a frissítést. \n\nMegjegyzés: Az autómatikus frissítéshez kompatibilis recovery kell, különben manuális telepítésre lesz szükség.</string>
   <string name="apply_extras_dialog_title">Extra telepítése</string>
