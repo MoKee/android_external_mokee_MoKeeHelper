@@ -37,21 +37,15 @@ public class DownLoadDao {
         this.context = context;
     }
 
-    public static DownLoadDao getInstance() {
+    public static synchronized DownLoadDao getInstance() {
         if (downLoadDao == null) {
             downLoadDao = new DownLoadDao(MoKeeApplication.getContext());
         }
         return downLoadDao;
     }
 
-    public SQLiteDatabase getConnection() {
-        SQLiteDatabase sqliteDatabase = null;
-        try {
-            sqliteDatabase = new DBManager(context).getWritableDatabase();
-        } catch (Exception e) {
-        }
-        return sqliteDatabase;
-    }
+    public synchronized SQLiteDatabase getConnection() {
+        return new DBManager(context).getWritableDatabase();    }
 
     /**
      * 查看数据库中是否有数据

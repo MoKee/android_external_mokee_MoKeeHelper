@@ -96,52 +96,44 @@ public class DownLoader {
      * @return
      */
     public DownLoadInfo getDownLoadInfo() {
-        if (MoKeeUtils.isOnline(mContext)) { // 执行时简单判断网络状态
-            if (isFirst(fileUrl)) {
-                if (!init()) { // judge init is success
-                    return null;
-                }
-                long range = fileSize / threadCount;
-                downInfoList = new ArrayList<ThreadDownLoadInfo>();
-                for (int i = 0; i < threadCount - 1; i++) {
-                    ThreadDownLoadInfo info = new ThreadDownLoadInfo(i, i * range, (i + 1) * range
-                            - 1, 0, fileUrl);
-                    downInfoList.add(info);
-                }
-                ThreadDownLoadInfo info = new ThreadDownLoadInfo(threadCount - 1, (threadCount - 1)
-                        * range, fileSize - 1, 0, fileUrl);
-                downInfoList.add(info);
-                ThreadDownLoadDao.getInstance().saveInfos(downInfoList);
-                allDownSize = 0;
-                downloadedSize = 0;
-                DownLoadInfo loadInfo = new DownLoadInfo(fileSize, 0, fileUrl);
-                return loadInfo;
-            } else {// 初始化信息待修改
-                // 获取URL的相关线程信息
-                downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
-                this.threadCount = downInfoList.size();
-                Log.v("TAG", "not isFirst size=" + downInfoList.size());
-                // int size = 0;
-                int complete = 0;
-                fileSize = DownLoadDao.getInstance().getDownLoadInfoByUrl(fileUrl).getFileSize();
-                allDownSize = 0;
-                downloadedSize = 0;
-                for (ThreadDownLoadInfo info : downInfoList) {
-                    complete += info.getDownSize();
-                    allDownSize += info.getDownSize();
-                    downloadedSize += info.getDownSize();
-                    // size += info.getEndPos() - info.getStartPos() + 1;
-                }
-                if (allDownSize == fileSize) {// 修正数据已下完，避免重复开线程
-                    sendMsg(STATUS_COMPLETE, fileUrl, 0);
-                    return null;
-                }
-                return new DownLoadInfo(fileSize, complete, fileUrl);
+        if (isFirst(fileUrl)) {
+            if (!init()) { // judge init is success
+                return null;
             }
-        } else {
-            state = STATUS_ERROR;
-            sendMsg(state, fileUrl, 0);
-            return null;
+            long range = fileSize / threadCount;
+            downInfoList = new ArrayList<ThreadDownLoadInfo>();
+            for (int i = 0; i < threadCount - 1; i++) {
+                ThreadDownLoadInfo info = new ThreadDownLoadInfo(i, i * range, (i + 1) * range - 1, 0, fileUrl);
+                downInfoList.add(info);
+            }
+            ThreadDownLoadInfo info = new ThreadDownLoadInfo(threadCount - 1, (threadCount - 1) * range, fileSize - 1, 0, fileUrl);
+            downInfoList.add(info);
+            ThreadDownLoadDao.getInstance().saveInfos(downInfoList);
+            allDownSize = 0;
+            downloadedSize = 0;
+            DownLoadInfo loadInfo = new DownLoadInfo(fileSize, 0, fileUrl);
+            return loadInfo;
+        } else {// 初始化信息待修改
+            // 获取URL的相关线程信息
+            downInfoList = ThreadDownLoadDao.getInstance().getThreadInfoList(fileUrl);
+            this.threadCount = downInfoList.size();
+            Log.v("TAG", "not isFirst size=" + downInfoList.size());
+            // int size = 0;
+            int complete = 0;
+            fileSize = DownLoadDao.getInstance().getDownLoadInfoByUrl(fileUrl).getFileSize();
+            allDownSize = 0;
+            downloadedSize = 0;
+            for (ThreadDownLoadInfo info : downInfoList) {
+                complete += info.getDownSize();
+                allDownSize += info.getDownSize();
+                downloadedSize += info.getDownSize();
+                // size += info.getEndPos() - info.getStartPos() + 1;
+            }
+            if (allDownSize == fileSize) {// 修正数据已下完，避免重复开线程
+                sendMsg(STATUS_COMPLETE, fileUrl, 0);
+                return null;
+            }
+            return new DownLoadInfo(fileSize, complete, fileUrl);
         }
     }
 
@@ -160,7 +152,7 @@ public class DownLoader {
                 if (fileSize < 1048576) {// 1m
                     this.threadCount = 1;
                 } else {// >50m
-                    this.threadCount = 4;
+                    this.threadCount = 3;
                 }
                 DownLoadDao.getInstance().updataFileSize(fileUrl, fileSize);// 更新文件长度
                 File file = new File(localFile);
@@ -188,8 +180,7 @@ public class DownLoader {
      * 判断是否是第一次下载
      */
     private boolean isFirst(String fileUrl) {
-        if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists())
-        {
+        if (!ThreadDownLoadDao.getInstance().isHasInfos(fileUrl) | !new File(localFile).exists()) {
             delete(fileUrl);// 清理未完成线程记录
             return true;
         }
@@ -220,10 +211,9 @@ public class DownLoader {
         private long sectionSize;
         private String fileUrl;
         private int retries = 0;
-        private static final int DEFAULT_TIMEOUT = (int) (20 * DateUtils.SECOND_IN_MILLIS);
 
-        private static final int DEFAULT_REQUEST_TIMEOUT = 10000; // 10 seconds
-        private static final int DEFAULT_REQUEST_MAX_RETRIES = 3;
+        private static final int DEFAULT_REQUEST_TIMEOUT = 5000; // 5 seconds
+        private static final int DEFAULT_REQUEST_MAX_RETRIES = 6;
 
         public DonwLoadThread(int threadId, long startPos, long endPos, long downSize,
                 String fileUrl) {
@@ -241,12 +231,13 @@ public class DownLoader {
                 HttpURLConnection connection = null;
                 RandomAccessFile randomAccessFile = null;
                 InputStream is = null;
+                byte[] buffer = new byte[8192];
                 try {
                     URL url = new URL(fileUrl);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setInstanceFollowRedirects(false);
-                    connection.setConnectTimeout(DEFAULT_TIMEOUT);
-                    connection.setReadTimeout(DEFAULT_TIMEOUT);
+                    connection.setConnectTimeout(DEFAULT_REQUEST_TIMEOUT);
+                    connection.setReadTimeout(DEFAULT_REQUEST_TIMEOUT);
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("Connection", "Keep-Alive");
                     // 设置分段读取范围
@@ -257,7 +248,6 @@ public class DownLoader {
                     randomAccessFile = new RandomAccessFile(localFile, "rwd");
                     randomAccessFile.seek(startPos + downSize);
                     is = connection.getInputStream();
-                    byte[] buffer = new byte[4096];
                     int length = -1;
                     int i = 0;
                     while ((length = is.read(buffer)) != -1) { // while ((length = is.read(buffer, 0, 1024)) != -1)
@@ -267,12 +257,11 @@ public class DownLoader {
                         allDownSize += length;
                         // 线程更新进度
                         ThreadDownLoadDao.getInstance().updataInfo(threadId, downSize, fileUrl);
-                        if (state == STATUS_PAUSED || state == STATUS_DELETE
-                                || state == STATUS_ERROR) {
+                        if (state == STATUS_PAUSED || state == STATUS_DELETE || state == STATUS_ERROR) {
                             interrupt();
                             break;
                         }
-                        if (i == 5) {
+                        if (i == 10) {
                             sendMsg(STATUS_DOWNLOADING, fileUrl, length);
                             i = 0;
                         }
@@ -350,8 +339,6 @@ public class DownLoader {
      */
     public synchronized void isFinished() {
         endThreadNum++;
-        System.out.println("endThreadNum=" + endThreadNum + ",allDownSize:" + allDownSize
-                + ",fileSize=" + fileSize);
         if (endThreadNum == threadCount && allDownSize == fileSize) {
             sendMsg(STATUS_COMPLETE, fileUrl, 0);
         } else if (endThreadNum == threadCount && allDownSize != fileSize) { //maybe thread info error then delete
