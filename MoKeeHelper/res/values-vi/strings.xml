@@ -20,4 +20,11 @@
   <string name="mokee_support_title">Hỗ trợ</string>
   <string name="mokee_updater_title">Cập Nhật</string>
   <string name="mokee_extras_title">Tính năng bổ sung</string>
+  <string name="remove_ads_dialog_title">Luôn loại bỏ quảng cáo</string>
+  <string name="not_download_install_notice">Bản cập nhật <xliff:g id="filename"> %s </xliff:g> đã tải xuống thành công. Chạm vào để khởi động lại và cài đặt, điện thoại sẽ tự khởi động lại để cài đặt cập nhật.\n\nChú ý: cần có một bản Recovery tương thích cho tiến trình cài đặt.</string>
+  <string name="apply_extras_dialog_text">Bạn có chắc bạn muốn cài đặt <xliff:g id="filename">%s </xliff:g>?</string>
+  <string name="apply_unable_to_reboot_toast">Không thể khởi động lại vào recovery</string>
+  <string name="extras_unsupported_toast">Phiên bản hiện tại của bạn không hỗ trợ phần mở rộng này</string>
+  <string name="show_exp_on">Bạn đã kích hoạt cài đặt thử nghiệm!</string>
+  <string name="show_exp_already">Không cần thiết, bạn đã có cho phép cài đặt thử nghiệm.</string>
 </resources>

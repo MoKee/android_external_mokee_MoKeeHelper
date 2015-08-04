@@ -70,7 +70,7 @@
   <string name="remove_ads_name">永久移除广告</string>
   <string name="remove_ads_description">永久移除广告</string>
   <string name="remove_ads_dialog_title">永久移除广告</string>
-  <string name="remove_ads_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！捐赠完成后请备份位于SD卡根目录的mokee.license授权文件，以便意外丢失后恢复。（仅限当前设备使用）</string>
+  <string name="remove_ads_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！捐赠完成后请备份位于SD卡根目录的mokee.license授权文件，以便意外丢失、刷机后恢复。（仅限当前设备使用）</string>
   <string name="remove_ads_request_price">已捐赠 %1$d ，待捐赠 %2$d (货币单位：CNY)</string>
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
