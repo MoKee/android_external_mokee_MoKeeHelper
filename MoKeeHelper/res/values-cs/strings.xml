@@ -60,7 +60,6 @@
   <string name="menu_refresh">Obnovit</string>
   <string name="menu_delete_all">Odstranit stažené</string>
   <string name="donate_dialog_title">Přispějte nám</string>
-  <string name="donate_dialog_message">MoKee OpenSource je nezisková organizace. Vaše pomoc může pomoci snížit naše náklady na servery a udržovat budoucí rozvoj!</string>
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>

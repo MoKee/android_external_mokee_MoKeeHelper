@@ -61,9 +61,6 @@
   <string name="menu_delete_all">Download löschen</string>
   <string name="menu_remove_ads">Werbung entfernen</string>
   <string name="donate_dialog_title">Unterstützen Sie uns</string>
-  <string name="donate_dialog_message">Im Gegensatz zu Unternehmen wie \"Cygn\" oder \"MIUI\" ist \"Mokee Opensource\" ein rein gemeinnütziges Projekt aus einem Hobby und der Leidenschaft zu diesem geboren. Um dieses Projekt zu erhalten, müssen wir die meiste Zeit unser eigenes Geld investieren oder sind auf Einnahmen durch Spenden und Werbeanzeigen angewiesen. Mit einer Spende können Sie dazu beitragen, uns finanziell zu entlasten und  die zukünftige Entwicklung zu erhalten! Diese Option ermöglicht es Ihnen, die Werbeanzeigen im Mokee Center zu entfernen. Sollten Sie das Zahlen in Raten vorziehen, können Sie alternativ die Option \" Spenden \"  nutzen ( Werbeanzeigen werden entfernt werden, sobald der angegebene Schellenwert erreicht wurde ) . 
-Bitte sichern Sie die mokee.license Datei ( im Stammverzeichnis der SD-Karte , nur für das aktuell genutzte Geräte gültig ) , 
-wenn Sie gespendet haben .</string>
   <string name="donate_dialog_via_paypal">PayPal(EUR)</string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>

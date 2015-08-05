@@ -60,7 +60,6 @@
   <string name="menu_refresh">تحديث</string>
   <string name="menu_delete_all">حذف التنزيل</string>
   <string name="donate_dialog_title">تبرع لنا</string>
-  <string name="donate_dialog_message">موكي مفتوح المصدر مشروع غير ربحي. مساعدتكم يمكن أن تساعد في تقليل التكاليف والحمل على السيرفر ومواصلة التطوير في المستقبل!</string>
   <string name="donate_money_toast_success">شكراً لتبرعك!</string>
   <string name="donate_money_name">تبرع لمشروع موكي مفتوح المصدر</string>
   <string name="donate_money_description">تبرع لمشروع موكي مفتوح المصدر</string>

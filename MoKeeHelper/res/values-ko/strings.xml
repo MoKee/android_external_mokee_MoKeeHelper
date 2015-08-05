@@ -60,7 +60,6 @@
   <string name="menu_refresh">새로 고침</string>
   <string name="menu_delete_all">다운로드 삭제</string>
   <string name="donate_dialog_title">우리한테 기부</string>
-  <string name="donate_dialog_message">MoKee 오픈 소스는 비영리 단체입니다. 당신의 도움은 우리의 서버 비용을 낮추수 잇고 우리 미래의 발전을 유지할수 있읍니다!</string>
   <string name="donate_money_toast_success">기부 주셔서 감사합니다!</string>
   <string name="donate_money_name">MoKee 오픈 소스 기부</string>
   <string name="donate_money_description">MoKee 오픈 소스 기부</string>

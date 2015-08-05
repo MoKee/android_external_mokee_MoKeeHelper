@@ -58,7 +58,6 @@
   <string name="menu_refresh">Оновити</string>
   <string name="menu_delete_all">Видалити завантажене</string>
   <string name="donate_dialog_title">Пожертвувати нам</string>
-  <string name="donate_dialog_message">MoKee OpenSource є некомерційною організацією. Ваша допомога може допомогти зменшити наше навантаження на сервер, витрати і підтримувати подальший розвиток!</string>
   <string name="donate_money_toast_success">Дякуємо вам за ваш внесок!</string>
   <string name="donate_money_name">Пожертвувати MoKee OpenSource</string>
   <string name="donate_money_description">Пожертвувати MoKee OpenSource</string>

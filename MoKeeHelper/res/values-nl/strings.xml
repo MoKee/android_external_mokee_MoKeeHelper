@@ -52,7 +52,6 @@
   <string name="menu_refresh">Vernieuw</string>
   <string name="menu_delete_all">Download verwijderen</string>
   <string name="donate_dialog_title">Doneer aan ons</string>
-  <string name="donate_dialog_message">MoKee OpenSource is een organisatie zonder winstoogmerk. Uw hulp kan helpen met het verminderen van onze serverkosten en het behouden van toekomstige ontwikkeling!</string>
   <string name="donate_money_toast_success">Dank u voor uw donatie!</string>
   <string name="donate_money_name">Donatie aan MoKee OpenSource</string>
   <string name="donate_money_description">Donatie aan MoKee OpenSource</string>

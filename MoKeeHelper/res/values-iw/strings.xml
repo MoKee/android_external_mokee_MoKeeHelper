@@ -60,7 +60,6 @@
   <string name="menu_refresh">רענן</string>
   <string name="menu_delete_all">מחיקת הורדה</string>
   <string name="donate_dialog_title">תרום לנו</string>
-  <string name="donate_dialog_message">קהילת MoKee הוא ארגון ללא מטרות רווח. בעזרתך ניתן להפחית את העומס שלנו על שרת עלויות ולקיים פיתוחים עתידיים!</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_description">תרום ל MoKee בקוד פתוח</string>

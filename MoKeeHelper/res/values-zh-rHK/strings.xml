@@ -58,7 +58,6 @@
   <string name="menu_refresh">重新整理</string>
   <string name="menu_delete_all">刪除下載</string>
   <string name="donate_dialog_title">捐贈我們</string>
-  <string name="donate_dialog_message">MoKee OpenSource 是一個非盈利性組織。你的援助可以幫助降低我們在伺服器成本上的壓力，維持未來的發展！</string>
   <string name="donate_money_toast_success">多謝你的捐贈！</string>
   <string name="donate_money_name">捐贈 MoKee OpenSource</string>
   <string name="donate_money_description">捐贈 MoKee OpenSource</string>

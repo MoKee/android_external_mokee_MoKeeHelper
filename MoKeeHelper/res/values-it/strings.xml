@@ -60,7 +60,6 @@
   <string name="menu_refresh">Aggiorna</string>
   <string name="menu_delete_all">Elimina download</string>
   <string name="donate_dialog_title">Dona e aiuta MoKee</string>
-  <string name="donate_dialog_message">MoKee OpenSource è un\'organizzazione non-profit. Il vostro aiuto può aiutare a ridurre il nostro carico sui costi del server e sostenere lo sviluppo futuro!</string>
   <string name="donate_money_toast_success">Grazie per la tua donazione!</string>
   <string name="donate_money_name">Dona Mokee OpenSource</string>
   <string name="donate_money_description">Dona Mokee Opensource</string>

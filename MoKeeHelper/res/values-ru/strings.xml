@@ -61,7 +61,6 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="menu_remove_ads">Убрать рекламу</string>
   <string name="donate_dialog_title">Пожертвовать нам</string>
-  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования поддержат развитие проекта! После определенной суммы пожертвований также не будет рекламы в центре MoKee. \n\nОбязательно создайте резервную копию файла mokee.license (в корневом каталоге sdcard, файл действителен только для текущего устройства).</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_money_toast_success">Благодарим Вас за пожертвование!</string>

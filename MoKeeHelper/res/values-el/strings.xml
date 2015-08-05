@@ -60,7 +60,6 @@
   <string name="menu_refresh">Ανανέωση</string>
   <string name="menu_delete_all">Διαγραφή κατεβασμένου αρχείου</string>
   <string name="donate_dialog_title">Κάντε μας μια δωρεά</string>
-  <string name="donate_dialog_message">Το MoKee είναι ένας μη κερδοσκοπικός οργανισμός. Η βοήθειά σας μπορεί να βοηθήσει στη μείωση του κόστους του διακομιστή που έχουμε επιφορτιστεί να συντηρήσει την μελλοντική μας ανάπτυξη!</string>
   <string name="donate_money_toast_success">Σας ευχαριστούμε για τη δωρεά σας!</string>
   <string name="donate_money_name">Δωρεά σε MoKee OpenSource</string>
   <string name="donate_money_description">Δωρεά σε MoKee OpenSource</string>

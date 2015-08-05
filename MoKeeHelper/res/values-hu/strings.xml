@@ -60,7 +60,6 @@
   <string name="menu_refresh">Frissités</string>
   <string name="menu_delete_all">Letöltés törlése</string>
   <string name="donate_dialog_title">Támogass minket</string>
-  <string name="donate_dialog_message">A MoKee OpenSource egy nonprofit szervezet. Segítségeddel könnyebben állhatjuk a szerverek díjait, és támogatod a fejlesztést!</string>
   <string name="donate_money_toast_success">Köszönjük a támogatását!</string>
   <string name="donate_money_name">Támogasd a MoKee OpenSource-ot</string>
   <string name="donate_money_description">Támogasd a MoKee OpenSource-ot</string>

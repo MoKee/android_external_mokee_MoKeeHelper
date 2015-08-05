@@ -61,7 +61,6 @@
   <string name="menu_delete_all">Supprimer le téléchargement</string>
   <string name="menu_remove_ads">Enlever la publicité</string>
   <string name="donate_dialog_title">Faite nous un don</string>
-  <string name="donate_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif née de passe-temps et de passion. Afin de maintenir ce projet, il faut débourser de notre propre argent la plupart du temps ou dépendent des dons et des publicités. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces MoKee Centre, ou utilisez l\'option de « Don » au lieu de cela, si vous préférez des versements (annonces seront supprimés une fois que le total a atteint la valeur spécifiée). Veuillez sauvegarder le mokee.license du fichier (dans le répertoire racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donnés.</string>
   <string name="donate_dialog_via_paypal">PayPal (USD)</string>
   <string name="donate_dialog_via_alipay">AliPay (CNY)</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>

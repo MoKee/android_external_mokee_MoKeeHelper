@@ -69,6 +69,7 @@
   <string name="remove_ads_name">Usuń reklamy</string>
   <string name="remove_ads_description">Usuń reklamy</string>
   <string name="remove_ads_dialog_title">Zawsze usuwaj reklamy</string>
+  <string name="remove_ads_request_price">Podarowałeś CNY %1$d, oczekuje CNY %2$d</string>
   <string name="unknown">Brak informacji</string>
   <string name="dialog_update">Aktualizacja</string>
   <string name="dialog_install">Zainstaluj</string>
@@ -84,4 +85,68 @@
   <string name="check_manual">Ręcznie</string>
   <string name="nightly_alert">Wybrano by na liście aktualizacji pojawiały się wersje deweloperskie. Wydania te nie są oficjalnie wspierane, a więc powinny być użytkowane ze szczególną ostrożnością.</string>
   <string name="experimenter_alert">Wybrano by na liście aktualizacji pojawiały się wersje deweloperskie. Wydania te nie są oficjalnie wspierane, a więc powinny być użytkowane ze szczególną ostrożnością.</string>
+  <string name="unofficial_alert">Zaznaczyłeś nieoficjalne aktualizacje na tej liście. Pamiętaj, że te są obsługiwane przez opiekuna twojego urządzenia.</string>
+  <string name="all_alert">Wybrałeś wszystkie aktualizacje z listy (release, nightly). Pamiętaj że wersje nightly nie są wspierane i należy ich używać z ostrożnością.</string>
+  <string name="alert_title">Uwaga</string>
+  <string name="update_type_title">Rodzaj aktualizacji</string>
+  <string name="no_changelog_alert">Brak listy zmian</string>
+  <string name="changelog_dialog_title">Lista zmian</string>
+  <string name="loading_changelog">Ładowanie\u2026</string>
+  <string name="check_on_boot">Przy każdym ponownym uruchomieniu</string>
+  <string name="check_twice_daily">Dwa razy każdego dnia</string>
+  <string name="check_daily">Raz na dzień</string>
+  <string name="check_twice_weekly">Dwa razy w tygodniu</string>
+  <string name="check_weekly">Raz w tygodniu</string>
+  <string name="check_bi_weekly">Co dwa tygodnie</string>
+  <string name="check_monthly">Raz w miesiącu</string>
+  <string name="checking_for_updates">Sprawdzanie aktualizacji</string>
+  <string name="no_updates_found">Brak dostępnych aktualizacji</string>
+  <string name="checking_for_extras">Sprawdzanie dodatków</string>
+  <string name="no_extras_found">Brak nowych dodatków</string>
+  <string name="not_new_updates_found_ticker">Nowe aktualizacje są dostępne</string>
+  <string name="not_new_updates_found_title">Nowe aktualizacje</string>
+  <string name="update_check_failed">Nie udało się wyszukać aktualizacji. Proszę sprawdzić połączenie internetowe i spróbować ponownie.</string>
+  <string name="not_action_download">Pobierz</string>
+  <string name="data_connection_required">Wymagane połączenie z Internetem.</string>
+  <string name="confirm_download_cancelation_dialog_title">Anuluj pobieranie</string>
+  <string name="confirm_download_cancelation_dialog_message">Przerwać bieżące pobieranie?</string>
+  <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> zostało do końca</string>
+  <string name="download_running">Postęp</string>
+  <string name="download_cancelled">Anulowano pobieranie</string>
+  <string name="download_already_running">Pobieranie w toku</string>
+  <string name="unable_to_download_file">Nie można pobrać pliku aktualizacji</string>
+  <string name="not_download_success">Aktualizacja pobrana pomyślnie</string>
+  <string name="not_download_failure">Pobieranie aktualizacji nie powiodło się</string>
+  <string name="not_action_install_update">Uruchom ponownie i zainstaluj</string>
+  <string name="not_download_install_notice">Aktualizacja <xliff:g id="filename">%s</xliff:g> została pobrana pomyślnie. Po wybraniu \'Uruchom ponownie i zainstaluj\', urządzenie zostanie zrestartowane w celu instalacji.\n\nUwaga: Wymagana jest kompatybilna wersja Recovery, aby proces mógł przebiec automatycznie.</string>
+  <string name="not_download_install_ota_notice">Aktualizacja <xliff:g id="filename">%s </xliff:g> została pomyślnie pobrana. Po wybraniu \"Uruchom ponownie i zainstaluj\", urządzenie zrestartuje się zainstaluje aktualizację.\n\nUwaga: By instalacją przebiegła poprawnie wymagane jest kompatybilne recovery. Jest to aktualizacja przyrostowa, dlatego wszelkie zmiany plików systemowych mogą spowodować iż aktualizacja nie powiedzie się. W takim przypadku prosimy o instalację pełnej wersji ROMu.</string>
+  <string name="md5_verification_failed">Niezgodność sumy kontrolnej MD5</string>
+  <string name="not_extras_download_success">Dodatki pobrane pomyślnie</string>
+  <string name="not_extras_download_failure">Pobranie dodatków nie powiodło się</string>
+  <string name="not_extras_download_install_notice">Dodatek <xliff:g id="filename">%s</xliff:g> został pobrany pomyślnie. Po wybraniu \'Uruchom ponownie i zainstaluj\', urządzenie zostanie zrestartowane w celu instalacji.\n\nUwaga: Wymagana jest kompatybilna wersja Recovery, aby proces mógł przebiec automatycznie.</string>
+  <string name="not_extras_download_install_notice_apk">Dodatki <xliff:g id="filename">%s </xliff:g> zostały pomyślnie pobrane.</string>
+  <string name="not_apk_action_install_update">Zainstaluj</string>
+  <string name="confirm_delete_dialog_title">Usuń plik</string>
+  <string name="confirm_delete_updates_dialog_message">Usunąć wybraną aktualizację?</string>
+  <string name="confirm_delete_updates_all_dialog_message">Usunąć wszystkie aktualizacje?</string>
+  <string name="confirm_delete_extras_dialog_message">Usunąć wybrane dodatki?</string>
+  <string name="confirm_delete_extras_all_dialog_message">Usunąć wszystkie dodatki?</string>
+  <string name="delete_single_update_success_message">Aktualizacja <xliff:g id="filename">%s</xliff:g> została usunięta</string>
+  <string name="delete_updates_failure_message">Wystąpił błąd podczas usuwania pliku aktualizacji</string>
+  <string name="delete_updates_noFolder_message">Nie odnaleziono folderu aktualizacji</string>
+  <string name="delete_updates_success_message">Usunięto wszystkie pobrane aktualizacje</string>
+  <string name="delete_extras_failure_message">Wystąpił błąd podczas usuwania plików dodatków</string>
+  <string name="delete_extras_noFolder_message">Folder dodatków nie został znaleziony</string>
+  <string name="delete_extras_success_message">Wszystkie pobrane dodatki zostały usunięte</string>
+  <string name="pref_ota_check">Aktualizacje przyrostowe</string>
+  <string name="pref_ota_check_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza</string>
+  <string name="pref_ota_check_donation_request_summary">Pobierz aktualizacje przyrostowe by zaoszczędzić czas i przepustowość łącza (dostępne po wpłaceniu CNY %d)</string>
+  <string name="apply_update_dialog_title">Zatwierdź aktualizacje</string>
+  <string name="apply_update_dialog_text">Zostanie dokonana aktualizacja do <xliff:g id="filename">%s</xliff:g>.\n\n Wciśnięcie Aktualizuj uruchomi urządzenie ponownie w trybie Recovery, a następnie zainstaluje aktualizację.\n\nUwaga: ta funkcja wymaga kompatybilnego trybu Recovery, w innym przypadku będzie należało dokonać aktualizacji ręcznie.</string>
+  <string name="apply_extras_dialog_title">Zainstaluj dodatki</string>
+  <string name="apply_extras_dialog_text">Czy na pewno chcesz zainstalować <xliff:g id="filename">%s </xliff:g> ?</string>
+  <string name="apply_unable_to_reboot_toast">Nie można przejść do trybu recovery</string>
+  <string name="extras_unsupported_toast">Bieżąca wersja nie obsługuje tego rozszerzenia</string>
+  <string name="show_exp_on">Włączyłeś ustawienia eksperymentalne!</string>
+  <string name="show_exp_already">Nie trzeba, już włączyłeś ustawienia eksperymentalne.</string>
 </resources>
