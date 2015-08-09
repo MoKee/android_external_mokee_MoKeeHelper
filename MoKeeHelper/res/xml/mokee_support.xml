@@ -18,6 +18,11 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <SwitchPreference 
+        android:key="mokee_news"
+        android:summary="@string/mokee_news_summary"
+        android:title="@string/mokee_news_title" />
+
     <PreferenceScreen
         android:key="mokee_website"
         android:summary="@string/mokee_website_summary"

@@ -19,12 +19,15 @@ package com.mokee.helper.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.mokee.utils.MoKeeUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,9 +35,12 @@ import android.view.MenuItem;
 import com.mokee.helper.R;
 import com.mokee.helper.activities.MoKeeCenter;
 
-public class MoKeeSupportFragment extends PreferenceFragment {
+public class MoKeeSupportFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 
     private static final int MENU_DONATE = 0;
+
+    private static final String MKPUSH_PREF = "mokee_push";
+    private static final String PREF_NEWS = "pref_news";
 
     private static final String KEY_MOKEE_WEBSITE = "mokee_website";
     private static final String KEY_MOKEE_FORUM = "mokee_forum";
@@ -44,6 +50,7 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     private static final String KEY_MOKEE_TRANSLATE = "mokee_translate";
     private static final String KEY_MOKEE_GITHUB = "mokee_github";
     private static final String KEY_MOKEE_WIKI = "mokee_wiki";
+    private static final String KEY_MOKEE_NEWS = "mokee_news";
 
     private static final String URL_MOKEE_WEBSITE = "http://www.mokeedev.com";
     private static final String URL_MOKEE_FORUM = "http://bbs.mfunz.com";
@@ -57,6 +64,8 @@ public class MoKeeSupportFragment extends PreferenceFragment {
     public static final String URL_MOKEE_DONATE = "http://www.mokeedev.com/donate/";
 
     private Activity mContext;
+    private SharedPreferences prefs;
+    private SwitchPreference mMoKeeNewsPreferences;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -64,6 +73,20 @@ public class MoKeeSupportFragment extends PreferenceFragment {
         mContext = getActivity();
         addPreferencesFromResource(R.xml.mokee_support);
         setHasOptionsMenu(true);
+        prefs = getActivity().getSharedPreferences(MKPUSH_PREF, 0);
+        mMoKeeNewsPreferences = (SwitchPreference) findPreference(KEY_MOKEE_NEWS);
+        mMoKeeNewsPreferences.setOnPreferenceChangeListener(this);
+        mMoKeeNewsPreferences.setChecked(prefs.getBoolean(PREF_NEWS, true));
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mMoKeeNewsPreferences) {
+            boolean value = (Boolean) newValue;
+            prefs.edit().putBoolean(PREF_NEWS, value).apply();
+            return true;
+        }
+        return false;
     }
 
     @Override

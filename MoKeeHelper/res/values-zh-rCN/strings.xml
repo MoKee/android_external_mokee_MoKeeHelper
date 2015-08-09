@@ -40,6 +40,8 @@
   <string name="mokee_wiki_summary">魔趣开源计划的百科全书，由大家共同维护</string>
   <string name="mokee_donate_title">捐赠我们</string>
   <string name="mokee_donate_summary">请通过捐赠支持我们，让我们变得更好</string>
+  <string name="mokee_news_title">魔趣新闻速递</string>
+  <string name="mokee_news_summary">不定期发送有关魔趣开源项目的最新进展</string>
   <string name="mokee_version_info_title">版本信息</string>
   <string name="mokee_version_title">魔趣版本</string>
   <string name="mokee_version_type_title">版本类型</string>

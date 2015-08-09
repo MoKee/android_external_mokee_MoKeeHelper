@@ -46,6 +46,8 @@
     <string name="mokee_wiki_summary">View the MoKee Wiki</string>
     <string name="mokee_donate_title">Donate to MoKee</string>
     <string name="mokee_donate_summary">Please donate to support MoKee OpenSource</string>
+    <string name="mokee_news_title">MoKee News</string>
+    <string name="mokee_news_summary">不定期发送有关魔趣开源项目的最新进展</string>
 
     <!-- Base Info -->
     <string name="mokee_version_info_title">Version Info</string>
