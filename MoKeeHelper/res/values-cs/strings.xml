@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Pomozte přeložit MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Zobrazit MoKee Wiki</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Informace o verzi</string>
   <string name="mokee_version_title">Verze MoKee</string>
   <string name="mokee_version_type_title">Typ verze</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">Přispět</string>
   <string name="menu_refresh">Obnovit</string>
   <string name="menu_delete_all">Odstranit stažené</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">Přispějte nám</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Děkujeme vám za váš příspěvek!</string>
   <string name="donate_money_name">Přispět na MoKee OpenSource</string>
   <string name="donate_money_description">Přispět na MoKee OpenSource</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">Neznámá</string>
   <string name="dialog_update">Aktualizovat</string>
   <string name="dialog_install">Instalovat</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">Zvolili jste možnost zahrnout do seznamu i nightly aktualizace. Tyto verze nejsou podporovány a měly by být používány s opatrností.</string>
   <string name="experimenter_alert">Zvolili jste možnost zahrnout do seznamu i experimentální aktualizace. Ty jsou určeny pouze k testování a měly by být používány s opatrností.</string>
   <string name="unofficial_alert">Vybrali jste zařazení neoficiálních aktualizací do seznamu. Berte na vědomí, že jsou podporovány výhradně jejich vývojářem.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">Varování</string>
   <string name="update_type_title">Typ aktualizace</string>
   <string name="no_changelog_alert">Changelog není k dispozici</string>
@@ -108,6 +120,8 @@
   <string name="not_download_success">Aktualizace byla úspěšně stažena</string>
   <string name="not_download_failure">Stažení aktualizace bylo neúspěšné</string>
   <string name="not_action_install_update">Restartovat a nainstalovat</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">MD5 součet nesouhlasí</string>
   <string name="not_extras_download_success">Doplněk úspěšně stažen</string>
   <string name="not_extras_download_failure">Stažení doplňku bylo neúspěšné</string>
@@ -127,8 +141,11 @@
   <string name="delete_extras_noFolder_message">Složka doplňků nenalezena</string>
   <string name="delete_extras_success_message">Všechny stažené doplňky odstraněny</string>
   <string name="pref_ota_check">OTA aktualizace</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">Nainstalovat aktualizaci</string>
   <string name="apply_update_dialog_text">Chystáte se aktualizovat na <xliff:g id="filename">%s</xliff:g>.\n\nPokud stisknete Aktualizovat, telefon se restartuje do režimu recovery, kde bude pokračovat v instalaci aktualizace.\n\nPoznámka: tato funkce vyžaduje nainstalované kompatibilní recovery nebo je nutné instalaci provést ručně.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Instalovat doplňek</string>
   <string name="apply_extras_dialog_text">Jste si jistí, že chcete nainstalovat <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Nelze restartovat do režimu recovery</string>

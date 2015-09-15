@@ -17,20 +17,29 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="mokee_center_title"></string>
   <string name="mokee_support_title">Ondersteuning</string>
+  <string name="mokee_updater_title"></string>
   <string name="mokee_extras_title">Extra\'s</string>
   <string name="tips_help_title">Tips &amp; Hulp</string>
+  <string name="mokee_website_title"></string>
   <string name="mokee_website_summary">Bezoek de officiële website</string>
+  <string name="mokee_forum_title"></string>
   <string name="mokee_forum_summary">Bezoek het MoKee Forum</string>
+  <string name="mokee_issues_title"></string>
   <string name="mokee_issues_summary">Bezoek de bug tracker</string>
   <string name="mokee_changelog_title">MoKee Wijzigingen</string>
   <string name="mokee_changelog_summary">Bekijk de lijst van wijzigingen in MoKee</string>
   <string name="mokee_build_status_title">MoKee Bouwstatus</string>
   <string name="mokee_build_status_summary">Build status weergeven</string>
+  <string name="mokee_github_title"></string>
   <string name="mokee_github_summary">Bezoek de MoKee Github</string>
   <string name="mokee_translate_title">MoKee Vertalingen</string>
   <string name="mokee_translate_summary">Help MoKee Vertalen</string>
+  <string name="mokee_wiki_title"></string>
   <string name="mokee_wiki_summary">Bekijk de MoKee Wiki</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Versie Info</string>
   <string name="mokee_version_title">MoKee versie</string>
   <string name="mokee_version_type_title">Versie Type</string>
@@ -38,6 +47,7 @@
   <string name="mokee_last_check_never">Nooit</string>
   <string name="mokee_extras_info_title">Extra Info</string>
   <string name="mokee_info_default">Onbekend</string>
+  <string name="mokee_version_type_release"></string>
   <string name="mokee_version_type_history">Geschiedenis</string>
   <string name="mokee_version_type_experimental">Experimenteel</string>
   <string name="mokee_version_type_nightly">Nachtelijks</string>
@@ -49,16 +59,27 @@
   <string name="menu_donate">Doneren</string>
   <string name="menu_refresh">Vernieuw</string>
   <string name="menu_delete_all">Download verwijderen</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">Doneer aan ons</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Dank u voor uw donatie!</string>
   <string name="donate_money_name">Donatie aan MoKee OpenSource</string>
   <string name="donate_money_description">Donatie aan MoKee OpenSource</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">Onbekend</string>
   <string name="dialog_update">Bijwerken</string>
   <string name="dialog_install">Installeren</string>
+  <string name="dialog_ok"></string>
   <string name="dialog_cancel">Annuleren</string>
   <string name="dialog_close">Sluiten</string>
   <string name="no_available_updates_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
+  <string name="no_available_ota_intro"></string>
   <string name="no_available_extras_intro">De laatste keer zijn er geen updates gevonden. Om handmatig te controleren, tikt u op \'Vernieuwen\'.</string>
   <string name="new_update_summary">Nieuw</string>
   <string name="old_update_summary">Oud</string>
@@ -67,6 +88,7 @@
   <string name="nightly_alert">U heeft ervoor gekozen ook nachtelijke-updates in de lijst weer te geven. Deze worden niet ondersteund en moeten voorzichtig worden gebruikt.</string>
   <string name="experimenter_alert">U heeft ervoor gekozen ook experimentele-updates in de lijst weer te geven. Deze worden niet ondersteund, zijn enkel bedoeld voor testdoeleinden en moeten voorzichtig worden gebruikt.</string>
   <string name="unofficial_alert">U heeft ervoor gekozen ook onofficiële-updates in de lijst weer te geven. Hou in het achterhoofd dat deze enkel ondersteund worden door de persoon die updates voorziet voor uw toestel.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">Let op</string>
   <string name="update_type_title">Type update</string>
   <string name="no_changelog_alert">Geen logboek beschikbaar</string>
@@ -86,6 +108,7 @@
   <string name="not_new_updates_found_ticker">Er zijn nieuwe updates beschikbaar</string>
   <string name="not_new_updates_found_title">Nieuwe updates</string>
   <string name="update_check_failed">Kan niet controleren op updates. Controleer uw internetverbinding en probeer het later opnieuw.</string>
+  <string name="not_action_download"></string>
   <string name="data_connection_required">Gegevensverbinding vereist.</string>
   <string name="confirm_download_cancelation_dialog_title">Download annuleren</string>
   <string name="confirm_download_cancelation_dialog_message">Annuleer de huidige download?</string>
@@ -97,6 +120,18 @@
   <string name="not_download_success">Update succesvol gedownload</string>
   <string name="not_download_failure">Downloaden van de update is mislukt</string>
   <string name="not_action_install_update">Herstarten en installeren</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
+  <string name="md5_verification_failed"></string>
+  <string name="not_extras_download_success"></string>
+  <string name="not_extras_download_failure"></string>
+  <string name="not_extras_download_install_notice"></string>
+  <string name="not_extras_download_install_notice_apk"></string>
+  <string name="not_apk_action_install_update"></string>
+  <string name="confirm_delete_dialog_title"></string>
+  <string name="confirm_delete_updates_dialog_message"></string>
+  <string name="confirm_delete_updates_all_dialog_message"></string>
+  <string name="confirm_delete_extras_dialog_message"></string>
   <string name="confirm_delete_extras_all_dialog_message">Verwijderen van alle opgeslagen extra\'s bestanden?</string>
   <string name="delete_single_update_success_message">Update <xliff:g id="filename">%s</xliff:g> verwijderd</string>
   <string name="delete_updates_failure_message">Kan update bestand niet verwijderen</string>
@@ -106,8 +141,11 @@
   <string name="delete_extras_noFolder_message">Map van extra\'s niet gevonden</string>
   <string name="delete_extras_success_message">Alle opgeslagen extra\'s zijn verwijderd</string>
   <string name="pref_ota_check">Incrementele updates</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">Update toepassen</string>
   <string name="apply_update_dialog_text">Uw systeem wordt bijgewerkt naar <xliff:g id="filename">%s</xliff:g>.\n\nWanneer u \'Bijwerken\' selecteert, zal het toestel herstarten om de update te installeren.\n\nLet op: Een compatibele recovery is vereist, anders moet de update handmatig worden geïnstalleerd.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Installeer extra</string>
   <string name="apply_extras_dialog_text">Ben je zeker om <xliff:g id="filename">%s</xliff:g> te installeren?</string>
   <string name="apply_unable_to_reboot_toast">Niet mogelijk om te herstarten naar recovery</string>

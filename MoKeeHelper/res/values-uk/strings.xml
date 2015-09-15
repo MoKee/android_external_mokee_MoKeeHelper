@@ -32,10 +32,14 @@
   <string name="mokee_changelog_summary">Перегляд списку змін MoKee</string>
   <string name="mokee_build_status_title">Стан збірки MoKee</string>
   <string name="mokee_build_status_summary">Переглянути статус збірки</string>
+  <string name="mokee_github_title"></string>
   <string name="mokee_github_summary">Відвідати MoKee Github</string>
   <string name="mokee_translate_title">Переклад MoKee</string>
   <string name="mokee_translate_summary">Допомогти перекласти MoKee</string>
+  <string name="mokee_wiki_title"></string>
   <string name="mokee_wiki_summary">Переглянути MoKee Wiki</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Інформація про версію</string>
   <string name="mokee_version_title">Версія MoKee</string>
   <string name="mokee_version_type_title">Тип версії</string>
@@ -55,16 +59,27 @@
   <string name="menu_donate">Пожертвувати</string>
   <string name="menu_refresh">Оновити</string>
   <string name="menu_delete_all">Видалити завантажене</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">Пожертвувати нам</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Дякуємо вам за ваш внесок!</string>
   <string name="donate_money_name">Пожертвувати MoKee OpenSource</string>
   <string name="donate_money_description">Пожертвувати MoKee OpenSource</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">Невідомо</string>
   <string name="dialog_update">Оновити</string>
   <string name="dialog_install">Встановити</string>
+  <string name="dialog_ok"></string>
   <string name="dialog_cancel">Скасувати</string>
   <string name="dialog_close">Закрити</string>
   <string name="no_available_updates_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність оонвлень вручну, натисніть кнопку \"Оновити\".</string>
+  <string name="no_available_ota_intro"></string>
   <string name="no_available_extras_intro">Остання перевірка не виявила доступних оновлень. Щоб перевірити наявність нових доповнень вручну, натисніть кнопку \"Оновити\".</string>
   <string name="new_update_summary">Новий</string>
   <string name="old_update_summary">Старий</string>
@@ -73,6 +88,7 @@
   <string name="nightly_alert">Ви обрали нічні (nightly) оновлення в цьому списку. Вони не є стабільними і ви повинні використовувати їх з обережністю.</string>
   <string name="experimenter_alert">Ви обралиі експериментальні оновлення в цьому списку. Вони не підтримуються і призначені  тільки для тестування, тому користовуватися потрібно з обережністю.</string>
   <string name="unofficial_alert">Ви обрали неофіційні оновлення в цьому списку. Майте на увазі, що вони підтримуються тільки людиною, котра їх зробила.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">Увага</string>
   <string name="update_type_title">Тип оновлення</string>
   <string name="no_changelog_alert">Історія змін недоступна</string>
@@ -104,6 +120,8 @@
   <string name="not_download_success">Оновлення успішно завантажено</string>
   <string name="not_download_failure">Не вдалося завантажити оновлення</string>
   <string name="not_action_install_update">Перезавантажити та встановити</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">Помилка контрольної суми MD5</string>
   <string name="not_extras_download_success">Додаткові функції успішно завантажено</string>
   <string name="not_extras_download_failure">Не вдалося завантажити додаткові функції </string>
@@ -123,8 +141,11 @@
   <string name="delete_extras_noFolder_message">Каталог додатків не знайдено</string>
   <string name="delete_extras_success_message">Всі завантажені Допоміжні елементи видалені</string>
   <string name="pref_ota_check">OTA оновлення</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">Застосувати оновлення</string>
   <string name="apply_update_dialog_text">Ви збираєтесь оновитися до <xliff:g id="filename">%s</xliff:g>.\n\nКоли ви натиснете кнопку \"Оновити\", пристрій перезавантажиться в режим \"Recovery\" для встановлення оновлення.\n\nЗауважте, що ця функція вимагає сумісний режим Recovery.інакше оновлення доведеться встановити вручну.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Встановити додаток</string>
   <string name="apply_extras_dialog_text">Ви дійсно бажаєте установити <xliff:g id="filename"> %s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Неможливо перезавантажитись у Recovery</string>
