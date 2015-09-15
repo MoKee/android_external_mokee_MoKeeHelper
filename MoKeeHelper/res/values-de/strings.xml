@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Helfen Sie MoKee zu übersetzen</string>
   <string name="mokee_wiki_title">MoKee-Wiki</string>
   <string name="mokee_wiki_summary">Sehen sie sich das MoKee-Wiki an</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Versionsinformation</string>
   <string name="mokee_version_title">MoKee Version</string>
   <string name="mokee_version_type_title">Version-Typ</string>
@@ -59,8 +61,10 @@
   <string name="menu_delete_all">Download löschen</string>
   <string name="menu_remove_ads">Werbung entfernen</string>
   <string name="donate_dialog_title">Unterstützen Sie uns</string>
+  <string name="donate_dialog_message"></string>
   <string name="donate_dialog_via_paypal">PayPal(EUR)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Vielen Dank für Ihre Spende!</string>
   <string name="donate_money_name">Spenden an MoKee OpenSource</string>
   <string name="donate_money_description">Spenden an MoKee OpenSource</string>
@@ -141,6 +145,7 @@
   <string name="pref_ota_check_donation_request_summary">Erhalte Ota-Updates um Download-Zeit und Bandbreite zu sparen (möglich nach spenden von CNY %d)</string>
   <string name="apply_update_dialog_title">Update installieren</string>
   <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Extras installieren</string>
   <string name="apply_extras_dialog_text">Sind Sie sicher, dass Sie <xliff:g id="filename"> %s </xliff:g> installieren möchten?</string>
   <string name="apply_unable_to_reboot_toast">Neustart in den Recovery-Modus nicht möglich</string>
