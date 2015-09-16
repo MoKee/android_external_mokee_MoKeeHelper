@@ -18,12 +18,15 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <plurals name="not_new_updates_found_body">
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> アップデートがダウンロード可能です</item>
+    <item quantity="one"/>
+    <item quantity="other"/>
   </plurals>
   <plurals name="not_additional_count">
+    <item quantity="one"/>
     <item quantity="other"/>
   </plurals>
   <plurals name="show_exp_countdown">
+    <item quantity="one"/>
     <item quantity="other"/>
   </plurals>
 </resources>
