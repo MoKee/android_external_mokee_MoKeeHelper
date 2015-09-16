@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Segíts a magyarra fordírásban</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Nézd meg a MoKee Wiki-jét</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Verzió információ</string>
   <string name="mokee_version_title">MoKee verzió</string>
   <string name="mokee_version_type_title">Verzió típusa</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">Adomány</string>
   <string name="menu_refresh">Frissités</string>
   <string name="menu_delete_all">Letöltés törlése</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">Támogass minket</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Köszönjük a támogatását!</string>
   <string name="donate_money_name">Támogasd a MoKee OpenSource-ot</string>
   <string name="donate_money_description">Támogasd a MoKee OpenSource-ot</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">Ismeretlen</string>
   <string name="dialog_update">Frissítés</string>
   <string name="dialog_install">Telepítés</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">Választásának megfelelően a Nightly frissítések is meg fognak jelenni a listán. Ezek nem támogatottak, ezért csak saját felelősségére használja őket.</string>
   <string name="experimenter_alert">Választásának megfelelően a kísérleti frissítések is meg fognak jelenni a listán. Ezek nem támogatottak, csak tesztelésre vannak, ezért csak saját felelősségére használja őket.</string>
   <string name="unofficial_alert">Választásának megfelelően a nem támogatott frissítések is meg fognak jelenni a listán. Ezek hivatalosan nem támogatottak, csak a készüléked fejlesztője által.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">Vigyázat</string>
   <string name="update_type_title">Frissítés típusa</string>
   <string name="no_changelog_alert">A változások listája nem elérhető</string>
@@ -95,6 +107,21 @@
   <string name="no_extras_found">Nem találtunk új extrákat</string>
   <string name="not_new_updates_found_ticker">Új frissítések érhetőek el</string>
   <string name="not_new_updates_found_title">Új frissítések</string>
+  <string name="update_check_failed"></string>
+  <string name="not_action_download"></string>
+  <string name="data_connection_required"></string>
+  <string name="confirm_download_cancelation_dialog_title"></string>
+  <string name="confirm_download_cancelation_dialog_message"></string>
+  <string name="download_remaining"></string>
+  <string name="download_running"></string>
+  <string name="download_cancelled"></string>
+  <string name="download_already_running"></string>
+  <string name="unable_to_download_file"></string>
+  <string name="not_download_success"></string>
+  <string name="not_download_failure"></string>
+  <string name="not_action_install_update"></string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">MD5 ellenőrzőkód eltérés</string>
   <string name="not_extras_download_success">Extrák sikeresen letöltve</string>
   <string name="not_extras_download_failure">Extrák letöltése sikertelen</string>
@@ -114,8 +141,11 @@
   <string name="delete_extras_noFolder_message">Extrák mappa nem található</string>
   <string name="delete_extras_success_message">Összes letöltött extra törölve</string>
   <string name="pref_ota_check">Növekményes frissítések</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">Frissítés alkalmazása</string>
   <string name="apply_update_dialog_text">A  <xliff:g id="filename">%s</xliff:g> frissítés telepítését választottad. Ha a Frissítésre nyomsz, a készülék újraindul recovery módba, hogy telepítse a frissítést. \n\nMegjegyzés: Az autómatikus frissítéshez kompatibilis recovery kell, különben manuális telepítésre lesz szükség.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Extra telepítése</string>
   <string name="apply_extras_dialog_text">Biztosan telepíteni akarod a(z) <xliff:g id="filename">%s</xliff:g>-t ?</string>
   <string name="apply_unable_to_reboot_toast">Nem lehetséges az újraindítás Recovery módban</string>
