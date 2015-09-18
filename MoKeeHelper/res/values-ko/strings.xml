@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">협조 번역 MoKee</string>
   <string name="mokee_wiki_title">MoKee 위키</string>
   <string name="mokee_wiki_summary">MoKee 위키를 보기</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">버전 정보</string>
   <string name="mokee_version_title">MoKee 버전</string>
   <string name="mokee_version_type_title">버전 유형</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">기부</string>
   <string name="menu_refresh">새로 고침</string>
   <string name="menu_delete_all">다운로드 삭제</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">우리한테 기부</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">기부 주셔서 감사합니다!</string>
   <string name="donate_money_name">MoKee 오픈 소스 기부</string>
   <string name="donate_money_description">MoKee 오픈 소스 기부</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">미지</string>
   <string name="dialog_update">업데이트</string>
   <string name="dialog_install">설치</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">나이틀리 업데이트를 선택했습니다. 이 버전은 지원되지 않고 주의하며 사용해야합니다.</string>
   <string name="experimenter_alert">실험적 업데이트를 선택하였습니다.  이 버전은 테스트를 하기 위한 버전이므로 주의가 필요합니다.</string>
   <string name="unofficial_alert">비공식 업데이트를 선택했습니다. 이 기능은 기기 소유자의 권한이 필요합니다.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">주의</string>
   <string name="update_type_title">업데이트 유형</string>
   <string name="no_changelog_alert">변경 사항이 없습니다</string>
@@ -108,6 +120,8 @@
   <string name="not_download_success">업데이트를 성공적으로 다운로드했습니다</string>
   <string name="not_download_failure">업데이트 다운로드가 실패했습니다</string>
   <string name="not_action_install_update">다시 시작 후 설치</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">MD5 검사 실패</string>
   <string name="not_extras_download_success">엑스트라 다운로드 성공했읍니다</string>
   <string name="not_extras_download_failure">엑스트라 다운로드 실패했읍니다</string>
@@ -127,9 +141,12 @@
   <string name="delete_extras_noFolder_message">엑스트라 폴더를 찾을 수 없습니다</string>
   <string name="delete_extras_success_message">모든 다운로드된 엑스트라들이 삭제되었습니다.</string>
   <string name="pref_ota_check">OTA 업데이트</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">업데이트 적용</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> 버전으로 업그레이드 합니다. \n\n 업데이트 버튼을 누르면, 이 기기는 자동으로 재시작후, 리커버리 모드로 진입하여 인스톨 합니다.\n
         \n 주의 : 이 기능은 호환가능한 리커버리가 수동으로 미리 설치되어 있어야 합니다.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">엑스트라 설치</string>
   <string name="apply_extras_dialog_text"><xliff:g id="filename">%s </xliff:g>를 설치 하 시겠습니까?</string>
   <string name="apply_unable_to_reboot_toast">리커버리로 진입할 수 없습니다.</string>

@@ -64,9 +64,14 @@
   <string name="donate_dialog_message">不同于Cygn或MIUI这样，Mokke的开源代码是为爱好与激情而生的纯公益项目。为了维护这个项目，我们必须付出金钱及我们的大部分时间或者依靠广告与捐助。你的捐助能够减少我们的财务负担以及维持未来发展！此选项允许你在MoKee中心移除广告或者捐助。如果你喜欢分期付款(捐助达到一定数额可以移除广告)。在你捐助后请备份mokee.license文件(在sd卡的根目录下,仅对当前使用的设备有效)。</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">支付宝</string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">謝謝您的捐贈 ！</string>
   <string name="donate_money_name">贊助 MoKee OpenSource</string>
   <string name="donate_money_description">贊助 MoKee OpenSource</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">未知</string>
   <string name="dialog_update">更新</string>
   <string name="dialog_install">安裝</string>
@@ -83,6 +88,7 @@
   <string name="nightly_alert">您在清單中已選取包括每夜版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="experimenter_alert">您在清單中已選取包括試驗版更新。這些更新不受支援並應該謹慎使用。</string>
   <string name="unofficial_alert">您在清單中已選取包括非官方更新。這些更新不受支援並應該謹慎使用，如有問題，請不要向我們匯報。</string>
+  <string name="all_alert"></string>
   <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
   <string name="no_changelog_alert">沒有可用的更新日誌</string>
@@ -114,6 +120,8 @@
   <string name="not_download_success">更新已成功下載</string>
   <string name="not_download_failure">下載更新失敗</string>
   <string name="not_action_install_update">重新啟動並安裝</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">MD5 校驗不匹配</string>
   <string name="not_extras_download_success">附加選項下載完成</string>
   <string name="not_extras_download_failure">附加選項下載失敗</string>
@@ -133,8 +141,11 @@
   <string name="delete_extras_noFolder_message">找不到附加選項所在的資料夾</string>
   <string name="delete_extras_success_message">所有下載的附加選項已刪除</string>
   <string name="pref_ota_check">增量更新</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">應用更新</string>
   <string name="apply_update_dialog_text">您將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果您選擇更新，您的設備將會重啟到復原模式並安裝更新。\n\n注意：此功能需要一個相容的恢復程式。如果您沒有的話，您將需要手動安裝更新。</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">安裝額外軟體</string>
   <string name="apply_extras_dialog_text">你確定你想要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
   <string name="apply_unable_to_reboot_toast">無法重啟到復原模式</string>
