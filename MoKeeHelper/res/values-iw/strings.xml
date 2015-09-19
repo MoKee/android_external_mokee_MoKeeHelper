@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">עזור בתרגום MoKee</string>
   <string name="mokee_wiki_title">וויקי MoKee</string>
   <string name="mokee_wiki_summary">הצג את וויקי MoKee</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">פרטי הגירסה</string>
   <string name="mokee_version_title">גירסת MoKee</string>
   <string name="mokee_version_type_title">סוג גירסה</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">תרום</string>
   <string name="menu_refresh">רענן</string>
   <string name="menu_delete_all">מחיקת הורדה</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">תרום לנו</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_description">תרום ל MoKee בקוד פתוח</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">לא ידוע</string>
   <string name="dialog_update">עדכן</string>
   <string name="dialog_install">התקן</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">בחרת לכלול עדכונים ליליים ברשימה. גרסאות אלה לא נתמכות, השתמש בזהירות.</string>
   <string name="experimenter_alert">בחרת לכלול עדכונים ניסיוניים ברשימה זו. עדכוניםאלה אינם נתמכים והינם למטרות בדיקה בלבד. יש להשתמש בהם בזהירות.</string>
   <string name="unofficial_alert">בחרת לכלול עדכונים לא רשמיים ברשימה זו. זכור כי אלה נתמכים על ידי תחזוקת ההתקן שלך.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">זהירות</string>
   <string name="update_type_title">סוג עדכון</string>
   <string name="no_changelog_alert">תיעוד שינויים לא זמין</string>
@@ -108,6 +120,8 @@
   <string name="not_download_success">עדכון הורד בהצלחה</string>
   <string name="not_download_failure">הורדת העדכון נכשלה</string>
   <string name="not_action_install_update">אתחל והתקן</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">אי-התאמת checksum MD5</string>
   <string name="not_extras_download_success">התוספות הורדו בהצלחה</string>
   <string name="not_extras_download_failure">הורדת התוספות נכשלה</string>
@@ -127,9 +141,12 @@
   <string name="delete_extras_noFolder_message">תיקיית התוספות לא נמצאה</string>
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
   <string name="pref_ota_check">עדכונים OTA</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
         \nהערה: אפשרות זו דורשת Recovery תואם, או שפעולת התקנת העדכונים תיאלץ להיעשות באופן ידני.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">התקנת תוספת</string>
   <string name="apply_extras_dialog_text">האם אתה בטוח שברצונך להתקין <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">נכשל לאתחל למצב \"Recovery\"</string>

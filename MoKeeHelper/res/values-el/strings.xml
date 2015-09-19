@@ -38,6 +38,8 @@
   <string name="mokee_translate_summary">Βοηθήστε να μεταφραστεί το MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Δείτε το MoKee Wiki</string>
+  <string name="mokee_news_title"></string>
+  <string name="mokee_news_summary"></string>
   <string name="mokee_version_info_title">Πληροφορίες έκδοσης</string>
   <string name="mokee_version_title">Έκδοση MoKee</string>
   <string name="mokee_version_type_title">Έκδοση τύπου</string>
@@ -57,10 +59,19 @@
   <string name="menu_donate">Δωρεά</string>
   <string name="menu_refresh">Ανανέωση</string>
   <string name="menu_delete_all">Διαγραφή κατεβασμένου αρχείου</string>
+  <string name="menu_remove_ads"></string>
   <string name="donate_dialog_title">Κάντε μας μια δωρεά</string>
+  <string name="donate_dialog_message"></string>
+  <string name="donate_dialog_via_paypal"></string>
+  <string name="donate_dialog_via_alipay"></string>
+  <string name="donate_dialog_via_unionpay"></string>
   <string name="donate_money_toast_success">Σας ευχαριστούμε για τη δωρεά σας!</string>
   <string name="donate_money_name">Δωρεά σε MoKee OpenSource</string>
   <string name="donate_money_description">Δωρεά σε MoKee OpenSource</string>
+  <string name="remove_ads_name"></string>
+  <string name="remove_ads_description"></string>
+  <string name="remove_ads_dialog_title"></string>
+  <string name="remove_ads_request_price"></string>
   <string name="unknown">Άγνωστο</string>
   <string name="dialog_update">Ενημέρωση</string>
   <string name="dialog_install">Εγκατάσταση</string>
@@ -77,6 +88,7 @@
   <string name="nightly_alert">Επιλέξατε να εμφανίζετε ενημερώσεις nightly σε αυτή τη λίστα. Αυτές οι ενημερώσεις δεν υποστηρίζονται επίσημα και θα πρέπει να χρησιμοποιούνται με προσοχή.</string>
   <string name="experimenter_alert">Επιλέξατε να εμφανίζετε πειραματικές ενημερώσεις σε αυτή τη λίστα. Αυτές οι ενημερώσεις δεν υποστηρίζονται επίσημα καθώς χρησιμοποιούνται για δοκιμαστικούς σκοπούς και θα πρέπει να χρησιμοποιούνται με προσοχή.</string>
   <string name="unofficial_alert">Επιλέξατε να εμφανίζετε ανεπίσημες ενημερώσεις σε αυτή τη λίστα. Αυτές οι ενημερώσεις υποστηρίζονται από τον συντηρητή της συσκευής σας.</string>
+  <string name="all_alert"></string>
   <string name="alert_title">Προσοχή</string>
   <string name="update_type_title">Τύπος ενημερώσεων</string>
   <string name="no_changelog_alert">Δεν υπάρχει διαθέσιμο αρχείο αλλαγών</string>
@@ -108,6 +120,8 @@
   <string name="not_download_success">Η λήψη της ενημέρωσης ολοκληρώθηκε με επιτυχία</string>
   <string name="not_download_failure">Η λήψη της ενημέρωσης ήταν ανεπιτυχής</string>
   <string name="not_action_install_update">Επανεκκίνηση και εγκατάσταση</string>
+  <string name="not_download_install_notice"></string>
+  <string name="not_download_install_ota_notice"></string>
   <string name="md5_verification_failed">Ασυμφωνία MD5 checksum</string>
   <string name="not_extras_download_success">Η λήψη των πρόσθετων στοιχείων ήταν επιτυχής</string>
   <string name="not_extras_download_failure">Η λήψη των πρόσθετων στοιχείων ήταν ανεπιτυχής</string>
@@ -127,8 +141,11 @@
   <string name="delete_extras_noFolder_message">Ο φάκελος των επιπλέον στοιχείων δεν βρέθηκε</string>
   <string name="delete_extras_success_message">Ολα τα επιπλέον στοιχεία που έχουν ληφθεί διαγράφηκαν</string>
   <string name="pref_ota_check">Ενημερώσεις ΟΤΑ</string>
+  <string name="pref_ota_check_summary"></string>
+  <string name="pref_ota_check_donation_request_summary"></string>
   <string name="apply_update_dialog_title">Εφαρμογή ενημέρωσης</string>
   <string name="apply_update_dialog_text">Πρόκειται να αναβαθμίσετε σε <xliff:g id="filename">%s</xliff:g>.\n\nΑν πατήσετε το πλήκτρο Ενημέρωση, η συσκευή θα κάνει επανεκκίνηση σε recovery mode για να εγκαταστήσετε την ενημέρωση.\n\nΣημείωση: Αυτή η λειτουργία απαιτεί συμβατό recovery αλλιώς η ενημέρωση θα πρέπει να εγκατασταθεί χειροκίνητα.</string>
+  <string name="apply_update_ota_dialog_text"></string>
   <string name="apply_extras_dialog_title">Εγκατάσταση έξτρα</string>
   <string name="apply_extras_dialog_text">Είστε βέβαιοι ότι θέλετε να εγκαταστήσετε <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Δεν είναι δυνατή η επανεκκίνηση σε recovery mode</string>
