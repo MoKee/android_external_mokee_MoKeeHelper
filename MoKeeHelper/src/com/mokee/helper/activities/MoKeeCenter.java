@@ -23,6 +23,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v4.app.FragmentActivity;
@@ -35,6 +36,9 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import mokee.support.widget.snackbar.Snackbar;
+import mokee.support.widget.snackbar.SnackbarManager;
 
 import com.mokee.helper.R;
 import com.mokee.helper.adapters.TabsAdapter;
@@ -193,7 +197,18 @@ public class MoKeeCenter extends FragmentActivity {
         intent.putExtra("name", name);
         intent.putExtra("description", description);
         intent.putExtra("price", price);
-        mContext.startActivity(intent);
+        mContext.startActivityForResult(intent, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(resultCode) {
+            case Activity.RESULT_OK:
+                SnackbarManager.show(Snackbar.with(this).text(getString(R.string.donate_money_toast_success))
+                        .duration(Snackbar.SnackbarDuration.LENGTH_LONG).color(Color.parseColor(getString(R.color.theme_primary))));
+                MoKeeUpdaterFragment.refreshOption();
+                break;
+        }
     }
 
 }

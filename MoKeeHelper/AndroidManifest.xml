@@ -100,12 +100,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.mokee.helper.receiver.PaymentReceiver" >
-            <intent-filter>
-                <action android:name="com.mokee.pay.action.PAYMENT_SUCCESS" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name="com.google.ads.AdActivity" 
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
