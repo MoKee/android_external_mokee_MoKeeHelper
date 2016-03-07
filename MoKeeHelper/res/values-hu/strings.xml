@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee Központ</string>
   <string name="mokee_support_title">Támogatás</string>
   <string name="mokee_updater_title">Frissítések</string>
   <string name="mokee_extras_title">Extrák</string>
+  <!-- Tips -->
   <string name="tips_help_title">Tippek és Súgó</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee Honlap</string>
   <string name="mokee_website_summary">Látogass el a hivatalos weboldalunkra</string>
   <string name="mokee_forum_title">MoKee-Fórum</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Nézd meg a MoKee Wiki-jét</string>
   <string name="mokee_news_title">MoKee Hírek</string>
   <string name="mokee_news_summary">MoKee fejlesztési hírek fogadása</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Verzió információ</string>
   <string name="mokee_version_title">MoKee verzió</string>
   <string name="mokee_version_type_title">Verzió típusa</string>
   <string name="mokee_last_check_title">Utolsó ellenőrzés</string>
   <string name="mokee_last_check_never">Soha</string>
   <string name="mokee_extras_info_title">Extra-infók</string>
+  <!-- Version -->
   <string name="mokee_info_default">Ismeretlen</string>
   <string name="mokee_version_type_release">Kiadás</string>
   <string name="mokee_version_type_history">Elözmény</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Napi (Nightly)</string>
   <string name="mokee_version_type_unofficial">Nem hivatalos</string>
   <string name="mokee_version_type_all">Összes</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Letöltött</string>
   <string name="installed_update_summary">Telepítve</string>
   <string name="available_updates_title">Elérhető frissítések</string>
+  <!-- Menu -->
   <string name="menu_donate">Adomány</string>
   <string name="menu_refresh">Frissités</string>
   <string name="menu_delete_all">Letöltés törlése</string>
   <string name="menu_remove_ads">Hírdetések eltávolítása</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Támogass minket</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
@@ -70,6 +78,7 @@
   <string name="remove_ads_name">Hírdetések eltávolítása</string>
   <string name="remove_ads_description">Hírdetések eltávolítása</string>
   <string name="remove_ads_dialog_title">Mindig távolítsa el a hirdetéseket</string>
+  <!-- Update -->
   <string name="unknown">Ismeretlen</string>
   <string name="dialog_update">Frissítés</string>
   <string name="dialog_install">Telepítés</string>
@@ -89,6 +98,7 @@
   <string name="all_alert">Választásának megfelelően az összes frissítés (Stabil, Napi) meg fog jelenni a listán. A napi (NIGHTLY) frissítések nem támogatottak, ezért csak saját felelősségére használja őket.</string>
   <string name="alert_title">Vigyázat</string>
   <string name="update_type_title">Frissítés típusa</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">A változások listája nem elérhető</string>
   <string name="changelog_dialog_title">Változások naplója</string>
   <string name="loading_changelog">Betöltés\u2026</string>
@@ -99,6 +109,7 @@
   <string name="check_weekly">Hetente</string>
   <string name="check_bi_weekly">Kéthetente egyszer</string>
   <string name="check_monthly">Havonta</string>
+  <!-- checking -->
   <string name="checking_for_updates">Frissítések ellenőrzése</string>
   <string name="no_updates_found">Nem található új frissítés</string>
   <string name="checking_for_extras">Extrák keresése</string>
@@ -108,6 +119,7 @@
   <string name="update_check_failed">Nem sikerült a frissítések ellenőrzése. Ellenőrizze internetkapcsolatot, majd próbálja újra.</string>
   <string name="not_action_download">Letöltés</string>
   <string name="data_connection_required">Adatkapcsolat szükséges.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Letöltés megszakítása</string>
   <string name="confirm_download_cancelation_dialog_message">Megszakítja a jelenlegi letöltést?</string>
   <string name="download_running">Folyamatban</string>
@@ -123,6 +135,7 @@
   <string name="not_extras_download_install_notice">A <xliff:g id="filename">%s</xliff:g> jelű extrák letöltése sikeres volt. A \'Telepítés és Újraindítás\' gomb megnyomásával a készülék újraindul hogy telepíthesse a frissítést. \n\nMegjegyzés: Hogy a telepítés magától megtörténjen, egy kompatibilis recovery szükséges.</string>
   <string name="not_extras_download_install_notice_apk">A <xliff:g id="filename">%s</xliff:g> jelű extrák letöltése sikeresen befejeződött.</string>
   <string name="not_apk_action_install_update">Telepítés</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Fájl törlése</string>
   <string name="confirm_delete_updates_dialog_message">Biztosan törölni szeretné a letöltött frissítő fájlt?</string>
   <string name="confirm_delete_updates_all_dialog_message">Biztosan törölni szeretné az összes letöltött frissítő fájlt?</string>
@@ -135,15 +148,19 @@
   <string name="delete_extras_failure_message">Hiba történt az extrák törlésekor</string>
   <string name="delete_extras_noFolder_message">Extrák mappa nem található</string>
   <string name="delete_extras_success_message">Összes letöltött extra törölve</string>
+  <!-- pref -->
   <string name="pref_ota_check">Növekményes frissítések</string>
   <string name="pref_ota_check_summary">Növekményes frissítések használata a letöltési idő és sávszélesség kímélése érdekében</string>
   <string name="pref_ota_check_donation_request_summary">Növekményes frissítések használata a letöltési idő és sávszélesség kímélése érdekében (%d CNY támogatást követően)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Frissítés alkalmazása</string>
   <string name="apply_update_dialog_text">A  <xliff:g id="filename">%s</xliff:g> frissítés telepítését választottad. Ha a Frissítésre nyomsz, a készülék újraindul recovery módba, hogy telepítse a frissítést. \n\nMegjegyzés: Az autómatikus frissítéshez kompatibilis recovery kell, különben manuális telepítésre lesz szükség.</string>
   <string name="apply_extras_dialog_title">Extra telepítése</string>
   <string name="apply_extras_dialog_text">Biztosan telepíteni akarod a(z) <xliff:g id="filename">%s</xliff:g>-t ?</string>
   <string name="apply_unable_to_reboot_toast">Nem lehetséges az újraindítás Recovery módban</string>
   <string name="extras_unsupported_toast">A jelenlegi verziód nem támogatja ezt a kiegészítőt</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Engedélyezted a kísérleti funkciókat!</string>
   <string name="show_exp_already">Már engedélyezted a kísérleti funkciókat.</string>
+  <!-- Xposed framework check -->
 </resources>

@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">מרכז MoKee</string>
   <string name="mokee_support_title">תמיכה</string>
   <string name="mokee_updater_title">עידכון</string>
   <string name="mokee_extras_title">תוספות</string>
+  <!-- Tips -->
   <string name="tips_help_title">עזרה וטיפים</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">אתר MoKee</string>
   <string name="mokee_website_summary">בקר באתר האינטרנט הרשמי</string>
   <string name="mokee_forum_title">פורום MoKee</string>
@@ -38,12 +41,14 @@
   <string name="mokee_translate_summary">עזור בתרגום MoKee</string>
   <string name="mokee_wiki_title">וויקי MoKee</string>
   <string name="mokee_wiki_summary">הצג את וויקי MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">פרטי הגירסה</string>
   <string name="mokee_version_title">גירסת MoKee</string>
   <string name="mokee_version_type_title">סוג גירסה</string>
   <string name="mokee_last_check_title">בדיקה אחרונה</string>
   <string name="mokee_last_check_never">אף פעם</string>
   <string name="mokee_extras_info_title">פרטי תוספות</string>
+  <!-- Version -->
   <string name="mokee_info_default">לא ידוע</string>
   <string name="mokee_version_type_release">מהדורה</string>
   <string name="mokee_version_type_history">היסטוריה</string>
@@ -51,16 +56,20 @@
   <string name="mokee_version_type_nightly">ליליות</string>
   <string name="mokee_version_type_unofficial">לא רשמי</string>
   <string name="mokee_version_type_all">הכל</string>
+  <!-- State -->
   <string name="downloaded_update_summary">הורדו</string>
   <string name="installed_update_summary">הותקן</string>
   <string name="available_updates_title">עדכונים זמינים</string>
+  <!-- Menu -->
   <string name="menu_donate">תרום</string>
   <string name="menu_refresh">רענן</string>
   <string name="menu_delete_all">מחיקת הורדה</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">תרום לנו</string>
   <string name="donate_money_toast_success">תודה על תרומתך!</string>
   <string name="donate_money_name">תרום ל MoKee בקוד פתוח</string>
   <string name="donate_money_description">תרום ל MoKee בקוד פתוח</string>
+  <!-- Update -->
   <string name="unknown">לא ידוע</string>
   <string name="dialog_update">עדכן</string>
   <string name="dialog_install">התקן</string>
@@ -79,6 +88,7 @@
   <string name="unofficial_alert">בחרת לכלול עדכונים לא רשמיים ברשימה זו. זכור כי אלה נתמכים על ידי תחזוקת ההתקן שלך.</string>
   <string name="alert_title">זהירות</string>
   <string name="update_type_title">סוג עדכון</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">תיעוד שינויים לא זמין</string>
   <string name="changelog_dialog_title">יומן שינויים</string>
   <string name="loading_changelog">טוען\u2026</string>
@@ -89,6 +99,7 @@
   <string name="check_weekly">פעם אחת בשבוע</string>
   <string name="check_bi_weekly">פעם בשבועיים</string>
   <string name="check_monthly">פעם בחודש</string>
+  <!-- checking -->
   <string name="checking_for_updates">מחפש עדכונים</string>
   <string name="no_updates_found">לא נמצאו עדכונים חדשים</string>
   <string name="checking_for_extras">מחפש תוספות</string>
@@ -98,6 +109,7 @@
   <string name="update_check_failed">בדיקת העדכון נכשל. אנא בדוק את החיבור שלך לאינטרנט ונסה שוב מאוחר יותר.</string>
   <string name="not_action_download">הורדה</string>
   <string name="data_connection_required">נדרש חיבור נתונים.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">בטל הורדה</string>
   <string name="confirm_download_cancelation_dialog_message">לבטל את ההורדה הנוכחית?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> נותרו</string>
@@ -114,6 +126,7 @@
   <string name="not_extras_download_install_notice">עדכון <xliff:g id="filename">%s</xliff:g> הורד בהצלחה. כאשר תלחץ על \'אתחל והתקן\', המכשיר יאתחל את עצמו ויתקין את העדכון.\n\nשים לב:Recovery מתאים נדרש להתקנה אוטומטית.</string>
   <string name="not_extras_download_install_notice_apk">התוספות <xliff:g id="filename">%s </xliff:g> הורדו בהצלחה.</string>
   <string name="not_apk_action_install_update">התקן</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">מחק קובץ</string>
   <string name="confirm_delete_updates_dialog_message">למחוק את קובץ העדכון שנבחר?</string>
   <string name="confirm_delete_updates_all_dialog_message">למחוק את כל קבצי העדכון שהורדו?</string>
@@ -126,7 +139,9 @@
   <string name="delete_extras_failure_message">אירעה שגיאה בעת מחיקת קובץ התוספות</string>
   <string name="delete_extras_noFolder_message">תיקיית התוספות לא נמצאה</string>
   <string name="delete_extras_success_message">נמחקו כל התוספות שהורדו</string>
+  <!-- pref -->
   <string name="pref_ota_check">עדכונים OTA</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">החל עדכון</string>
   <string name="apply_update_dialog_text">אתה עומד לעדכן ל-<xliff:g id="filename">%s</xliff:g>.\n\nאם תלחץ על \"עדכן\", המכשיר יאתחל את עצמו למצב \"Rocovery\" על מנת להתקין את העדכון.\n
         \nהערה: אפשרות זו דורשת Recovery תואם, או שפעולת התקנת העדכונים תיאלץ להיעשות באופן ידני.</string>
@@ -134,6 +149,8 @@
   <string name="apply_extras_dialog_text">האם אתה בטוח שברצונך להתקין <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">נכשל לאתחל למצב \"Recovery\"</string>
   <string name="extras_unsupported_toast">הגרסה הנוכחית שלך לא תומכת בסיומת זו</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">הגדרות ניסיוניות מופעלות!</string>
   <string name="show_exp_already">אין צורך, כבר הפעלת הגדרות ניסיוניות.</string>
+  <!-- Xposed framework check -->
 </resources>

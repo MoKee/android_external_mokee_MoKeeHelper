@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee Merkezi</string>
   <string name="mokee_support_title">Destek</string>
   <string name="mokee_updater_title">Güncelleyici</string>
   <string name="mokee_extras_title">Ek özellikler</string>
+  <!-- Tips -->
   <string name="tips_help_title">İpuçları ve yardım</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee Web sitesi</string>
   <string name="mokee_website_summary">Resmi Web sitesini ziyaret et</string>
   <string name="mokee_forum_title">MoKee Forumu</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">MoKee Wiki sayfasını görüntüle</string>
   <string name="mokee_news_title">MoKee Haberlerİ</string>
   <string name="mokee_news_summary">MoKee geliştirme haberlerini al</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Versiyon Bilgisi</string>
   <string name="mokee_version_title">MoKee Versiyonu</string>
   <string name="mokee_version_type_title">Versiyon türü</string>
   <string name="mokee_last_check_title">Son kontrol</string>
   <string name="mokee_last_check_never">Asla</string>
   <string name="mokee_extras_info_title">Ek Özellik Bilgileri</string>
+  <!-- Version -->
   <string name="mokee_info_default">Bilinmeyen</string>
   <string name="mokee_version_type_release">Yayın</string>
   <string name="mokee_version_type_history">Geçmiş</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Gecelik</string>
   <string name="mokee_version_type_unofficial">Resmi olmayan</string>
   <string name="mokee_version_type_all">Hepsi</string>
+  <!-- State -->
   <string name="downloaded_update_summary">İndirilmiş</string>
   <string name="installed_update_summary">Yüklü</string>
   <string name="available_updates_title">Mevcut güncellemeler</string>
+  <!-- Menu -->
   <string name="menu_donate">Bağış yap</string>
   <string name="menu_refresh">Yenile</string>
   <string name="menu_delete_all">İndirmeyi sil</string>
   <string name="menu_remove_ads">Reklamları kaldır</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Bize bağışta bulunun</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
@@ -69,6 +77,7 @@
   <string name="remove_ads_name">Reklamları kaldır</string>
   <string name="remove_ads_description">Reklamları kaldır</string>
   <string name="remove_ads_dialog_title">Daima reklamları kaldır</string>
+  <!-- Update -->
   <string name="unknown">Bilinmiyor</string>
   <string name="dialog_update">Güncelle</string>
   <string name="dialog_install">Yükle</string>
@@ -87,6 +96,7 @@
   <string name="unofficial_alert">Resmi olmayan güncelleştirmeleri bu listeye eklemeyi seçtiniz. Unutmayın bunlar cihazınızın sağlayıcısı tarafından desteklenir.</string>
   <string name="alert_title">Dikkat</string>
   <string name="update_type_title">Güncelleme türü</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Değişiklik kaydı yok</string>
   <string name="changelog_dialog_title">Değişiklik kaydı</string>
   <string name="loading_changelog">Yükleniyor\u2026</string>
@@ -97,6 +107,7 @@
   <string name="check_weekly">Haftada bir defa</string>
   <string name="check_bi_weekly">İki haftada bir</string>
   <string name="check_monthly">Ayda bir</string>
+  <!-- checking -->
   <string name="checking_for_updates">Güncellemeler kontrol ediliyor</string>
   <string name="no_updates_found">Yeni güncelleme yok</string>
   <string name="checking_for_extras">Ek özellikler kontrol ediliyor</string>
@@ -106,6 +117,7 @@
   <string name="update_check_failed">Güncelleme kontrolü başarısız oldu. Lütfen internet bağlantınızı kontrol edin ve daha sonra tekrar deneyin.</string>
   <string name="not_action_download">İndir</string>
   <string name="data_connection_required">Veri bağlantısı gerekli.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">İndirmeyi iptal et</string>
   <string name="confirm_download_cancelation_dialog_message">Devam eden indirme iptal edilsin mi?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes"> %s </xliff:g> kaldı</string>
@@ -122,6 +134,7 @@
   <string name="not_extras_download_install_notice"><xliff:g id="filename">%s</xliff:g> ek özellikleri başarıyla indirildi. \'Yeniden başlat ve Yükle\' ye dokunduğunuzda, cihaz güncellemeyi yüklemek için kendini yeniden başlatacaktır.\n\nNot: Kurulumun kendiliğinden başlaması için uyumlu bir Recovery gereklidir.</string>
   <string name="not_extras_download_install_notice_apk"><xliff:g id="filename">%s</xliff:g> ek özellikleri başarıyla indirildi.</string>
   <string name="not_apk_action_install_update">Yükle</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Dosyayı Sil</string>
   <string name="confirm_delete_updates_dialog_message">Seçili güncelleştirme dosyası silinsin mi?</string>
   <string name="confirm_delete_updates_all_dialog_message">Tüm indirilen güncelleme dosyaları silinsin mi?</string>
@@ -134,13 +147,17 @@
   <string name="delete_extras_failure_message">Ek özellikler dosyası silinirken bir hata oluştu</string>
   <string name="delete_extras_noFolder_message">Ek özellik klasörü bulunamadı</string>
   <string name="delete_extras_success_message">İndirilen tüm ek özellikler dosyaları silindi</string>
+  <!-- pref -->
   <string name="pref_ota_check">OTA güncellemeleri</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Güncellemeyi uygula</string>
   <string name="apply_update_dialog_text"><xliff:g id="filename">%s</xliff:g> güncellemesi yapılacak.\n\nGüncelleye bastığınızda, güncellemeyi kurmak için cihaz kurtarma modunda yeniden başlatılacak.\n\nNot: Bu özellik, uyumlu bir Kurtarma bölümü gerektirir, aksi takdirde güncellemelerin elle kurulması gerekir.</string>
   <string name="apply_extras_dialog_title">Ek özellikleri yükle</string>
   <string name="apply_extras_dialog_text"><xliff:g id="filename"> %s </xliff:g> dosyasını yüklemek istediğinizden emin misiniz?</string>
   <string name="apply_unable_to_reboot_toast">Kurtarma modu için sistem yeniden başlatılamadı</string>
   <string name="extras_unsupported_toast">Geçerli sürümünüz bu uzantıyı desteklemiyor</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Deneysel ayarları etkinleştirildiniz!</string>
   <string name="show_exp_already">Gerek yok, zaten deneysel ayarları etkinleştirdiniz.</string>
+  <!-- Xposed framework check -->
 </resources>

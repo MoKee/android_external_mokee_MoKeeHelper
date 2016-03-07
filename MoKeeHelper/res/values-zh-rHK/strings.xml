@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee 中心</string>
   <string name="mokee_support_title">支援</string>
   <string name="mokee_updater_title">更新程式</string>
   <string name="mokee_extras_title">附加選項</string>
+  <!-- Tips -->
   <string name="tips_help_title">玩機專區</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee 網站</string>
   <string name="mokee_website_summary">訪問官方網站</string>
   <string name="mokee_forum_title">MoKee 討論區</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">查看 MoKee Wiki</string>
   <string name="mokee_news_title">MoKee 新聞</string>
   <string name="mokee_news_summary">接收 MoKee 開發進展</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">版本資訊</string>
   <string name="mokee_version_title">MoKee 版本</string>
   <string name="mokee_version_type_title">版本類型</string>
   <string name="mokee_last_check_title">上次檢測</string>
   <string name="mokee_last_check_never">永不</string>
   <string name="mokee_extras_info_title">擴充資訊</string>
+  <!-- Version -->
   <string name="mokee_info_default">不明</string>
   <string name="mokee_version_type_release">正式版</string>
   <string name="mokee_version_type_history">歷史</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">夜版</string>
   <string name="mokee_version_type_unofficial">非官方版</string>
   <string name="mokee_version_type_all">全部</string>
+  <!-- State -->
   <string name="downloaded_update_summary">已下載</string>
   <string name="installed_update_summary">已安裝</string>
   <string name="available_updates_title">可用的更新</string>
+  <!-- Menu -->
   <string name="menu_donate">捐贈</string>
   <string name="menu_refresh">重新整理</string>
   <string name="menu_delete_all">刪除下載</string>
   <string name="menu_remove_ads">移除廣告</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">捐贈我們</string>
   <string name="donate_dialog_message">和 Cyanogen、MIUI 等已接受投資的商業化公司不同。Mokee 因愛好而生，是純粹的非營利性開源項目。我們需要自籌資金或者透過捐贈、廣告等手段才能讓這個項目長期存活。你的捐贈將減輕我們每月承擔的經濟壓力，使我們能繼續為大家提供更優秀的 ROM！你的捐贈記錄會儲存在記憶咭根目錄的 mokee.license 檔案，你可以備份它以便意外丟失、格式化存儲區後恢復（僅限當前裝置使用）。</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">移除廣告</string>
   <string name="remove_ads_dialog_title">永久移除廣告</string>
   <string name="remove_ads_request_price">已捐贈 %1$d 元，待捐贈 %2$d 元（貨幣單位：CNY）</string>
+  <!-- Update -->
   <string name="unknown">不明</string>
   <string name="dialog_update">更新</string>
   <string name="dialog_install">安裝</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">你選擇了檢查全部版本(正式版、每夜版)更新，該清單中的每夜版是一個開發階段的版本，包含當天開發的最新功能但可能存在 BUG，請謹慎使用。</string>
   <string name="alert_title">注意</string>
   <string name="update_type_title">更新類型</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">沒有提供更新日誌</string>
   <string name="changelog_dialog_title">更新日誌</string>
   <string name="loading_changelog">載入中\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">每週一次</string>
   <string name="check_bi_weekly">每月兩次</string>
   <string name="check_monthly">每月一次</string>
+  <!-- checking -->
   <string name="checking_for_updates">檢查更新中</string>
   <string name="no_updates_found">沒有找到新的更新</string>
   <string name="checking_for_extras">檢查附加元件中</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">更新檢查失敗。請檢查你的網絡連綫並於稍後重試。</string>
   <string name="not_action_download">下載</string>
   <string name="data_connection_required">需要數據連線。</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">取消下載</string>
   <string name="confirm_download_cancelation_dialog_message">取消目前的下載？</string>
   <string name="download_remaining">剩下<xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">附加選項 <xliff:g id="filename">%s</xliff:g> 已順利下載。當輕按「重新啟動並安裝」，裝置便會重新啟動至恢復模式並安裝更新。\n\n註：你必須有一個相容的恢復模式才能順利安裝更新。</string>
   <string name="not_extras_download_install_notice_apk">附加選項 <xliff:g id="filename">%s</xliff:g> 已下載完成</string>
   <string name="not_apk_action_install_update">安裝</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">刪除檔案</string>
   <string name="confirm_delete_updates_dialog_message">刪除已選取的更新檔案?</string>
   <string name="confirm_delete_updates_all_dialog_message">刪除所有下載的更新檔案?</string>
@@ -140,9 +153,11 @@
   <string name="delete_extras_failure_message">刪除附加選項時出現錯誤</string>
   <string name="delete_extras_noFolder_message">找不到附加選項所在的資料夾</string>
   <string name="delete_extras_success_message">所有下載的附加選項已刪除</string>
+  <!-- pref -->
   <string name="pref_ota_check">增量更新</string>
   <string name="pref_ota_check_summary">取得增量更新以節省下載時間和數據</string>
   <string name="pref_ota_check_donation_request_summary">取得增量更新以節省下載時間和數據（捐贈 %d 元人民幣後永久可用）</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">套用更新</string>
   <string name="apply_update_dialog_text">你將要更新到 <xliff:g id="filename">%s</xliff:g>。\n\n如果選擇更新，你的裝置將會重新啓動到復原模式並安裝更新。\n\n注意：此功能需要一個相容的恢復程式。如果沒有的話，你需要手動安裝更新。</string>
   <string name="apply_update_ota_dialog_text">你將要升級到 <xliff:g id="filename">%s </xliff:g>。\n\n如果你確定更新，裝置將重新啟動到恢復模式並安裝更新。\n\n注意：此功能需要相容的恢復程式，否則你需要手動安裝更新。\n\n此為增量更新，因此對系統檔案所做的任何更改都可能會導致更新失敗。如果發生這種情況，請下載完整 ROM。</string>
@@ -150,7 +165,9 @@
   <string name="apply_extras_dialog_text">你確定要安裝 <xliff:g id="filename"> %s </xliff:g>？</string>
   <string name="apply_unable_to_reboot_toast">無法重新啟動進入修復模式</string>
   <string name="extras_unsupported_toast">你目前的版本不支援此副檔名</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">你已經啟用實驗設定！</string>
   <string name="show_exp_already">不用了，你已經啟用實驗設定。</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">經已安裝 Xposed 框架，啟用增量更新將保留框架。</string>
 </resources>

@@ -17,14 +17,31 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee センター</string>
   <string name="mokee_support_title">サポート</string>
   <string name="mokee_updater_title">アップデーター</string>
   <string name="mokee_extras_title">その他</string>
+  <!-- Tips -->
   <string name="tips_help_title">ヒント ＆ ヘルプ</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee ウェブサイト</string>
   <string name="mokee_website_summary">公式ウェブサイトを開く</string>
   <string name="mokee_forum_title">MoKee フォーラム</string>
   <string name="mokee_forum_summary">MoKee のフォーラムを開く</string>
   <string name="mokee_issues_title">MoKee バグトラッカー</string>
+  <!-- Base Info -->
+  <!-- Version -->
+  <!-- State -->
+  <!-- Menu -->
+  <!-- Donate -->
+  <!-- Update -->
+  <!-- ChangeLog -->
+  <!-- checking -->
+  <!-- Downloads -->
+  <!-- deleting -->
+  <!-- pref -->
+  <!-- Apply install and update, extras strings -->
+  <!-- experimenter mode -->
+  <!-- Xposed framework check -->
 </resources>

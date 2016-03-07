@@ -17,5 +17,22 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_updater_title">Updater</string>
+  <!-- Tips -->
+  <!-- WebSite -->
+  <!-- Base Info -->
+  <!-- Version -->
+  <!-- State -->
+  <!-- Menu -->
+  <!-- Donate -->
+  <!-- Update -->
+  <!-- ChangeLog -->
+  <!-- checking -->
+  <!-- Downloads -->
+  <!-- deleting -->
+  <!-- pref -->
+  <!-- Apply install and update, extras strings -->
+  <!-- experimenter mode -->
+  <!-- Xposed framework check -->
 </resources>
