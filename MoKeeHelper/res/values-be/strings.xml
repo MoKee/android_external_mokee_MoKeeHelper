@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">Панэль MoKee</string>
   <string name="mokee_support_title">Падтрымка</string>
   <string name="mokee_updater_title">Абнаўлення</string>
   <string name="mokee_extras_title">Дапаўненні</string>
+  <!-- Tips -->
   <string name="tips_help_title">Саветы і дапамога</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">Сайт MoKee</string>
   <string name="mokee_website_summary">Наведаць афіцыйны вэб-сайт</string>
   <string name="mokee_forum_title">Форум MoKee</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Паглядзець MoKee Wiki</string>
   <string name="mokee_news_title">Навiны MoKee</string>
   <string name="mokee_news_summary">Атрымліваць навіны развіцця MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Iнфармацыя аб версіі</string>
   <string name="mokee_version_title">Версiя MoKee</string>
   <string name="mokee_version_type_title">Тып версii</string>
   <string name="mokee_last_check_title">Апошняя праверка</string>
   <string name="mokee_last_check_never">Ніколі</string>
   <string name="mokee_extras_info_title">Дадатковая інфармацыя</string>
+  <!-- Version -->
   <string name="mokee_info_default">Невядома</string>
   <string name="mokee_version_type_release">Рэліз</string>
   <string name="mokee_version_type_history">Гісторыя</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Начная</string>
   <string name="mokee_version_type_unofficial">Неафiцыйная</string>
   <string name="mokee_version_type_all">Усе</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Запампавана</string>
   <string name="installed_update_summary">Устаноўлена</string>
   <string name="available_updates_title">Даступныя абнаўленнi</string>
+  <!-- Menu -->
   <string name="menu_donate">Ахвяраваць</string>
   <string name="menu_refresh">Абнавiць</string>
   <string name="menu_delete_all">Выдаліць спампаванае</string>
   <string name="menu_remove_ads">Прыбраць рэкламу</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Ахвяраваць нам</string>
   <string name="donate_dialog_message">У адрозненне ад такіх кампаній як Cygn або MIUI, MoKee OpenSource з\'яўляецца чыста некамерцыйным праектам, якi з\'явіўся на свет намаганнямі энтузіястаў. Для таго, каб падтрымліваць гэты праект, мы ўкладваем свае ўласныя сродкі, а таксама сродкі ад ахвяраванняў і рэкламы. Вашы ахвяраванні дапамогуць знізіць нашу фінансавую нагрузку і забяспечыць будучае развіццё! Гэтая опцыя дазваляе выдаліць рэкламу ў Панэлi MoKee, або выкарыстоўвайце опцыю \"Ахвяраваць\" замест гэтага, калі вы аддаеце перавагу растэрміноўцы (рэклама будзе выдалена, як толькі агульная сума дасягнула зададзенага значэння). Калі ласка стварыце рэзервовую копію файла mokee.license (у каранёвым каталогу SDCard, сапраўдна толькі для гэтай прылады), як толькі вы ахвяравалі.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Прыбраць рэкламу</string>
   <string name="remove_ads_dialog_title">Заўседы прыбiраць рэкламу</string>
   <string name="remove_ads_request_price">Ахвяравана: %1$d CNY, Патрабуецца: CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">Невядома</string>
   <string name="dialog_update">Абнаўленне</string>
   <string name="dialog_install">Устанавіць</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Вы ўключылi ў гэты спіс ўсе абнаўленнi (рэлізы, начныя). Майце на ўвазе, што начныя абнаўленнi не падтрымліваюцца і павінны выкарыстоўвацца з асцярогай.</string>
   <string name="alert_title">Увага</string>
   <string name="update_type_title">Тып абнаўлення</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Спiс змен недаступны</string>
   <string name="changelog_dialog_title">Спic змен</string>
   <string name="loading_changelog">Загрузка\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">Раз на тыдзень</string>
   <string name="check_bi_weekly">Раз у два тыдні</string>
   <string name="check_monthly">Раз у месяц</string>
+  <!-- checking -->
   <string name="checking_for_updates">Праверка на наяўнасць абнаўленняў</string>
   <string name="no_updates_found">Новыя абнаўленнi не знойдзены</string>
   <string name="checking_for_extras">Праверка на наяўнасць дапаўненняў</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">Праверка абнаўленняў не ўдалася. Калі ласка, праверце ваша інтэрнэт-злучэнне і паспрабуйце ізноў пазней.</string>
   <string name="not_action_download">Спампаваць</string>
   <string name="data_connection_required">Неабходна злучэнне з Інтэрнэтам.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Адмянiць спампоўку</string>
   <string name="confirm_download_cancelation_dialog_message">Адмянiць гэтую спампоўку?</string>
   <string name="download_remaining">Засталося <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">Дапаўненне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана.</string>
   <string name="not_extras_download_install_notice_apk">Дапаўненне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана.</string>
   <string name="not_apk_action_install_update">Устанавіць</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Выдаліць файл</string>
   <string name="confirm_delete_updates_dialog_message">Выдаліць абраны файл абнаўлення?</string>
   <string name="confirm_delete_updates_all_dialog_message">Выдаліць усе спампаваныя файлы абнаўленняў?</string>
@@ -140,10 +153,14 @@
   <string name="delete_extras_failure_message">Адбылася памылка выдалення файла дапаўнення</string>
   <string name="delete_extras_noFolder_message">Каталог з дапаўненнямi не знойдзены</string>
   <string name="delete_extras_success_message">Усе спампаваныя дапаўненнi выдалены</string>
+  <!-- pref -->
   <string name="pref_ota_check">OTA абнаўленнi</string>
   <string name="pref_ota_check_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць</string>
   <string name="pref_ota_check_donation_request_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць (даступна пасля ахвяравання ў CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Прымяніць абнаўленне</string>
   <string name="apply_extras_dialog_title">Устанавіць дапаўненне</string>
   <string name="apply_unable_to_reboot_toast">Немагчыма перазагрузіцца у рэжым Recovery</string>
+  <!-- experimenter mode -->
+  <!-- Xposed framework check -->
 </resources>

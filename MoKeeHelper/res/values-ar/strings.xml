@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">مركز موكي</string>
   <string name="mokee_support_title">الدعم الفني</string>
   <string name="mokee_updater_title">التحديث</string>
   <string name="mokee_extras_title">الإضافات</string>
+  <!-- Tips -->
   <string name="tips_help_title">النصائح و المساعدة</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">موقع موكي</string>
   <string name="mokee_website_summary">زيارة الموقع الرسمي</string>
   <string name="mokee_forum_title">منتدى موكي</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">استعراض موسوعة موكي</string>
   <string name="mokee_news_title">أخبار موكي</string>
   <string name="mokee_news_summary">ملخص اخبار موكي</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">معلومات الإصدار</string>
   <string name="mokee_version_title">إصدار موكي</string>
   <string name="mokee_version_type_title">نوع الإصدار</string>
   <string name="mokee_last_check_title">أخر تحقق</string>
   <string name="mokee_last_check_never">أبداً</string>
   <string name="mokee_extras_info_title">معلومات الإضافات</string>
+  <!-- Version -->
   <string name="mokee_info_default">غير معروف</string>
   <string name="mokee_version_type_release">النهائية</string>
   <string name="mokee_version_type_history">سجل التاريخ</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">النسخة الليلية</string>
   <string name="mokee_version_type_unofficial">نسخة غير رسمية</string>
   <string name="mokee_version_type_all">الكل</string>
+  <!-- State -->
   <string name="downloaded_update_summary">الملفات المنزلة</string>
   <string name="installed_update_summary">مثبتة</string>
   <string name="available_updates_title">التحديثات المتوفرة</string>
+  <!-- Menu -->
   <string name="menu_donate">تبرع</string>
   <string name="menu_refresh">تحديث</string>
   <string name="menu_delete_all">حذف التنزيل</string>
   <string name="menu_remove_ads">إزالة الإعلانات</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">تبرع لنا</string>
   <string name="donate_dialog_message">خلافا لشركات مثل ساجون أو MIUI، موكي مفتوحة المصدر مشروع غير ربحية بحتة ولد من هواية وعاطفة. 
 من أجل الحفاظ على هذا المشروع علينا أن نصرف عليه من أموالنا الخاصة بنا ، أو الاعتماد على التبرعات والإعلانات.
@@ -75,6 +83,7 @@
   <string name="remove_ads_description">شرح ازالة الاعلانات</string>
   <string name="remove_ads_dialog_title">إزالة الاعلانات نهائياً</string>
   <string name="remove_ads_request_price">تبرعت بقيمة %1$d CNY، ريثما قيمتها CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">غير معروف</string>
   <string name="dialog_update">تحديث</string>
   <string name="dialog_install">تثبيت</string>
@@ -94,6 +103,7 @@
   <string name="all_alert">لقد اخترت تضمين كل التحديثات (النهائية والاختبارية). علماً أن التحديثات الليلية غير مدعومة وينبغي أن تستخدم بحذر.</string>
   <string name="alert_title">تحذير</string>
   <string name="update_type_title">نوع التحديث</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">سجل التغييرات غير متوفر</string>
   <string name="changelog_dialog_title">سجل التغييرات</string>
   <string name="loading_changelog">تحميل\u2026</string>
@@ -104,6 +114,7 @@
   <string name="check_weekly">مرة أسبوعياً</string>
   <string name="check_bi_weekly">مرة كل أسبوعين</string>
   <string name="check_monthly">مرة شهرياً</string>
+  <!-- checking -->
   <string name="checking_for_updates">التحقق من وجود تحديثات</string>
   <string name="no_updates_found">لا توجد تحديثات جديدة</string>
   <string name="checking_for_extras">التحقق من وجود الإضافات</string>
@@ -113,6 +124,7 @@
   <string name="update_check_failed">فشل التحقق من التحديثات. الرجاء التحقق من اتصال الإنترنت الخاص بك ثم حاول مرة أخرى لاحقاً.</string>
   <string name="not_action_download">تنزيل</string>
   <string name="data_connection_required">مطلوب اتصال بيانات.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">إلغاء التنزيل</string>
   <string name="confirm_download_cancelation_dialog_message">إلغاء التنزيل الحالي؟</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes"> %s </xliff:g> يسار</string>
@@ -131,6 +143,7 @@
   <string name="not_extras_download_install_notice">الإضافات <xliff:g id="filename">%s</xliff:g> تم تنزيلها بنجاح. عند الضغط على \"إعادة التشغيل والتثبيت\"، سيتم إعادة تشغيل الجهاز لتثبيت الإضافات.\n\nملاحظة: مطلوب ريكوفري متوافق ليتم التثبيت تلقائياً.</string>
   <string name="not_extras_download_install_notice_apk">الإضافات <xliff:g id="filename">%s</xliff:g> تم تنزيلها بنجاح.</string>
   <string name="not_apk_action_install_update">تثبيت</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">حذف الملف</string>
   <string name="confirm_delete_updates_dialog_message">حذف ملف التحديث المحدد؟</string>
   <string name="confirm_delete_updates_all_dialog_message">حذف كل ملفات التحديثات المنزلة؟</string>
@@ -143,9 +156,11 @@
   <string name="delete_extras_failure_message">حدث خطأ أثناء حذف ملف الإضافات</string>
   <string name="delete_extras_noFolder_message">لم يتم العثور على مجلد الإضافات</string>
   <string name="delete_extras_success_message">تم حذف كل الإضافات المنزلة</string>
+  <!-- pref -->
   <string name="pref_ota_check">تحديثات عن طريق الهواء OTA</string>
   <string name="pref_ota_check_summary">الحصول على التحديثات التزايدية لحفظ وقت التحميل وعرض حجم البيانات</string>
   <string name="pref_ota_check_donation_request_summary">الحصول على التحديثات التزايدية لحفظ وقت التحميل والبيانات (متاح بعد التبرع CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
   <string name="apply_update_dialog_text">أنت على وشك الترقية إلى <xliff:g id="filename">%s</xliff:g>.\n\nإذا ضغطت على \"تحديث\"، سيتم إعادة تشغيل الجهاز في وضع الريكوفري لتثبيت التحديث.\n
         \nملاحظة: هذه الميزة تتطلب ريكوفري متوافق، وإلا ستحتاج لتثبيت التحديثات يدوياً.</string>
@@ -154,7 +169,9 @@
   <string name="apply_extras_dialog_text">هل أنت متأكد من أنك تريد تثبيت <xliff:g id="filename">%s</xliff:g> ؟</string>
   <string name="apply_unable_to_reboot_toast">غير قادر على إعادة التسغيل إلى وضع الريكفري</string>
   <string name="extras_unsupported_toast">لا يدعم الإصدار الحالي لديك هذه الإضافة</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">لقد قمت بتفعيل الإعدادات الاختبارية!</string>
   <string name="show_exp_already">لا داعي، لقد قمت بالفعل بتفعيل الإعدادات الاختبارية.</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">إطار إكسبوسيد مثبتة بالفعل، تمكين التحديث سوف يبقى الإطار.</string>
 </resources>

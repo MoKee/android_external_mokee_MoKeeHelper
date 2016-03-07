@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee Center</string>
   <string name="mokee_support_title">Support</string>
   <string name="mokee_updater_title">Uppdatera</string>
   <string name="mokee_extras_title">Extra</string>
+  <!-- Tips -->
   <string name="tips_help_title">Tips &amp; hjälp</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee hemsida</string>
   <string name="mokee_website_summary">Besök den officiella hemsidan</string>
   <string name="mokee_forum_title">MoKee Forum</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Visa på MoKee Wiki</string>
   <string name="mokee_news_title">MoKee Nyheter</string>
   <string name="mokee_news_summary">Få utvecklings nyheter från MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Versionsinfo</string>
   <string name="mokee_version_title">MoKee Version</string>
   <string name="mokee_version_type_title">Versionstyp</string>
   <string name="mokee_last_check_title">Senaste kontroll</string>
   <string name="mokee_last_check_never">Aldrig</string>
   <string name="mokee_extras_info_title">Extra Info</string>
+  <!-- Version -->
   <string name="mokee_info_default">Okänd</string>
   <string name="mokee_version_type_release">Utgåva</string>
   <string name="mokee_version_type_history">Historia</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Nattlig</string>
   <string name="mokee_version_type_unofficial">Inofficiella</string>
   <string name="mokee_version_type_all">Alla</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Nerladdat</string>
   <string name="installed_update_summary">Installerade</string>
   <string name="available_updates_title">Tillgängliga uppdateringar</string>
+  <!-- Menu -->
   <string name="menu_donate">Donera</string>
   <string name="menu_refresh">Uppdatera</string>
   <string name="menu_delete_all">Radera nedladdning</string>
   <string name="menu_remove_ads">Ta bort annonser</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Donera till oss</string>
   <string name="donate_dialog_message">Till skillnad från företag som Cygn eller MIUI är MoKee OpenSource ett rent ideellt projekt född av hobby och passion. För att upprätthålla detta projekt, måste vi punga ut våra egna pengar för det mesta eller beroende av donationer och annonser. Din donationer kan hjälpa minska våra finansiella belastning och upprätthålla framtida utveckling! Detta alternativ kan du ta bort annonserna i MoKee Center och i stället använder alternativet \"Donera\" om du föredrar omgångar (annonser kommer att tas bort när totalen har nått det angivna värdet). Vänligen säkerhetskopiera mokee.license fil (i rotkatalogen på sdcard, gäller endast för aktuell enhet) när du har donerat.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Ta bort annonser</string>
   <string name="remove_ads_dialog_title">Ta alltid bort annonser</string>
   <string name="remove_ads_request_price">Donerade CNY %1$d, väntande CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">Okänd</string>
   <string name="dialog_update">Uppdatera</string>
   <string name="dialog_install">Installera</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Du har valt för att inkludera alla uppdateringar (release, nattliga) i den här listan. Notera att varje kväll uppdateringar stöds inte och bör användas med försiktighet.</string>
   <string name="alert_title">Varning</string>
   <string name="update_type_title">Uppdateringstyp</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Ingen ändringslogg tillgänglig</string>
   <string name="changelog_dialog_title">Ändringslog</string>
   <string name="loading_changelog">Laddar\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">En gång varje vecka</string>
   <string name="check_bi_weekly">En gång varannan vecka</string>
   <string name="check_monthly">En gång varje månad</string>
+  <!-- checking -->
   <string name="checking_for_updates">Söker efter uppdateringar</string>
   <string name="no_updates_found">Inga nya uppdateringar hittades</string>
   <string name="checking_for_extras">Kontroll för extras</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">Sökningen efter uppdateringar misslyckades. Var god kontrollera din internetanslutning och försök igen senare.</string>
   <string name="not_action_download">Hämta</string>
   <string name="data_connection_required">En dataanslutning krävs.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Avbryt nedladdning</string>
   <string name="confirm_download_cancelation_dialog_message">Avbryt nedladdning?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s </xliff:g> vänster</string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">Uppdateringen <xliff:g id="filename">%s</xliff:g> laddades ned framgångsrikt. När du trycker på \'Starta om och installera\' kommer enheten att starta om för att installera uppdateringen.\n\nObs: En kompatibel \'Recovery\' krävs för att installationen ska fungera automatiskt.</string>
   <string name="not_extras_download_install_notice_apk">Tillbehören <xliff:g id="filename">%s </xliff:g> laddades ner framgångsrikt.</string>
   <string name="not_apk_action_install_update">Installera</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Radera fil</string>
   <string name="confirm_delete_updates_dialog_message">Radera uppdateringen?</string>
   <string name="confirm_delete_updates_all_dialog_message">Radera alla nedladdade uppdateringar?</string>
@@ -140,11 +153,15 @@
   <string name="delete_extras_failure_message">Det gick inte ta bort tillbehörs-filen</string>
   <string name="delete_extras_noFolder_message">Tillbehörs-mappen hittades inte</string>
   <string name="delete_extras_success_message">Alla nedladdade tillbehör borttagna</string>
+  <!-- pref -->
   <string name="pref_ota_check">Inkrementella uppdateringar</string>
   <string name="pref_ota_check_summary">Hämta inkrementella uppdateringar för att spara tid och bandbredd</string>
   <string name="pref_ota_check_donation_request_summary">Hämta inkrementella uppdateringar för att spara tid och bandbredd (tillgänglig efter donation CNY %d)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Installera uppdateringen</string>
   <string name="apply_extras_dialog_text">Är du säker du vill installera <xliff:g id="filename">%s </xliff:g>?</string>
   <string name="apply_unable_to_reboot_toast">Kan inte starta om till Recoveryläge</string>
+  <!-- experimenter mode -->
   <string name="show_exp_already">Inget behov, du redan har aktiverat experimentella inställningarna.</string>
+  <!-- Xposed framework check -->
 </resources>

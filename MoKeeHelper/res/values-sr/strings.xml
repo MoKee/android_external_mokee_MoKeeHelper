@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">MoKee Центар</string>
   <string name="mokee_support_title">Подршка</string>
   <string name="mokee_updater_title">Програм за ажурирање</string>
   <string name="mokee_extras_title">Додаци</string>
+  <!-- Tips -->
   <string name="tips_help_title">Предлози &amp; помоћи</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee Веб страница</string>
   <string name="mokee_website_summary">Посетите наш сајт</string>
   <string name="mokee_forum_title">MoKee Форум</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Погледајте MoKee Wiki</string>
   <string name="mokee_news_title">MoKee новости</string>
   <string name="mokee_news_summary">Примање вести о MoKee развоју</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Инфо о верзији</string>
   <string name="mokee_version_title">MoKee верзија</string>
   <string name="mokee_version_type_title">Тип верзије</string>
   <string name="mokee_last_check_title">Последња провера</string>
   <string name="mokee_last_check_never">Никада</string>
   <string name="mokee_extras_info_title">Инфо о додацима</string>
+  <!-- Version -->
   <string name="mokee_info_default">Непознато</string>
   <string name="mokee_version_type_release">Издање</string>
   <string name="mokee_version_type_history">Историјат</string>
@@ -53,13 +58,16 @@
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Незванично</string>
   <string name="mokee_version_type_all">Све</string>
+  <!-- State -->
   <string name="downloaded_update_summary"> Преузето</string>
   <string name="installed_update_summary">Инсталирано</string>
   <string name="available_updates_title">Доступна ажурирања</string>
+  <!-- Menu -->
   <string name="menu_donate">Донирајте</string>
   <string name="menu_refresh">Оcвежи</string>
   <string name="menu_delete_all">Избрисати преузето</string>
   <string name="menu_remove_ads">Уклони рекламе</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Донација</string>
   <string name="donate_dialog_message">MoKee OpenSource се разликује од појединих профитних компанија попут Cygn или MIUI у томе што је прави непрофитни пројекат настао из хобија и жеље. У циљу опстанка пројекта, ми смо принуђени да трошимо сопствени новац или користимо донације или зараду од реклама. Ваше донације нам могу помоћи да смањимо трошкове и подржимо будући развој! Ова опција Вам омогућава да уклоните рекламе из МоКее Центра, или можете користити опцију \"Донирај\" (рекламе ће бити уклоњене када сума достигне одређену вредност). Молимо, бекапујте mokee.license фајл (налази се на рут директоријуму СД картице, и важи само за тренутни уређај) пошто донирате.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
@@ -72,6 +80,7 @@
   <string name="remove_ads_description">Уклони рекламе</string>
   <string name="remove_ads_dialog_title">Увек уклањај рекламе</string>
   <string name="remove_ads_request_price">Донирано CNY %1$d, Потребно CNY %2$d</string>
+  <!-- Update -->
   <string name="unknown">Непознато</string>
   <string name="dialog_update">Надоградња</string>
   <string name="dialog_install">Инсталација</string>
@@ -91,6 +100,7 @@
   <string name="all_alert">Изабрали сте све врсте надоградњи са листе. Нека од надоградњи су нестабилна и треба их користити опрезно.</string>
   <string name="alert_title">Опрез</string>
   <string name="update_type_title">Врста надограње</string>
+  <!-- ChangeLog -->
   <string name="no_changelog_alert">Нема информација о изменама</string>
   <string name="changelog_dialog_title">Евиденција измена</string>
   <string name="loading_changelog">Учитавам\u2026</string>
@@ -101,6 +111,7 @@
   <string name="check_weekly">Једном седмично</string>
   <string name="check_bi_weekly">Једном у 15 дана</string>
   <string name="check_monthly">Једном месечно</string>
+  <!-- checking -->
   <string name="checking_for_updates">Провера нове верзије</string>
   <string name="no_updates_found">Нису пронађена нова ажурирања</string>
   <string name="checking_for_extras">Провера додатака</string>
@@ -110,6 +121,7 @@
   <string name="update_check_failed">Провера за ажурирања није успела. Провери своју интернет везу и покушај поново касније.</string>
   <string name="not_action_download">Преузми</string>
   <string name="data_connection_required">Неопходна је веза за пренос података.</string>
+  <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">Прекини преузимање</string>
   <string name="confirm_download_cancelation_dialog_message">Откажи тренутно преузимање?</string>
   <string name="download_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g>лево</string>
@@ -128,6 +140,7 @@
   <string name="not_extras_download_install_notice">Ажурирање <xliff:g id="filename">%s</xliff:g> је успешно преузето. Када додирнеш \'Рестартуј и инсталирај\', уређај ће се поново покренути да инсталира ажурирање.\n\nНапомена: Компатибилни \'Опоравак\' је потребан за аутоматску инсталацију.</string>
   <string name="not_extras_download_install_notice_apk">Додатак <xliff:g id="filename">%s</xliff:g> није преузет.</string>
   <string name="not_apk_action_install_update">Instaliraj</string>
+  <!-- deleting -->
   <string name="confirm_delete_dialog_title">Избриши фајл</string>
   <string name="confirm_delete_updates_dialog_message">Избриши изабрани фајл за ажурирање?</string>
   <string name="confirm_delete_updates_all_dialog_message">Избрисати све преузете надоградње?</string>
@@ -140,9 +153,11 @@
   <string name="delete_extras_failure_message">Дошло је до грешке приликом брисања додатака</string>
   <string name="delete_extras_noFolder_message">Фасцикла додатака није пронађена</string>
   <string name="delete_extras_success_message">Сви преузети додаци су избрисани</string>
+  <!-- pref -->
   <string name="pref_ota_check">ОТА надоградње</string>
   <string name="pref_ota_check_summary">Преузмите постепену надоградњу ради уштеде времена и података</string>
   <string name="pref_ota_check_donation_request_summary">Преузмите постепену надоградњу ради уштеде времена и података (могуће после донације од %d CNY)</string>
+  <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Примени надоградње</string>
   <string name="apply_update_dialog_text">Надоградња на <xliff:g id="filename">%s</xliff:g>.\n\nАко притиснеш Ажурирај, уређај ће се поново покренути у \'Опоравак\' да инсталира ажурирање.\n\nНапомена: Ова функција захтева компатибилни \'Опоравак\' или ћеш морати ажурирање да инсталираш ручно.</string>
   <string name="apply_update_ota_dialog_text">Надоградићете на <xliff:g id="filename">%s</xliff:g>.\n\n ако притиснете Надоградња. Уређај ће се рестартовати ради инсталације надоградње.\n\nИнфо: Ова функција захтева компатибилни Опоравак или морате ручно инсталирати.\n\nОво је постепена надоградња па може доћи до пада система. Уколико се то деси, инсталирајте комплетан систем.</string>
@@ -150,7 +165,9 @@
   <string name="apply_extras_dialog_text">Желите ли инсталирати  <xliff:g id="filename">%s</xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Немогуће да се рестартовање у мод опоравка</string>
   <string name="extras_unsupported_toast">Ваша верзија не подржава овај додатак</string>
+  <!-- experimenter mode -->
   <string name="show_exp_on">Омогућили сте експериментална подешавања!</string>
   <string name="show_exp_already">Није потребно. Већ сте омогућили експериментална подешавања.</string>
+  <!-- Xposed framework check -->
   <string name="installed_xposed_toast">Xposed framework је већ инсталиран, омогућавање инкременталног апдејта сачуваће framework.</string>
 </resources>

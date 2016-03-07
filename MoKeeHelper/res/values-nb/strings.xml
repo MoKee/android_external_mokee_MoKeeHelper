@@ -17,11 +17,14 @@
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Fragment -->
   <string name="mokee_center_title">Mokee Senter</string>
   <string name="mokee_support_title">Brukerstøtte</string>
   <string name="mokee_updater_title">Oppdatering</string>
   <string name="mokee_extras_title">Ekstra</string>
+  <!-- Tips -->
   <string name="tips_help_title">Tips &amp; hjelp</string>
+  <!-- WebSite -->
   <string name="mokee_website_title">MoKee hjemmeside</string>
   <string name="mokee_website_summary">Besøk den offisielle hjemmesiden</string>
   <string name="mokee_forum_title">MoKee forum</string>
@@ -40,12 +43,14 @@
   <string name="mokee_wiki_summary">Vise MoKee Wiki</string>
   <string name="mokee_news_title">MoKee nyheter</string>
   <string name="mokee_news_summary">Motta nyheter fra MoKee</string>
+  <!-- Base Info -->
   <string name="mokee_version_info_title">Versjons informasjon</string>
   <string name="mokee_version_title">MoKee versjon</string>
   <string name="mokee_version_type_title">Versjons type</string>
   <string name="mokee_last_check_title">Siste sjekk</string>
   <string name="mokee_last_check_never">Aldri</string>
   <string name="mokee_extras_info_title">Ekstra informasjon</string>
+  <!-- Version -->
   <string name="mokee_info_default">Ukjent</string>
   <string name="mokee_version_type_release">Utgivelse</string>
   <string name="mokee_version_type_history">Logg</string>
@@ -53,20 +58,27 @@
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Uoffisiell</string>
   <string name="mokee_version_type_all">Alle</string>
+  <!-- State -->
   <string name="downloaded_update_summary">Lastet ned</string>
   <string name="installed_update_summary">Installert</string>
   <string name="available_updates_title">Tilgjengelige oppdateringer</string>
+  <!-- Menu -->
   <string name="menu_donate">Donere</string>
   <string name="menu_refresh">Oppdater</string>
   <string name="menu_delete_all">Fjern nedlastinger</string>
   <string name="menu_remove_ads">Fjerne annonser</string>
+  <!-- Donate -->
   <string name="donate_dialog_title">Donere til oss</string>
   <string name="donate_dialog_message">I motsetning til selskaper som Cygn eller MIUI er MoKee OpenSource et rent nonprofitprosjekt født av hobby og lidenskap. For å opprettholde dette prosjektet, må vi bruke våre egen penger mesteparten av tiden eller stole på donasjoner og reklame. Donasjoner kan hjelpe redusere våre finansielle belastning og opprettholde fremtidig utvikling! Dette alternativet lar deg fjerne annonser i MoKee Senter, eller bruk \"Donere\" i stedet hvis du foretrekker det (annonser vil bli fjernet når totalt har nådd angitt verdi). Ta backup på mokee.license fil (i rotkatalogen på sdcard, gjelder bare for gjeldende enhet) når du har donert.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="remove_ads_name">Fjerne annonser</string>
   <string name="remove_ads_description">Fjerne annonser</string>
+  <!-- Update -->
   <string name="unknown">Ukjent</string>
+  <!-- ChangeLog -->
+  <!-- checking -->
+  <!-- Downloads -->
   <string name="download_cancelled">Nedlasting avbrutt</string>
   <string name="download_already_running">En nedlasting pågår allerede</string>
   <string name="unable_to_download_file">Kunne ikke laste ned oppdateringsfil</string>
@@ -74,4 +86,9 @@
   <string name="not_download_failure">Nedlasting av oppdatering var ikke vellykket</string>
   <string name="not_action_install_update">Start på nytt og installer</string>
   <string name="not_download_install_notice">Oppdatering <xliff:g id="filename">%s </xliff:g> ble lastet ned. Når berøre \'Starte på nytt og installere\', starter enheten på nytt og installerer oppdateringen.\n\nNote: denne funksjonen krever en kompatibel \"recovery\" ellers må oppdateringene installeres manuelt.</string>
+  <!-- deleting -->
+  <!-- pref -->
+  <!-- Apply install and update, extras strings -->
+  <!-- experimenter mode -->
+  <!-- Xposed framework check -->
 </resources>
