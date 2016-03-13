@@ -48,12 +48,12 @@ import com.mokee.security.License;
 public class Utils {
 
     public static File makeUpdateFolder() {
-        return new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
+        return new File(Environment.getExternalStorageDirectory(),
                 Constants.UPDATES_FOLDER);
     }
 
     public static File makeExtraFolder() {
-        return new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
+        return new File(Environment.getExternalStorageDirectory(),
                 Constants.EXTRAS_FOLDER);
     }
 
@@ -61,7 +61,7 @@ public class Utils {
      * 检测rom是否已下载
      */
     public static boolean isLocaUpdateFile(String fileName, boolean isUpdate) {
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
+        File file = new File(Environment.getExternalStorageDirectory() + "/"
                 + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER), fileName);
         return file.exists();
     }
@@ -114,35 +114,6 @@ public class Utils {
         }
     }
 
-    public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
-            throws IOException {
-        /*
-         * Should perform the following steps.
-         * 1.- mkdir -p /cache/recovery
-         * 2.- echo 'boot-recovery' > /cache/recovery/command
-         * 3.- if(mBackup) echo '--nandroid'  >> /cache/recovery/command
-         * 4.- echo '--update_package=SDCARD:update.zip' >> /cache/recovery/command
-         * 5.- reboot recovery
-         */
-
-        // Set the 'boot recovery' command
-        Process p = Runtime.getRuntime().exec("sh");
-        OutputStream os = p.getOutputStream();
-        os.write("mkdir -p /cache/recovery/\n".getBytes());
-        os.write("echo 'boot-recovery' >/cache/recovery/command\n".getBytes());
-
-        // Add the update folder/file name
-        String updatePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String cmd = "echo '--update_package=" + updatePath + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/"
-                + updateFileName + "' >> /cache/recovery/command\n";
-        os.write(cmd.getBytes());
-        os.flush();
-
-        // Trigger the reboot
-        PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        powerManager.reboot("recovery");
-    }
-
     public static void scheduleUpdateService(Context context, int updateFrequency) {
         // Load the required settings from preferences
         SharedPreferences prefs = context.getSharedPreferences(Constants.DOWNLOADER_PREF, 0);
@@ -160,6 +131,20 @@ public class Utils {
         if (updateFrequency != Constants.UPDATE_FREQ_NONE) {
             am.setRepeating(AlarmManager.RTC_WAKEUP, lastCheck + updateFrequency, updateFrequency, pi);
         }
+    }
+
+    public static void triggerUpdate(Context context, String updateFileName, boolean isUpdate)
+            throws IOException {
+        // Add the update folder/file name
+        File primaryStorage = Environment.getExternalStorageDirectory();
+        // If the path is emulated, translate it, if not return the original path
+        String updatePath = Environment.maybeTranslateEmulatedPathToInternal(
+                primaryStorage).getAbsolutePath();
+        // Create the path for the update package
+        String updatePackagePath = updatePath + "/" + (isUpdate ? Constants.UPDATES_FOLDER : Constants.EXTRAS_FOLDER) + "/" + updateFileName;
+
+        // Reboot into recovery and trigger the update
+        android.os.RecoverySystem.installPackage(context, new File(updatePackagePath));
     }
 
     public static String getUserAgentString(Context context) {
