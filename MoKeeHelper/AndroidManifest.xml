@@ -64,6 +64,7 @@
 
         <activity
             android:name="com.mokee.helper.activities.MoKeeCenter"
+            android:theme="@style/MoKeeCenterTheme"
             android:label="@string/mokee_center_title" >
             <intent-filter>
                 <action android:name="com.mokee.mkupdater.action.MOKEE_CENTER" />

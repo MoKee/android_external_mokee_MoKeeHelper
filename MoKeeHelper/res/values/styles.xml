@@ -34,4 +34,16 @@
         <item name="android:layout">@layout/preference_empty_list</item>
     </style>
 
+    <style name="MoKeeCenterTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@*android:color/material_blue_grey_900</item>
+        <item name="colorPrimaryDark">@*android:color/material_blue_grey_950</item>
+        <item name="android:navigationBarColor">@*android:color/material_blue_grey_950</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

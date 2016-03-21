@@ -92,6 +92,7 @@ public class MoKeeExtrasFragment extends PreferenceFragment implements
     private File mExtrasFolder;
     private ProgressDialog mProgressDialog;
     private Handler mUpdateHandler = new Handler();
+
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
