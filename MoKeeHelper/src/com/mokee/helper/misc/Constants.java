@@ -19,6 +19,8 @@ package com.mokee.helper.misc;
 
 import android.os.Environment;
 
+import com.mokee.security.License;
+
 public class Constants {
 
     // Download related
@@ -59,8 +61,10 @@ public class Constants {
 
     // About License
     public static final String LICENSE_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/mokee.license";
-    public static final int DONATION_TOTAL = 68;
-    public static final int DONATION_REQUEST = 30;
+    public static final int DONATION_TOTAL = System.currentTimeMillis() <= DONATION_LIMIT_TIME && License.timeVerified() ? 68 : 88;
+    public static final int DONATION_REQUEST = System.currentTimeMillis() <= DONATION_LIMIT_TIME && License.timeVerified() ? 30 : 50;
+    public static final int DONATION_MAX = 500;
+    public static final long DONATION_LIMIT_TIME = 1462032000000L;
 
     // Public key
     public static final String PUB_KEY =

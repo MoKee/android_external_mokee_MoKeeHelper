@@ -131,12 +131,13 @@ public class MoKeeCenter extends FragmentActivity {
         LinearLayout donateView = (LinearLayout)inflater.inflate(R.layout.donate, null);
         final TextView mRequest = (TextView) donateView.findViewById(R.id.request);
         final SeekBar mSeekBar = (SeekBar) donateView.findViewById(R.id.price);
+        mSeekBar.setMax(Constants.DONATION_MAX - Constants.DONATION_REQUEST);
         mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekBar.setProgress(progress / 10 * 10);
-                mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), progress / 10 * 10 + 30));
+                mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), progress / 10 * 10 + Constants.DONATION_REQUEST));
             }
 
             @Override
@@ -152,7 +153,7 @@ public class MoKeeCenter extends FragmentActivity {
         if (isDonate) {
             mSeekBar.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.GONE);
-            mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), 30));
+            mRequest.setText(String.format(mContext.getString(R.string.donate_money_currency), Constants.DONATION_REQUEST));
         } else {
             mSeekBar.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.VISIBLE);
@@ -165,7 +166,7 @@ public class MoKeeCenter extends FragmentActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Float.valueOf(mSeekBar.getProgress() + 30) / 6 : String.valueOf(mSeekBar.getProgress() + 30)) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
+                String price = isDonate ? String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? Float.valueOf(mSeekBar.getProgress() + Constants.DONATION_REQUEST) / 6 : String.valueOf(mSeekBar.getProgress() + Constants.DONATION_REQUEST)) : String.valueOf(which == DialogInterface.BUTTON_POSITIVE ? unPaid / 6 : unPaid);
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
                         sendPaymentRequest(mContext, "paypal", mContext.getString(isDonate ? R.string.donate_money_name : R.string.remove_ads_name), mContext.getString(isDonate ? R.string.donate_money_description : R.string.remove_ads_description), price);

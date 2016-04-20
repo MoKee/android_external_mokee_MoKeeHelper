@@ -297,7 +297,11 @@ public class Utils {
             try {
                 String licenseInfo[] = License.readLincense(Constants.LICENSE_FILE, Constants.PUB_KEY).split(" ");
                 if (licenseInfo[0].equals(Build.getUniqueID(mContext)) && licenseInfo[1].equals(Utils.getPackageName(mContext))) {
-                    return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
+                    if (Long.valueOf(licenseInfo[2]) <= Constants.DONATION_LIMIT_TIME) {
+                        return Float.valueOf(licenseInfo[licenseInfo.length - 1]) + 20;
+                    } else {
+                        return Float.valueOf(licenseInfo[licenseInfo.length - 1]);
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
