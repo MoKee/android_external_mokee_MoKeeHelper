@@ -298,8 +298,8 @@ public class MoKeeUpdaterFragment extends PreferenceFragment implements OnPrefer
         if (paid == 0f) {
             Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, getString(R.string.donate_money_info_null));
         } else if (total != 0) {
-            Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, String.format(mContext.getString(R.string.donate_money_info),
-                    amount.intValue(), String.valueOf((int)(((double)(total - rank) / total) * 100)) + "%"));
+            Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, String.format(mContext.getString(R.string.donate_money_info_with_rank),
+                    amount.intValue(), String.valueOf((int)(((double)(total - rank) / total) * 100)) + "%", rank));
         } else {
             Utils.setSummaryFromString(this, KEY_MOKEE_DONATE_INFO, String.format(mContext.getString(R.string.donate_money_info),
                     amount.intValue(), "1%"));
