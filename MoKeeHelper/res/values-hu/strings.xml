@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">MoKee Hibajelentő</string>
   <string name="mokee_issues_summary">Látogass el hibajelentő oldalunkra</string>
   <string name="mokee_changelog_title">MoKee Changelog</string>
+  <string name="mokee_changelog_summary">Napi változtatások megtekintése</string>
   <string name="mokee_build_status_title">MoKee Buildszám</string>
   <string name="mokee_build_status_summary">Build státus megtekintése</string>
   <string name="mokee_github_title">MoKee GitHub</string>
@@ -45,6 +46,7 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Verzió információ</string>
   <string name="mokee_version_title">MoKee verzió</string>
+  <string name="mokee_donate_info_title">Adományozás információk</string>
   <string name="mokee_version_type_title">Verzió típusa</string>
   <string name="mokee_last_check_title">Utolsó ellenőrzés</string>
   <string name="mokee_last_check_never">Soha</string>
@@ -75,6 +77,10 @@
   <string name="donate_money_name">Támogasd a MoKee OpenSource-ot</string>
   <string name="donate_money_description">Támogasd a MoKee OpenSource-ot</string>
   <string name="donate_money_again">Ismételt támogatás</string>
+  <string name="donate_money_restored_success">Sikeresen visszaállítva!</string>
+  <string name="donate_money_restored_failed">Nem található eszköz rögzítő.</string>
+  <string name="donate_money_restored_timeout">Kapcsolat-időtúllépés, kérem próbálja újra</string>
+  <string name="donate_money_info_null">Még nem adományoztál</string>
   <string name="remove_ads_name">Hírdetések eltávolítása</string>
   <string name="remove_ads_description">Hírdetések eltávolítása</string>
   <string name="remove_ads_dialog_title">Mindig távolítsa el a hirdetéseket</string>
@@ -168,4 +174,5 @@
   <string name="show_exp_on">Engedélyezted a kísérleti funkciókat!</string>
   <string name="show_exp_already">Már engedélyezted a kísérleti funkciókat.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed keretrendszer telepítve, nem szükséges visszamásolni inkrementális frissítések alkalmazása után.</string>
 </resources>
