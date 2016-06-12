@@ -31,7 +31,7 @@
   <string name="mokee_forum_summary">Látogass el a MoKee-Fórumra</string>
   <string name="mokee_issues_title">MoKee Hibajelentő</string>
   <string name="mokee_issues_summary">Látogass el hibajelentő oldalunkra</string>
-  <string name="mokee_changelog_title">MoKee Changelog</string>
+  <string name="mokee_changelog_title">MoKee változások</string>
   <string name="mokee_changelog_summary">Napi változtatások megtekintése</string>
   <string name="mokee_build_status_title">MoKee Buildszám</string>
   <string name="mokee_build_status_summary">Build státus megtekintése</string>
@@ -46,6 +46,7 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Verzió információ</string>
   <string name="mokee_version_title">MoKee verzió</string>
+  <string name="mokee_unique_id_title">Egyedi azonosító</string>
   <string name="mokee_donate_info_title">Adományozás információk</string>
   <string name="mokee_version_type_title">Verzió típusa</string>
   <string name="mokee_last_check_title">Utolsó ellenőrzés</string>
@@ -73,6 +74,7 @@
   <string name="donate_dialog_message">Más olyan cégekhez, mint a Cygn vagy a MIUI a MoKee OpenSource egy teljesen nonprofit elveken működő project, mely hobbiból született. A projekt fenntartásához szükséges anyagiakat legtöbbször saját magunk biztosítjuk, vagy adományokra ls hirdetésekre támaszkodunk. Adományoddal segíthetsz a további fejlesztésben! Ez az opció lehetővé teszi a reklámok eltávolítását a MoKee Centerben, de választhatod az \"Adomány\" opciót is, ha részletekben szeretnél segíteni (amint a részletek összege eléri szükséges szintet, a reklámok eltávolításra kerülnek). Készíts biztonsági másolatot a mokee.license fájlról az adományozás után (megtalálható az SD kártya gyökérkönyvtárában, csak egy eszközre használható).</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">Visszaállítás</string>
   <string name="donate_money_toast_success">Köszönjük a támogatását!</string>
   <string name="donate_money_name">Támogasd a MoKee OpenSource-ot</string>
   <string name="donate_money_description">Támogasd a MoKee OpenSource-ot</string>
@@ -80,6 +82,8 @@
   <string name="donate_money_restored_success">Sikeresen visszaállítva!</string>
   <string name="donate_money_restored_failed">Nem található eszköz rögzítő.</string>
   <string name="donate_money_restored_timeout">Kapcsolat-időtúllépés, kérem próbálja újra</string>
+  <string name="donate_money_info">Te a lehető legnagyobb összeget adományoztad CNY-ból %1$d, ez több mint %2$s az adományozóink világszerte!</string>
+  <string name="donate_money_info_with_rank">Te a lehető legnagyobb összeget adományoztad CNY-ból %1$d, ez több mint %2$s az adományozóink világszerte, rang No.%3$d!</string>
   <string name="donate_money_info_null">Még nem adományoztál</string>
   <string name="remove_ads_name">Hírdetések eltávolítása</string>
   <string name="remove_ads_description">Hírdetések eltávolítása</string>
@@ -162,6 +166,7 @@
   <string name="pref_ota_check">Növekményes frissítések</string>
   <string name="pref_ota_check_summary">Növekményes frissítések használata a letöltési idő és sávszélesség kímélése érdekében</string>
   <string name="pref_ota_check_donation_request_summary">Növekményes frissítések használata a letöltési idő és sávszélesség kímélése érdekében (%d CNY támogatást követően)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Juss járulékos frissítésekhez, letöltési időt és sávszélességet spórolva ezzel (adományoztál %1$d, ez felhasználható életreszólóan, további %2$d adományozása esetében, Pénznem: CNY/Kínai renminbi)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Frissítés alkalmazása</string>
   <string name="apply_update_dialog_text">A  <xliff:g id="filename">%s</xliff:g> frissítés telepítését választottad. Ha a Frissítésre nyomsz, a készülék újraindul recovery módba, hogy telepítse a frissítést. \n\nMegjegyzés: Az autómatikus frissítéshez kompatibilis recovery kell, különben manuális telepítésre lesz szükség.</string>
