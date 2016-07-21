@@ -33,12 +33,30 @@
   <!-- Base Info -->
   <!-- Version -->
   <!-- State -->
+  <string name="available_updates_title">利用可能なアップデート</string>
   <!-- Menu -->
+  <string name="menu_donate">寄付</string>
+  <string name="menu_refresh">更新</string>
+  <string name="menu_delete_all">ダウンロードを削除</string>
+  <string name="menu_remove_ads">広告を削除</string>
   <!-- Donate -->
+  <string name="donate_dialog_title">寄付する</string>
+  <string name="donate_dialog_via_alipay">アリペイ（支付宝）</string>
+  <string name="donate_money_toast_success">寄付していただきありがとうございます!</string>
+  <string name="donate_money_name">MoKee OpenSourceに寄付する</string>
+  <string name="donate_money_description">MoKee OpenSourceに寄付する</string>
+  <string name="remove_ads_name">広告を削除</string>
+  <string name="remove_ads_description">広告を削除</string>
   <!-- Update -->
+  <string name="dialog_update">更新</string>
+  <string name="dialog_install">インストール</string>
+  <string name="dialog_ok">はい</string>
+  <string name="dialog_cancel">キャンセル</string>
   <!-- ChangeLog -->
+  <string name="changelog_dialog_title">変更履歴</string>
   <!-- checking -->
   <!-- Downloads -->
+  <string name="not_apk_action_install_update">インストール</string>
   <!-- deleting -->
   <!-- pref -->
   <!-- Apply install and update, extras strings -->
