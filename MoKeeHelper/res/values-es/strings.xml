@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">Gestor de Bugs Mokee</string>
   <string name="mokee_issues_summary">Visita el Gestor de Bugs</string>
   <string name="mokee_changelog_title">Registros de cambios Mokee</string>
+  <string name="mokee_changelog_summary">Ver el registro de cambios diarios</string>
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
   <string name="mokee_build_status_summary">Ver estado de la compilación</string>
   <string name="mokee_github_title">Github de MoKee</string>
@@ -73,10 +74,13 @@
   <string name="donate_dialog_message">A diferencia de empresas como Cygn o MIUI, MoKee OpenSource es un proyecto puramente sin ánimo de lucro nacido de la entusiasmo y la pasión. Para mantener este proyecto, tenemos que dedicar nuestro propio dinero la mayor parte del tiempo o depender de donaciones y la publicidad. Sus donaciones pueden ayudar a reducir la carga financiera y sostener el desarrollo futuro. Esta opción le permite quitar los anuncios del Centro MoKee, o utilizar la opción \"Donar\" en cambio si prefieres cuotas (los anuncios se eliminaran una vez que el total alcanza el valor especificado). Por favor haz una copia de seguridad del archivo mokee.license (en el directorio raíz de la sdcard, solo válido para el dispositivo actual) una vez hecha la donación.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
+  <string name="donate_dialog_via_restore">Restaurar</string>
   <string name="donate_money_toast_success">Gracias por tu donación!</string>
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
   <string name="donate_money_again">Donar otra vez</string>
+  <string name="donate_money_restored_success">¡Restaurado con éxito!</string>
+  <string name="donate_money_info_null">Usted no ha donado</string>
   <string name="remove_ads_name">Eliminar los anuncios</string>
   <string name="remove_ads_description">Eliminar los anuncios</string>
   <string name="remove_ads_dialog_title">Siempre eliminar anuncios</string>

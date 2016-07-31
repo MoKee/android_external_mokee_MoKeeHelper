@@ -79,6 +79,7 @@
   <string name="donate_money_name">Donar a MoKee OpenSource</string>
   <string name="donate_money_description">Donar a MoKee OpenSource</string>
   <string name="donate_money_again">Donar otra vez</string>
+  <string name="donate_money_restored_success">¡Restaurado con éxito!</string>
   <string name="donate_money_info_null">No has donado</string>
   <string name="remove_ads_name">Eliminar los anuncios</string>
   <string name="remove_ads_description">Eliminar los anuncios</string>
