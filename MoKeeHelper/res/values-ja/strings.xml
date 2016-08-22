@@ -83,9 +83,20 @@
   <string name="dialog_install">インストール</string>
   <string name="dialog_ok">はい</string>
   <string name="dialog_cancel">キャンセル</string>
+  <string name="dialog_close">閉じる</string>
+  <string name="new_update_summary">新しい</string>
+  <string name="old_update_summary">古い</string>
+  <string name="check_manual">マニュアル</string>
+  <string name="alert_title">注意</string>
+  <string name="update_type_title">アップデートタイプ</string>
   <!-- ChangeLog -->
+  <string name="no_changelog_alert">更新履歴はありません</string>
   <string name="changelog_dialog_title">変更履歴</string>
+  <string name="loading_changelog">読み込み中…</string>
+  <string name="check_on_boot">再起動するたびに</string>
   <!-- checking -->
+  <string name="not_new_updates_found_title">新しいアップデート</string>
+  <string name="not_action_download">ダウンロード</string>
   <!-- Downloads -->
   <string name="not_apk_action_install_update">インストール</string>
   <!-- deleting -->

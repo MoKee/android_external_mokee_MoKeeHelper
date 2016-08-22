@@ -32,6 +32,7 @@
   <string name="mokee_issues_title">Công cụ theo dõi lỗi của MoKee</string>
   <string name="mokee_issues_summary">Truy cập vào công cụ theo dõi lỗi</string>
   <string name="mokee_changelog_title">Nhật ký thay đổi MoKee</string>
+  <string name="mokee_changelog_summary">Xem thay đổi hàng ngày</string>
   <string name="mokee_build_status_title">Tình trạng xây dựng MoKee</string>
   <string name="mokee_build_status_summary">Xem trạng thái xây dựng</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -45,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Thông tin Phiên bản</string>
   <string name="mokee_version_title">Phiên bản MoKee</string>
+  <string name="mokee_unique_id_title">ID duy nhất</string>
+  <string name="mokee_donate_info_title">Đóng góp thông tin</string>
   <string name="mokee_version_type_title">Loại phiên bản</string>
   <string name="mokee_last_check_title">Kiểm tra lần cuối</string>
   <string name="mokee_last_check_never">Không bao giờ</string>
@@ -71,10 +74,17 @@
   <string name="donate_dialog_message">Không giống như các công ty như Cygn hoặc MIUI, MoKee mã nguồn mở là một dự án phi lợi nhuận hoàn toàn dựa trên sở thích và niềm đam mê. Để duy trì dự án này, chúng tôi phải chi ra tiền của riêng của chúng tôi mọi lúc hoặc dựa vào sự đóng góp và quảng cáo. Đóng góp của bạn có thể giúp làm giảm tải trọng tài chính của chúng tôi và duy trì phát triển trong tương lai! Tùy chọn này cho phép bạn để loại bỏ các quảng cáo trong Trung tâm MoKee, hoặc dùng tùy chọn \"Quyên góp\" thay vào đó, nếu bạn thích nhiều lần (quảng cáo sẽ được gỡ bỏ sau khi tổng số đã đạt giá trị chỉ định). Xin vui lòng sao lưu mokee.license tập tin (trong thư mục gốc của sdcard, chỉ có giá trị cho thiết bị hiện thời) một khi bạn đã quyên góp.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
+  <string name="donate_dialog_via_restore">Khôi phục</string>
   <string name="donate_money_toast_success">Cảm ơn sự ủng hộ của bạn!</string>
   <string name="donate_money_name">Ủng hộ cho MoKee mã nguồn mở</string>
   <string name="donate_money_description">Ủng hộ cho MoKee mã nguồn mở</string>
   <string name="donate_money_again">Quyên góp một lần nữa</string>
+  <string name="donate_money_restored_success">Khôi phục thành công!</string>
+  <string name="donate_money_restored_failed">Không có hồ sơ thiết bị tìm thấy.</string>
+  <string name="donate_money_restored_timeout">Kết nối hết thời gian, xin vui lòng thử lại</string>
+  <string name="donate_money_info">Bạn tặng tổng cộng của CNY %1$d, nhiều hơn %2$s của các nhà tài trợ toàn cầu!</string>
+  <string name="donate_money_info_with_rank">Bạn tặng tổng cộng của CNY %1$d, nhiều hơn %2$s của các nhà tài trợ toàn cầu, xếp hạng Thứ %3$d!</string>
+  <string name="donate_money_info_null">Bạn đã không tặng</string>
   <string name="remove_ads_name">Xóa quảng cáo</string>
   <string name="remove_ads_description">Xóa quảng cáo</string>
   <string name="remove_ads_dialog_title">Luôn loại bỏ quảng cáo</string>
@@ -156,6 +166,7 @@
   <string name="pref_ota_check">Cập nhật bổ sung</string>
   <string name="pref_ota_check_summary">Lấy bản cập nhật bổ sung để tiết kiệm thời gian tải và băng thông</string>
   <string name="pref_ota_check_donation_request_summary">Lấy bản cập nhật bổ sung để tiết kiệm thời gian tải và băng thông (có sẵn sau khi quyên góp CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Tải về được gia tăng Cập Nhật để tiết kiệm thời gian và băng thông (tặng %1$d, có sẵn cho đời sau đợt quyên góp thêm, %2$d thu: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Áp dụng Cập Nhật</string>
   <string name="apply_update_dialog_text">Bạn đang định nâng cấp lên <xliff:g id="filename"> %s </xliff:g>. \n\nnếu bạn bấm vào Cập Nhật, điện thoại sẽ tự khởi động lại vào chế độ recovery để cài đặt cập nhật.\n\nLưu ý: tính năng này yêu cầu một bản recovery tương thích hoặc bản cập nhật sẽ cần phải được cài đặt theo cách thủ công.</string>
@@ -168,4 +179,5 @@
   <string name="show_exp_on">Bạn đã kích hoạt cài đặt thử nghiệm!</string>
   <string name="show_exp_already">Không cần thiết, bạn đã có cho phép cài đặt thử nghiệm.</string>
   <!-- Xposed framework check -->
+  <string name="installed_xposed_toast">Xposed framework đã cài đặt, không cần phải reflash framework sau khi áp dụng bản Cập Nhật gia tăng.</string>
 </resources>
