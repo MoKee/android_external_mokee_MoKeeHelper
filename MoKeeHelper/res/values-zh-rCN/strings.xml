@@ -71,7 +71,7 @@
   <string name="menu_remove_ads">移除广告</string>
   <!-- Donate -->
   <string name="donate_dialog_title">捐赠我们</string>
-  <string name="donate_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的mokee. license文件中。（仅限当前设备使用）</string>
+  <string name="donate_dialog_message">和Cyanogen等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的mokee.license文件中。（仅限当前设备使用）</string>
   <string name="donate_dialog_via_paypal">贝宝</string>
   <string name="donate_dialog_via_alipay">支付宝</string>
   <string name="donate_dialog_via_restore">恢复授权</string>
@@ -106,7 +106,7 @@
   <string name="nightly_alert">你选择了检查每夜版本更新，这是开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
   <string name="experimenter_alert">你选择了检查测试版本更新，这是测试阶段的版本，包含一些实验性的功能但可能存在BUG，请谨慎使用。</string>
   <string name="unofficial_alert">你选择了检查非官方版本更新，这是由您当前手机系统的维护者发布的版本，特此告知。</string>
-  <string name="all_alert">你选择了检查全部版本(正式版、每夜版) 更新，该列表中的每夜版是一个开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
+  <string name="all_alert">你选择了检查全部版本(正式版、每夜版)更新，该列表中的每夜版是一个开发阶段的版本，包含当天开发的最新功能但可能存在BUG，请谨慎使用。</string>
   <string name="alert_title">警告</string>
   <string name="update_type_title">更新类型</string>
   <!-- ChangeLog -->
@@ -133,7 +133,7 @@
   <!-- Downloads -->
   <string name="confirm_download_cancelation_dialog_title">取消下载</string>
   <string name="confirm_download_cancelation_dialog_message">取消当前的下载？</string>
-  <string name="download_remaining">剩余时间：<xliff:g id="Duration">%s</xliff:g></string>
+  <string name="download_remaining">剩余时间：<xliff:g id="DURATION">%s</xliff:g></string>
   <string name="download_running">正在下载</string>
   <string name="download_cancelled">下载已取消</string>
   <string name="download_already_running">已有一个正在运行的下载</string>
@@ -141,7 +141,7 @@
   <string name="not_download_success">更新已成功下载</string>
   <string name="not_download_failure">下载更新失败</string>
   <string name="not_action_install_update">重启并安装</string>
-  <string name="not_download_install_notice">当激活超级用户时在状态栏显示图标</string>
+  <string name="not_download_install_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击 \'重启并安装\' 时，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。</string>
   <string name="not_download_install_ota_notice"><xliff:g id="filename">%s</xliff:g> 已成功下载。点击 \'重启并安装\' 时，设备将重新启动并安装更新。\n\n注意：自动安装过程需要一个兼容的恢复程序，不兼容的恢复程序可能导致更新失败。\n\n本次为增量更新，任何人为或带有ROOT权限的程序对系统文件造成的修改可能导致更新失败，若您遭遇此情形，请尝试下载完整包进行更新。</string>
   <string name="md5_verification_failed">MD5 检测失败</string>
   <string name="not_extras_download_success">扩展组件已成功下载</string>

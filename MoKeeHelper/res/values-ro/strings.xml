@@ -32,7 +32,6 @@
   <string name="mokee_issues_title">Erori MoKee</string>
   <string name="mokee_issues_summary">Vizitează site-ul cu erori</string>
   <string name="mokee_changelog_title">Schimbări MoKee</string>
-  <string name="mokee_changelog_summary">Vezi jurnalul zilnic de schimbări</string>
   <string name="mokee_build_status_title">Starea de update a MoKee</string>
   <string name="mokee_build_status_summary">Afișează starea versiunii update</string>
   <string name="mokee_github_title">MoKee Github</string>
@@ -46,8 +45,6 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Informatii versiune</string>
   <string name="mokee_version_title">Versiunea MoKee</string>
-  <string name="mokee_unique_id_title">ID Unic</string>
-  <string name="mokee_donate_info_title">Info donații</string>
   <string name="mokee_version_type_title">Tipul versiunii</string>
   <string name="mokee_last_check_title">Ultima verificare</string>
   <string name="mokee_last_check_never">Niciodata</string>
@@ -74,13 +71,10 @@
   <string name="donate_dialog_message">Spre deosebire de Cygn sau MIUI, MoKee OpenSource este un proiect pur non-profit născut din pasiune și hobby. Pentru a menține acest proiect, utilizează resurse financiare proprii sau din cele obținute din donații și publicitate. Donația dvs. poate ajuta dezvoltatorii ce participă la acest proiect să mențină dezvoltarea lui! Această opțiune elimină publicitatea din MoKee Center, sau puteți opta pentru ”Donează” dacă doriți instalări automate incrementale (în acest caz, publicitatea va dispărea doar la atingerea sumei stabilite prin donații). Vă rugăm să faceți o copie de rezervă a fișierului mokee.license (se găsește în rădăcina spațiului de stocare a telefonului) imediat ce a-ți făcut o donație.</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">AliPay</string>
-  <string name="donate_dialog_via_restore">Restuarează</string>
   <string name="donate_money_toast_success">Va multumim pentru donatie!</string>
   <string name="donate_money_name">Faceți o donație proiectului Os MoKee</string>
   <string name="donate_money_description">Faceți o donație proiectului Os MoKee</string>
   <string name="donate_money_again">Donați din nou</string>
-  <string name="donate_money_restored_success">Restaurarea s-a terminat cu succes!</string>
-  <string name="donate_money_info_null">Nu ai donat</string>
   <string name="remove_ads_name">Elimină publicitatea</string>
   <string name="remove_ads_description">Ștergeţi reclamele</string>
   <string name="remove_ads_dialog_title">Ștergeţi reclamele întotdeauna</string>

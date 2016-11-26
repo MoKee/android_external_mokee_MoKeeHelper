@@ -24,6 +24,6 @@
     <item quantity="other">+ <xliff:g id="count">%d</xliff:g> 个</item>
   </plurals>
   <plurals name="show_exp_countdown">
-    <item quantity="other">只需 <xliff:g id="Step_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
+    <item quantity="other">只需 <xliff:g id="STEP_COUNT">%1$d</xliff:g> 步操作即可进入测试者模式。</item>
   </plurals>
 </resources>
