@@ -18,12 +18,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
-  <string name="mokee_center_title">MoKee Център</string>
+  <string name="mokee_center_title">Център на MoKee</string>
   <string name="mokee_support_title">Поддръжка</string>
-  <string name="mokee_updater_title">Актуализации</string>
+  <string name="mokee_updater_title">Обновител</string>
   <string name="mokee_extras_title">Допълнително</string>
   <!-- Tips -->
-  <string name="tips_help_title">Съвети &amp; Помощ</string>
+  <string name="tips_help_title">Съвети и помощ</string>
   <!-- WebSite -->
   <string name="mokee_website_title">MoKee уеб страница</string>
   <string name="mokee_website_summary">Посетете официалния сайт</string>
@@ -61,12 +61,12 @@
   <string name="mokee_version_type_unofficial">Неофициален</string>
   <string name="mokee_version_type_all">Всички</string>
   <!-- State -->
-  <string name="downloaded_update_summary">Изтеглени</string>
-  <string name="installed_update_summary">Инсталирани</string>
+  <string name="downloaded_update_summary">Изтеглено</string>
+  <string name="installed_update_summary">Инсталирано</string>
   <string name="available_updates_title">Достъпни актуализации</string>
   <!-- Menu -->
   <string name="menu_donate">Дарение</string>
-  <string name="menu_refresh">Обнови</string>
+  <string name="menu_refresh">Опресняване</string>
   <string name="menu_delete_all">Изтриване на изтегляния</string>
   <string name="menu_remove_ads">Премахване на реклами</string>
   <!-- Donate -->
@@ -111,7 +111,7 @@
   <string name="update_type_title">Тип ъпдейт</string>
   <!-- ChangeLog -->
   <string name="no_changelog_alert">Няма списък с промени</string>
-  <string name="changelog_dialog_title">Нови неща</string>
+  <string name="changelog_dialog_title">История на промените</string>
   <string name="loading_changelog">Зарежда\u2026</string>
   <string name="check_on_boot">При всеки рестарт</string>
   <string name="check_twice_daily">Два пъти дневно</string>
@@ -123,9 +123,9 @@
   <!-- checking -->
   <string name="checking_for_updates">Проверка актуализации</string>
   <string name="no_updates_found">Няма актуализации</string>
-  <string name="checking_for_extras">Проверка за екстри</string>
-  <string name="no_extras_found">Няма нови екстри</string>
-  <string name="not_new_updates_found_ticker">Има нови актуализации</string>
+  <string name="checking_for_extras">Проверка за допълнения</string>
+  <string name="no_extras_found">Няма нови допълнения</string>
+  <string name="not_new_updates_found_ticker">Има нови обновявания</string>
   <string name="not_new_updates_found_title">Нови актуализации</string>
   <string name="update_check_failed">Неуспешно. Проверете вашата интернет връзка и опитайте отново.</string>
   <string name="not_action_download">Сваляне</string>
@@ -167,6 +167,7 @@
   <string name="pref_ota_check_summary">Вземете Incremental ъпдейти за да спестите време и трафик</string>
   <string name="pref_ota_check_donation_request_summary">Вземете Incremental актуализации за да спестите време и трафик (достъпен след дарение CNY%d)</string>
   <string name="pref_ota_check_donation_request_pending_summary">Вземете допълнителни актуализации и спестете време и трафик (Дарени %1$d за проекта след даряването %2$d повече, валута: CNY)</string>
+  <string name="pref_verify_rom">Проверени обновявания</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Прилагане</string>
   <string name="apply_update_dialog_text">Предстои да надстроите до <xliff:g id="filename">%s </xliff:g>. \n\nIf натиснете актуализация, устройството ще се рестартира в рековъри режим за да инсталира актуализацията.\n\nNote: тази функция изисква съвместимо рековъри за да работи.</string>
