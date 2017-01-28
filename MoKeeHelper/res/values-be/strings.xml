@@ -62,7 +62,7 @@
   <string name="mokee_version_type_all">Усе</string>
   <!-- State -->
   <string name="downloaded_update_summary">Запампавана</string>
-  <string name="installed_update_summary">Устаноўлена</string>
+  <string name="installed_update_summary">Усталявана</string>
   <string name="available_updates_title">Даступныя абнаўленнi</string>
   <!-- Menu -->
   <string name="menu_donate">Ахвяраваць</string>
@@ -92,7 +92,7 @@
   <!-- Update -->
   <string name="unknown">Невядома</string>
   <string name="dialog_update">Абнаўленне</string>
-  <string name="dialog_install">Устанавіць</string>
+  <string name="dialog_install">Усталяваць</string>
   <string name="dialog_ok">ОК</string>
   <string name="dialog_cancel">Адмена</string>
   <string name="dialog_close">Закрыць</string>

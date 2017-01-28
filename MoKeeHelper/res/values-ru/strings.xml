@@ -26,13 +26,13 @@
   <string name="tips_help_title">Советы и помощь</string>
   <!-- WebSite -->
   <string name="mokee_website_title">Сайт MoKee</string>
-  <string name="mokee_website_summary">Посетите официальный веб-сайт</string>
+  <string name="mokee_website_summary">Посетить официальный сайт</string>
   <string name="mokee_forum_title">Форум MoKee</string>
-  <string name="mokee_forum_summary">Посетите форум MoKee</string>
-  <string name="mokee_issues_title">Центр отслеживания ошибок MoKee</string>
+  <string name="mokee_forum_summary">Посетить форум MoKee</string>
+  <string name="mokee_issues_title">Уведомлять об ощибках MoKee</string>
   <string name="mokee_issues_summary">Посетить bug tracker</string>
   <string name="mokee_changelog_title">Список изменений MoKee</string>
-  <string name="mokee_changelog_summary">Посмотреть список изменений</string>
+  <string name="mokee_changelog_summary">Список изменений</string>
   <string name="mokee_build_status_title">Статус сборки MoKee</string>
   <string name="mokee_build_status_summary">Просмотреть статус сборки</string>
   <string name="mokee_github_title">Github репозиторий MoKee</string>
@@ -51,15 +51,15 @@
   <string name="mokee_version_type_title">Тип версии</string>
   <string name="mokee_last_check_title">Последняя проверка</string>
   <string name="mokee_last_check_never">Никогда</string>
-  <string name="mokee_extras_info_title">Дополнительная информация</string>
+  <string name="mokee_extras_info_title">Дополнительно</string>
   <!-- Version -->
   <string name="mokee_info_default">Неизвестно</string>
-  <string name="mokee_version_type_release">Релиз</string>
+  <string name="mokee_version_type_release">Версия выпуска</string>
   <string name="mokee_version_type_history">История версий</string>
   <string name="mokee_version_type_experimental">Экспериментальная</string>
   <string name="mokee_version_type_nightly">Ночная</string>
   <string name="mokee_version_type_unofficial">Неофициальная</string>
-  <string name="mokee_version_type_all">Любая</string>
+  <string name="mokee_version_type_all">Все</string>
   <!-- State -->
   <string name="downloaded_update_summary">Загружено</string>
   <string name="installed_update_summary">Установлено</string>
@@ -70,8 +70,8 @@
   <string name="menu_delete_all">Удалить загруженное</string>
   <string name="menu_remove_ads">Убрать рекламу</string>
   <!-- Donate -->
-  <string name="donate_dialog_title">Пожертвовать нам</string>
-  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом, появившимся на свет трудами энтузиастов. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования могут помочь уменьшить нашу финансовую нагрузку и поддержат развитие проекта! Эта опция позволит удалить рекламу в Панели MoKee, или используйте соседнюю опцию «Пожертвовать», если вы предпочитаете рассрочку (реклама будет удалена после достижения указанного значения). Создайте резервную копию файла mokee.license  (находится в корневом каталоге sdcard, действительна только для текущего устройства), после совершения пожертвования.</string>
+  <string name="donate_dialog_title">Пожертвовать</string>
+  <string name="donate_dialog_message">В отличие от таких компаний, как Cygn или MIUI, MoKee OpenSource является некоммерческим проектом, появившимся на свет трудами энтузиастов. Для того, чтобы сохранить этот проект, мы вкладываем свои собственные средства, а также средства от пожертвований и рекламы. Ваши пожертвования могут помочь уменьшить нашу финансовую нагрузку и поддержат развитие проекта! Это позволит удалить рекламу в Панели MoKee. Вы также можете воспользльзоваться опцией «Пожертвовать», если вы предпочитаете рассрочку (реклама будет удалена после достижения указанного значения). Создайте резервную копию файла mokee.license  (находится в корневом каталоге sdcard, действительна только для текущего устройства), после совершения пожертвования.</string>
   <string name="donate_dialog_via_paypal">PayPal(USD)</string>
   <string name="donate_dialog_via_alipay">AliPay(CNY)</string>
   <string name="donate_dialog_via_restore">Восстановить</string>
@@ -81,31 +81,31 @@
   <string name="donate_money_again">Пожертвовать снова</string>
   <string name="donate_money_restored_success">Восстановление прошло успешно!</string>
   <string name="donate_money_restored_failed">Не найдено записей об устройстве.</string>
-  <string name="donate_money_restored_timeout">Тайм-аут соединения. Повторите снова</string>
-  <string name="donate_money_info">Вы пожертвовали в общей сложности CNY %1$d, более чем %2$s доноров во всем мире!</string>
-  <string name="donate_money_info_with_rank">Вы пожертвовали в общей сложности CNY %1$d, более чем %2$s доноров во всем мире, ваш номер в списке: %3$d!</string>
+  <string name="donate_money_restored_timeout">Время ожидания превышено. Пожалуйста, попробуйте еще раз</string>
+  <string name="donate_money_info">Вы пожертвовали в общей сложности CNY %1$d, больше чем %2$s пожертвовавших во всем мире!</string>
+  <string name="donate_money_info_with_rank">Вы пожертвовали в общей сложности CNY %1$d, больше, чем %2$s пожертвовавших во всем мире, ваш номер в списке: %3$d!</string>
   <string name="donate_money_info_null">Вы не произвели пожертвование</string>
   <string name="remove_ads_name">Убрать рекламу</string>
   <string name="remove_ads_description">Убрать рекламу</string>
   <string name="remove_ads_dialog_title">Всегда скрывать рекламу</string>
   <string name="remove_ads_request_price">Пожертвовано: %1$d CNY, Требуется: CNY %2$d</string>
   <!-- Update -->
-  <string name="unknown">Неизвестное</string>
+  <string name="unknown">Неизвестно</string>
   <string name="dialog_update">Обновить</string>
   <string name="dialog_install">Установить</string>
   <string name="dialog_ok">ОК</string>
   <string name="dialog_cancel">Отмена</string>
   <string name="dialog_close">Закрыть</string>
   <string name="no_available_updates_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить доступные обновления, используйте кнопку \"Обновить\".</string>
-  <string name="no_available_ota_intro">Последняя проверка не обнаружила обновлений. Чтобы проверить наличие обновлений вручную, используйте кнопку \"Обновить\". Если вы используете версию, которая находится за пределами диапазона дат, поддерживаемых ОТА обновлениями, выключите опцию \"ОТА обновления\".</string>
-  <string name="no_available_extras_intro">Во время последней проверки не найдено доступных обновлений для дополнений. Чтобы вручную проверить доступные дополнения, используйте кнопку \"Обновить\".</string>
+  <string name="no_available_ota_intro">Последняя проверка не обнаружила обновлений. Чтобы проверить наличие обновлений вручную, используйте кнопку \"Обновить\". Если вы используете версию, которая не поддерживает на данный момент ОТА обновления, выключите опцию \"ОТА обновления\".</string>
+  <string name="no_available_extras_intro">Во время последней проверки не найдено доступных обновлений. Чтобы вручную проверить доступные дополнения, используйте кнопку \"Обновить\".</string>
   <string name="new_update_summary">Новое</string>
   <string name="old_update_summary">Устаревшее</string>
   <string name="update_check_title">Частота проверки обновлений</string>
   <string name="check_manual">Вручную</string>
   <string name="nightly_alert">Вы включили в список для поиска обновлений «ночные сборки». Помните, что техническая поддержка по ним не предоставляется и использование «ночных сборок» должно проводиться с осторожностью.</string>
   <string name="experimenter_alert">Вы включили в список для поиска обновлений «экспериментальные обновления». Помните, что техническая поддержка по ним не предоставляется, они предназначены только для тестирования, использование «экспериментальных обновлений» должно проводиться с осторожностью.</string>
-  <string name="unofficial_alert">Вы включили в список для поиска обновлений «неофициальные обновления». Помните, что техническая поддержка по ним осуществляется только автором неофициального обновления под Ваше устройство.</string>
+  <string name="unofficial_alert">Вы включили в список для поиска обновлений «неофициальные обновления». Помните, что техническая поддержка по ним осуществляется только автором неофициального обновления для Вашего устройства.</string>
   <string name="all_alert">Вы предпочли включить все обновления (релизы, экспериментальные) в этот список. Обратите внимание, что ночные обновления не имеют поддержки разработчиков и должны использоваться с осторожностью.</string>
   <string name="alert_title">Осторожно</string>
   <string name="update_type_title">Тип обновления</string>
@@ -127,7 +127,7 @@
   <string name="no_extras_found">Новые дополнения не найдены</string>
   <string name="not_new_updates_found_ticker">Доступны новые обновления</string>
   <string name="not_new_updates_found_title">Новые обновления</string>
-  <string name="update_check_failed">Не удалось выполнить проверку обновлений. Пожалуйста, проверьте подключение к Интернету, либо повторите попытку позже.</string>
+  <string name="update_check_failed">Не удалось выполнить проверку обновлений. Пожалуйста, проверьте подключение к Интернету, и повторите попытку позже.</string>
   <string name="not_action_download">Загрузить</string>
   <string name="data_connection_required">Требуется подключение к Сети.</string>
   <!-- Downloads -->
@@ -137,17 +137,17 @@
   <string name="download_running">Выполняется</string>
   <string name="download_cancelled">Загрузка отменена</string>
   <string name="download_already_running">Загрузка уже выполняется</string>
-  <string name="download_limited_mode">Ваша скорость загрузки ограничена. Вы можете сделать пожертвование, чтобы перейти на неограниченную скорость.</string>
+  <string name="download_limited_mode">Скорость загрузки ограничена. Вы можете сделать пожертвование, чтобы снять ограничения скорости.</string>
   <string name="unable_to_download_file">Невозможно загрузить файл обновления</string>
   <string name="not_download_success">Обновление успешно загружено</string>
   <string name="not_download_failure">Обновление не было загружено</string>
-  <string name="not_action_install_update">Перезагрузить и установить</string>
-  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Нажмите \'Перезагрузить и установить\' для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
+  <string name="not_action_install_update">Перезагрузить устройство и установить</string>
+  <string name="not_download_install_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Нажмите \'Перезагрузить устройство и установить\' для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
   <string name="not_download_install_ota_notice">Обновление <xliff:g id="filename">%s</xliff:g> было успешно загружено. Нажмите \'Перезагрузить и установить\' для установки обновления. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery. Это инкрементное обновление, поэтому изменения в системных файлах могут привести к сбою установки обновления. В этом случае, установите полную версию Mokee.</string>
-  <string name="md5_verification_failed">Несовпадение контрольной суммы MD5</string>
+  <string name="md5_verification_failed">Несоответствие контрольной суммы MD5</string>
   <string name="not_extras_download_success">Дополнения успешно загружены</string>
   <string name="not_extras_download_failure">Загрузка дополнений не удалась</string>
-  <string name="not_extras_download_install_notice">Дополнение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить и установить\', устройство будет перезагружено для установки дополнения. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
+  <string name="not_extras_download_install_notice">Дополнение <xliff:g id="filename">%s</xliff:g> было успешно загружено. При нажатии \'Перезагрузить устройство и установить\', устройство будет перезагружено для установки дополнения. \n\nПримечание: Для установки в автоматическом режиме требуется совместимое Recovery.</string>
   <string name="not_extras_download_install_notice_apk">Файл дополнения <xliff:g id="filename">%s</xliff:g> был успешно загружен.</string>
   <string name="not_apk_action_install_update">Установить</string>
   <!-- deleting -->
