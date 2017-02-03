@@ -21,20 +21,20 @@
   <string name="mokee_center_title">Κέντρο MoKee</string>
   <string name="mokee_support_title">Υποστήριξη</string>
   <string name="mokee_updater_title">Αναβάθμιση</string>
-  <string name="mokee_extras_title">Έξτρα</string>
+  <string name="mokee_extras_title">Πρόσθετα</string>
   <!-- Tips -->
-  <string name="tips_help_title">Συμβουλές &amp; Βοήθεια</string>
+  <string name="tips_help_title">Συμβουλές και Βοήθεια</string>
   <!-- WebSite -->
   <string name="mokee_website_title">Ιστοσελίδα MoKee</string>
   <string name="mokee_website_summary">Επισκεφθείτε την επίσημη ιστοσελίδα</string>
   <string name="mokee_forum_title">MoKee φόρουμ</string>
   <string name="mokee_forum_summary">Επισκεφτείτε το φόρουμ MoKee</string>
   <string name="mokee_issues_title">Κέντρο σφαλμάτων MoKee</string>
-  <string name="mokee_issues_summary">Επισκεφθείτε το bug tracker</string>
+  <string name="mokee_issues_summary">Επισκεφθείτε το Κέντρο Σφαλμάτων MoKee</string>
   <string name="mokee_changelog_title">Αρχείο καταγραφής αλλαγών MoKee</string>
   <string name="mokee_changelog_summary">Προβολή καθημερινών αλλαγών</string>
   <string name="mokee_build_status_title">Κατάσταση δημιουργίας MoKee</string>
-  <string name="mokee_build_status_summary">Προβολή κατάστασης χτισίματος</string>
+  <string name="mokee_build_status_summary">Προβολή κατάστασης έκδοσης</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Επισκεφθείτε το MoKee Github</string>
   <string name="mokee_translate_title">Μετάφραση MoKee</string>
@@ -46,12 +46,12 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">Πληροφορίες έκδοσης</string>
   <string name="mokee_version_title">Έκδοση MoKee</string>
-  <string name="mokee_unique_id_title">Μοναδικό ID</string>
+  <string name="mokee_unique_id_title">Μοναδικό Αναγνωριστικό</string>
   <string name="mokee_donate_info_title">Πληροφορίες δωρεάς</string>
-  <string name="mokee_version_type_title">Έκδοση τύπου</string>
+  <string name="mokee_version_type_title">Είδος έκδοσης</string>
   <string name="mokee_last_check_title">Τελευταίος έλεγχος</string>
   <string name="mokee_last_check_never">Ποτέ</string>
-  <string name="mokee_extras_info_title">Έξτρα πληροφορίες</string>
+  <string name="mokee_extras_info_title">Πρόσθετες πληροφορίες</string>
   <!-- Version -->
   <string name="mokee_info_default">Άγνωστο</string>
   <string name="mokee_version_type_release">Έκδοση</string>
@@ -137,6 +137,7 @@
   <string name="download_running">Σε εξέλιξη</string>
   <string name="download_cancelled">Η λήψη ακυρώθηκε</string>
   <string name="download_already_running">Μια λήψη εκτελείται ήδη</string>
+  <string name="download_limited_mode">Περιορισμένη ταχύτητα λήψης. Για πλήρη ταχύτητα, κάνετε μία δωρεά.</string>
   <string name="unable_to_download_file">Δεν είναι δυνατή η λήψη της ενημέρωσης</string>
   <string name="not_download_success">Η λήψη της ενημέρωσης ολοκληρώθηκε με επιτυχία</string>
   <string name="not_download_failure">Η λήψη της ενημέρωσης ήταν ανεπιτυχής</string>
