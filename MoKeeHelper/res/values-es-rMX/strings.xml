@@ -18,29 +18,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
-  <string name="mokee_center_title">Centro de Mokee</string>
-  <string name="mokee_support_title">Soporte</string>
-  <string name="mokee_updater_title">Actualizar</string>
+  <string name="mokee_center_title">Centro MoKee</string>
+  <string name="mokee_support_title">Asistencia</string>
+  <string name="mokee_updater_title">Actualizaciones</string>
   <string name="mokee_extras_title">Extras</string>
   <!-- Tips -->
-  <string name="tips_help_title">Consejos y ayuda</string>
+  <string name="tips_help_title">Consejos &amp; Ayuda</string>
   <!-- WebSite -->
   <string name="mokee_website_title">Sitio web MoKee</string>
   <string name="mokee_website_summary">Visite el sitio web oficial</string>
   <string name="mokee_forum_title">Foro MoKee</string>
-  <string name="mokee_forum_summary">Visita el foro de MoKee</string>
-  <string name="mokee_issues_title">Gestor de Bugs Mokee</string>
+  <string name="mokee_forum_summary">Visite el foro MoKee</string>
+  <string name="mokee_issues_title">MoKee Bug Tracker</string>
   <string name="mokee_issues_summary">Visita el Gestor de Bugs</string>
   <string name="mokee_changelog_title">Registros de cambios Mokee</string>
   <string name="mokee_changelog_summary">Ver el registro de cambios diarios</string>
   <string name="mokee_build_status_title">Estado de compilación Mokee</string>
   <string name="mokee_build_status_summary">Ver estado de la compilación</string>
-  <string name="mokee_github_title">Github de MoKee</string>
+  <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Visite el MoKee Github</string>
   <string name="mokee_translate_title">Traducir MoKee</string>
   <string name="mokee_translate_summary">Ayudar a traducir MoKee</string>
-  <string name="mokee_wiki_title">Wiki de MoKee</string>
-  <string name="mokee_wiki_summary">Ver MoKee Wiki</string>
+  <string name="mokee_wiki_title">MoKee Wiki</string>
+  <string name="mokee_wiki_summary">Ver Wiki de MoKee</string>
   <string name="mokee_news_title">Noticias MoKee</string>
   <string name="mokee_news_summary">Recibir noticias de desarrollo de MoKee</string>
   <!-- Base Info -->
