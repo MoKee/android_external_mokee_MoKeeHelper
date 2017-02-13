@@ -71,7 +71,8 @@
   <string name="menu_remove_ads">移除广告</string>
   <!-- Donate -->
   <string name="donate_dialog_title">捐赠我们</string>
-  <string name="donate_dialog_message">和 Cyanogen 等已接受投资的商业化公司不同，魔趣作为非营利性的开源项目，因爱好而生。我们需要自筹资金或是通过捐赠、加入广告等手段才能让这个项目长期存活。您的捐赠将减轻我们每月承担的经济压力，使我们能继续为大家提供更优秀的ROM！您的捐赠记录会保存在存储分区根目录的 mokee. license 文件中（仅限当前设备使用）。</string>
+  <string name="donate_dialog_message">和 Cyanogen，MIUI 等已接受投资的商业化公司不同，魔趣作为非营利性的民间开源项目，我们需要通过大家的捐赠、界面广告等手段筹集维护经费才能生存下去，持续为大家提供优秀的ROM！
+捐赠完成后，您的捐赠记录会保存在魔趣的云端服务器和设备存储分区根目录的 mokee. license 文件中，同时我们会为您激活捐赠后才能使用的更多强大功能（仅限当前设备有效）。</string>
   <string name="donate_dialog_via_paypal">贝宝</string>
   <string name="donate_dialog_via_alipay">支付宝</string>
   <string name="donate_dialog_via_restore">恢复授权</string>
