@@ -23,7 +23,7 @@
   <string name="mokee_updater_title">Абнаўлення</string>
   <string name="mokee_extras_title">Дапаўненні</string>
   <!-- Tips -->
-  <string name="tips_help_title">Саветы і дапамога</string>
+  <string name="tips_help_title">Парады і дапамога</string>
   <!-- WebSite -->
   <string name="mokee_website_title">Сайт MoKee</string>
   <string name="mokee_website_summary">Наведаць афіцыйны вэб-сайт</string>
@@ -37,8 +37,8 @@
   <string name="mokee_build_status_summary">Паглядзець статус зборкі</string>
   <string name="mokee_github_title">Github рэпазіторый MoKee</string>
   <string name="mokee_github_summary">Наведаць MoKee Github</string>
-  <string name="mokee_translate_title">Перавод MoKee</string>
-  <string name="mokee_translate_summary">Дапамажыце перавесці MoKee</string>
+  <string name="mokee_translate_title">Пераклад MoKee</string>
+  <string name="mokee_translate_summary">Дапамажыце перакласці MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Паглядзець MoKee Wiki</string>
   <string name="mokee_news_title">Навiны MoKee</string>
@@ -94,13 +94,13 @@
   <string name="dialog_update">Абнаўленне</string>
   <string name="dialog_install">Усталяваць</string>
   <string name="dialog_ok">ОК</string>
-  <string name="dialog_cancel">Адмена</string>
+  <string name="dialog_cancel">Скасаваць</string>
   <string name="dialog_close">Зачыніць</string>
   <string name="no_available_updates_intro">Апошняя праверка не знайшла даступных абнаўленняў. Каб уручную праверыць наяўнасць новых абнаўленняў, націсніце кнопку «Абнавіць».</string>
-  <string name="no_available_ota_intro">Апошняя праверка не знайшла даступных абнаўленняў. Каб уручную праверыць наяўнасць новых абнаўленняў, націсніце кнопку «Абнавіць». Калі вы выкарыстоўваеце версію, якая знаходзiцца за межамi дыяпазону дат, падтрымованых OTA абнаўленнямi, выключыце опцыю \"OTA абнаўленнI\".</string>
+  <string name="no_available_ota_intro">Апошняя праверка не знайшла даступных абнаўленняў. Каб уручную праверыць наяўнасць новых абнаўленняў, націсніце кнопку «Абнавіць». Калі вы выкарыстоўваеце версію, якая знаходзiцца за межамi дыяпазону дат, падтрыманых OTA абнаўленнямi, выключыце опцыю \"OTA абнаўленнI\".</string>
   <string name="no_available_extras_intro">Апошняя праверка не знайшла даступных абнаўленняў для дапаўненняў. Каб уручную праверыць наяўнасць новых дапаўненняў, націсніце кнопку «Абнавіць».</string>
   <string name="new_update_summary">Новае</string>
-  <string name="old_update_summary">Старае</string>
+  <string name="old_update_summary">Старое</string>
   <string name="update_check_title">Частата праверкI абнаўленняў</string>
   <string name="check_manual">Уручную</string>
   <string name="nightly_alert">Вы ўключылi ў гэты спіс начныя абнаўленнi. Яны не падтрымліваюцца і павінны выкарыстоўвацца з асцярогай.</string>
@@ -131,25 +131,25 @@
   <string name="not_action_download">Спампаваць</string>
   <string name="data_connection_required">Неабходна злучэнне з Інтэрнэтам.</string>
   <!-- Downloads -->
-  <string name="confirm_download_cancelation_dialog_title">Адмянiць спампоўку</string>
-  <string name="confirm_download_cancelation_dialog_message">Адмянiць гэтую спампоўку?</string>
+  <string name="confirm_download_cancelation_dialog_title">Скасаваць спампоўку</string>
+  <string name="confirm_download_cancelation_dialog_message">Скасаваць гэтую спампоўку?</string>
   <string name="download_remaining">Засталося <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <string name="download_running">Выконваецца</string>
-  <string name="download_cancelled">Спампоўка адменена</string>
+  <string name="download_cancelled">Спампоўка скасавана</string>
   <string name="download_already_running">Спампоўка ўжо адбываецца</string>
   <string name="download_limited_mode">Ваша хуткасць загрузкі абмежаваная. Вы можаце зрабіць ахвяраванне, каб перайсці на неабмежаваную хуткасць.</string>
   <string name="unable_to_download_file">Не атрымалася спампаваць файл абнаўлення</string>
   <string name="not_download_success">Абнаўленне паспяхова спампавана</string>
   <string name="not_download_failure">Абнаўленне не было спампавана</string>
-  <string name="not_action_install_update">Перазагрузiць і ўстанавiць</string>
-  <string name="not_download_install_notice">Абнаўленне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана. Націсніце \'Перазагрузiць і ўстанавiць\', каб устанавiць абнаўленне.\n\nЗаўвага: Гэта функцыя патрабуе сумяшчальнага Recovery, або абнаўлення павінны быць устаноўлены ўручную.</string>
-  <string name="not_download_install_ota_notice">Абнаўленне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана. Націсніце \'Перазагрузiць і ўстанавiць\', каб устанавiць абнаўленне.\n\nГэта функцыя патрабуе сумяшчальнага Recovery, або абнаўлення павінны быць устаноўлены ўручную.\n\nЗаўвага: Гэта інкрыментнае абнаўленне, таму любыя змены, унесеныя ў сістэмныя файлы, могуць выклікаць памылку абнаўлення. Калі гэта адбудзецца ўсталюйце поўную версію MoKee.</string>
+  <string name="not_action_install_update">Перазагрузiць і ўсталяваць</string>
+  <string name="not_download_install_notice">Абнаўленне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана. Націсніце \'Перазагрузiць і ўсталяваць\', каб усталяваць абнаўленне.\n\nЗаўвага: Гэта функцыя патрабуе сумяшчальнага Recovery, або абнаўлення павінны быць усталявана ўручную.</string>
+  <string name="not_download_install_ota_notice">Абнаўленне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана. Націсніце \'Перазагрузiць і ўсталяваць\', каб усталяваць абнаўленне.\n\nГэта функцыя патрабуе сумяшчальнага Recovery, або абнаўлення павінны быць усталявана ўручную.\n\nЗаўвага: Гэта інкрыментнае абнаўленне, таму любыя змены, унесеныя ў сістэмныя файлы, могуць выклікаць памылку абнаўлення. Калі гэта адбудзецца ўсталюйце поўную версію MoKee.</string>
   <string name="md5_verification_failed">Неадпаведнасць кантрольнай сумы MD5</string>
   <string name="not_extras_download_success">Дапаўненні паспяхова спампаваны</string>
   <string name="not_extras_download_failure">Дапаўненнi не былi спампаваны</string>
   <string name="not_extras_download_install_notice">Дапаўненне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана.</string>
   <string name="not_extras_download_install_notice_apk">Дапаўненне <xliff:g id="filename">%s</xliff:g> паспяхова спампавана.</string>
-  <string name="not_apk_action_install_update">Устанавіць</string>
+  <string name="not_apk_action_install_update">Усталяваць</string>
   <!-- deleting -->
   <string name="confirm_delete_dialog_title">Выдаліць файл</string>
   <string name="confirm_delete_updates_dialog_message">Выдаліць абраны файл абнаўлення?</string>
@@ -167,16 +167,16 @@
   <string name="pref_ota_check">OTA абнаўленнi</string>
   <string name="pref_ota_check_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць</string>
   <string name="pref_ota_check_donation_request_summary">Атрымаць OTA абнаўленнi, каб зэканоміць час спампавання і прапускную здольнасць (даступна пасля ахвяравання ў CNY %d)</string>
-  <string name="pref_ota_check_donation_request_pending_summary">Атрымліваць аднауленні малога памеру. Гэта дазваляе эканоміць час і трафік (ахвяраванне: %1$d, атрымліваць такія аднауленні пажыццёва можна пасля ахвяравання %2$d ці больш, Валюта: CNY)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">Атрымліваць абнаўлення малога памеру. Гэта дазваляе эканоміць час і трафік (ахвяраванне: %1$d, атрымліваць такія абнаўлення пажыццёва можна пасля ахвяравання %2$d ці больш, Валюта: CNY)</string>
   <string name="pref_verify_rom">Правераныя абнаўленні</string>
   <string name="pref_verify_rom_summary">Паказваць толькі правераныя іншымі карыстальнікамі абнаўлення</string>
   <string name="pref_verify_rom_donation_request_summary">Паказваць толькі абнаўлення, якія правяраюцца іншымі карыстальнікамі (даступна пасля ахвяраванні CNY %d)</string>
   <string name="pref_verify_rom_donation_request_pending_summary">Адлюстроўваць толькі абнаўлення, якія правераныя іншымі карыстальнікамі (ахвяраваныя %1$d, патрабуецца ахвяраваць яшчэ %2$d, валюта: CNY)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Прымяніць абнаўленне</string>
-  <string name="apply_update_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўстаноўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную.</string>
-  <string name="apply_update_ota_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўстаноўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную. \n\nГэта інкрыментны абнаўленне, таму змены ў сістэмных файлах могуць прывесці да збою ўстаноўкі абнаўлення. У гэтым выпадку, усталюйце поўную версію Mokee.</string>
-  <string name="apply_extras_dialog_title">Устанавіць дапаўненне</string>
+  <string name="apply_update_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўсталёўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную.</string>
+  <string name="apply_update_ota_dialog_text">Будзе выканана абнаўленне да версіі <xliff:g id="filename">%s</xliff:g>.\n\n Пры націску кнопкі «Абнавіць» прылада перазагрузіцца ў рэжым аднаўлення для ўсталёўкі гэтага абнаўлення.\n\n Заўвага: гэтая функцыя патрабуе сумяшчальнага Recovery. У адваротным выпадку абнаўленне будзе неабходна ўсталяваць уручную. \n\nГэта інкрыментны абнаўленне, таму змены ў сістэмных файлах могуць прывесці да збою ўсталёўкі абнаўлення. У гэтым выпадку, усталюйце поўную версію Mokee.</string>
+  <string name="apply_extras_dialog_title">Усталяваць дапаўненне</string>
   <string name="apply_extras_dialog_text">Вы ўпэўненыя, што хочаце ўсталяваць <xliff:g id="filename">%s</xliff:g> ?</string>
   <string name="apply_unable_to_reboot_toast">Немагчыма перазагрузіцца у рэжым Recovery</string>
   <string name="extras_unsupported_toast">Ваша версія не падтрымлівае дадзенае пашырэнне</string>

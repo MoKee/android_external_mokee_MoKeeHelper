@@ -47,17 +47,17 @@
   <string name="mokee_version_info_title">Thông tin Phiên bản</string>
   <string name="mokee_version_title">Phiên bản MoKee</string>
   <string name="mokee_unique_id_title">ID duy nhất</string>
-  <string name="mokee_donate_info_title">Đóng góp thông tin</string>
+  <string name="mokee_donate_info_title">Thông tin đóng góp</string>
   <string name="mokee_version_type_title">Loại phiên bản</string>
   <string name="mokee_last_check_title">Kiểm tra lần cuối</string>
-  <string name="mokee_last_check_never">Không bao giờ</string>
+  <string name="mokee_last_check_never">Chưa từng</string>
   <string name="mokee_extras_info_title">Thông tin bổ sung</string>
   <!-- Version -->
   <string name="mokee_info_default">Không rõ</string>
-  <string name="mokee_version_type_release">Phiên bản</string>
-  <string name="mokee_version_type_history">Lịch sử</string>
+  <string name="mokee_version_type_release">Bản phát hành</string>
+  <string name="mokee_version_type_history">Lược sử</string>
   <string name="mokee_version_type_experimental">Thử nghiệm</string>
-  <string name="mokee_version_type_nightly">Bản đêm</string>
+  <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Không chính thức</string>
   <string name="mokee_version_type_all">Tất cả</string>
   <!-- State -->
@@ -67,7 +67,7 @@
   <!-- Menu -->
   <string name="menu_donate">Ủng hộ</string>
   <string name="menu_refresh">Tải lại</string>
-  <string name="menu_delete_all">Xóa phần tải xuống</string>
+  <string name="menu_delete_all">Xóa bản tải xuống</string>
   <string name="menu_remove_ads">Xóa quảng cáo</string>
   <!-- Donate -->
   <string name="donate_dialog_title">Ủng hộ chúng tôi</string>
@@ -137,6 +137,7 @@
   <string name="download_running">Đang tiến hành</string>
   <string name="download_cancelled">Tải xuống đã bị hủy bỏ</string>
   <string name="download_already_running">Tải xuống đang chạy</string>
+  <string name="download_limited_mode">Đang tải với tốc độ hạn chế, hãy ủng hộ để có được tốc độ tối đa.</string>
   <string name="unable_to_download_file">Không thể tải các tập tin cập nhật</string>
   <string name="not_download_success">Bản cập nhật được tải xuống thành công</string>
   <string name="not_download_failure">Tải về bản Cập Nhật không thành công</string>
@@ -167,6 +168,10 @@
   <string name="pref_ota_check_summary">Lấy bản cập nhật bổ sung để tiết kiệm thời gian tải và băng thông</string>
   <string name="pref_ota_check_donation_request_summary">Lấy bản cập nhật bổ sung để tiết kiệm thời gian tải và băng thông (có sẵn sau khi quyên góp CNY %d)</string>
   <string name="pref_ota_check_donation_request_pending_summary">Tải về được gia tăng Cập Nhật để tiết kiệm thời gian và băng thông (tặng %1$d, có sẵn cho đời sau đợt quyên góp thêm, %2$d thu: CNY)</string>
+  <string name="pref_verify_rom">Cập nhật đã được xác thực</string>
+  <string name="pref_verify_rom_summary">Chỉ hiện các bản cập nhật được những người dùng khác xác nhận</string>
+  <string name="pref_verify_rom_donation_request_summary">Chỉ hiện các bản cập nhật được những người dùng khác xác nhận (khả dụng sau khi ủng hộ %d NDT)</string>
+  <string name="pref_verify_rom_donation_request_pending_summary">Chỉ hiện các bản cập nhật được những người dùng khác xác nhận (đã ủng hộ %1$d, khả dụng mãi mãi sau khi ủng hộ thêm %2$d nữa, đơn vị tiền tệ: NDT)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">Áp dụng Cập Nhật</string>
   <string name="apply_update_dialog_text">Bạn đang định nâng cấp lên <xliff:g id="filename"> %s </xliff:g>. \n\nnếu bạn bấm vào Cập Nhật, điện thoại sẽ tự khởi động lại vào chế độ recovery để cài đặt cập nhật.\n\nLưu ý: tính năng này yêu cầu một bản recovery tương thích hoặc bản cập nhật sẽ cần phải được cài đặt theo cách thủ công.</string>
