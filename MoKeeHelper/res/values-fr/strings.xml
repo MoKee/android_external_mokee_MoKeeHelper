@@ -33,11 +33,11 @@
   <string name="mokee_issues_summary">Visitez le bug tracker</string>
   <string name="mokee_changelog_title">Historique des modifications de MoKee</string>
   <string name="mokee_changelog_summary">Voir le journal des modifications</string>
-  <string name="mokee_build_status_title">Etat de la build MoKee</string>
+  <string name="mokee_build_status_title">État de la build MoKee</string>
   <string name="mokee_build_status_summary">Voir l\'état de la build</string>
   <string name="mokee_github_title">Github de MoKee</string>
   <string name="mokee_github_summary">Visitez le Github de MoKee</string>
-  <string name="mokee_translate_title">Définition de MoKee</string>
+  <string name="mokee_translate_title">Traduction de Mokee</string>
   <string name="mokee_translate_summary">Aider à traduire MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Découvrez le Wiki de MoKee</string>
@@ -61,8 +61,8 @@
   <string name="mokee_version_type_unofficial">Non officiel</string>
   <string name="mokee_version_type_all">Tout</string>
   <!-- State -->
-  <string name="downloaded_update_summary">Télécharger</string>
-  <string name="installed_update_summary">Installer</string>
+  <string name="downloaded_update_summary">Téléchargé</string>
+  <string name="installed_update_summary">Installé</string>
   <string name="available_updates_title">Mises à jour disponibles</string>
   <!-- Menu -->
   <string name="menu_donate">Faire une donation</string>
@@ -72,8 +72,8 @@
   <!-- Donate -->
   <string name="donate_dialog_title">Faites-nous un don</string>
   <string name="donate_dialog_message">Contrairement aux entreprises comme Cygn ou MIUI, MoKee OpenSource est un projet purement à but non lucratif né de passe-temps et de passion. Afin de maintenir ce projet, nous devons la plupart du temps investir notre propre argent ou dépendre des dons et de la publicité. Vos dons peuvent aider à réduire notre charge financière et soutenir le développement futur ! Cette option vous permet de supprimer les annonces dans le Centre MoKee, utilisez plutôt l\'option de « Don » si vous préférez des versements (les annonces seront supprimés une fois que la somme a atteint la valeur spécifiée). Veuillez sauvegarder le fichier mokee.license (à la racine de la sdcard, valable uniquement pour le périphérique actuel) une fois que vous avez donné.</string>
-  <string name="donate_dialog_via_paypal">PayPal (USD)</string>
-  <string name="donate_dialog_via_alipay">AliPay (CNY)</string>
+  <string name="donate_dialog_via_paypal">PayPal</string>
+  <string name="donate_dialog_via_alipay">AliPay</string>
   <string name="donate_dialog_via_restore">Restaurer</string>
   <string name="donate_money_toast_success">Merci pour votre don!</string>
   <string name="donate_money_name">Faire un don au Projet OpenSource MoKee</string>
@@ -97,7 +97,7 @@
   <string name="dialog_cancel">Annuler</string>
   <string name="dialog_close">Fermer</string>
   <string name="no_available_updates_intro">Aucune mise à jour disponible lors de la dernière vérification. Pour vérifier manuellement les mises à jour, utilisez le bouton Actualiser.</string>
-  <string name="no_available_ota_intro">Le dernier contrôle n\'a pas trouvé les mises à jour disponibles. Pour vérifier manuellement les nouvelles mises à jour, utilisez le bouton Actualiser. Si vous exécutez une version qui est hors de la plage de dates de prise en charge de mise à jour incrémentielle, vous devriez désélectionner l\'option \"Mises à jour incrémentielles\".</string>
+  <string name="no_available_ota_intro">Le dernier contrôle n\'a pas trouvé les mises à jour disponibles. Pour vérifier manuellement les nouvelles mises à jour, utilisez le bouton Actualiser. Si vous utilisez une version qui est hors de la plage de dates de prise en charge de mise à jour incrémentielle, vous devriez désélectionner l\'option \"Mises à jour incrémentielles\".</string>
   <string name="no_available_extras_intro">Aucune mise à jour disponible lors de la dernière vérification. Pour vérifier manuellement les mises à jour, utilisez le bouton Actualiser.</string>
   <string name="new_update_summary">Nouveau</string>
   <string name="old_update_summary">Ancien</string>
@@ -114,8 +114,8 @@
   <string name="changelog_dialog_title">Historique des modifications</string>
   <string name="loading_changelog">Chargement\u2026</string>
   <string name="check_on_boot">À chaque redémarrage</string>
-  <string name="check_twice_daily">Deux fois chaque jour</string>
-  <string name="check_daily">Une fois tous les jours</string>
+  <string name="check_twice_daily">Deux fois par jour</string>
+  <string name="check_daily">Une fois par jour</string>
   <string name="check_twice_weekly">Deux fois par semaine</string>
   <string name="check_weekly">Une fois par semaine</string>
   <string name="check_bi_weekly">Une fois tous les quinze jours</string>
@@ -124,7 +124,7 @@
   <string name="checking_for_updates">Vérifier les mises à jour</string>
   <string name="no_updates_found">Aucune nouvelle mise à jour disponible</string>
   <string name="checking_for_extras">Vérification des extras</string>
-  <string name="no_extras_found">Pas trouvés de nouveaux extras</string>
+  <string name="no_extras_found">Aucun extras n\'a été trouvé</string>
   <string name="not_new_updates_found_ticker">De nouvelles mises à jour sont disponibles</string>
   <string name="not_new_updates_found_title">Nouvelles mises à jour</string>
   <string name="update_check_failed">La vérification de mise à jour a échoué. Veuillez vérifier votre connexion internet et réessayez plus tard.</string>
@@ -148,7 +148,7 @@
   <string name="not_extras_download_success">Extras téléchargés avec succès</string>
   <string name="not_extras_download_failure">Le téléchargement des extras a échoué</string>
   <string name="not_extras_download_install_notice">La mise à jour <xliff:g id="filename">%s</xliff:g> a été correctement téléchargée. En cliquant sur  Redémarrer et installer », l\'appareil redémarrera seul afin d\'installer la mise à jour.\n\nNote : Un mode recovery compatible est nécessaire pour que l\'installation fonctionne automatiquement.</string>
-  <string name="not_extras_download_install_notice_apk">Les extras <xliff:g id="filename"> %s </xliff:g> a été correctement téléchargers.</string>
+  <string name="not_extras_download_install_notice_apk">Les extras <xliff:g id="filename"> %s </xliff:g> a été téléchargé avec succès.</string>
   <string name="not_apk_action_install_update">Installer</string>
   <!-- deleting -->
   <string name="confirm_delete_dialog_title">Supprimer le fichier</string>
