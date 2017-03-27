@@ -46,6 +46,8 @@
   <!-- Base Info -->
   <string name="mokee_version_info_title">معلومات الإصدار</string>
   <string name="mokee_version_title">إصدار موكي</string>
+  <string name="mokee_unique_id_title">معرف فريد</string>
+  <string name="mokee_donate_info_title">معلومات التبرع</string>
   <string name="mokee_version_type_title">نوع الإصدار</string>
   <string name="mokee_last_check_title">أخر تحقق</string>
   <string name="mokee_last_check_never">أبداً</string>
@@ -75,10 +77,17 @@
 الرجاء النسخ الاحتياطي تصريح موكي (mokee.license) (في الدليل روت في ملفات الجهاز، وهي صالحة فقط للجهاز الحالي) اذا كنت قد تبرعت.</string>
   <string name="donate_dialog_via_paypal">تبرع باستخدام باي بال</string>
   <string name="donate_dialog_via_alipay">تبرع باستخدام مشترايات علي</string>
+  <string name="donate_dialog_via_restore">استعادة</string>
   <string name="donate_money_toast_success">شكراً لتبرعك!</string>
   <string name="donate_money_name">تبرع لمشروع موكي مفتوح المصدر</string>
   <string name="donate_money_description">تبرع لمشروع موكي مفتوح المصدر</string>
   <string name="donate_money_again">التبرع مره أخرى</string>
+  <string name="donate_money_restored_success">تمت الاستعادة بنجاح!</string>
+  <string name="donate_money_restored_failed">لم يتم العثور على سجل الجهاز.</string>
+  <string name="donate_money_restored_timeout">فشل الاتصال، الرجاء المحاولة مجدداً</string>
+  <string name="donate_money_info">تبرعت بمجموع %1$d يوان صيني، اكثر من %2$s من المتبرعين عالمياَ!</string>
+  <string name="donate_money_info_with_rank">تبرعت بمجموع %1$d يوان صيني، اكثر من %2$s من المتبرعين عالمياَ، تحتل المرتبة %3$d!</string>
+  <string name="donate_money_info_null">لم تقم بالتبرع</string>
   <string name="remove_ads_name">ازالة الاعلانات</string>
   <string name="remove_ads_description">شرح ازالة الاعلانات</string>
   <string name="remove_ads_dialog_title">إزالة الاعلانات نهائياً</string>
@@ -131,6 +140,7 @@
   <string name="download_running">جار المعالجة</string>
   <string name="download_cancelled">تم إلغاء التنزيل</string>
   <string name="download_already_running">بالفعل جار التنزيل</string>
+  <string name="download_limited_mode">يتم التنزيل بسرعة محدودة، يرجى التبرع للتمتع بأقصى سرعة.</string>
   <string name="unable_to_download_file">غير قادر على تنزيل ملف التحديث</string>
   <string name="not_download_success">تم تنزيل التحديث بنجاح</string>
   <string name="not_download_failure">فشل تنزيل التحديث</string>
@@ -160,6 +170,11 @@
   <string name="pref_ota_check">تحديثات عن طريق الهواء OTA</string>
   <string name="pref_ota_check_summary">الحصول على التحديثات التزايدية لحفظ وقت التحميل وعرض حجم البيانات</string>
   <string name="pref_ota_check_donation_request_summary">الحصول على التحديثات التزايدية لحفظ وقت التحميل والبيانات (متاح بعد التبرع CNY %d)</string>
+  <string name="pref_ota_check_donation_request_pending_summary">احصل على التحديثات التدريجية لتوفير وقت التنزيل والبيانات (تبرع بـ %1$d، متوفر لمدى الحياة بعد التبرع اكثر بـ %2$d، العملة: اليوان الصيني)</string>
+  <string name="pref_verify_rom">تحديثات تم التحقق منها</string>
+  <string name="pref_verify_rom_summary">عرض التحديثات التي يتم التحقق منها بواسطة المستخدمين الآخرين فقط</string>
+  <string name="pref_verify_rom_donation_request_summary">عرض التحديثات التي يتم التحقق منها بواسطة المستخدمين الآخرين فقط (متاح بعد التبرع بـ %d يوان صيني)</string>
+  <string name="pref_verify_rom_donation_request_pending_summary">عرض التحديثات التي يتم التحقق منها بواسطة المستخدمين الآخرين فقط (لقد تبرعت بـ %1$d، متاح لمدى الحياة بعد التبرع بأكثر من %2$d، العملة: يوان صيني)</string>
   <!-- Apply install and update, extras strings -->
   <string name="apply_update_dialog_title">تطبيق التحديث</string>
   <string name="apply_update_dialog_text">أنت على وشك الترقية إلى <xliff:g id="filename">%s</xliff:g>.\n\nإذا ضغطت على \"تحديث\"، سيتم إعادة تشغيل الجهاز في وضع الريكوفري لتثبيت التحديث.\n
