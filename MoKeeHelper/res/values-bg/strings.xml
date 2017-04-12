@@ -18,10 +18,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Fragment -->
-  <string name="mokee_center_title">Център на MoKee</string>
+  <string name="mokee_center_title">MoKee Център</string>
   <string name="mokee_support_title">Поддръжка</string>
-  <string name="mokee_updater_title">Обновител</string>
-  <string name="mokee_extras_title">Допълнително</string>
+  <string name="mokee_updater_title">Актуализации</string>
+  <string name="mokee_extras_title">Екстри</string>
   <!-- Tips -->
   <string name="tips_help_title">Съвети и помощ</string>
   <!-- WebSite -->
@@ -29,44 +29,44 @@
   <string name="mokee_website_summary">Посетете официалния сайт</string>
   <string name="mokee_forum_title">MoKee форум</string>
   <string name="mokee_forum_summary">Посетете MoKee форум</string>
-  <string name="mokee_issues_title">Отбелязване на бъгове</string>
-  <string name="mokee_issues_summary">Посетете архива за бъгове</string>
+  <string name="mokee_issues_title">MoKee бъг тракер</string>
+  <string name="mokee_issues_summary">Към бъг тракера</string>
   <string name="mokee_changelog_title">Списък с промени</string>
-  <string name="mokee_changelog_summary">Преглед на промените</string>
+  <string name="mokee_changelog_summary">Преглед на промените за деня</string>
   <string name="mokee_build_status_title">Статус на Mokee Ром</string>
   <string name="mokee_build_status_summary">Вижте състоянието на създаване</string>
   <string name="mokee_github_title">MoKee Github</string>
   <string name="mokee_github_summary">Посетете MoKee Github</string>
-  <string name="mokee_translate_title">MoKee преводачи</string>
+  <string name="mokee_translate_title">Превод на MoKee</string>
   <string name="mokee_translate_summary">Помогнете за превода на MoKee</string>
   <string name="mokee_wiki_title">MoKee Wiki</string>
   <string name="mokee_wiki_summary">Посетете MoKee Wiki</string>
   <string name="mokee_news_title">MoKee новини</string>
-  <string name="mokee_news_summary">Получавайте новини от MoKee</string>
+  <string name="mokee_news_summary">Получавайте новини за развитието на MoKee</string>
   <!-- Base Info -->
   <string name="mokee_version_info_title">Информация за версията</string>
   <string name="mokee_version_title">Версия на MoKee</string>
   <string name="mokee_unique_id_title">Уникален ID</string>
-  <string name="mokee_donate_info_title">Инф. за дарение</string>
+  <string name="mokee_donate_info_title">Инфо за дарение</string>
   <string name="mokee_version_type_title">Тип версия</string>
   <string name="mokee_last_check_title">Последна проверка</string>
   <string name="mokee_last_check_never">Никога</string>
   <string name="mokee_extras_info_title">Информация за екстри</string>
   <!-- Version -->
   <string name="mokee_info_default">Неизвестно</string>
-  <string name="mokee_version_type_release">Релийз</string>
+  <string name="mokee_version_type_release">Издание</string>
   <string name="mokee_version_type_history">История</string>
   <string name="mokee_version_type_experimental">Експериментално</string>
   <string name="mokee_version_type_nightly">Nightly</string>
   <string name="mokee_version_type_unofficial">Неофициален</string>
   <string name="mokee_version_type_all">Всички</string>
   <!-- State -->
-  <string name="downloaded_update_summary">Изтеглено</string>
-  <string name="installed_update_summary">Инсталирано</string>
+  <string name="downloaded_update_summary">Изтеглени</string>
+  <string name="installed_update_summary">Инсталирани</string>
   <string name="available_updates_title">Достъпни актуализации</string>
   <!-- Menu -->
   <string name="menu_donate">Дарение</string>
-  <string name="menu_refresh">Опресняване</string>
+  <string name="menu_refresh">Обнови</string>
   <string name="menu_delete_all">Изтриване на изтегляния</string>
   <string name="menu_remove_ads">Премахване на реклами</string>
   <!-- Donate -->
@@ -81,9 +81,9 @@
   <string name="donate_money_again">Дарете отново</string>
   <string name="donate_money_restored_success">Успешно възстановено!</string>
   <string name="donate_money_restored_failed">Няма запис в устройството.</string>
-  <string name="donate_money_restored_timeout">Няма връзка. Опитайте отново</string>
-  <string name="donate_money_info">Дарени общо CNY %1$d, повече от %2$s на донорите в световен мащаб!</string>
-  <string name="donate_money_info_with_rank">Ти дари общо CNY %1$d повече от %2$s на донорите в световен мащаб, ранг No.%3$d!</string>
+  <string name="donate_money_restored_timeout">Няма връзка, моля опитайте отново</string>
+  <string name="donate_money_info">Вие дарихте общо CNY %1$d, повече от %2$s от дарителите в световен мащаб!</string>
+  <string name="donate_money_info_with_rank">Вие дарихте общо CNY %1$d, повече от %2$s от дарителите от цял свят, ранг No.%3$d!</string>
   <string name="donate_money_info_null">Нямате дарения</string>
   <string name="remove_ads_name">Премахване на реклами</string>
   <string name="remove_ads_description">Премахване на реклами</string>
@@ -140,9 +140,9 @@
   <string name="download_limited_mode">Изтегляне на ограничена скорост, моля направете дарение за да се насладите на пълна скорост.</string>
   <string name="unable_to_download_file">Невъзможно е да се изтегли файла</string>
   <string name="not_download_success">Актуализацията е изтеглена</string>
-  <string name="not_download_failure">Успешно изтегл. на актуализация</string>
-  <string name="not_action_install_update">Рестартиране и инсталиране</string>
-  <string name="not_download_install_notice">Актуализацията <xliff:g id="filename">%s</xliff:g> беше успешно изтеглена. Когато чукнете \'рестарт и инсталиране\', устройството ще се рестартира за да инсталира актуализацията.\n\n Забележка: това изисква подражано от MoKee рековъри, или е необходим ръчен ъпдейт.</string>
+  <string name="not_download_failure">Неуспешно изтегляне на актуализация</string>
+  <string name="not_action_install_update">Рестарт и инсталиране</string>
+  <string name="not_download_install_notice">Актуализацията <xliff:g id="filename">%s</xliff:g> беше успешно изтеглена. Когато изберете \'Рестарт и Инсталиране\', устройството ще се рестартира за да инсталира актуализацията.\n\n Забележка: това изисква поддържано от MoKee рековъри, или е необходим ръчен ъпдейт.</string>
   <string name="not_download_install_ota_notice">Актуализацията <xliff:g id="filename">%s</xliff:g> беше успешно изтеглена. Когато чукнете \'рестарт и инсталиране\', устройството ще се рестартира и ще инсталира актуализацията.\n\nЗабележка: това изисква поддържано от MoKee рековъри, иначе трябва да инсталирате ръчно.\n\n Внимание, това е неделима актуализация, всички промени по системни файлове ще попречат на обновяването. Ако това се случи, моля, преинсталирайте целия ром наново.</string>
   <string name="md5_verification_failed">MD5 несъответствие</string>
   <string name="not_extras_download_success">Екстрите са изтеглени успешно</string>
