@@ -101,7 +101,7 @@
   <string name="no_available_extras_intro">Poslednou kontrolou sa nenašli žiadne dostupné aktualizácie. Použite tlačidlo Obnoviť na ručnú kontrolu nových doplnkov.</string>
   <string name="new_update_summary">Nová</string>
   <string name="old_update_summary">Stará</string>
-  <string name="update_check_title">Frekvencia kontrôl aktualizácií</string>
+  <string name="update_check_title">Frekvencia kontrol aktualizácií</string>
   <string name="check_manual">Ručne</string>
   <string name="nightly_alert">Zvolili ste si nočné aktualizácie. Tieto aktualizácie nepodliehajú podpore a mali by sa inštalovať s rozvahou.</string>
   <string name="experimenter_alert">Zvolili ste si experimentálne aktualizácie. Tieto aktualizácie nepodliehajú podpore, sú určené pre testovanie a mali by sa inštalovať s rozvahou.</string>
@@ -184,5 +184,5 @@
   <string name="show_exp_on">Povolili ste nastavenia pre vývojárov!</string>
   <string name="show_exp_already">Nie je potreba, už ste povolili nastavenia pre vývojárov.</string>
   <!-- Xposed framework check -->
-  <string name="installed_xposed_toast">Xposed framework nainštalovaný, nemusíte znovu inštalovať aplikáciu po OTA aktualizácii.</string>
+  <string name="installed_xposed_toast">Xposed framework bol nainštalovaný, po nainštalovaní OTA aktualizácie nie je potrebné znovu inštalovať framework.</string>
 </resources>
