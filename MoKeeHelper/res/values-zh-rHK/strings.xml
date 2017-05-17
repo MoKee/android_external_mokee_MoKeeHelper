@@ -20,12 +20,12 @@
   <!-- Fragment -->
   <string name="mokee_center_title">MoKee 中心</string>
   <string name="mokee_support_title">支援</string>
-  <string name="mokee_updater_title">Update程式</string>
-  <string name="mokee_extras_title">其他選擇</string>
+  <string name="mokee_updater_title">更新器</string>
+  <string name="mokee_extras_title">附加選項</string>
   <!-- Tips -->
-  <string name="tips_help_title">說明書</string>
+  <string name="tips_help_title">提示與說明</string>
   <!-- WebSite -->
-  <string name="mokee_website_title">MoKee Page</string>
+  <string name="mokee_website_title">MoKee 網站</string>
   <string name="mokee_website_summary">訪問官方Page</string>
   <string name="mokee_forum_title">MoKee BBS</string>
   <string name="mokee_forum_summary">訪問 MoKee BBS</string>
@@ -47,7 +47,7 @@
   <string name="mokee_version_info_title">版本資訊</string>
   <string name="mokee_version_title">MoKee 版本</string>
   <string name="mokee_unique_id_title">唯一識别碼</string>
-  <string name="mokee_donate_info_title">捐贈入口</string>
+  <string name="mokee_donate_info_title">捐贈資訊</string>
   <string name="mokee_version_type_title">版本類型</string>
   <string name="mokee_last_check_title">上次檢測</string>
   <string name="mokee_last_check_never">Noway</string>
@@ -63,7 +63,7 @@
   <!-- State -->
   <string name="downloaded_update_summary">已download</string>
   <string name="installed_update_summary">已install</string>
-  <string name="available_updates_title">可用的Update</string>
+  <string name="available_updates_title">可用的更新</string>
   <!-- Menu -->
   <string name="menu_donate">捐贈</string>
   <string name="menu_refresh">重新整理</string>
@@ -71,7 +71,7 @@
   <string name="menu_remove_ads">唔睇廣告</string>
   <!-- Donate -->
   <string name="donate_dialog_title">捐贈我們</string>
-  <string name="donate_dialog_message">Mokee係純個人作品無人贊助，如果閣下鍾意我哋嘅ROM就捐贈下。閣下嘅捐贈記錄會一直跟機，就算洗機都唔會清走。</string>
+  <string name="donate_dialog_message">和 Cyanogen、MIUI 等已接受投資的商業化公司不同。Mokee 因愛好而生，是純粹的非營利性開源項目。我們需要自籌資金或者透過捐贈、廣告等手段才能讓這個項目長期存活。你的捐贈將減輕我們每月承擔的經濟壓力，使我們能繼續為大家提供更優秀的 ROM！你的捐贈記錄會儲存在記憶咭根目錄的 mokee.license 檔案，你可以備份它以便意外丟失、格式化存儲區後恢復（僅限當前裝置使用）。</string>
   <string name="donate_dialog_via_paypal">PayPal</string>
   <string name="donate_dialog_via_alipay">支付寶</string>
   <string name="donate_dialog_via_restore">恢復</string>
@@ -83,7 +83,7 @@
   <string name="donate_money_restored_failed">搵唔到設備記錄。</string>
   <string name="donate_money_restored_timeout">連接逾時，請試過</string>
   <string name="donate_money_info">閣下捐了￥ %1$d 圓，已超過全球 %2$s 的捐助者！</string>
-  <string name="donate_money_info_with_rank">閣下捐了￥ %1$d 圓，已超過全球 %2$s 的捐助者，排響 No.%3$d 位！</string>
+  <string name="donate_money_info_with_rank">閣下捐咗￥ %1$d 蚊，已超過全球 %2$s 嘅捐助者，排喺第 %3$d 位！</string>
   <string name="donate_money_info_null">閣下仲未有捐助記錄</string>
   <string name="remove_ads_name">唔睇廣告</string>
   <string name="remove_ads_description">唔睇廣告</string>
@@ -152,8 +152,8 @@
   <string name="not_apk_action_install_update">安裝</string>
   <!-- deleting -->
   <string name="confirm_delete_dialog_title">刪除檔案</string>
-  <string name="confirm_delete_updates_dialog_message">刪除已選取的更新檔案?</string>
-  <string name="confirm_delete_updates_all_dialog_message">刪除所有下載的更新檔案?</string>
+  <string name="confirm_delete_updates_dialog_message">刪除已選取的更新檔案？</string>
+  <string name="confirm_delete_updates_all_dialog_message">刪除所有下載的更新檔案？</string>
   <string name="confirm_delete_extras_dialog_message">確定要刪除已選取的附加選項？</string>
   <string name="confirm_delete_extras_all_dialog_message">確定要刪除所有附加選項？</string>
   <string name="delete_single_update_success_message">更新 <xliff:g id="filename">%s</xliff:g> 已刪除</string>
@@ -168,7 +168,7 @@
   <string name="pref_ota_check_summary">取得增量更新以節省下載時間和數據</string>
   <string name="pref_ota_check_donation_request_summary">取得增量更新以節省下載時間和數據（捐贈 %d 元人民幣後永久可用）</string>
   <string name="pref_ota_check_donation_request_pending_summary">獲取增量更新以節省下載時間和頻寬 (已捐贈 %1$d，更多捐 %2$d 後可終身享用增量更新，貨幣 ︰ ￥ 元)</string>
-  <string name="pref_verify_rom">已驗證的更新</string>
+  <string name="pref_verify_rom">放心刷™</string>
   <string name="pref_verify_rom_summary">僅檢查經過其它使用者刷入驗證的新版本</string>
   <string name="pref_verify_rom_donation_request_summary">僅檢查經過其它使用者驗證的新版本 (捐贈 %d CNY後永久可用)</string>
   <string name="pref_verify_rom_donation_request_pending_summary">僅檢查經過其它使用者驗證的新版本 (已捐贈 %1$d，再捐贈 %2$d 後永久可用，貨幣單位：CNY)</string>
